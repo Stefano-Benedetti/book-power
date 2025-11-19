@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="book-power"
+run/main_scene="uid://ckwr713fqij6n"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="book-power"
 
 [rendering]
 
