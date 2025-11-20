@@ -355,6 +355,7 @@ animations = [{
 }]
 
 [node name="player" type="CharacterBody2D"]
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
