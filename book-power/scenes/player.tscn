@@ -369,6 +369,7 @@ frame = 1
 frame_progress = 0.8750001
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-7.1054274e-14, 20)
 rotation = 1.5707964
 scale = Vector2(0.99999994, 0.99999994)
