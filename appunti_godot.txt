@@ -6,3 +6,4 @@ con la gomma cancelliamo la selezione, per rendere un oggetto fromato da più qu
 mouse.
 per inserire le cose nella mappa bisogna selezionare sotto tilemap, con la freccia selezioniamo, con la penna incolliamo nella mappa, con la gomma
 cancelliamo dalla mappa. attenzione a settare i corretti layer a sinistra, esempio: ground sarà un layer, gli oggetti sopra ground saranno altri layer.
+per fare le collisioni degli oggetti, selezioniamo sotto la tileset, clicchiamo su paint e poi selezioniamo il physic layer 0.

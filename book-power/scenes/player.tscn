@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://ckwr713fqij6n"]
+[gd_scene load_steps=49 format=3 uid="uid://ckwr713fqij6n"]
 
 [ext_resource type="Texture2D" uid="uid://jqtjgfkuhcix" path="res://art/player_set.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://y22tc3o24p31" path="res://script/player.gd" id="1_g2els"]
@@ -354,14 +354,22 @@ animations = [{
 "speed": 13.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 7.500001
+height = 25.000002
+
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_g2els")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y4r1p")
 animation = &"front_idle"
 frame = 1
 frame_progress = 0.8750001
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.1054274e-14, 20)
+rotation = 1.5707964
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_g2els")
