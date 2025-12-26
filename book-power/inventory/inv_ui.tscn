@@ -1,0 +1,126 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt5ng80c6newu"]
+
+[ext_resource type="Script" uid="uid://b0uc4x2yyxd68" path="res://inventory/inv_ui.gd" id="1_f2u1w"]
+[ext_resource type="Texture2D" uid="uid://b6airqjuhn8h1" path="res://art/Border and Panels Menu Part 1/bordo_inventario.png" id="2_w82yi"]
+[ext_resource type="PackedScene" uid="uid://dun115v27bcug" path="res://inventory/inv_ui_slot.tscn" id="3_dn3an"]
+
+[node name="Inv_UI" type="Control"]
+custom_minimum_size = Vector2(237, 179)
+layout_mode = 3
+anchor_right = 0.20600002
+anchor_bottom = 0.27600002
+offset_right = -0.31201172
+offset_bottom = 0.15197754
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f2u1w")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 238.0
+offset_bottom = 180.0
+texture = ExtResource("2_w82yi")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.5
+offset_top = -70.0
+offset_right = 175.21231
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.73, 0.73)
+columns = 4
+
+[node name="Inv_UI_slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+
+[node name="Inv_UI_slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+
+[node name="Inv_UI_slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+
+[node name="Inv_UI_slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+
+[node name="Inv_UI_slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+
+[node name="Inv_UI_slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+
+[node name="Inv_UI_slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+
+[node name="Inv_UI_slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+
+[node name="Inv_UI_slot9" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+
+[node name="Inv_UI_slot10" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+
+[node name="Inv_UI_slot11" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+
+[node name="Inv_UI_slot12" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0

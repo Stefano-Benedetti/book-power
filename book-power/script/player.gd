@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 
-const SPEED = 100
+const SPEED = 50
 var current_dir = "down"		#la inizializziamo giù
 
+@export var inv: Inv
 
 func _physics_process(delta: float):
 	player_movement(delta)

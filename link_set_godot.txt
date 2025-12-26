@@ -8,3 +8,9 @@ https://starmixu.itch.io/little-dreamyland-asset-pack
 
 backend service link:
 https://silentwolf.com/
+
+set icone oggetti inventario
+https://kyrise.itch.io/kyrises-free-16x16-rpg-icon-pack
+
+set per l'inventario
+https://bdragon1727.itch.io/border-and-panels-menu-part-1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bkr4aiyvfhvqs"]
+[gd_scene load_steps=16 format=3 uid="uid://bkr4aiyvfhvqs"]
 
 [ext_resource type="Texture2D" uid="uid://c63psyhe5s0k4" path="res://art/Little Dreamyland - Free Pack/Tileset/Autotile_Grass_and_Dirt_Path_Tileset.png" id="1_qfnet"]
 [ext_resource type="Texture2D" uid="uid://cpav256v07sbt" path="res://art/Little Dreamyland - Free Pack/Tileset/Crops_Tileset.png" id="2_i7141"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://stw33m56xai6" path="res://art/Little Dreamyland - Free Pack/Tileset/Nature_Tileset.png" id="5_w7kh3"]
 [ext_resource type="Texture2D" uid="uid://d1ji32d1aowet" path="res://art/Little Dreamyland - Free Pack/Tileset/Tileset_Floor_Detail.png" id="6_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://ckwr713fqij6n" path="res://scenes/player.tscn" id="7_i7141"]
+[ext_resource type="PackedScene" uid="uid://dt5ng80c6newu" path="res://inventory/inv_ui.tscn" id="8_4mrxx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5onr"]
 texture = ExtResource("1_qfnet")
@@ -874,3 +875,16 @@ layer_1/tile_data = PackedInt32Array(327701, 65540, 1, 65550, 65540, 1, 196619, 
 
 [node name="player" parent="." instance=ExtResource("7_i7141")]
 position = Vector2(109, 110)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inv_UI" parent="CanvasLayer" instance=ExtResource("8_4mrxx")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 49.0
+offset_top = 19.0
+offset_right = 286.0
+offset_bottom = 198.0
+grow_horizontal = 1
+grow_vertical = 1

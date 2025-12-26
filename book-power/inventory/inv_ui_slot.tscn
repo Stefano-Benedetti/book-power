@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dun115v27bcug"]
+
+[ext_resource type="Texture2D" uid="uid://rvssg58aixcn" path="res://art/Border and Panels Menu Part 1/bordo_elementi_inventario.png" id="1_dfngl"]
+[ext_resource type="Script" uid="uid://cxun4d4mpjkjd" path="res://inventory/inv_ui_slot.gd" id="1_fcwim"]
+
+[node name="Inv_UI_slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+offset_right = 62.0
+offset_bottom = 62.0
+script = ExtResource("1_fcwim")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
+texture = ExtResource("1_dfngl")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 0
+offset_right = 62.0
+offset_bottom = 62.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="item_display" type="Sprite2D" parent="CenterContainer/Panel"]
