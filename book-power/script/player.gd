@@ -1,10 +1,14 @@
 extends CharacterBody2D
 
+#serve a altri nodi per identificare chi è entrato attraverso il "has_method()"
+func player():
+	pass
+
 
 const SPEED = 50
 var current_dir = "down"		#la inizializziamo giù
 
-@export var inv: Inv
+@export var inv: Inv	#con questo possiamo richiamare le funzioni dell'inventario del player
 
 func _physics_process(delta: float):
 	player_movement(delta)
@@ -61,3 +65,7 @@ func play_anim(movement):
 			anim.play("front_walk")
 		elif movement==0:
 			anim.play("front_idle")
+
+
+func collect(item):
+	inv.insert(item)	#lo possiamo fare perchè abbiamo fatto sopra nel codice l'export di inv

@@ -7,3 +7,17 @@ mouse.
 per inserire le cose nella mappa bisogna selezionare sotto tilemap, con la freccia selezioniamo, con la penna incolliamo nella mappa, con la gomma
 cancelliamo dalla mappa. attenzione a settare i corretti layer a sinistra, esempio: ground sarà un layer, gli oggetti sopra ground saranno altri layer.
 per fare le collisioni degli oggetti, selezioniamo sotto la tileset, clicchiamo su paint e poi selezioniamo il physic layer 0.
+
+
+Aggiunta di un elemento all'inventario
+l'oggetto collezionabile, per essere effettivamente collezionabile, deve esportare in una variabile la classe InvItem, si fa così: @export var item: InvItem
+e deve essere inserito, tramite ispettore (in alto a destra) la rispettiva risorsa .tres
+In questo modo nello script di questo oggetto la variabile item identificherà il collezionabile associato.
+quando un oggetto viene preso richiama il metodo collect() di player passandogli l'item associato.
+il metodo collect() di player che chiama il metodo insert() dell'inventario e gli passa l'item da inserire.
+il metodo insert() dell'inventario assegna al primo slot libero all'item da inserire e emette il segnale update.
+il segnale update è captato dalla ui dell'inventario (inv_ui), quando inv_ui capta questo segnale esegue il metodo update_slots():
+	questo metodo chiama su tutti gli slot visualizzati a schermo (inv_ui_slot) il metodo update passandogli lo slot con all'interno l'item.
+il metodo update di inv_ui_slot aggiorna lo slot su cui è chiamato il metodo facendo apparire al suo interno l'item.
+ATTENZIONE: l'item all'interno dello slot è stato messo logicamente già dal metodo insert(), quello che stiamo facendo qui invece è aggiornare
+	la ui degli slot.
