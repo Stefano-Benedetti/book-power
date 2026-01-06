@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dt5ng80c6newu"]
 
-[ext_resource type="Script" uid="uid://b0uc4x2yyxd68" path="res://inventory/inv_ui.gd" id="1_f2u1w"]
+[ext_resource type="Script" uid="uid://b0uc4x2yyxd68" path="res://inventory/script/inv_ui.gd" id="1_f2u1w"]
 [ext_resource type="Texture2D" uid="uid://b6airqjuhn8h1" path="res://art/Border and Panels Menu Part 1/bordo_inventario.png" id="2_w82yi"]
 [ext_resource type="PackedScene" uid="uid://dun115v27bcug" path="res://inventory/inv_ui_slot.tscn" id="3_dn3an"]
 

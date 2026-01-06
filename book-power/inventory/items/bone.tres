@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://cn7y4bnuc7t5n"]
 
-[ext_resource type="Script" uid="uid://dgjp33lf1xt56" path="res://inventory/invetory_item.gd" id="1_mv1x7"]
+[ext_resource type="Script" uid="uid://dgjp33lf1xt56" path="res://inventory/script/invetory_item.gd" id="1_mv1x7"]
 [ext_resource type="Texture2D" uid="uid://dsrpb5f4u77pf" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/32x32/bone01a.png" id="2_vailk"]
 
 [resource]

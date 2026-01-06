@@ -14,22 +14,22 @@ func _physics_process(delta: float):
 	player_movement(delta)
 	
 func player_movement(delta):
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("muovi_a_destra"):
 		current_dir = "right"
 		play_anim(1)
 		velocity.x = SPEED
 		velocity.y = 0
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("muovi_a_sinistra"):
 		current_dir = "left"
 		play_anim(1)
 		velocity.x = -SPEED
 		velocity.y = 0
-	elif Input.is_action_pressed("ui_up"):
+	elif Input.is_action_pressed("muovi_su"):
 		current_dir = "up"
 		play_anim(1)
 		velocity.x = 0
 		velocity.y = -SPEED
-	elif Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("muovi_giù"):
 		current_dir = "down"
 		play_anim(1)
 		velocity.x = 0
@@ -67,5 +67,7 @@ func play_anim(movement):
 			anim.play("front_idle")
 
 
+#funzione per prendere oggetti, è chiamata dall'oggetto che viene preso
 func collect(item):
-	inv.insert(item)	#lo possiamo fare perchè abbiamo fatto sopra nel codice l'export di inv
+	var inserimento_riuscito = inv.insert(item)		#lo possiamo fare perchè abbiamo fatto sopra nel codice l'export di inv
+	return inserimento_riuscito

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Inv" load_steps=15 format=3 uid="uid://bl6hkk3gjnss2"]
 
-[ext_resource type="Script" uid="uid://47g3fyggunyi" path="res://inventory/Inv_slot.gd" id="2_fhgtu"]
-[ext_resource type="Script" uid="uid://b0vfatiua8e68" path="res://inventory/inventory.gd" id="3_65xq6"]
+[ext_resource type="Script" uid="uid://47g3fyggunyi" path="res://inventory/script/Inv_slot.gd" id="2_fhgtu"]
+[ext_resource type="Script" uid="uid://b0vfatiua8e68" path="res://inventory/script/inventory.gd" id="3_65xq6"]
 
 [sub_resource type="Resource" id="Resource_ptr4k"]
 script = ExtResource("2_fhgtu")

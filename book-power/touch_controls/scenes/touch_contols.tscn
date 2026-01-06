@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4wlaldocgqtl"]
+
+[ext_resource type="Script" uid="uid://b7qmesbkenvo3" path="res://touch_controls/scenes/touch_contols.gd" id="1_tuipx"]
+[ext_resource type="Texture2D" uid="uid://dg3wp8bdsl2ww" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 controls/16x16 Control Buttons (43).png" id="2_vyact"]
+[ext_resource type="Texture2D" uid="uid://dtmnlrdeqw01a" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 controls/16x16 Control Buttons (45).png" id="3_tuipx"]
+[ext_resource type="Texture2D" uid="uid://cdi0pdmkips47" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 controls/16x16 Control Buttons (41).png" id="4_i3ajf"]
+[ext_resource type="Texture2D" uid="uid://cqitqhrscj5x8" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 controls/16x16 Control Buttons (39).png" id="5_vyact"]
+[ext_resource type="Texture2D" uid="uid://c8pew34idtkwj" path="res://art/pick_action_button.png" id="6_tuipx"]
+[ext_resource type="Texture2D" uid="uid://qes71p4y24df" path="res://art/button_inventario.png" id="7_i3ajf"]
+
+[node name="touchContols" type="CanvasLayer"]
+script = ExtResource("1_tuipx")
+
+[node name="up" type="TouchScreenButton" parent="."]
+position = Vector2(41, 153)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("2_vyact")
+action = "muovi_su"
+
+[node name="down" type="TouchScreenButton" parent="."]
+position = Vector2(41, 178)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("3_tuipx")
+action = "muovi_giù"
+
+[node name="left" type="TouchScreenButton" parent="."]
+position = Vector2(14, 178)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_i3ajf")
+action = "muovi_a_sinistra"
+
+[node name="right" type="TouchScreenButton" parent="."]
+position = Vector2(68, 178)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("5_vyact")
+action = "muovi_a_destra"
+
+[node name="pick" type="TouchScreenButton" parent="."]
+position = Vector2(318, 178)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("6_tuipx")
+action = "Pick_object"
+
+[node name="inventory" type="TouchScreenButton" parent="."]
+position = Vector2(318, 152)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("7_i3ajf")
+action = "inventario"
+
+[connection signal="pressed" from="up" to="." method="_on_up_pressed"]
+[connection signal="released" from="up" to="." method="_on_up_released"]
+[connection signal="pressed" from="down" to="." method="_on_down_pressed"]
+[connection signal="released" from="down" to="." method="_on_down_released"]
+[connection signal="pressed" from="left" to="." method="_on_left_pressed"]
+[connection signal="released" from="left" to="." method="_on_left_released"]
+[connection signal="pressed" from="right" to="." method="_on_right_pressed"]
+[connection signal="released" from="right" to="." method="_on_right_released"]
+[connection signal="pressed" from="pick" to="." method="_on_pick_pressed"]
+[connection signal="released" from="pick" to="." method="_on_pick_released"]
+[connection signal="pressed" from="inventory" to="." method="_on_inventory_pressed"]
+[connection signal="released" from="inventory" to="." method="_on_inventory_released"]
