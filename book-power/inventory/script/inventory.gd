@@ -16,3 +16,11 @@ func insert(item: InvItem):
 		emptyslots[0].item = item											#assegna al primo degli slot libero l'item da inserire
 		update.emit()
 		return true
+
+#func insert(item: InvItem):
+	#for i in range(slots.size()):
+		#if(!slots[i].item):
+			#slots[i].item = item
+			#update.emit(i, slots[i])
+			#return true
+	#return false

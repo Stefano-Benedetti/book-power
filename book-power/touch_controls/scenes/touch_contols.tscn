@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c4wlaldocgqtl"]
 
-[ext_resource type="Script" uid="uid://b7qmesbkenvo3" path="res://touch_controls/scenes/touch_contols.gd" id="1_tuipx"]
+[ext_resource type="Script" uid="uid://b7qmesbkenvo3" path="res://touch_controls/script/touch_contols.gd" id="1_tuipx"]
 [ext_resource type="Texture2D" uid="uid://dg3wp8bdsl2ww" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 controls/16x16 Control Buttons (43).png" id="2_vyact"]
 [ext_resource type="Texture2D" uid="uid://dtmnlrdeqw01a" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 controls/16x16 Control Buttons (45).png" id="3_tuipx"]
 [ext_resource type="Texture2D" uid="uid://cdi0pdmkips47" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 controls/16x16 Control Buttons (41).png" id="4_i3ajf"]

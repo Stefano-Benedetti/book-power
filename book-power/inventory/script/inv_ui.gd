@@ -4,16 +4,26 @@ extends Control
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
 
 var is_open = false
+var selectedItem_index = 0
 
 func _ready():
+	for i in slots.size():
+		slots[i].slot_index = i
+		slots[i].slot_premuto.connect(manage_slot_selection)
+	slots[selectedItem_index].select()
 	inv.update.connect(update_slots)		#quando arriva il segnale update (da inventory) allora chiama la funzione update_slots()
 	update_slots()
 	close()
+
 
 func update_slots():
 	for i in range (min(inv.slots.size(), slots.size())):
 		slots[i].update(inv.slots[i])
 
+func manage_slot_selection(new_selection_index):
+	slots[selectedItem_index].deselect()
+	selectedItem_index = new_selection_index
+	slots[selectedItem_index].select()
 
 #in _process() "inventario" è il nome che ho dato all'azione quando premo i
 func _process(delta):

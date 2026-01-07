@@ -9,6 +9,7 @@ const SPEED = 50
 var current_dir = "down"		#la inizializziamo giù
 
 @export var inv: Inv	#con questo possiamo richiamare le funzioni dell'inventario del player
+@export var selectedItem: InvItem
 
 func _physics_process(delta: float):
 	player_movement(delta)

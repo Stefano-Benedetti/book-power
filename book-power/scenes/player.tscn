@@ -1,8 +1,9 @@
-[gd_scene load_steps=50 format=3 uid="uid://ckwr713fqij6n"]
+[gd_scene load_steps=51 format=3 uid="uid://ckwr713fqij6n"]
 
 [ext_resource type="Texture2D" uid="uid://jqtjgfkuhcix" path="res://art/player_set.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://y22tc3o24p31" path="res://script/player.gd" id="1_g2els"]
 [ext_resource type="Resource" uid="uid://bl6hkk3gjnss2" path="res://inventory/player_inventory.tres" id="2_qhqgy"]
+[ext_resource type="Resource" uid="uid://dfnx5m3mpaffo" path="res://inventory/player_selectedItem.tres" id="3_dqkch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -363,6 +364,7 @@ height = 25.000002
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_g2els")
 inv = ExtResource("2_qhqgy")
+selectedItem = ExtResource("3_dqkch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y4r1p")

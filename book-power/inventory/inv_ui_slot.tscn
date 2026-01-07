@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dun115v27bcug"]
+[gd_scene load_steps=4 format=3 uid="uid://dun115v27bcug"]
 
 [ext_resource type="Texture2D" uid="uid://rvssg58aixcn" path="res://art/Border and Panels Menu Part 1/bordo_elementi_inventario.png" id="1_dfngl"]
 [ext_resource type="Script" uid="uid://cxun4d4mpjkjd" path="res://inventory/script/inv_ui_slot.gd" id="1_fcwim"]
+[ext_resource type="Texture2D" uid="uid://dvbxnhm1fxq3h" path="res://art/Border and Panels Menu Part 1/bordo_selected_elem_inventario.png" id="3_jagxy"]
 
 [node name="Inv_UI_slot" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -9,19 +10,23 @@ custom_minimum_size = Vector2(16, 16)
 offset_right = 62.0
 offset_bottom = 62.0
 script = ExtResource("1_fcwim")
+nonSelected_texture = ExtResource("1_dfngl")
+selected_texture = ExtResource("3_jagxy")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, -1)
-texture = ExtResource("1_dfngl")
-centered = false
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+texture_normal = ExtResource("1_dfngl")
+action = "seleziona_slot"
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="TouchScreenButton"]
 custom_minimum_size = Vector2(62, 62)
-layout_mode = 0
-offset_right = 62.0
-offset_bottom = 62.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 63.0
+offset_bottom = 63.0
 
-[node name="Panel" type="Panel" parent="CenterContainer"]
+[node name="Panel" type="Panel" parent="TouchScreenButton/CenterContainer"]
 layout_mode = 2
 
-[node name="item_display" type="Sprite2D" parent="CenterContainer/Panel"]
+[node name="item_display" type="Sprite2D" parent="TouchScreenButton/CenterContainer/Panel"]
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
