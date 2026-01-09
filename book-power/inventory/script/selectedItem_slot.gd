@@ -1,7 +1,11 @@
 extends Control
 
+@onready var inv: Inv = preload("res://inventory/player_inventory.tres")
 @onready var item_visual: Sprite2D = $CenterContainer/Panel/item_display
-var selectedSlot = 0
+
+
+func _ready():
+	Global.selected_slot_update.connect(update)
 
 #aggiorna l'oggetto all'interno dello slot
 func update(slot: InvSlot):
@@ -10,12 +14,3 @@ func update(slot: InvSlot):
 	else:
 		item_visual.visible = true
 		item_visual.texture = slot.item.texture
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

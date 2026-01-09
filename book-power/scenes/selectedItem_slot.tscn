@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5axlii2oyhdf"]
+[gd_scene load_steps=3 format=3 uid="uid://b5axlii2oyhdf"]
 
 [ext_resource type="Texture2D" uid="uid://qivma5t4mhqo" path="res://art/Border and Panels Menu Part 1/bordo_selected_item.png" id="1_8kilr"]
 [ext_resource type="Script" uid="uid://rftlsxr1d4ok" path="res://inventory/script/selectedItem_slot.gd" id="1_mvqph"]
-[ext_resource type="Texture2D" uid="uid://c4o2wu4fxdsh1" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/bone01a.png" id="2_mvqph"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -33,4 +32,3 @@ layout_mode = 2
 
 [node name="item_display" type="Sprite2D" parent="CenterContainer/Panel"]
 scale = Vector2(0.5416667, 0.5416667)
-texture = ExtResource("2_mvqph")
