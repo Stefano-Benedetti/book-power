@@ -27,3 +27,22 @@ Selezione di uno slot
 quando uno slot viene cliccato questo lo dice all'inventario (inv_ui) il quale gestirà quale slot deselezionare e quale slot invece selezionare.
 l'inventario manderà anche un segnale al selectedItem_slot per aggiornare anche lui.
 NOTA: visto che inv_ui e selectedItem_slot non si possono parlare direttamente allora inv_ui invia il segnale attraverso lo script global.gd
+
+
+IDEE principali:
+attacco analisi: sinusoide che parte dal player e va in una direzione.
+attacco fisica: attacco normale ma con forza aumentata.
+attacco asd: albero binario la cui radice parte dal player
+attacco reti di calcolatori: lancia un pacchetto bomba al nemico più vicino
+
+Forse:
+attacco ricerca operativa: aumenta velocità di movimento e di attacco (ottimizzazione)
+attacco sistemi operativi: fa l'attacco "I use arch btw" che danneggia i nemici nelle vicinanze del player
+attacco telecomunicazioni: fa l'attacco normale, quando uccide un nemico ne fa la trasformata e questo diventa tuo alleato per qualche secondo, poi muore definitivamente.
+
+probabilmente no:
+attacco fondamenti di informatica: double linked list che parte dal player e colpisce sia avanti che indietro (tra i pallini c'è il doppio collegamento)
+attacco elettrotecnica: attacco con fulmine dal cielo.
+attacco economia: lasci una moneta per qualche secondo e tutti i nemici a una certa distanza vanno dalla moneta smettendo di attaccarti.
+
+
