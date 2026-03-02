@@ -2,7 +2,7 @@ Per creare la mappa
 usiamo il nodo tilemap.
 mettiamo in alto a sinistra i tileset, poi da sotto selezioniamo tile set (potrebbe invece essere selezionato tile map) e importiamo
 le immagini trascinandole nell'area corretta.
-con la gomma cancelliamo la selezione, per rendere un oggetto fromato da più quadratini unico dobbiamo tenere premuto shift e trascinare con tasto sinistro del
+con la gomma cancelliamo la selezione, per rendere un oggetto formato da più quadratini unico dobbiamo tenere premuto shift e trascinare con tasto sinistro del
 mouse.
 per inserire le cose nella mappa bisogna selezionare sotto tilemap, con la freccia selezioniamo, con la penna incolliamo nella mappa, con la gomma
 cancelliamo dalla mappa. attenzione a settare i corretti layer a sinistra, esempio: ground sarà un layer, gli oggetti sopra ground saranno altri layer.

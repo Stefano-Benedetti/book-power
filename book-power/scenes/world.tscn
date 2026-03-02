@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bkr4aiyvfhvqs"]
+[gd_scene load_steps=20 format=3 uid="uid://bkr4aiyvfhvqs"]
 
 [ext_resource type="Texture2D" uid="uid://c63psyhe5s0k4" path="res://art/Little Dreamyland - Free Pack/Tileset/Autotile_Grass_and_Dirt_Path_Tileset.png" id="1_qfnet"]
 [ext_resource type="Texture2D" uid="uid://cpav256v07sbt" path="res://art/Little Dreamyland - Free Pack/Tileset/Crops_Tileset.png" id="2_i7141"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bv5iyu783u257" path="res://scenes/osso.tscn" id="9_7r4gi"]
 [ext_resource type="PackedScene" uid="uid://c4wlaldocgqtl" path="res://touch_controls/scenes/touch_contols.tscn" id="10_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://b5axlii2oyhdf" path="res://scenes/selectedItem_slot.tscn" id="11_e3hyu"]
+[ext_resource type="PackedScene" uid="uid://bdyg3nigp8cpo" path="res://scenes/enemy.tscn" id="12_q5onr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5onr"]
 texture = ExtResource("1_qfnet")
@@ -927,3 +928,6 @@ offset_bottom = 198.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(177, 126)
+
+[node name="enemy" parent="." instance=ExtResource("12_q5onr")]
+position = Vector2(275.99997, 162.99998)
