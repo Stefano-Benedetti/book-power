@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bdyg3nigp8cpo"]
+[gd_scene load_steps=50 format=3 uid="uid://bdyg3nigp8cpo"]
 
 [ext_resource type="Script" uid="uid://b0ltilmtchiy4" path="res://script/enemy.gd" id="1_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://cg8df54io6358" path="res://art/enemy01_set.png" id="2_4ra3w"]
@@ -361,20 +361,19 @@ height = 25.000002
 [sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
 radius = 202.74675
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
-size = Vector2(15.000001, 22.5)
-
 [node name="enemy" type="CharacterBody2D"]
 scale = Vector2(0.4, 0.4)
+collision_mask = 0
 script = ExtResource("1_4ra3w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y4r1p")
 animation = &"front_idle"
+offset = Vector2(0, -23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-7.1054274e-14, 20)
+position = Vector2(7.1054274e-14, 0)
 rotation = 1.5707964
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CapsuleShape2D_g2els")
@@ -385,37 +384,11 @@ shape = SubResource("CapsuleShape2D_g2els")
 position = Vector2(0, 20)
 shape = SubResource("CircleShape2D_md0e3")
 
-[node name="obstacles_detection_area_down" type="Area2D" parent="."]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 4.0
+target_desired_distance = 8.0
+max_speed = 30.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles_detection_area_down"]
-position = Vector2(2.842171e-14, 32.5)
-scale = Vector2(0.9999997, 0.9999997)
-shape = SubResource("RectangleShape2D_md0e3")
-
-[node name="obstacles_detection_area_up" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles_detection_area_up"]
-position = Vector2(0, 10)
-scale = Vector2(0.9999997, 0.9999997)
-shape = SubResource("RectangleShape2D_md0e3")
-
-[node name="obstacles_detection_area_right" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles_detection_area_right"]
-position = Vector2(-12.5, 20)
-rotation = 1.5707964
-scale = Vector2(0.9999997, 0.9999997)
-shape = SubResource("RectangleShape2D_md0e3")
-
-[node name="obstacles_detection_area_left" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles_detection_area_left"]
-position = Vector2(12.5, 20)
-rotation = 1.5707964
-scale = Vector2(0.9999997, 0.9999997)
-shape = SubResource("RectangleShape2D_md0e3")
-
-[connection signal="body_entered" from="player_detection_area" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="player_detection_area" to="." method="_on_player_detection_area_body_entered"]
+[connection signal="body_entered" from="player_detection_area" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="player_detection_area" to="." method="_on_player_detection_area_body_exited"]
-[connection signal="body_entered" from="obstacles_detection_area_right" to="." method="_on_obstacles_detection_area_right_body_entered"]

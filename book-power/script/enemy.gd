@@ -13,38 +13,70 @@ var current_dir = "down"		#la inizializziamo giù
 
 var obstacle_detected = false
 
+@onready var nav_agent = $NavigationAgent2D  # Collegamento al nodo NavigationAgent2D
+
 
 func _physics_process(delta: float):
 	enemy_movement(delta)
 	
 func enemy_movement(delta):
 	if player_in_area:
-		var deltax = player.position.x - self.position.x
-		var deltay = player.position.y - self.position.y
+		# Imposta la posizione target al player
+		nav_agent.target_position = player.global_position
 		
-		if abs(deltax) >= abs(deltay):	#mi muovo sulla x
-			if deltax > 0:
-				current_dir = "right"
-				play_anim(1)
-				velocity.x = SPEED
-				velocity.y = 0
-			elif deltax < 0:
-				current_dir = "left"
-				play_anim(1)
-				velocity.x = -SPEED
-				velocity.y = 0
+		# Ottieni il prossimo waypoint dal percorso calcolato
+		if not nav_agent.is_navigation_finished():
+			var next_pos = nav_agent.get_next_path_position()
+			var direction = (next_pos - global_position).normalized()
 			
-		else:	#mi muovo sulla y
-			if deltay > 0:
-				current_dir = "down"
-				play_anim(1)
-				velocity.x = 0
-				velocity.y = SPEED
-			elif deltay < 0:
-				current_dir = "up"
-				play_anim(1)
-				velocity.x = 0
-				velocity.y = -SPEED
+			# Determina la direzione di movimento
+			if abs(direction.x) >= abs(direction.y):
+				if direction.x > 0:
+					current_dir = "right"
+					velocity.x = SPEED
+					velocity.y = 0
+				else:
+					current_dir = "left"
+					velocity.x = -SPEED
+					velocity.y = 0
+			else:
+				if direction.y > 0:
+					current_dir = "down"
+					velocity.x = 0
+					velocity.y = SPEED
+				else:
+					current_dir = "up"
+					velocity.x = 0
+					velocity.y = -SPEED
+			
+			play_anim(1)
+		
+		#var deltax = player.position.x - self.position.x
+		#var deltay = player.position.y - self.position.y
+		#
+		#if abs(deltax) >= abs(deltay):	#mi muovo sulla x
+			#if deltax > 0:
+				#current_dir = "right"
+				#play_anim(1)
+				#velocity.x = SPEED
+				#velocity.y = 0
+			#elif deltax < 0:
+				#current_dir = "left"
+				#play_anim(1)
+				#velocity.x = -SPEED
+				#velocity.y = 0
+			#
+		#else:	#mi muovo sulla y
+			#if deltay > 0:
+				#current_dir = "down"
+				#play_anim(1)
+				#velocity.x = 0
+				#velocity.y = SPEED
+			#elif deltay < 0:
+				#current_dir = "up"
+				#play_anim(1)
+				#velocity.x = 0
+				#velocity.y = -SPEED
 	else:
 		play_anim(0)
 		velocity.x = 0
