@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bkr4aiyvfhvqs"]
+[gd_scene load_steps=26 format=4 uid="uid://bkr4aiyvfhvqs"]
 
 [ext_resource type="Texture2D" uid="uid://c63psyhe5s0k4" path="res://art/Little Dreamyland - Free Pack/Tileset/Autotile_Grass_and_Dirt_Path_Tileset.png" id="1_qfnet"]
 [ext_resource type="Texture2D" uid="uid://cpav256v07sbt" path="res://art/Little Dreamyland - Free Pack/Tileset/Crops_Tileset.png" id="2_i7141"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://stw33m56xai6" path="res://art/Little Dreamyland - Free Pack/Tileset/Nature_Tileset.png" id="5_w7kh3"]
 [ext_resource type="Texture2D" uid="uid://d1ji32d1aowet" path="res://art/Little Dreamyland - Free Pack/Tileset/Tileset_Floor_Detail.png" id="6_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://ckwr713fqij6n" path="res://scenes/player.tscn" id="7_i7141"]
-[ext_resource type="Script" uid="uid://c8op1xsb6yd1v" path="res://scenes/tile_map.gd" id="7_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://dt5ng80c6newu" path="res://inventory/inv_ui.tscn" id="8_4mrxx"]
 [ext_resource type="Resource" uid="uid://bl6hkk3gjnss2" path="res://inventory/player_inventory.tres" id="8_jhx03"]
 [ext_resource type="PackedScene" uid="uid://bv5iyu783u257" path="res://scenes/osso.tscn" id="9_7r4gi"]
@@ -904,7 +903,6 @@ y_sort_enabled = true
 position = Vector2(-18, -1)
 tile_set = SubResource("TileSet_lakw3")
 format = 2
-script = ExtResource("7_o8fc1")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="TileMap"]
 navigation_polygon = SubResource("NavigationPolygon_jhx03")
