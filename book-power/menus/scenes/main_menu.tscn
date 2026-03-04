@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://j5rqm6aeahix"]
+
+[ext_resource type="Script" uid="uid://wnjq1xg4ef51" path="res://menus/script/main_menu.gd" id="1_r3aaf"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r3aaf")
+
+[node name="play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 84.0
+offset_right = 266.0
+offset_bottom = 133.0
+text = "Play
+"
+
+[node name="logreg" type="Button" parent="."]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 156.0
+offset_right = 325.0
+offset_bottom = 210.0
+text = "Login / Register"
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="logreg" to="." method="_on_logreg_pressed"]
