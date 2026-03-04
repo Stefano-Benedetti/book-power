@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6hkiqvxdg518"]
+
+[ext_resource type="Script" uid="uid://d1gnb3hgbj284" path="res://backend/script/login.gd" id="1_blama"]
+
+[node name="Login" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_blama")
+
+[node name="login" type="Button" parent="."]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 125.0
+offset_right = 154.0
+offset_bottom = 179.0
+text = "Login"
+
+[node name="register" type="Button" parent="."]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 134.0
+offset_right = 280.0
+offset_bottom = 178.0
+text = "Register"
+
+[node name="email" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 10.0
+offset_right = 314.0
+offset_bottom = 56.0
+placeholder_text = "email"
+
+[node name="password" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 71.0
+offset_right = 317.0
+offset_bottom = 116.0
+placeholder_text = "password"
+
+[connection signal="pressed" from="login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="register" to="." method="_on_register_pressed"]
