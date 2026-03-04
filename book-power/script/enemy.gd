@@ -10,14 +10,35 @@ var current_dir = "down"		#la inizializziamo giù
 #variabili per collegarsi al player
 var player_in_area = false
 var player = null
+
 var player_attackable = false
+var can_attack = true
+@onready var attacck_cooldown: Timer=$attackCooldown
 
 @onready var nav_agent = $NavigationAgent2D  # Collegamento al nodo NavigationAgent2D
 
 
+
+#quando il timer finisce imposta can_attack a true
+func _on_attack_cooldown_timeout():
+	can_attack = true
+
+
 func _physics_process(delta: float):
-	enemy_movement(delta)
-	
+	manage_enemy(delta)
+
+func manage_enemy(delta):
+	if player_attackable and can_attack:
+		enemy_attack()
+	else:
+		enemy_movement(delta)
+
+func enemy_attack():
+	can_attack = false
+	print("Attacco!")
+	attacck_cooldown.start()  # Avvia il timer
+
+
 func enemy_movement(delta):
 	if player_in_area:
 		# Imposta la posizione target al player
