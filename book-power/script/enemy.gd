@@ -4,14 +4,13 @@ extends CharacterBody2D
 func enemy():
 	pass
 
-#variabili per collegarsi al player
-var player_in_area = false
-var player = null
-
 const SPEED = 30
 var current_dir = "down"		#la inizializziamo giù
 
-var obstacle_detected = false
+#variabili per collegarsi al player
+var player_in_area = false
+var player = null
+var player_attackable = false
 
 @onready var nav_agent = $NavigationAgent2D  # Collegamento al nodo NavigationAgent2D
 
@@ -50,33 +49,6 @@ func enemy_movement(delta):
 					velocity.y = -SPEED
 			
 			play_anim(1)
-		
-		#var deltax = player.position.x - self.position.x
-		#var deltay = player.position.y - self.position.y
-		#
-		#if abs(deltax) >= abs(deltay):	#mi muovo sulla x
-			#if deltax > 0:
-				#current_dir = "right"
-				#play_anim(1)
-				#velocity.x = SPEED
-				#velocity.y = 0
-			#elif deltax < 0:
-				#current_dir = "left"
-				#play_anim(1)
-				#velocity.x = -SPEED
-				#velocity.y = 0
-			#
-		#else:	#mi muovo sulla y
-			#if deltay > 0:
-				#current_dir = "down"
-				#play_anim(1)
-				#velocity.x = 0
-				#velocity.y = SPEED
-			#elif deltay < 0:
-				#current_dir = "up"
-				#play_anim(1)
-				#velocity.x = 0
-				#velocity.y = -SPEED
 	else:
 		play_anim(0)
 		velocity.x = 0
@@ -123,3 +95,14 @@ func _on_player_detection_area_body_entered(body: Node2D) -> void:
 func _on_player_detection_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = false
+
+
+#setta la variabile che dice se il player è attaccabile o no
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		player_attackable = true
+		player = body
+
+func _on_attack_area_body_exited(body: Node2D) -> void:
+	if body.has_method("player"):
+		player_attackable = false
