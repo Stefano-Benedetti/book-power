@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b0ltilmtchiy4" path="res://script/enemy.gd" id="1_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://cg8df54io6358" path="res://art/enemy01_set.png" id="2_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://dme11xvx8gwup" path="res://art/nuvoletta.png" id="3_4ra3w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtq4b"]
 atlas = ExtResource("2_4ra3w")
@@ -12,10 +13,6 @@ atlas = ExtResource("2_4ra3w")
 region = Rect2(64, 2304, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e7lhw"]
-atlas = ExtResource("2_4ra3w")
-region = Rect2(64, 2304, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gst0f"]
 atlas = ExtResource("2_4ra3w")
 region = Rect2(64, 2304, 64, 64)
 
@@ -230,9 +227,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e7lhw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gst0f")
 }],
 "loop": true,
 "name": &"front_attack",
@@ -461,9 +455,7 @@ script = ExtResource("1_4ra3w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y4r1p")
-animation = &"front_attack"
-frame = 2
-frame_progress = 0.696156
+animation = &"left_attack"
 offset = Vector2(0, -23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -481,7 +473,7 @@ shape = SubResource("CircleShape2D_md0e3")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 4.0
-target_desired_distance = 8.0
+target_desired_distance = 15.0
 max_speed = 30.0
 
 [node name="attack_area" type="Area2D" parent="."]
@@ -495,9 +487,53 @@ shape = SubResource("CircleShape2D_4ra3w")
 wait_time = 1.7999999999999998
 one_shot = true
 
+[node name="movementPostAttackCooldown" type="Timer" parent="."]
+
+[node name="nuvoletta" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(34.999996, -49.999996)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("3_4ra3w")
+
+[node name="TextEdit" type="TextEdit" parent="nuvoletta"]
+offset_left = -285.71423
+offset_top = -142.85724
+offset_right = 285.7143
+offset_bottom = 35.714233
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 34.999996
+offset_top = -49.999992
+offset_right = 42.499996
+offset_bottom = -42.499996
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = -29.999996
+offset_top = -27.500004
+offset_right = 994.0
+offset_bottom = 996.5
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("3_4ra3w")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "dfgdghdhdthtdh"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="body_entered" from="player_detection_area" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="player_detection_area" to="." method="_on_player_detection_area_body_entered"]
 [connection signal="body_exited" from="player_detection_area" to="." method="_on_player_detection_area_body_exited"]
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="attack_area" to="." method="_on_attack_area_body_exited"]
 [connection signal="timeout" from="attackCooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="movementPostAttackCooldown" to="." method="_on_movement_post_attack_cooldown_timeout"]

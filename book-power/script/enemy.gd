@@ -13,7 +13,10 @@ var player = null
 
 var player_attackable = false
 var can_attack = true
+var can_move = true
 @onready var attacck_cooldown: Timer=$attackCooldown
+@onready var mov_cooldown: Timer=$movementPostAttackCooldown
+@onready var nuvoletta: Sprite2D=$nuvoletta
 
 @onready var nav_agent = $NavigationAgent2D  # Collegamento al nodo NavigationAgent2D
 
@@ -27,7 +30,8 @@ func manage_enemy(delta):
 	if player_attackable and can_attack:
 		enemy_attack()
 	else:
-		enemy_movement(delta)
+		if can_move:
+			enemy_movement(delta)
 
 
 
@@ -35,11 +39,19 @@ func manage_enemy(delta):
 func _on_attack_cooldown_timeout():
 	can_attack = true
 
+func _on_movement_post_attack_cooldown_timeout() -> void:
+	can_move = true
+
 func enemy_attack():
 	can_attack = false
+	can_move = false
 	player.getHurt()
-	print("ho attaccato")
 	attacck_cooldown.start()  # Avvia il timer
+	mov_cooldown.start()
+	
+	nuvoletta.show()
+	nuvoletta
+	play_anim(0, 1)
 
 func enemy_movement(delta):
 	if player_in_area:
@@ -71,9 +83,9 @@ func enemy_movement(delta):
 					velocity.x = 0
 					velocity.y = -SPEED
 			
-			play_anim(1)
+			play_anim(1, 0)
 	else:
-		play_anim(0)
+		play_anim(0, 0)
 		velocity.x = 0
 		velocity.y = 0
 		
@@ -83,28 +95,40 @@ func enemy_movement(delta):
 
 
 #funzione per gestire le animazioni del player, movement=1 => ci stiamo muovendo
-func play_anim(movement):
+func play_anim(movement, attaccando):
 	var anim = $AnimatedSprite2D
 	if current_dir == "right":
 		if movement==1:
 			anim.play("right_walk")
 		elif movement==0:
-			anim.play("right_idle")
+			if attaccando==0:
+				anim.play("right_idle")
+			else:
+				anim.play("right_attack")
 	if current_dir == "left":
 		if movement==1:
 			anim.play("left_walk")
 		elif movement==0:
-			anim.play("left_idle")
+			if attaccando==0:
+				anim.play("left_idle")
+			else:
+				anim.play("left_attack")
 	if current_dir == "up":
 		if movement==1:
 			anim.play("rear_walk")
 		elif movement==0:
-			anim.play("rear_idle")
+			if attaccando==0:
+				anim.play("rear_idle")
+			else:
+				anim.play("rear_attack")
 	if current_dir == "down":
 		if movement==1:
 			anim.play("front_walk")
 		elif movement==0:
-			anim.play("front_idle")
+			if attaccando==0:
+				anim.play("front_idle")
+			else:
+				anim.play("front_attack")
 
 
 
