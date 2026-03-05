@@ -431,4 +431,4 @@ shape = SubResource("CapsuleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-4.053116e-06, 3.5762787e-06)
-zoom = Vector2(5, 5)
+zoom = Vector2(4, 4)

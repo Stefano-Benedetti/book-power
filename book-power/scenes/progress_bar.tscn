@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://ba8hnq8qvilbw" path="res://art/health_bar/healthbarUnder.png" id="1_1iuoo"]
 [ext_resource type="Texture2D" uid="uid://c1dah8bs03vj8" path="res://art/health_bar/healthbarProgress.png" id="2_eu8db"]
-[ext_resource type="Script" uid="uid://cehldpbbprqd8" path="res://script/texture_progress_bar.gd" id="3_tumid"]
+[ext_resource type="Script" path="res://script/texture_progress_bar.gd" id="3_tumid"]
 
 [node name="TextureProgressBar" type="TextureProgressBar"]
 offset_right = 64.0
 offset_bottom = 10.0
-scale = Vector2(1.5, 1.5)
+scale = Vector2(5, 5)
 texture_under = ExtResource("1_1iuoo")
 texture_progress = ExtResource("2_eu8db")
 script = ExtResource("3_tumid")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://da82dug1vut1e"]
+[gd_scene load_steps=12 format=3 uid="uid://da82dug1vut1e"]
 
 [ext_resource type="Script" uid="uid://dqr4datq5xmgq" path="res://menus/script/pause_menu.gd" id="1_slou4"]
 [ext_resource type="Texture2D" uid="uid://4pe2csdghy84" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/p.png" id="2_8b56s"]
@@ -15,6 +15,10 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8b56s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iu0tr"]
 
 [node name="pause_menu" type="Control"]
 layout_mode = 3
@@ -89,6 +93,7 @@ theme_override_constants/separation = -2
 [node name="Resume" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8b56s")
 icon = ExtResource("7_76u5q")
 flat = true
 icon_alignment = 1
@@ -96,6 +101,7 @@ icon_alignment = 1
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iu0tr")
 icon = ExtResource("8_h1e57")
 flat = true
 icon_alignment = 1

@@ -12,3 +12,6 @@ func _on_play_pressed():
 	
 func _on_logreg_pressed() -> void:
 	get_tree().change_scene_to_file("res://menus/scenes/login.tscn")
+
+func _on_exit_pressed():
+	get_tree().quit()

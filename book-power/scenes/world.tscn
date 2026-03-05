@@ -969,10 +969,10 @@ offset_right = 1046.0
 offset_bottom = 493.00003
 
 [node name="TextureProgressBar" parent="CanvasLayer2" node_paths=PackedStringArray("player") instance=ExtResource("14_dss4m")]
-offset_left = 19.0
-offset_top = 11.0
-offset_right = 83.0
-offset_bottom = 21.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 84.0
+offset_bottom = 30.0
 player = NodePath("../../player")
 
 [node name="pause_menu" parent="CanvasLayer2" instance=ExtResource("14_xo05s")]
