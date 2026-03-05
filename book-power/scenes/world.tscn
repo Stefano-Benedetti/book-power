@@ -932,13 +932,13 @@ inv = ExtResource("8_jhx03")
 position = Vector2(209, 138)
 
 [node name="osso2" parent="." instance=ExtResource("9_7r4gi")]
-position = Vector2(160, 110)
+position = Vector2(57, 49)
 
 [node name="osso3" parent="." instance=ExtResource("9_7r4gi")]
-position = Vector2(118, 129)
+position = Vector2(74, 76)
 
 [node name="osso4" parent="." instance=ExtResource("9_7r4gi")]
-position = Vector2(170, 153)
+position = Vector2(83, 50)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -989,4 +989,4 @@ offset_bottom = 198.0
 position = Vector2(177, 126)
 
 [node name="enemy" parent="." instance=ExtResource("12_q5onr")]
-position = Vector2(275.99997, 162.99998)
+position = Vector2(279.00003, 163)
