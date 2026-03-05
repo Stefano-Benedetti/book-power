@@ -11,9 +11,10 @@ var current_dir = "down"		#la inizializziamo giù
 
 @export var max_health = 50
 @onready var current_health: int = max_health
-signal health_changed
+signal health_changed	#questo serve per aggiornare la health bar
 
 @export var inv: Inv	#con questo possiamo richiamare le funzioni dell'inventario del player
+
 
 func _physics_process(delta: float):
 	player_movement(delta)
@@ -78,5 +79,7 @@ func collect(item):
 	return inserimento_riuscito
 
 func getHurt():
+	print("ahia")
+	print(current_health)
 	current_health -= 10
 	health_changed.emit()

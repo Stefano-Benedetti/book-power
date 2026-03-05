@@ -19,10 +19,6 @@ var can_attack = true
 
 
 
-#quando il timer finisce imposta can_attack a true
-func _on_attack_cooldown_timeout():
-	can_attack = true
-
 
 func _physics_process(delta: float):
 	manage_enemy(delta)
@@ -33,11 +29,17 @@ func manage_enemy(delta):
 	else:
 		enemy_movement(delta)
 
+
+
+#quando il timer finisce imposta can_attack a true
+func _on_attack_cooldown_timeout():
+	can_attack = true
+
 func enemy_attack():
 	can_attack = false
-	print("Attacco!")
+	player.getHurt()
+	print("ho attaccato")
 	attacck_cooldown.start()  # Avvia il timer
-
 
 func enemy_movement(delta):
 	if player_in_area:
