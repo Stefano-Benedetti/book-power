@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5xhs3h40yqre"
-path="res://.godot/imported/Changing Healthbar with Changing Heart.png-2d38a55369f765895f20f4ac43419d37.ctex"
+uid="uid://c1dah8bs03vj8"
+path="res://.godot/imported/healthbarProgress.png-9578f8f247099c8d252c7f9f88e65416.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/All 16x64 Healthbar Variants/Changing Healthbar with Changing Heart.png"
-dest_files=["res://.godot/imported/Changing Healthbar with Changing Heart.png-2d38a55369f765895f20f4ac43419d37.ctex"]
+source_file="res://art/health_bar/healthbarProgress.png"
+dest_files=["res://.godot/imported/healthbarProgress.png-9578f8f247099c8d252c7f9f88e65416.ctex"]
 
 [params]
 

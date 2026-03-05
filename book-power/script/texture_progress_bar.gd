@@ -1,4 +1,5 @@
-extends ProgressBar
+extends TextureProgressBar
+
 
 @export var player: Player
 
