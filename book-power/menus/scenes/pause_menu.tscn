@@ -1,38 +1,97 @@
-[gd_scene load_steps=3 format=3 uid="uid://da82dug1vut1e"]
+[gd_scene load_steps=10 format=3 uid="uid://da82dug1vut1e"]
 
 [ext_resource type="Script" uid="uid://dqr4datq5xmgq" path="res://menus/script/pause_menu.gd" id="1_slou4"]
+[ext_resource type="Texture2D" uid="uid://4pe2csdghy84" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/p.png" id="2_8b56s"]
+[ext_resource type="Texture2D" uid="uid://b2yv7immxpekw" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/a.png" id="3_iu0tr"]
+[ext_resource type="Texture2D" uid="uid://cqn6g2l4hjsaf" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/u.png" id="4_cli0i"]
+[ext_resource type="Texture2D" uid="uid://o4btulsyqatm" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/s.png" id="5_r2hlc"]
+[ext_resource type="Texture2D" uid="uid://n8kynguol548" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/e.png" id="6_58f32"]
+[ext_resource type="Texture2D" uid="uid://dkqqsqo82mhft" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (22).png" id="7_76u5q"]
+[ext_resource type="Texture2D" uid="uid://4shfhof8m1cn" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (19).png" id="8_h1e57"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_slou4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgttu"]
+bg_color = Color(0.7852611, 0.35423785, 0.29801744, 0.7764706)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="pause_menu" type="Control"]
 layout_mode = 3
+anchors_preset = 0
 offset_right = 115.0
 offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_slou4")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 115.0
-offset_bottom = 113.0
-texture = SubResource("CanvasTexture_slou4")
+offset_right = 116.0
+offset_bottom = 120.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qgttu")
 
-[node name="Resume" type="Button" parent="."]
+[node name="TextureRect" type="TextureRect" parent="Panel"]
 layout_mode = 0
-offset_left = 17.0
-offset_top = 12.0
-offset_right = 93.0
-offset_bottom = 43.0
-text = "Resume"
+offset_left = 13.0
+offset_top = 6.0
+offset_right = 35.0
+offset_bottom = 28.0
+texture = ExtResource("2_8b56s")
 
-[node name="Quit" type="Button" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="Panel"]
 layout_mode = 0
-offset_left = 38.0
-offset_top = 57.0
-offset_right = 80.0
-offset_bottom = 88.0
-text = "Quit"
+offset_left = 30.0
+offset_top = 6.0
+offset_right = 52.0
+offset_bottom = 28.0
+texture = ExtResource("3_iu0tr")
 
-[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[node name="TextureRect3" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 6.0
+offset_right = 69.0
+offset_bottom = 28.0
+texture = ExtResource("4_cli0i")
+
+[node name="TextureRect4" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 6.0
+offset_right = 86.0
+offset_bottom = 28.0
+texture = ExtResource("5_r2hlc")
+
+[node name="TextureRect5" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 6.0
+offset_right = 103.0
+offset_bottom = 28.0
+texture = ExtResource("6_58f32")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 58.0
+offset_bottom = 70.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 0
+
+[node name="Resume" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+icon = ExtResource("7_76u5q")
+flat = true
+icon_alignment = 1
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+icon = ExtResource("8_h1e57")
+flat = true
+icon_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
