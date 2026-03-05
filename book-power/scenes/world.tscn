@@ -932,13 +932,13 @@ inv = ExtResource("8_jhx03")
 position = Vector2(209, 138)
 
 [node name="osso2" parent="." instance=ExtResource("9_7r4gi")]
-position = Vector2(57, 49)
+position = Vector2(-29, 136)
 
 [node name="osso3" parent="." instance=ExtResource("9_7r4gi")]
-position = Vector2(74, 76)
+position = Vector2(-34, 171)
 
 [node name="osso4" parent="." instance=ExtResource("9_7r4gi")]
-position = Vector2(83, 50)
+position = Vector2(-30, 211)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
