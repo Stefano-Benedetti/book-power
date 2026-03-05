@@ -428,3 +428,7 @@ position = Vector2(-7.1054274e-14, 20)
 rotation = 1.5707964
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CapsuleShape2D_g2els")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-4.053116e-06, 3.5762787e-06)
+zoom = Vector2(5, 5)

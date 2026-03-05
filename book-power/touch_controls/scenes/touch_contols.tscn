@@ -13,44 +13,44 @@
 script = ExtResource("1_tuipx")
 
 [node name="up" type="TouchScreenButton" parent="."]
-position = Vector2(50, 164)
-scale = Vector2(2, 2)
+position = Vector2(160, 462)
+scale = Vector2(7, 7)
 texture_normal = ExtResource("2_vyact")
 action = "muovi_su"
 
 [node name="down" type="TouchScreenButton" parent="."]
-position = Vector2(50, 197)
-scale = Vector2(2, 2)
+position = Vector2(160.00002, 575.00006)
+scale = Vector2(7, 7)
 texture_normal = ExtResource("3_tuipx")
 action = "muovi_giù"
 
 [node name="left" type="TouchScreenButton" parent="."]
-position = Vector2(15, 197)
-scale = Vector2(2, 2)
+position = Vector2(39.999996, 575)
+scale = Vector2(7, 7)
 texture_normal = ExtResource("4_i3ajf")
 action = "muovi_a_sinistra"
 
 [node name="right" type="TouchScreenButton" parent="."]
-position = Vector2(85, 197)
-scale = Vector2(2, 2)
+position = Vector2(280, 575.00006)
+scale = Vector2(7, 7)
 texture_normal = ExtResource("5_vyact")
 action = "muovi_a_destra"
 
 [node name="pick" type="TouchScreenButton" parent="."]
-position = Vector2(386, 197)
-scale = Vector2(2, 2)
+position = Vector2(1128, 575.00006)
+scale = Vector2(7, 7)
 texture_normal = ExtResource("6_tuipx")
 action = "Pick_object"
 
 [node name="inventory" type="TouchScreenButton" parent="."]
-position = Vector2(386, 164)
-scale = Vector2(2, 2)
+position = Vector2(1128.0001, 462)
+scale = Vector2(7, 7)
 texture_normal = ExtResource("7_i3ajf")
 action = "inventario"
 
 [node name="pause" type="TouchScreenButton" parent="."]
-position = Vector2(392.99997, 11)
-scale = Vector2(1.342, 1.5)
+position = Vector2(1128, 39.999996)
+scale = Vector2(7, 7)
 texture_normal = ExtResource("8_74ne6")
 action = "pause"
 

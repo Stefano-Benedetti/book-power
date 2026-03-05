@@ -955,27 +955,18 @@ visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 97.0
-offset_top = 21.0
-offset_right = 334.0
-offset_bottom = 200.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="pause_menu" parent="CanvasLayer2" instance=ExtResource("14_xo05s")]
-visible = false
-offset_left = 130.0
-offset_top = 65.0
-offset_right = 245.00002
-offset_bottom = 178.0
+offset_left = 406.99997
+offset_top = 125.99999
+offset_right = 644.0
+offset_bottom = 305.0
 grow_horizontal = 1
 grow_vertical = 1
 
 [node name="sel_item_slot" parent="CanvasLayer2" instance=ExtResource("11_e3hyu")]
-offset_left = 342.0
-offset_top = 160.0
-offset_right = 380.0
-offset_bottom = 198.0
+offset_left = 1008.00006
+offset_top = 455.00003
+offset_right = 1046.0
+offset_bottom = 493.00003
 
 [node name="TextureProgressBar" parent="CanvasLayer2" node_paths=PackedStringArray("player") instance=ExtResource("14_dss4m")]
 offset_left = 19.0
@@ -984,8 +975,7 @@ offset_right = 83.0
 offset_bottom = 21.0
 player = NodePath("../../player")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(177, 126)
+[node name="pause_menu" parent="CanvasLayer2" instance=ExtResource("14_xo05s")]
 
 [node name="enemy" parent="." instance=ExtResource("12_q5onr")]
 position = Vector2(279.00003, 163)
