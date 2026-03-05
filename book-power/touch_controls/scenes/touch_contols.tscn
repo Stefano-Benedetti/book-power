@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4wlaldocgqtl"]
+[gd_scene load_steps=9 format=3 uid="uid://c4wlaldocgqtl"]
 
 [ext_resource type="Script" uid="uid://b7qmesbkenvo3" path="res://touch_controls/script/touch_contols.gd" id="1_tuipx"]
 [ext_resource type="Texture2D" uid="uid://dg3wp8bdsl2ww" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 controls/16x16 Control Buttons (43).png" id="2_vyact"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cqitqhrscj5x8" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 controls/16x16 Control Buttons (39).png" id="5_vyact"]
 [ext_resource type="Texture2D" uid="uid://c8pew34idtkwj" path="res://art/pick_action_button.png" id="6_tuipx"]
 [ext_resource type="Texture2D" uid="uid://qes71p4y24df" path="res://art/button_inventario.png" id="7_i3ajf"]
+[ext_resource type="Texture2D" uid="uid://d11v5emakkqkw" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 menu icons/16x16 Menu Buttons (115).png" id="8_74ne6"]
 
 [node name="touchContols" type="CanvasLayer"]
 script = ExtResource("1_tuipx")
@@ -47,6 +48,12 @@ scale = Vector2(2, 2)
 texture_normal = ExtResource("7_i3ajf")
 action = "inventario"
 
+[node name="pause" type="TouchScreenButton" parent="."]
+position = Vector2(392.99997, 11)
+scale = Vector2(1.342, 1.5)
+texture_normal = ExtResource("8_74ne6")
+action = "pause"
+
 [connection signal="pressed" from="up" to="." method="_on_up_pressed"]
 [connection signal="released" from="up" to="." method="_on_up_released"]
 [connection signal="pressed" from="down" to="." method="_on_down_pressed"]
@@ -59,3 +66,5 @@ action = "inventario"
 [connection signal="released" from="pick" to="." method="_on_pick_released"]
 [connection signal="pressed" from="inventory" to="." method="_on_inventory_pressed"]
 [connection signal="released" from="inventory" to="." method="_on_inventory_released"]
+[connection signal="pressed" from="pause" to="." method="_on_pause_pressed"]
+[connection signal="released" from="pause" to="." method="_on_pause_released"]

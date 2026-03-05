@@ -491,8 +491,13 @@ scale = Vector2(0.99999994, 0.99999994)
 position = Vector2(0, -2.5000002)
 shape = SubResource("CircleShape2D_4ra3w")
 
-[connection signal="body_entered" from="player_detection_area" to="." method="_on_player_detection_area_body_entered"]
+[node name="attackCooldown" type="Timer" parent="."]
+wait_time = 1.7999999999999998
+one_shot = true
+
 [connection signal="body_entered" from="player_detection_area" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="player_detection_area" to="." method="_on_player_detection_area_body_entered"]
 [connection signal="body_exited" from="player_detection_area" to="." method="_on_player_detection_area_body_exited"]
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="attack_area" to="." method="_on_attack_area_body_exited"]
+[connection signal="timeout" from="attackCooldown" to="." method="_on_attack_cooldown_timeout"]

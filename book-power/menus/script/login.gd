@@ -15,6 +15,9 @@ func _on_register_pressed():
 	var email = $email.text
 	var password = $password.text
 	Firebase.Auth.signup_with_email_and_password(email, password)
+	
+func _on_back_pressed():
+	get_tree().change_scene_to_file("res://menus/scenes/main_menu.tscn")
 
 func _on_FirebaseAuth_login_succeeded(auth):
 		# You do not need to call get_user_data() here, as auth is the same variable

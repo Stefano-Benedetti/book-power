@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://da82dug1vut1e"]
+
+[ext_resource type="Script" uid="uid://dqr4datq5xmgq" path="res://menus/script/pause_menu.gd" id="1_slou4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_slou4"]
+
+[node name="pause_menu" type="Control"]
+layout_mode = 3
+offset_right = 115.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_slou4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 115.0
+offset_bottom = 113.0
+texture = SubResource("CanvasTexture_slou4")
+
+[node name="Resume" type="Button" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 12.0
+offset_right = 93.0
+offset_bottom = 43.0
+text = "Resume"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 57.0
+offset_right = 80.0
+offset_bottom = 88.0
+text = "Quit"
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

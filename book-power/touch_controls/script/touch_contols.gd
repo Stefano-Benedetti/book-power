@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var button_right = $right
 @onready var button_pick = $pick
 @onready var button_inv = $inventory
+@onready var button_pause = $pause
 
 
 func _on_up_pressed() -> void:
@@ -42,3 +43,8 @@ func _on_inventory_pressed() -> void:
 	button_inv.modulate.a = 0.5
 func _on_inventory_released() -> void:
 	button_inv.modulate.a = 1
+
+func _on_pause_pressed() -> void:
+	button_pause.modulate.a = 0.5
+func _on_pause_released() -> void:
+	button_pause.modulate.a = 1

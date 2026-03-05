@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bkr4aiyvfhvqs"]
+[gd_scene load_steps=28 format=4 uid="uid://bkr4aiyvfhvqs"]
 
 [ext_resource type="Texture2D" uid="uid://c63psyhe5s0k4" path="res://art/Little Dreamyland - Free Pack/Tileset/Autotile_Grass_and_Dirt_Path_Tileset.png" id="1_qfnet"]
 [ext_resource type="Texture2D" uid="uid://cpav256v07sbt" path="res://art/Little Dreamyland - Free Pack/Tileset/Crops_Tileset.png" id="2_i7141"]
@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bv5iyu783u257" path="res://scenes/osso.tscn" id="9_7r4gi"]
 [ext_resource type="PackedScene" uid="uid://c4wlaldocgqtl" path="res://touch_controls/scenes/touch_contols.tscn" id="10_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://b5axlii2oyhdf" path="res://scenes/selectedItem_slot.tscn" id="11_e3hyu"]
-[ext_resource type="PackedScene" uid="uid://caq6agucnwjlf" path="res://scenes/progress_bar.tscn" id="11_xo05s"]
 [ext_resource type="PackedScene" uid="uid://bdyg3nigp8cpo" path="res://scenes/enemy.tscn" id="12_q5onr"]
+[ext_resource type="Script" uid="uid://b47mwl14k4ekb" path="res://script/progress_bar.gd" id="14_dss4m"]
 [ext_resource type="PackedScene" uid="uid://da82dug1vut1e" path="res://menus/scenes/pause_menu.tscn" id="14_xo05s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5onr"]
@@ -950,11 +950,41 @@ offset_bottom = 40.0
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
+[node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("8_4mrxx")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 97.0
+offset_top = 21.0
+offset_right = 334.0
+offset_bottom = 200.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="pause_menu" parent="CanvasLayer2" instance=ExtResource("14_xo05s")]
+visible = false
+anchors_preset = 0
+offset_left = 130.0
+offset_top = 65.0
+offset_right = 245.00002
+offset_bottom = 178.0
+grow_horizontal = 1
+grow_vertical = 1
+
 [node name="sel_item_slot" parent="CanvasLayer2" instance=ExtResource("11_e3hyu")]
 offset_left = 342.0
 offset_top = 160.0
 offset_right = 380.0
 offset_bottom = 198.0
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer2"]
+offset_left = 35.0
+offset_top = 13.0
+offset_right = 151.0
+offset_bottom = 40.0
+value = 100.0
+script = ExtResource("14_dss4m")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(177, 126)
