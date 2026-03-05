@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c4wlaldocgqtl" path="res://touch_controls/scenes/touch_contols.tscn" id="10_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://b5axlii2oyhdf" path="res://scenes/selectedItem_slot.tscn" id="11_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://bdyg3nigp8cpo" path="res://scenes/enemy.tscn" id="12_q5onr"]
-[ext_resource type="PackedScene" uid="uid://c78woh6vfcevh" path="res://scenes/progress_bar.tscn" id="14_dss4m"]
+[ext_resource type="PackedScene" uid="uid://c78woh6vfcevh" path="res://scenes/player_health_bar.tscn" id="14_dss4m"]
 [ext_resource type="PackedScene" uid="uid://da82dug1vut1e" path="res://menus/scenes/pause_menu.tscn" id="14_xo05s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5onr"]

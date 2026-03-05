@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b5u258nmsxnsu" path="res://scenes/enemy_cloud.tscn" id="4_5uy6h"]
 [ext_resource type="Script" uid="uid://lor6gv5snyfo" path="res://script/enemy_health_bar.gd" id="4_c4w8v"]
 [ext_resource type="Texture2D" uid="uid://ba8hnq8qvilbw" path="res://art/health_bar/healthbarUnder.png" id="4_xwavj"]
-[ext_resource type="Texture2D" uid="uid://c1dah8bs03vj8" path="res://art/health_bar/healthbarProgress.png" id="5_nenq2"]
+[ext_resource type="Texture2D" uid="uid://c6syu2u8p3w44" path="res://art/health_bar/healthbarProgressRed.png" id="5_xwavj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtq4b"]
 atlas = ExtResource("2_4ra3w")
@@ -501,13 +501,14 @@ offset_bottom = -141.40625
 scale = Vector2(3.2, 3.2)
 
 [node name="enemy_health_bar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("enemy")]
-offset_left = -20.0
-offset_top = -50.0
-offset_right = 44.0
-offset_bottom = -40.0
-scale = Vector2(0.6, 0.6)
+offset_left = -16.0
+offset_top = -47.5
+offset_right = 48.0
+offset_bottom = -37.5
+scale = Vector2(0.5, 0.5)
+value = 50.0
 texture_under = ExtResource("4_xwavj")
-texture_progress = ExtResource("5_nenq2")
+texture_progress = ExtResource("5_xwavj")
 script = ExtResource("4_c4w8v")
 enemy = NodePath("..")
 

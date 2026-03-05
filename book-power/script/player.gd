@@ -9,7 +9,7 @@ func player():
 const SPEED = 50
 var current_dir = "down"		#la inizializziamo giù
 
-@export var max_health = 50
+@export var max_health = 100
 @onready var current_health: int = max_health
 signal health_changed	#questo serve per aggiornare la health bar
 
