@@ -1,9 +1,11 @@
-[gd_scene load_steps=62 format=3 uid="uid://bdyg3nigp8cpo"]
+[gd_scene load_steps=64 format=3 uid="uid://bdyg3nigp8cpo"]
 
 [ext_resource type="Script" uid="uid://b0ltilmtchiy4" path="res://script/enemy.gd" id="1_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://cg8df54io6358" path="res://art/enemy01_set.png" id="2_4ra3w"]
-[ext_resource type="Texture2D" uid="uid://dme11xvx8gwup" path="res://art/nuvoletta.png" id="3_4ra3w"]
 [ext_resource type="PackedScene" uid="uid://b5u258nmsxnsu" path="res://scenes/enemy_cloud.tscn" id="4_5uy6h"]
+[ext_resource type="Script" uid="uid://lor6gv5snyfo" path="res://script/enemy_health_bar.gd" id="4_c4w8v"]
+[ext_resource type="Texture2D" uid="uid://ba8hnq8qvilbw" path="res://art/health_bar/healthbarUnder.png" id="4_xwavj"]
+[ext_resource type="Texture2D" uid="uid://c1dah8bs03vj8" path="res://art/health_bar/healthbarProgress.png" id="5_nenq2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtq4b"]
 atlas = ExtResource("2_4ra3w")
@@ -490,18 +492,6 @@ one_shot = true
 
 [node name="movementPostAttackCooldown" type="Timer" parent="."]
 
-[node name="nuvoletta" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(34.999996, -49.999996)
-scale = Vector2(0.07, 0.07)
-texture = ExtResource("3_4ra3w")
-
-[node name="TextEdit" type="TextEdit" parent="nuvoletta"]
-offset_left = -285.71423
-offset_top = -142.85724
-offset_right = 285.7143
-offset_bottom = 35.714233
-
 [node name="enemy_cloud" parent="." instance=ExtResource("4_5uy6h")]
 visible = false
 offset_left = -17.500002
@@ -509,6 +499,17 @@ offset_top = -200.0
 offset_right = 43.4375
 offset_bottom = -141.40625
 scale = Vector2(3.2, 3.2)
+
+[node name="enemy_health_bar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("enemy")]
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 44.0
+offset_bottom = -40.0
+scale = Vector2(0.6, 0.6)
+texture_under = ExtResource("4_xwavj")
+texture_progress = ExtResource("5_nenq2")
+script = ExtResource("4_c4w8v")
+enemy = NodePath("..")
 
 [connection signal="body_entered" from="player_detection_area" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="player_detection_area" to="." method="_on_player_detection_area_body_entered"]

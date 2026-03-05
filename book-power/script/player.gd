@@ -79,7 +79,5 @@ func collect(item):
 	return inserimento_riuscito
 
 func getHurt():
-	print("ahia")
-	print(current_health)
 	current_health -= 10
 	health_changed.emit()

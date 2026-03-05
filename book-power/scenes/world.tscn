@@ -945,6 +945,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="touchContols" parent="Control" instance=ExtResource("10_w7kh3")]
 

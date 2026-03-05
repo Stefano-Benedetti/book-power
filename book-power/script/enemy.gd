@@ -1,11 +1,16 @@
 extends CharacterBody2D
 
+class_name Enemy
 #serve a altri nodi per identificare chi è entrato attraverso il "has_method()"
 func enemy():
 	pass
 
 const SPEED = 30
 var current_dir = "down"		#la inizializziamo giù
+
+@export var max_health = 50
+@onready var current_health: int = max_health
+@onready var health_bar: TextureProgressBar=$enemy_health_bar
 
 #variabili per collegarsi al player
 var player_in_area = false
@@ -158,3 +163,10 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_attackable = false
+
+
+func getHurt():
+	print("ahia")
+	print(current_health)
+	current_health -= 10
+	health_bar.update()
