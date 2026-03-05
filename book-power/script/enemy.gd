@@ -16,7 +16,7 @@ var can_attack = true
 var can_move = true
 @onready var attacck_cooldown: Timer=$attackCooldown
 @onready var mov_cooldown: Timer=$movementPostAttackCooldown
-@onready var nuvoletta: Sprite2D=$nuvoletta
+@onready var nuvoletta: Control=$enemy_cloud
 
 @onready var nav_agent = $NavigationAgent2D  # Collegamento al nodo NavigationAgent2D
 
@@ -41,6 +41,7 @@ func _on_attack_cooldown_timeout():
 
 func _on_movement_post_attack_cooldown_timeout() -> void:
 	can_move = true
+	nuvoletta.visible = false
 
 func enemy_attack():
 	can_attack = false
@@ -49,9 +50,13 @@ func enemy_attack():
 	attacck_cooldown.start()  # Avvia il timer
 	mov_cooldown.start()
 	
-	nuvoletta.show()
-	nuvoletta
+	nuvoletta.randomText()
+	nuvoletta.visible = true
+	
 	play_anim(0, 1)
+
+
+
 
 func enemy_movement(delta):
 	if player_in_area:

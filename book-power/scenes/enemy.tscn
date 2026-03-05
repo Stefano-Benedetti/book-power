@@ -1,8 +1,9 @@
-[gd_scene load_steps=61 format=3 uid="uid://bdyg3nigp8cpo"]
+[gd_scene load_steps=62 format=3 uid="uid://bdyg3nigp8cpo"]
 
 [ext_resource type="Script" uid="uid://b0ltilmtchiy4" path="res://script/enemy.gd" id="1_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://cg8df54io6358" path="res://art/enemy01_set.png" id="2_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://dme11xvx8gwup" path="res://art/nuvoletta.png" id="3_4ra3w"]
+[ext_resource type="PackedScene" uid="uid://b5u258nmsxnsu" path="res://scenes/enemy_cloud.tscn" id="4_5uy6h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtq4b"]
 atlas = ExtResource("2_4ra3w")
@@ -501,34 +502,13 @@ offset_top = -142.85724
 offset_right = 285.7143
 offset_bottom = 35.714233
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 34.999996
-offset_top = -49.999992
-offset_right = 42.499996
-offset_bottom = -42.499996
-
-[node name="TextureRect" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_left = -29.999996
-offset_top = -27.500004
-offset_right = 994.0
-offset_bottom = 996.5
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("3_4ra3w")
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "dfgdghdhdthtdh"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="enemy_cloud" parent="." instance=ExtResource("4_5uy6h")]
+visible = false
+offset_left = -17.500002
+offset_top = -200.0
+offset_right = 43.4375
+offset_bottom = -141.40625
+scale = Vector2(3.2, 3.2)
 
 [connection signal="body_entered" from="player_detection_area" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="player_detection_area" to="." method="_on_player_detection_area_body_entered"]
