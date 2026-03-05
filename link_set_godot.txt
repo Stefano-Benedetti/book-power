@@ -20,3 +20,6 @@ https://rad-potato.itch.io/pixel-perfect-button-kit
 
 enemy set link:
 https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generator/#sex=male&body=Body_color_light&head=Human_male_light&shadow=Shadow_shadow&eyebrows=Thick_Eyebrows_dark%20brown&mustache=Chevron_Mustache_gray&hair=Balding_gray&wrinkes=Wrinkles_light&clothes=Longsleeve_Polo_black&legs=Long_Pants_bluegray&shoes=Basic_Shoes_brown&belt=Other_belts_leather&expression=Angry_light
+
+health bar player link:
+https://redreeh.itch.io/pixelhpbars-16x64
