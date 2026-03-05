@@ -49,7 +49,7 @@ texture_normal = ExtResource("7_i3ajf")
 action = "inventario"
 
 [node name="pause" type="TouchScreenButton" parent="."]
-position = Vector2(10, 10)
+position = Vector2(392.99997, 11)
 scale = Vector2(1.342, 1.5)
 texture_normal = ExtResource("8_74ne6")
 action = "pause"

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+class_name Player
 #serve a altri nodi per identificare chi è entrato attraverso il "has_method()"
 func player():
 	pass
@@ -7,6 +8,10 @@ func player():
 
 const SPEED = 50
 var current_dir = "down"		#la inizializziamo giù
+
+@export var max_health = 50
+@onready var current_health: int = max_health
+signal health_changed
 
 @export var inv: Inv	#con questo possiamo richiamare le funzioni dell'inventario del player
 
@@ -71,3 +76,7 @@ func play_anim(movement):
 func collect(item):
 	var inserimento_riuscito = inv.insert(item)		#lo possiamo fare perchè abbiamo fatto sopra nel codice l'export di inv
 	return inserimento_riuscito
+
+func getHurt():
+	current_health -= 10
+	health_changed.emit()
