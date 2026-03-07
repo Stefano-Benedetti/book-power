@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddt8p6xegi0fy"]
+[gd_scene load_steps=8 format=3 uid="uid://ddt8p6xegi0fy"]
 
+[ext_resource type="Script" uid="uid://dy48v3egowa6p" path="res://script/attacco_libro_analisi.gd" id="1_m80u7"]
 [ext_resource type="Texture2D" uid="uid://df5d66bwbw4yn" path="res://art/coseno05.png" id="1_xixqy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m80u7"]
@@ -28,20 +29,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2i2eu"]
 size = Vector2(545, 26)
 
 [node name="attacco_libro_analisi" type="Node2D"]
+script = ExtResource("1_m80u7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(279, 0)
 sprite_frames = SubResource("SpriteFrames_ku17o")
-frame_progress = 0.60638124
+frame = 1
+frame_progress = 0.54506093
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, 0)
+position = Vector2(279.5, 0)
 shape = SubResource("RectangleShape2D_2i2eu")
