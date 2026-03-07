@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://da82dug1vut1e"]
 
-[ext_resource type="Script" uid="uid://dqr4datq5xmgq" path="res://menus/script/pause_menu.gd" id="1_slou4"]
+[ext_resource type="Script" uid="uid://dqr4datq5xmgq" path="res://art/script/pause_menu.gd" id="1_slou4"]
 [ext_resource type="Texture2D" uid="uid://4pe2csdghy84" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/p.png" id="2_8b56s"]
 [ext_resource type="Texture2D" uid="uid://b2yv7immxpekw" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/a.png" id="3_iu0tr"]
 [ext_resource type="Texture2D" uid="uid://cqn6g2l4hjsaf" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/u.png" id="4_cli0i"]
