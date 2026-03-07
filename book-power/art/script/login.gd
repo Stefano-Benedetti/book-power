@@ -22,11 +22,28 @@ func _on_back_pressed():
 func _on_FirebaseAuth_login_succeeded(auth):
 		# You do not need to call get_user_data() here, as auth is the same variable
 	print(auth)
-	
+	$Label.text = "Login succeeded!"
+
 func on_login_failed(error_code, message):
 	print("error code: " + str(error_code))
 	print("message: " + str(message))
+	if str(message) == "INVALID_LOGIN_CREDENTIALS" :
+		$Label.text = "Wrong password!"
+	elif str(message) == "MISSING_PASSWORD" or str(message) == "WEAK_PASSWORD : Password should be at least 6 characters" :
+		$Label.text = "Password should be at least 6 characters!"
+	elif str(message) == "MISSING_EMAIL" or str(message) == "INVALID_EMAIL":
+		$Label.text = "Invalid email!"
+	else :
+		$Label.text = "Login failed!"
 
 func on_signup_failed(error_code, message):
 	print("error code: " + str(error_code))
 	print("message: " + str(message))
+	if str(message) == "EMAIL_EXISTS" :
+		$Label.text = "This account already exists!"
+	elif str(message) == "MISSING_PASSWORD" or str(message) == "WEAK_PASSWORD : Password should be at least 6 characters" :
+		$Label.text = "Password should be at least 6 characters!"
+	elif str(message) == "MISSING_EMAIL" or str(message) == "INVALID_EMAIL":
+		$Label.text = "Invalid email!"
+	else :
+		$Label.text = "Registration failed!"

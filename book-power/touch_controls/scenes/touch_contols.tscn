@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4wlaldocgqtl"]
+[gd_scene load_steps=10 format=3 uid="uid://c4wlaldocgqtl"]
 
 [ext_resource type="Script" uid="uid://b7qmesbkenvo3" path="res://touch_controls/script/touch_contols.gd" id="1_tuipx"]
 [ext_resource type="Texture2D" uid="uid://dg3wp8bdsl2ww" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 controls/16x16 Control Buttons (43).png" id="2_vyact"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c8pew34idtkwj" path="res://art/pick_action_button.png" id="6_tuipx"]
 [ext_resource type="Texture2D" uid="uid://qes71p4y24df" path="res://art/button_inventario.png" id="7_i3ajf"]
 [ext_resource type="Texture2D" uid="uid://d11v5emakkqkw" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 menu icons/16x16 Menu Buttons (115).png" id="8_74ne6"]
+[ext_resource type="Texture2D" uid="uid://blqkb7t317x4j" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 controls/16x16 Control Buttons (27).png" id="9_q4btn"]
 
 [node name="touchContols" type="CanvasLayer"]
 script = ExtResource("1_tuipx")
@@ -16,24 +17,28 @@ script = ExtResource("1_tuipx")
 position = Vector2(160, 462)
 scale = Vector2(7, 7)
 texture_normal = ExtResource("2_vyact")
+passby_press = true
 action = "muovi_su"
 
 [node name="down" type="TouchScreenButton" parent="."]
 position = Vector2(160.00002, 575.00006)
 scale = Vector2(7, 7)
 texture_normal = ExtResource("3_tuipx")
+passby_press = true
 action = "muovi_giù"
 
 [node name="left" type="TouchScreenButton" parent="."]
 position = Vector2(39.999996, 575)
 scale = Vector2(7, 7)
 texture_normal = ExtResource("4_i3ajf")
+passby_press = true
 action = "muovi_a_sinistra"
 
 [node name="right" type="TouchScreenButton" parent="."]
 position = Vector2(280, 575.00006)
 scale = Vector2(7, 7)
 texture_normal = ExtResource("5_vyact")
+passby_press = true
 action = "muovi_a_destra"
 
 [node name="pick" type="TouchScreenButton" parent="."]
@@ -54,6 +59,12 @@ scale = Vector2(7, 7)
 texture_normal = ExtResource("8_74ne6")
 action = "pause"
 
+[node name="attack" type="TouchScreenButton" parent="."]
+position = Vector2(1008, 575)
+scale = Vector2(7, 7)
+texture_normal = ExtResource("9_q4btn")
+action = "attacca"
+
 [connection signal="pressed" from="up" to="." method="_on_up_pressed"]
 [connection signal="released" from="up" to="." method="_on_up_released"]
 [connection signal="pressed" from="down" to="." method="_on_down_pressed"]
@@ -68,3 +79,5 @@ action = "pause"
 [connection signal="released" from="inventory" to="." method="_on_inventory_released"]
 [connection signal="pressed" from="pause" to="." method="_on_pause_pressed"]
 [connection signal="released" from="pause" to="." method="_on_pause_released"]
+[connection signal="pressed" from="attack" to="." method="_on_attack_pressed"]
+[connection signal="released" from="attack" to="." method="_on_attack_released"]
