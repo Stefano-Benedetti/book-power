@@ -23,7 +23,6 @@ var can_move = true
 @onready var attacco_libro_analisi = preload("res://scenes/attacco_libro_analisi.tscn")
 
 func _ready():
-	print("connecting player")
 	Global.selected_slot_update.connect(updateSelectedItem)
 
 func _physics_process(delta: float):

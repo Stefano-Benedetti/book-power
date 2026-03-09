@@ -1,7 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddt8p6xegi0fy"]
+[gd_scene load_steps=16 format=3 uid="uid://ddt8p6xegi0fy"]
 
 [ext_resource type="Script" uid="uid://dy48v3egowa6p" path="res://script/attacco_libro_analisi.gd" id="1_m80u7"]
 [ext_resource type="Texture2D" uid="uid://df5d66bwbw4yn" path="res://art/coseno05.png" id="1_xixqy"]
+[ext_resource type="Texture2D" uid="uid://cuihy3v18axgg" path="res://art/coseno06.png" id="3_px3xj"]
+[ext_resource type="Texture2D" uid="uid://bp5anqfkatcid" path="res://art/coseno08.png" id="4_uwk18"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqsmo"]
+atlas = ExtResource("4_uwk18")
+region = Rect2(0, 0, 208, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jn1t8"]
+atlas = ExtResource("4_uwk18")
+region = Rect2(0, 28, 208, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ck4wg"]
+atlas = ExtResource("4_uwk18")
+region = Rect2(0, 56, 208, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m80u7"]
 atlas = ExtResource("1_xixqy")
@@ -15,8 +29,34 @@ region = Rect2(0, 28, 546, 28)
 atlas = ExtResource("1_xixqy")
 region = Rect2(0, 56, 546, 28)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku17o"]
+atlas = ExtResource("3_px3xj")
+region = Rect2(0, 0, 306, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i2eu"]
+atlas = ExtResource("3_px3xj")
+region = Rect2(0, 28, 306, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6a7j"]
+atlas = ExtResource("3_px3xj")
+region = Rect2(0, 56, 306, 28)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ku17o"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqsmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jn1t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ck4wg")
+}],
+"loop": true,
+"name": &"coseno08",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m80u7")
@@ -30,22 +70,42 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku17o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i2eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6a7j")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2i2eu"]
-size = Vector2(545, 26)
+size = Vector2(207.49998, 26)
 
 [node name="attacco_libro_analisi" type="Node2D"]
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_m80u7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(279, 0)
+position = Vector2(119.576965, 0)
 sprite_frames = SubResource("SpriteFrames_ku17o")
-frame = 1
-frame_progress = 0.54506093
+animation = &"coseno08"
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(279.5, 0)
+position = Vector2(118.74994, 0)
+scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_2i2eu")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

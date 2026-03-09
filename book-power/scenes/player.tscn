@@ -528,12 +528,13 @@ wait_time = 1.7999999999999998
 [node name="movementPostAttackCooldown" type="Timer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7.499999)
 sprite_frames = SubResource("SpriteFrames_y4r1p")
 animation = &"front_attack_spell"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-7.1054274e-14, 20)
+position = Vector2(0, 12.500005)
 rotation = 1.5707964
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CapsuleShape2D_g2els")

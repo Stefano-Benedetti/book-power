@@ -11,6 +11,7 @@ var current_dir = "down"		#la inizializziamo giù
 @export var max_health = 100
 @onready var current_health: int = max_health
 @onready var health_bar: TextureProgressBar=$enemy_health_bar
+var dead = false
 
 #variabili per collegarsi al player
 var player_in_area = false
@@ -26,13 +27,18 @@ var can_move = true
 @onready var nav_agent = $NavigationAgent2D  # Collegamento al nodo NavigationAgent2D
 
 
-
+func _ready():
+	nuvoletta.visible = false
 
 func _physics_process(delta: float):
 	manage_enemy(delta)
 
 func manage_enemy(delta):
-	if player_attackable and can_attack:
+	if dead:
+		return
+	elif current_health<=0:
+		die()
+	elif player_attackable and can_attack:
 		enemy_attack()
 	else:
 		if can_move:
@@ -165,8 +171,13 @@ func _on_attack_area_body_exited(body: Node2D) -> void:
 		player_attackable = false
 
 
-func getHurt():
-	print("ahia")
-	print(current_health)
-	current_health -= 10
+func getHurt(damage):
+	current_health -= damage
 	health_bar.update()
+
+func die():
+	dead = true
+	var anim = $AnimatedSprite2D
+	anim.play("die")
+	await get_tree().create_timer(2.0).timeout #crea un timer di due secondi e aspetta la fine
+	queue_free()
