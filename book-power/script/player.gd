@@ -31,7 +31,7 @@ func _physics_process(delta: float):
 	elif can_move:
 		player_movement(delta)
 
-func player_movement(delta):
+func player_movement(_delta):
 	if Input.is_action_pressed("muovi_a_destra"):
 		current_dir = "right"
 		play_anim(1, 0)

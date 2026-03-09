@@ -7,7 +7,7 @@ var player = null
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player_in_area:
 		if Input.is_action_just_pressed("Pick_object"):
 			var has_picked = player.collect(item)

@@ -32,7 +32,7 @@ func manage_slot_selection(new_selection_index):
 	Global.emit_signal("selected_slot_update", inv.slots[selectedItem_index])
 
 #in _process() "inventario" è il nome che ho dato all'azione quando premo i
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("inventario"):
 		if is_open:
 			close()

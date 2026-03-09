@@ -69,7 +69,7 @@ func enemy_attack():
 
 
 
-func enemy_movement(delta):
+func enemy_movement(_delta):
 	if player_in_area:
 		# Imposta la posizione target al player
 		nav_agent.target_position = player.global_position

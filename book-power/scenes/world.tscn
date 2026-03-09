@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bkr4aiyvfhvqs"]
+[gd_scene load_steps=28 format=4 uid="uid://bkr4aiyvfhvqs"]
 
 [ext_resource type="Texture2D" uid="uid://c63psyhe5s0k4" path="res://art/Little Dreamyland - Free Pack/Tileset/Autotile_Grass_and_Dirt_Path_Tileset.png" id="1_qfnet"]
 [ext_resource type="Texture2D" uid="uid://cpav256v07sbt" path="res://art/Little Dreamyland - Free Pack/Tileset/Crops_Tileset.png" id="2_i7141"]
@@ -881,18 +881,10 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
 agent_radius = 0.0
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_o8fc1"]
-vertices = PackedVector2Array(2, 2, -2, 2, -2, -2, 2, -2)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-2, -2, 2, -2, 2, 2, -2, 2)])
-agent_radius = 0.0
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fh13f"]
 texture = ExtResource("1_qfnet")
 13:5/0 = 0
 13:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_xo05s")
-53:21/0 = 0
-53:21/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_o8fc1")
 
 [sub_resource type="TileSet" id="TileSet_rup4s"]
 navigation_layer_0/layers = 1
@@ -903,7 +895,7 @@ y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
-position = Vector2(-18, -1)
+position = Vector2(32, -256)
 tile_set = SubResource("TileSet_lakw3")
 format = 2
 
@@ -926,20 +918,26 @@ tile_map_data = PackedByteArray("AAD+/wAAAAANAAUAAAD//wAAAAANAAUAAAAAAAAAAAANAAU
 tile_set = SubResource("TileSet_rup4s")
 
 [node name="player" parent="." instance=ExtResource("7_i7141")]
-position = Vector2(109, 110)
+position = Vector2(159, -144.99998)
 inv = ExtResource("8_jhx03")
 
 [node name="osso" parent="." instance=ExtResource("9_7r4gi")]
-position = Vector2(209, 138)
+position = Vector2(259, -117)
 
 [node name="osso2" parent="." instance=ExtResource("9_7r4gi")]
-position = Vector2(-29, 136)
+position = Vector2(21, -119)
 
 [node name="osso3" parent="." instance=ExtResource("9_7r4gi")]
-position = Vector2(-34, 171)
+position = Vector2(16, -84)
 
 [node name="osso4" parent="." instance=ExtResource("9_7r4gi")]
-position = Vector2(-30, 211)
+position = Vector2(20, -44)
+
+[node name="enemy" parent="." instance=ExtResource("12_q5onr")]
+position = Vector2(329.00003, -91.999985)
+
+[node name="libro_analisi" parent="." instance=ExtResource("16_dss4m")]
+position = Vector2(177, -112)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -969,6 +967,7 @@ offset_left = 1008.00006
 offset_top = 455.00003
 offset_right = 1046.0
 offset_bottom = 493.00003
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" parent="CanvasLayer2" node_paths=PackedStringArray("player") instance=ExtResource("14_dss4m")]
 offset_left = 20.0
@@ -979,9 +978,4 @@ player = NodePath("../../player")
 metadata/_edit_use_anchors_ = true
 
 [node name="pause_menu" parent="CanvasLayer2" instance=ExtResource("14_xo05s")]
-
-[node name="enemy" parent="." instance=ExtResource("12_q5onr")]
-position = Vector2(279.00003, 163)
-
-[node name="libro_analisi" parent="." instance=ExtResource("16_dss4m")]
-position = Vector2(127, 143)
+metadata/_edit_use_anchors_ = true
