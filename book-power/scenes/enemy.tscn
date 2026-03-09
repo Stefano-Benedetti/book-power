@@ -549,13 +549,6 @@ one_shot = true
 
 [node name="movementPostAttackCooldown" type="Timer" parent="."]
 
-[node name="enemy_cloud" parent="." instance=ExtResource("4_5uy6h")]
-offset_left = -17.500002
-offset_top = -200.0
-offset_right = 43.4375
-offset_bottom = -141.40625
-scale = Vector2(3.2, 3.2)
-
 [node name="enemy_health_bar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("enemy")]
 offset_left = -16.0
 offset_top = -47.5
@@ -568,8 +561,15 @@ texture_progress = ExtResource("5_xwavj")
 script = ExtResource("4_c4w8v")
 enemy = NodePath("..")
 
-[connection signal="body_entered" from="player_detection_area" to="." method="_on_area_2d_body_entered"]
+[node name="enemy_cloud" parent="." instance=ExtResource("4_5uy6h")]
+offset_left = 80.0
+offset_top = -100.00001
+offset_right = 80.0
+offset_bottom = -100.00001
+scale = Vector2(0.2, 0.2)
+
 [connection signal="body_entered" from="player_detection_area" to="." method="_on_player_detection_area_body_entered"]
+[connection signal="body_entered" from="player_detection_area" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="player_detection_area" to="." method="_on_player_detection_area_body_exited"]
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="attack_area" to="." method="_on_attack_area_body_exited"]

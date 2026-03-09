@@ -5,43 +5,46 @@
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchor_left = -0.016
-anchor_top = -0.11800001
-anchor_right = 0.030000001
-anchor_bottom = -0.044000003
-offset_left = -0.51999855
-offset_top = -0.039993286
-offset_right = -0.40000153
-offset_bottom = -0.3199978
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_j7pu4")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.5647059)
+self_modulate = Color(1, 1, 1, 0.76862746)
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.041
-anchor_bottom = 1.159
-offset_right = 962.581
-offset_bottom = 962.573
-scale = Vector2(0.06, 0.06)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_15d4g")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.051000003
-anchor_top = 0.17
-anchor_right = 1.0
-anchor_bottom = 0.887
-offset_left = -1.0090004
-offset_top = -8.009993
-offset_right = 190.82611
-offset_bottom = 162.68465
-scale = Vector2(0.23, 0.23)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -332.0
+offset_right = 431.0
+offset_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 80
 text = "giovani
 scansafatiche"
 horizontal_alignment = 1

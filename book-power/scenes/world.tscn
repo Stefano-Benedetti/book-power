@@ -936,6 +936,9 @@ position = Vector2(20, -44)
 [node name="enemy" parent="." instance=ExtResource("12_q5onr")]
 position = Vector2(329.00003, -91.999985)
 
+[node name="enemy2" parent="." instance=ExtResource("12_q5onr")]
+position = Vector2(371, -92)
+
 [node name="libro_analisi" parent="." instance=ExtResource("16_dss4m")]
 position = Vector2(177, -112)
 
