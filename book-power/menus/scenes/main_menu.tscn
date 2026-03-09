@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://j5rqm6aeahix"]
 
-[ext_resource type="Script" uid="uid://wnjq1xg4ef51" path="res://art/script/main_menu.gd" id="1_r3aaf"]
+[ext_resource type="Script" uid="uid://wnjq1xg4ef51" path="res://menus/script/main_menu.gd" id="1_r3aaf"]
 [ext_resource type="Texture2D" uid="uid://dluedb8fhxh35" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (9).png" id="2_5um5d"]
 [ext_resource type="Texture2D" uid="uid://dlf2cq25a58pt" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (8).png" id="2_hhkev"]
 [ext_resource type="Texture2D" uid="uid://c4nyotpyg4gwh" path="res://art/sfondo_main_menu.png" id="2_tx3dr"]

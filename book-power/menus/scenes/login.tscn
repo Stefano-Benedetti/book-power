@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c6hkiqvxdg518"]
 
-[ext_resource type="Script" uid="uid://d1gnb3hgbj284" path="res://art/script/login.gd" id="1_ydcfs"]
+[ext_resource type="Script" uid="uid://d1gnb3hgbj284" path="res://menus/script/login.gd" id="1_ydcfs"]
 [ext_resource type="Texture2D" uid="uid://c4nyotpyg4gwh" path="res://art/sfondo_main_menu.png" id="2_d2vhw"]
 [ext_resource type="Texture2D" uid="uid://bf1vuf6xsmcyd" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (55).png" id="2_pknag"]
 [ext_resource type="Texture2D" uid="uid://clfl4uo6s1kjh" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (54).png" id="3_d2vhw"]

@@ -12,6 +12,8 @@ var current_dir = "down"		#la inizializziamo giù
 @export var max_health = 100
 @onready var current_health: int = max_health
 signal health_changed	#questo serve per aggiornare la health bar
+signal death
+var dead = false
 
 @export var inv: Inv	#con questo possiamo richiamare le funzioni dell'inventario del player
 @export var selected_item: InvItem 
@@ -30,6 +32,10 @@ func _physics_process(delta: float):
 		attacca()
 	elif can_move:
 		player_movement(delta)
+		
+	if current_health <= 0 and !dead :
+		Global.emit_signal("death")
+		dead = true
 
 func player_movement(_delta):
 	if Input.is_action_pressed("muovi_a_destra"):

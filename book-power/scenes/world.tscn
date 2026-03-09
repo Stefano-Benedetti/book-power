@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bkr4aiyvfhvqs"]
+[gd_scene load_steps=29 format=4 uid="uid://bkr4aiyvfhvqs"]
 
 [ext_resource type="Texture2D" uid="uid://c63psyhe5s0k4" path="res://art/Little Dreamyland - Free Pack/Tileset/Autotile_Grass_and_Dirt_Path_Tileset.png" id="1_qfnet"]
 [ext_resource type="Texture2D" uid="uid://cpav256v07sbt" path="res://art/Little Dreamyland - Free Pack/Tileset/Crops_Tileset.png" id="2_i7141"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c78woh6vfcevh" path="res://scenes/player_health_bar.tscn" id="14_dss4m"]
 [ext_resource type="PackedScene" uid="uid://da82dug1vut1e" path="res://menus/scenes/pause_menu.tscn" id="14_xo05s"]
 [ext_resource type="PackedScene" uid="uid://4q20bgjmsri5" path="res://scenes/libro_analisi.tscn" id="16_dss4m"]
+[ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="17_7t5mc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5onr"]
 texture = ExtResource("1_qfnet")
@@ -981,4 +982,12 @@ player = NodePath("../../player")
 metadata/_edit_use_anchors_ = true
 
 [node name="pause_menu" parent="CanvasLayer2" instance=ExtResource("14_xo05s")]
+visible = false
 metadata/_edit_use_anchors_ = true
+
+[node name="gameover_menu" parent="CanvasLayer2" instance=ExtResource("17_7t5mc")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
