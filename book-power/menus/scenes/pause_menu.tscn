@@ -19,6 +19,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [node name="pause_menu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

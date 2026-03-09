@@ -34,7 +34,7 @@ func on_login_failed(error_code, message):
 	elif str(message) == "MISSING_EMAIL" or str(message) == "INVALID_EMAIL":
 		$Label.text = "Invalid email!"
 	else :
-		$Label.text = "Login failed!"
+		$Label.text = "Login failed: "+str(message)
 
 func on_signup_failed(error_code, message):
 	print("error code: " + str(error_code))
@@ -46,4 +46,4 @@ func on_signup_failed(error_code, message):
 	elif str(message) == "MISSING_EMAIL" or str(message) == "INVALID_EMAIL":
 		$Label.text = "Invalid email!"
 	else :
-		$Label.text = "Registration failed!"
+		$Label.text = "Registration failed: "+str(message)
