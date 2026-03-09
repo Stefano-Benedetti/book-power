@@ -44,5 +44,3 @@ probabilmente no:
 attacco fondamenti di informatica: double linked list che parte dal player e colpisce sia avanti che indietro (tra i pallini c'è il doppio collegamento)
 attacco elettrotecnica: attacco con fulmine dal cielo.
 attacco economia: lasci una moneta per qualche secondo e tutti i nemici a una certa distanza vanno dalla moneta smettendo di attaccarti.
-
-
