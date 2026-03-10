@@ -528,19 +528,20 @@ wait_time = 0.3
 [node name="movementPostAttackCooldown" type="Timer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -7.499999)
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_y4r1p")
-animation = &"front_attack_spell"
+animation = &"front_idle"
+offset = Vector2(0, -26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, 12.500005)
+position = Vector2(0, -7.4999957)
 rotation = 1.5707964
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CapsuleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-4.053116e-06, 3.5762787e-06)
+position = Vector2(-4.053116e-06, -14.999992)
 zoom = Vector2(4, 4)
 
 [connection signal="timeout" from="attackCooldown" to="." method="_on_attack_cooldown_timeout"]
