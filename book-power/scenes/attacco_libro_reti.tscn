@@ -1,7 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbgtbytgp1vqu"]
+[gd_scene load_steps=15 format=3 uid="uid://cbgtbytgp1vqu"]
 
 [ext_resource type="Texture2D" uid="uid://bh6y41u04ehnj" path="res://art/attacco_reti04.png" id="1_5i3h5"]
 [ext_resource type="Script" uid="uid://3ipg23ymjegj" path="res://script/attacco_libro_reti.gd" id="1_56g6o"]
+[ext_resource type="Texture2D" uid="uid://dd05rqy1rmob7" path="res://art/Pixel Explosions Free Pack/Pixel Explosions Free Pack/PNGs/biggerboom/biggerboom1.png" id="2_x3aex"]
+[ext_resource type="Texture2D" uid="uid://on2maypdbvpw" path="res://art/Pixel Explosions Free Pack/Pixel Explosions Free Pack/PNGs/biggerboom/biggerboom2.png" id="3_iuhqb"]
+[ext_resource type="Texture2D" uid="uid://dsvln7lopewr2" path="res://art/Pixel Explosions Free Pack/Pixel Explosions Free Pack/PNGs/biggerboom/biggerboom3.png" id="4_25vsf"]
+[ext_resource type="Texture2D" uid="uid://bkdpec0ca22id" path="res://art/Pixel Explosions Free Pack/Pixel Explosions Free Pack/PNGs/biggerboom/biggerboom4.png" id="5_c5yu8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucagq"]
+atlas = ExtResource("2_x3aex")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd2wt"]
+atlas = ExtResource("3_iuhqb")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46udd"]
+atlas = ExtResource("4_25vsf")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2drwq"]
+atlas = ExtResource("5_c5yu8")
+region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_56g6o"]
 atlas = ExtResource("1_5i3h5")
@@ -13,9 +33,21 @@ region = Rect2(0, 19, 31, 19)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dtfpi"]
 animations = [{
-"frames": [],
-"loop": true,
-"name": &"esplosione",
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucagq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd2wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46udd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2drwq")
+}],
+"loop": false,
+"name": &"explosion",
 "speed": 5.0
 }, {
 "frames": [{
@@ -27,7 +59,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"in_movement",
-"speed": 4.0
+"speed": 6.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5i3h5"]
@@ -40,8 +72,6 @@ script = ExtResource("1_56g6o")
 scale = Vector2(0.335, 0.335)
 sprite_frames = SubResource("SpriteFrames_dtfpi")
 animation = &"in_movement"
-frame = 1
-frame_progress = 0.11116394
 
 [node name="Area2D" type="Area2D" parent="."]
 

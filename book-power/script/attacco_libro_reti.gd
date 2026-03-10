@@ -2,12 +2,13 @@ extends CharacterBody2D
 
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var explosion_area: Area2D = $Area2D
 
 const DAMAGE = 50
-var speed = 150
+var speed = 100
 var target: Node2D = null
 var exploding = false
-var explosion_distance = 10
+var explosion_distance = 5
 
 
 func _ready():
@@ -18,6 +19,8 @@ func find_closest_enemy():
 	var dist = INF
 	for e in get_tree().get_nodes_in_group("enemies"):
 		if !is_instance_valid(e):
+			continue
+		if e.dead: #non accoppiarlo con l'if sopra o può dare errori con null
 			continue
 		var d = global_position.distance_to(e.global_position)
 		if d < dist:
@@ -30,10 +33,15 @@ func find_closest_enemy():
 		queue_free()
 
 
+
 func _physics_process(delta):
 	if exploding:
 		return
+	movement()
 
+
+func movement():
+	sprite.play("in_movement")
 	# se il nemico non è più in memoria (è morto), trovane un altro
 	if !is_instance_valid(target):
 		find_closest_enemy()
@@ -55,12 +63,15 @@ func _physics_process(delta):
 	move_and_slide()
 
 func explode():
-
 	exploding = true
 	velocity = Vector2.ZERO
-
-	sprite.play("esplodi")
-
+	# attiva l'area e rileva i nemici
+	explosion_area.monitoring = true
+	var bodies = explosion_area.get_overlapping_bodies()
+	for body in bodies:
+		if body.has_method("enemy"):  # controlla che sia un nemico
+			body.getHurt(DAMAGE)
+	
+	sprite.play("explosion")
 	await sprite.animation_finished
-
 	queue_free()

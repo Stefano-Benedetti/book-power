@@ -23,3 +23,6 @@ https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generato
 
 health bar player link:
 https://makertech.itch.io/additional-art-for-godot-4-tutorial/download/eyJleHBpcmVzIjoxNzcyNzIyMTIxLCJpZCI6MjE3NjEwOH0%3d.mogF7%2bVuzY2Wzr4zDjG2Q8v7rg4%3d
+
+explosion asset link:
+https://darkcesium.itch.io/pixel-art-explosions-free-pack
