@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbgtbytgp1vqu"]
+
+[ext_resource type="Texture2D" uid="uid://bh6y41u04ehnj" path="res://art/attacco_reti04.png" id="1_5i3h5"]
+[ext_resource type="Script" uid="uid://3ipg23ymjegj" path="res://script/attacco_libro_reti.gd" id="1_56g6o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56g6o"]
+atlas = ExtResource("1_5i3h5")
+region = Rect2(0, 0, 31, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0ka1"]
+atlas = ExtResource("1_5i3h5")
+region = Rect2(0, 19, 31, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dtfpi"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"esplosione",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56g6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0ka1")
+}],
+"loop": true,
+"name": &"in_movement",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5i3h5"]
+radius = 11.18034
+
+[node name="attacco_libro_reti" type="CharacterBody2D"]
+script = ExtResource("1_56g6o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.335, 0.335)
+sprite_frames = SubResource("SpriteFrames_dtfpi")
+animation = &"in_movement"
+frame = 1
+frame_progress = 0.11116394
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_5i3h5")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 4.0
+target_desired_distance = 8.0

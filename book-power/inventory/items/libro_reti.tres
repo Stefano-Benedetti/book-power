@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://tp2c0rn5fbwv"]
+
+[ext_resource type="Script" uid="uid://dgjp33lf1xt56" path="res://inventory/script/invetory_item_resource.gd" id="1_08ruv"]
+[ext_resource type="Texture2D" uid="uid://cgx0iaqnk5lx5" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/libro_reti.png" id="2_k4ows"]
+
+[resource]
+script = ExtResource("1_08ruv")
+name = "libro_reti"
+texture = ExtResource("2_k4ows")

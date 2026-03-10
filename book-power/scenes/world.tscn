@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://bkr4aiyvfhvqs"]
+[gd_scene load_steps=31 format=4 uid="uid://bkr4aiyvfhvqs"]
 
 [ext_resource type="Texture2D" uid="uid://c63psyhe5s0k4" path="res://art/Little Dreamyland - Free Pack/Tileset/Autotile_Grass_and_Dirt_Path_Tileset.png" id="1_qfnet"]
 [ext_resource type="Texture2D" uid="uid://cpav256v07sbt" path="res://art/Little Dreamyland - Free Pack/Tileset/Crops_Tileset.png" id="2_i7141"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://4q20bgjmsri5" path="res://scenes/libro_analisi.tscn" id="16_dss4m"]
 [ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="17_7t5mc"]
 [ext_resource type="PackedScene" uid="uid://c2fwthkouehnh" path="res://scenes/libro_asd.tscn" id="18_lakw3"]
+[ext_resource type="PackedScene" uid="uid://nqa5yxjsvvh8" path="res://scenes/libro_reti.tscn" id="19_pm21f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5onr"]
 texture = ExtResource("1_qfnet")
@@ -995,3 +996,6 @@ anchor_bottom = 0.5
 
 [node name="libro_asd" parent="." instance=ExtResource("18_lakw3")]
 position = Vector2(206, -151)
+
+[node name="libro_reti" parent="." instance=ExtResource("19_pm21f")]
+position = Vector2(140, -157)

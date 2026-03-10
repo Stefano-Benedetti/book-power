@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://nqa5yxjsvvh8"]
+
+[ext_resource type="Script" uid="uid://cxlhthcw8klli" path="res://script/libro_reti.gd" id="1_l2523"]
+[ext_resource type="Resource" uid="uid://tp2c0rn5fbwv" path="res://inventory/items/libro_reti.tres" id="2_456tt"]
+[ext_resource type="Texture2D" uid="uid://cgx0iaqnk5lx5" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/libro_reti.png" id="2_p7hs1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_456tt"]
+radius = 8.0
+
+[node name="libro_reti" type="Node2D"]
+script = ExtResource("1_l2523")
+item = ExtResource("2_456tt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("2_p7hs1")
+
+[node name="PickableArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickableArea"]
+shape = SubResource("CircleShape2D_456tt")
+
+[connection signal="body_entered" from="PickableArea" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="PickableArea" to="." method="_on_pickable_area_body_exited"]

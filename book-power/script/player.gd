@@ -24,6 +24,7 @@ var can_move = true
 @onready var mov_cooldown: Timer=$movementPostAttackCooldown
 @onready var attacco_libro_analisi = preload("res://scenes/attacco_libro_analisi.tscn")
 @onready var attacco_libro_asd = preload("res://scenes/attacco_libro_asd.tscn")
+@onready var attacco_libro_reti = preload("res://scenes/attacco_libro_reti.tscn")
 
 func _ready():
 	Global.selected_slot_update.connect(updateSelectedItem)
@@ -101,6 +102,16 @@ func attacca():
 			"down":
 				scena_attacco_asd.rotation_degrees = 90
 		get_tree().current_scene.add_child(scena_attacco_asd)
+		
+		can_attack = false
+		can_move = false
+		attacck_cooldown.start()  # Avvia il timer
+		mov_cooldown.start()
+		play_anim(0, 1)
+	elif selected_item.name == "libro_reti":
+		var scena_attacco_reti = attacco_libro_reti.instantiate()
+		scena_attacco_reti.global_position = global_position
+		get_tree().current_scene.add_child(scena_attacco_reti)
 		
 		can_attack = false
 		can_move = false
