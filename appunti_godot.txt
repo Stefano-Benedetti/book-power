@@ -31,16 +31,59 @@ NOTA: visto che inv_ui e selectedItem_slot non si possono parlare direttamente a
 
 IDEE principali:
 attacco analisi: sinusoide che parte dal player e va in una direzione.
-attacco fisica: attacco normale ma con forza aumentata.
+attacco elettrotecnica: attacco con fulmini intorno al player (se non lo trovo allora dal cielo).
 attacco asd: albero binario la cui radice parte dal player
 attacco reti di calcolatori: lancia un pacchetto bomba al nemico più vicino
 
 Forse:
 attacco ricerca operativa: aumenta velocità di movimento e di attacco (ottimizzazione)
-attacco sistemi operativi: fa l'attacco "I use arch btw" che danneggia i nemici nelle vicinanze del player
+attacco fisica: attacco normale ma con forza aumentata.
 attacco telecomunicazioni: fa l'attacco normale, quando uccide un nemico ne fa la trasformata e questo diventa tuo alleato per qualche secondo, poi muore definitivamente.
 
 probabilmente no:
 attacco fondamenti di informatica: double linked list che parte dal player e colpisce sia avanti che indietro (tra i pallini c'è il doppio collegamento)
-attacco elettrotecnica: attacco con fulmine dal cielo.
+attacco sistemi operativi: fa l'attacco "I use arch btw" che danneggia i nemici nelle vicinanze del player
 attacco economia: lasci una moneta per qualche secondo e tutti i nemici a una certa distanza vanno dalla moneta smettendo di attaccarti.
+
+
+dati da salvare:
+stato attuale della scena corrente.
+se non è possibile salvare l'intero stato della scena corrente allora si userà la mappa e lo stato in cui questa è stata raggiunta come checkpoint, ovvero si salveà:
+mappa raggiunta
+vita quando si ha raggiunto quella mappa
+inventario quando si ha raggiunto quella mappa
+
+
+
+storia del gioco
+inizio: introduzione scritta accompagnata da immagini con lui che si addormenta. inventario vuoto.
+un NPC (amico o professore, o studente fuori corso) ti parla di come combattere i vecchi e alla fine del dialogo ti droppa il libro di analisi.
+
+ci saranno una mappa per ogni libro +1 (per una boss fight finale per sbloccare messageGPT)
+difficoltà di ogni mappa via via crescente
+
+nemici: vecchietto base, robot che controlla un'area e fa danno, boss ansia (altrimenti tesi o altra roba così)
+
+armi: libro di analisi, libro di asd, libro di reti
+elementi per avanzare: libro di automatica (serve per spegnere il robot e passare), altre chiavi
+elementi aggiuntivi: pozioni curative (droppate da ogni vecchietto morto)
+
+mappa01:
+spawni, l'NPC all'inizio ti droppa il libro di analisi, l'uscita è bloccata da diversi nemici (che torneranno nella posizione di spawn se non vedono il player)
+
+mappa02 (livello di elettrotecnica):
+spawni, all'uscita c'è un NPC che dice che per uscire serve azionare un meccanismo elettronico e che qualcuno ha fregato le conoscenze per azionare tale meccanismo.
+il player dovrà uccidere tutti i nemici presenti e solo l'ultimo avrà il libro di elettrotecnica con il quale possiamo azionare il meccanismo e avanzare.
+
+mappa03 (livello di automatica e ASD):
+spawni, all'inizio c'è l'NPC che ti dice che c'è un robot impazzito e indistruttibile che spara/picchia chiunque prova a passare per l'uscita. Per riparare il robot
+serve il libro di automatica che sarà sotto chiave in una chest. la chiave andrà trovata in giro. Una volta usato il libro di automatica sul robot questo sarà riparato
+e lo vorrà consultare, il player decide di regalarlo al robot e il robot in cambio gli da il libro di ASD.
+
+mappa04 + mappa04bis(caverna) (livello di reti):
+spawni, all'uscita c'è un pc parlante che ti dice che un robot impazzito ha spento tutti i dispositivi presenti nella sua LAN. il player dovrà accendere prima tutti i pc,
+poi il router. poi all'uscita il pc parlante dice che la LAN ancora non funzione e quindi forse uno dei suo access point è stato spostato.
+Per renderlo raggiungibile il player dovrà prendere l'access point da dentro una caverna (mappa04bis) e portarlo in un determinato punto fuori.
+Tornando all'uscita il pc parlante dirà che hai la stoffa per le reti e ti regala il libro di reti.
+
+mappa05 (arena boss fight):

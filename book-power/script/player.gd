@@ -20,6 +20,7 @@ var dead = false
 
 var can_attack = true
 var can_move = true
+var offset_attacchi = Vector2(0, -7)
 @onready var attacck_cooldown: Timer=$attackCooldown
 @onready var mov_cooldown: Timer=$movementPostAttackCooldown
 @onready var attacco_libro_analisi = preload("res://scenes/attacco_libro_analisi.tscn")
@@ -72,7 +73,7 @@ func attacca():
 		return
 	elif selected_item.name == "libro_analisi":
 		var scena_attacco_analisi = attacco_libro_analisi.instantiate()
-		scena_attacco_analisi.global_position = global_position
+		scena_attacco_analisi.global_position = global_position + offset_attacchi
 		match current_dir:
 			"right":
 				scena_attacco_analisi.rotation_degrees = 0
@@ -91,7 +92,7 @@ func attacca():
 		play_anim(0, 1)
 	elif selected_item.name == "libro_asd":
 		var scena_attacco_asd = attacco_libro_asd.instantiate()
-		scena_attacco_asd.global_position = global_position
+		scena_attacco_asd.global_position = global_position + offset_attacchi
 		match current_dir:
 			"right":
 				scena_attacco_asd.rotation_degrees = 0
@@ -110,7 +111,7 @@ func attacca():
 		play_anim(0, 1)
 	elif selected_item.name == "libro_reti":
 		var scena_attacco_reti = attacco_libro_reti.instantiate()
-		scena_attacco_reti.global_position = global_position
+		scena_attacco_reti.global_position = global_position + offset_attacchi
 		get_tree().current_scene.add_child(scena_attacco_reti)
 		
 		can_attack = false

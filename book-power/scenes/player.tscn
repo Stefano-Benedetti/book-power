@@ -523,7 +523,6 @@ script = ExtResource("1_g2els")
 inv = SubResource("Resource_dqkch")
 
 [node name="attackCooldown" type="Timer" parent="."]
-wait_time = 0.3
 
 [node name="movementPostAttackCooldown" type="Timer" parent="."]
 
