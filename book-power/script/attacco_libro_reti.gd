@@ -13,6 +13,9 @@ var explosion_distance = 5
 
 func _ready():
 	find_closest_enemy()
+	await get_tree().create_timer(1.5).timeout
+	if !exploding :
+		explode()
 
 func find_closest_enemy():
 	var closest = null
@@ -29,6 +32,7 @@ func find_closest_enemy():
 	target = closest
 	if target:
 		agent.target_position = target.global_position
+		$timer_sonoro.play()
 	else:
 		queue_free()
 
@@ -46,7 +50,7 @@ func movement():
 	if !is_instance_valid(target):
 		find_closest_enemy()
 		return
-
+	
 	# aggiorna il target continuamente
 	agent.target_position = target.global_position
 
@@ -71,7 +75,8 @@ func explode():
 	for body in bodies:
 		if body.has_method("enemy"):  # controlla che sia un nemico
 			body.getHurt(DAMAGE)
-	
+	$timer_sonoro.stop()
+	$esplosione.play()
 	sprite.play("explosion")
 	await sprite.animation_finished
 	queue_free()

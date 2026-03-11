@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bu8o3skec1own"
+path="res://.godot/imported/freesound_community-sortdemo_qb45_bubble-33039.mp3-73d7782ab9dddb8345cf3b2be46ef5e7.mp3str"
+
+[deps]
+
+source_file="res://sound/sound effects/freesound_community-sortdemo_qb45_bubble-33039.mp3"
+dest_files=["res://.godot/imported/freesound_community-sortdemo_qb45_bubble-33039.mp3-73d7782ab9dddb8345cf3b2be46ef5e7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

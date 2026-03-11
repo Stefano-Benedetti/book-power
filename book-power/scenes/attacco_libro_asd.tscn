@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://blkx8eeratfr0"]
+[gd_scene load_steps=10 format=3 uid="uid://blkx8eeratfr0"]
 
 [ext_resource type="Texture2D" uid="uid://bfehkt0i82cfo" path="res://art/albero_binario06.png" id="1_63mu0"]
 [ext_resource type="Script" uid="uid://jrgru5da3thu" path="res://script/attacco_libro_asd.gd" id="1_rrpl6"]
+[ext_resource type="AudioStream" uid="uid://bu8o3skec1own" path="res://sound/sound effects/freesound_community-sortdemo_qb45_bubble-33039.mp3" id="3_nnq8a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rrpl6"]
 atlas = ExtResource("1_63mu0")
@@ -63,5 +64,9 @@ collision_mask = 2
 position = Vector2(48.999996, 2.2649765e-06)
 scale = Vector2(3.6, 4.7999997)
 polygon = PackedVector2Array(8.611112, -9.375, -1.3888879, -6.250001, -9.72222, -4.7187012e-07, -1.3888879, 5.833333, 8.611112, 8.958334)
+
+[node name="FreesoundCommunitySortdemoQb45Bubble33039" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nnq8a")
+bus = &"Effects"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

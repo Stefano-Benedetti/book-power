@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddt8p6xegi0fy"]
+[gd_scene load_steps=9 format=3 uid="uid://ddt8p6xegi0fy"]
 
 [ext_resource type="Script" uid="uid://dy48v3egowa6p" path="res://script/attacco_libro_analisi.gd" id="1_m80u7"]
+[ext_resource type="AudioStream" uid="uid://cqc6dmtoykdpf" path="res://sound/sound effects/freesound_community-300hz-91946.mp3" id="3_px3xj"]
 [ext_resource type="Texture2D" uid="uid://bp5anqfkatcid" path="res://art/coseno08.png" id="4_uwk18"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqsmo"]
@@ -52,6 +53,10 @@ collision_mask = 2
 position = Vector2(118.74994, 0)
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_2i2eu")
+
+[node name="FreesoundCommunity300Hz91946" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_px3xj")
+bus = &"Effects"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

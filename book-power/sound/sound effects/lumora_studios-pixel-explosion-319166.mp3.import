@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b87lrl041cuf2"
+path="res://.godot/imported/lumora_studios-pixel-explosion-319166.mp3-4a5b51408bed6b1cb1f75d718c2675c1.mp3str"
+
+[deps]
+
+source_file="res://sound/sound effects/lumora_studios-pixel-explosion-319166.mp3"
+dest_files=["res://.godot/imported/lumora_studios-pixel-explosion-319166.mp3-4a5b51408bed6b1cb1f75d718c2675c1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

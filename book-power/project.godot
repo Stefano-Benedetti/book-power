@@ -17,13 +17,13 @@ config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout=""
+buses/default_bus_layout="uid://bm2rfgtrvev5u"
 
 [autoload]
 
 Global="*res://script/global.gd"
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
-Musica1="*res://scenes/musica1.tscn"
+Musica="*res://sound/scenes/musica.tscn"
 
 [display]
 
