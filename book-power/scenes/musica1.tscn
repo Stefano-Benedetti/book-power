@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgwn83ylacieg"]
+
+[ext_resource type="AudioStream" uid="uid://ds0pymu3yhbij" path="res://art/sound/viacheslavstarostin-game-gaming-video-game-music-471936.mp3" id="1_yrbea"]
+
+[node name="Musica" type="AudioStreamPlayer"]
+stream = ExtResource("1_yrbea")
+volume_db = -15.0
+autoplay = true
+parameters/looping = true

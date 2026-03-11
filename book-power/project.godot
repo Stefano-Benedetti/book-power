@@ -23,6 +23,7 @@ buses/default_bus_layout=""
 
 Global="*res://script/global.gd"
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
+Musica1="*res://scenes/musica1.tscn"
 
 [display]
 

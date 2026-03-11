@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://x5ebc5rwbyr5"]
+
+[ext_resource type="Texture2D" uid="uid://c4nyotpyg4gwh" path="res://art/sfondo_main_menu.png" id="1_d7pa6"]
+[ext_resource type="Script" uid="uid://iu7nyna05gc1" path="res://menus/script/settings_menu.gd" id="1_e7opy"]
+[ext_resource type="Texture2D" uid="uid://bf1vuf6xsmcyd" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (55).png" id="3_ux87g"]
+[ext_resource type="Texture2D" uid="uid://clfl4uo6s1kjh" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (54).png" id="4_5icng"]
+
+[node name="settings_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e7opy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1536.0
+offset_bottom = 1024.0
+scale = Vector2(0.8333412, 0.7053404)
+texture = ExtResource("1_d7pa6")
+stretch_mode = 5
+flip_h = true
+
+[node name="global_volume" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = 3.0
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+max_value = 1.0
+step = 0.01
+
+[node name="Label" type="Label" parent="global_volume"]
+layout_mode = 0
+offset_top = -22.5
+offset_right = 224.0
+offset_bottom = 23.5
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 32
+text = "Global volume"
+
+[node name="back" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 107.0
+offset_bottom = 84.0
+scale = Vector2(3.0000012, 3.0000007)
+texture_normal = ExtResource("3_ux87g")
+texture_pressed = ExtResource("4_5icng")
+stretch_mode = 5
+
+[connection signal="value_changed" from="global_volume" to="." method="_on_global_volume_value_changed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
