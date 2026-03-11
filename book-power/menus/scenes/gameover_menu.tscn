@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://by36h6nmutin4"]
+[gd_scene load_steps=13 format=3 uid="uid://by36h6nmutin4"]
 
 [ext_resource type="Texture2D" uid="uid://cgrjcvtsfkyt" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/g.png" id="1_fagdr"]
 [ext_resource type="Script" uid="uid://dndphvq7dcr5w" path="res://menus/script/gameover_menu.gd" id="1_ji7v3"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://58u7lcwmxq8t" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/r.png" id="7_f2vcy"]
 [ext_resource type="Texture2D" uid="uid://byffgodiwj4fc" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (13).png" id="8_sgubr"]
 [ext_resource type="Texture2D" uid="uid://sdjpvu8apjsl" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (12).png" id="9_rci5k"]
+[ext_resource type="AudioStream" uid="uid://b3hmv7ngh3job" path="res://sound/sound effects/alphix-game-over-417465.mp3" id="11_d2sfi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vstnp"]
 bg_color = Color(0.45882353, 0.6, 0.37254903, 0.8666667)
@@ -149,5 +150,9 @@ grow_vertical = 2
 texture_normal = ExtResource("8_sgubr")
 texture_pressed = ExtResource("9_rci5k")
 stretch_mode = 5
+
+[node name="AlphixGameOver417465" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_d2sfi")
+bus = &"Effects"
 
 [connection signal="pressed" from="ok" to="." method="_on_ok_pressed"]

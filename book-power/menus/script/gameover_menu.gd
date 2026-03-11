@@ -15,6 +15,7 @@ func _process(_delta):
 func open():
 	get_tree().paused = true
 	show()
+	$AlphixGameOver417465.play()
 	
 func _on_ok_pressed():
 	get_tree().paused = false

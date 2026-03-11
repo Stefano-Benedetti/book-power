@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3hmv7ngh3job"
+path="res://.godot/imported/alphix-game-over-417465.mp3-3aa41a861a52e895d47ffbd06608bbc5.mp3str"
+
+[deps]
+
+source_file="res://sound/sound effects/alphix-game-over-417465.mp3"
+dest_files=["res://.godot/imported/alphix-game-over-417465.mp3-3aa41a861a52e895d47ffbd06608bbc5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
