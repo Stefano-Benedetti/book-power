@@ -27,5 +27,5 @@ https://makertech.itch.io/additional-art-for-godot-4-tutorial/download/eyJleHBpc
 explosion asset link:
 https://darkcesium.itch.io/pixel-art-explosions-free-pack
 
-house01 image link:
-https://therustyart.itch.io/a-top-down-pixel-art-house
+asset pixel crawler (per le case) link:
+https://anokolisa.itch.io/free-pixel-art-asset-pack-topdown-tileset-rpg-16x16-sprites
