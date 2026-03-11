@@ -91,4 +91,5 @@ bus = &"Effects"
 [node name="timer_sonoro" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_25vsf")
 volume_db = -15.0
+bus = &"Effects"
 parameters/looping = false
