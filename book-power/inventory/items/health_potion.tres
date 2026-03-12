@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://diilydmty2tfg"]
+
+[ext_resource type="Script" uid="uid://dgjp33lf1xt56" path="res://inventory/script/invetory_item_resource.gd" id="1_wx2kq"]
+[ext_resource type="Texture2D" uid="uid://dss8n6oo7v2gl" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/potion_02a.png" id="2_lde0l"]
+
+[resource]
+script = ExtResource("1_wx2kq")
+name = "health_potion"
+texture = ExtResource("2_lde0l")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bxj0m0tvjw7xn"]
+
+[ext_resource type="Script" uid="uid://dgjp33lf1xt56" path="res://inventory/script/invetory_item_resource.gd" id="1_rxats"]
+[ext_resource type="Texture2D" uid="uid://dmg4qos1f33p2" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/key_01d.png" id="2_j7y20"]
+
+[resource]
+script = ExtResource("1_rxats")
+name = "key01"
+texture = ExtResource("2_j7y20")

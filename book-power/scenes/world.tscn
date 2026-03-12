@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://bkr4aiyvfhvqs"]
+[gd_scene load_steps=35 format=4 uid="uid://bkr4aiyvfhvqs"]
 
 [ext_resource type="Texture2D" uid="uid://c63psyhe5s0k4" path="res://art/Little Dreamyland - Free Pack/Tileset/Autotile_Grass_and_Dirt_Path_Tileset.png" id="1_qfnet"]
 [ext_resource type="Texture2D" uid="uid://cpav256v07sbt" path="res://art/Little Dreamyland - Free Pack/Tileset/Crops_Tileset.png" id="2_i7141"]
@@ -19,7 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="17_7t5mc"]
 [ext_resource type="PackedScene" uid="uid://c2fwthkouehnh" path="res://scenes/libro_asd.tscn" id="18_lakw3"]
 [ext_resource type="PackedScene" uid="uid://nqa5yxjsvvh8" path="res://scenes/libro_reti.tscn" id="19_pm21f"]
-[ext_resource type="PackedScene" path="res://scenes/libro_elettrotecnica.tscn" id="20_2lf6f"]
+[ext_resource type="PackedScene" uid="uid://dwroxtcbkxdus" path="res://scenes/libro_elettrotecnica.tscn" id="20_2lf6f"]
+[ext_resource type="PackedScene" uid="uid://s4sgnvd5jpqj" path="res://scenes/health_potion.tscn" id="21_7iits"]
+[ext_resource type="PackedScene" uid="uid://crkdwpc8kmk48" path="res://scenes/key_01.tscn" id="22_oo54l"]
+[ext_resource type="PackedScene" uid="uid://bm3suhb0o6ksq" path="res://scenes/chest.tscn" id="23_kpybi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5onr"]
 texture = ExtResource("1_qfnet")
@@ -1002,3 +1005,12 @@ position = Vector2(140, -157)
 
 [node name="libro_elettrotecnica" parent="." instance=ExtResource("20_2lf6f")]
 position = Vector2(129, -118)
+
+[node name="health_potion" parent="." instance=ExtResource("21_7iits")]
+position = Vector2(211, -118)
+
+[node name="key01" parent="." instance=ExtResource("22_oo54l")]
+position = Vector2(181, -135)
+
+[node name="chest" parent="." instance=ExtResource("23_kpybi")]
+position = Vector2(32, -223)
