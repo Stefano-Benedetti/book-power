@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://j5rqm6aeahix"]
+[gd_scene load_steps=12 format=3 uid="uid://j5rqm6aeahix"]
 
 [ext_resource type="Script" uid="uid://wnjq1xg4ef51" path="res://menus/script/main_menu.gd" id="1_r3aaf"]
 [ext_resource type="Texture2D" uid="uid://dluedb8fhxh35" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (9).png" id="2_5um5d"]
@@ -9,9 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cnqn66x4aur6d" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (18).png" id="5_pma8q"]
 [ext_resource type="Texture2D" uid="uid://bh2so0ifmbvup" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (28).png" id="7_tx3dr"]
 [ext_resource type="Texture2D" uid="uid://cbhthh67f5jsw" path="res://art/titolo_gioco.png" id="9_2yqld"]
-[ext_resource type="Texture2D" uid="uid://s8wp35qnf725" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons blank Style 1/Orange (1).png" id="10_d2tgv"]
-[ext_resource type="Texture2D" uid="uid://dvlbaaamecq4w" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons blank Style 1/Orange (2).png" id="11_sabtx"]
-[ext_resource type="Texture2D" uid="uid://kxpoka4e8hn6" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 menu icons symbols only/16x16 Menu Symbols (47).png" id="12_8i50l"]
+[ext_resource type="Texture2D" uid="uid://c5rdgoulaxjkt" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/Orange Settings (1).png" id="10_iyvcr"]
+[ext_resource type="Texture2D" uid="uid://c133lcroggwag" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/Orange Settings (2).png" id="11_d2tgv"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -108,29 +107,13 @@ stretch_mode = 5
 [node name="settings" type="TextureButton" parent="Control"]
 layout_mode = 0
 offset_left = 60.0
-offset_top = 566.0
+offset_top = 575.0
 offset_right = 100.0
-offset_bottom = 590.0
-scale = Vector2(4, 4)
-texture_normal = ExtResource("10_d2tgv")
-texture_pressed = ExtResource("11_sabtx")
+offset_bottom = 599.0
+scale = Vector2(3.88, 3.6400099)
+texture_normal = ExtResource("10_iyvcr")
+texture_pressed = ExtResource("11_d2tgv")
 stretch_mode = 5
-
-[node name="TextureRect" type="TextureRect" parent="Control/settings"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -9.25
-offset_top = -10.25
-offset_right = 6.75
-offset_bottom = 5.75
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.15, 1.15)
-texture = ExtResource("12_8i50l")
 
 [connection signal="pressed" from="Control/HBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/exit" to="." method="_on_exit_pressed"]

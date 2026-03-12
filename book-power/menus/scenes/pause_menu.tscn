@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://da82dug1vut1e"]
+[gd_scene load_steps=17 format=3 uid="uid://da82dug1vut1e"]
 
 [ext_resource type="Script" uid="uid://dqr4datq5xmgq" path="res://menus/script/pause_menu.gd" id="1_slou4"]
 [ext_resource type="Texture2D" uid="uid://4pe2csdghy84" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/p.png" id="2_8b56s"]
@@ -11,10 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://clfl4uo6s1kjh" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (54).png" id="8_7yspq"]
 [ext_resource type="Texture2D" uid="uid://4shfhof8m1cn" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (19).png" id="8_h1e57"]
 [ext_resource type="Texture2D" uid="uid://dlf2cq25a58pt" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (8).png" id="8_r2hlc"]
-[ext_resource type="Texture2D" uid="uid://s8wp35qnf725" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons blank Style 1/Orange (1).png" id="9_76u5q"]
+[ext_resource type="Texture2D" uid="uid://c5rdgoulaxjkt" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/Orange Settings (1).png" id="9_qgttu"]
+[ext_resource type="Texture2D" uid="uid://c133lcroggwag" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/Orange Settings (2).png" id="10_7yspq"]
 [ext_resource type="Texture2D" uid="uid://cnqn66x4aur6d" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (18).png" id="10_58f32"]
-[ext_resource type="Texture2D" uid="uid://dvlbaaamecq4w" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons blank Style 1/Orange (2).png" id="10_h1e57"]
-[ext_resource type="Texture2D" uid="uid://kxpoka4e8hn6" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 menu icons symbols only/16x16 Menu Symbols (47).png" id="11_qgttu"]
 [ext_resource type="Texture2D" uid="uid://dnenhen17ifon" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 menu icons symbols only/16x16 Menu Symbols (4).png" id="16_7yspq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgttu"]
@@ -42,7 +41,6 @@ script = ExtResource("1_slou4")
 
 [node name="Panel" type="Panel" parent="."]
 process_mode = 3
-visible = false
 layout_mode = 0
 offset_left = -0.125
 offset_top = -43.875
@@ -107,25 +105,9 @@ texture_pressed = ExtResource("8_r2hlc")
 
 [node name="Settings" type="TextureButton" parent="Panel/buttons"]
 layout_mode = 2
-texture_normal = ExtResource("9_76u5q")
-texture_pressed = ExtResource("10_h1e57")
+texture_normal = ExtResource("9_qgttu")
+texture_pressed = ExtResource("10_7yspq")
 stretch_mode = 5
-
-[node name="TextureRect" type="TextureRect" parent="Panel/buttons/Settings"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -7.250004
-offset_top = -7.500005
-offset_right = 53.619568
-offset_bottom = 54.45654
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.23, 0.23)
-texture = ExtResource("11_qgttu")
 
 [node name="Quit" type="TextureButton" parent="Panel/buttons"]
 layout_mode = 2
@@ -135,6 +117,7 @@ texture_pressed = ExtResource("10_58f32")
 
 [node name="Panel2" type="Panel" parent="."]
 process_mode = 3
+visible = false
 layout_mode = 0
 offset_left = -38.125
 offset_top = -43.875
