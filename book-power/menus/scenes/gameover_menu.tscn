@@ -35,10 +35,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -188.0
-offset_top = -138.0
-offset_right = 186.0
-offset_bottom = 136.0
+offset_left = -187.0
+offset_top = -137.0
+offset_right = 187.0
+offset_bottom = 137.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vstnp")
@@ -133,7 +133,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="ok" type="TextureButton" parent="."]
+[node name="ok" type="TextureButton" parent="Panel"]
 process_mode = 3
 layout_mode = 1
 anchors_preset = 8
@@ -141,10 +141,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = 45.0
-offset_right = 80.0
-offset_bottom = 125.0
+offset_left = -79.0
+offset_top = 46.0
+offset_right = 81.0
+offset_bottom = 126.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("8_sgubr")
@@ -155,4 +155,4 @@ stretch_mode = 5
 stream = ExtResource("11_d2sfi")
 bus = &"Effects"
 
-[connection signal="pressed" from="ok" to="." method="_on_ok_pressed"]
+[connection signal="pressed" from="Panel/ok" to="." method="_on_ok_pressed"]
