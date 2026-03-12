@@ -26,8 +26,10 @@ var can_move = true
 
 @onready var nav_agent = $NavigationAgent2D  # Collegamento al nodo NavigationAgent2D
 
+var spawn_point = null
 
 func _ready():
+	spawn_point = global_position
 	nuvoletta.visible = false
 
 func _physics_process(delta: float):
@@ -71,9 +73,16 @@ func enemy_attack():
 
 func enemy_movement(_delta):
 	if player_in_area:
-		# Imposta la posizione target al player
-		nav_agent.target_position = player.global_position
+		nav_agent.target_position = player.global_position	# Imposta la posizione target al player
+	else:
+		nav_agent.target_position = spawn_point
 		
+	if nav_agent.is_navigation_finished():
+		play_anim(0, 0)
+		velocity.x = 0
+		velocity.y = 0
+	
+	else:
 		# Ottieni il prossimo waypoint dal percorso calcolato
 		if not nav_agent.is_navigation_finished():
 			var next_pos = nav_agent.get_next_path_position()
@@ -100,11 +109,7 @@ func enemy_movement(_delta):
 					velocity.y = -SPEED
 			
 			play_anim(1, 0)
-	else:
-		play_anim(0, 0)
-		velocity.x = 0
-		velocity.y = 0
-		
+	
 	move_and_slide()
 
 
