@@ -1,6 +1,5 @@
 extends Control
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$global_volume.value = db_to_linear(AudioServer.get_bus_volume_db(0))
