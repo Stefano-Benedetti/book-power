@@ -8,7 +8,7 @@ func enemy():
 const SPEED = 30
 var current_dir = "down"		#la inizializziamo giù
 
-@export var max_health = 100
+@export var max_health = 200
 @onready var current_health: int = max_health
 @onready var health_bar: TextureProgressBar=$enemy_health_bar
 var dead = false

@@ -7,10 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://ba8hnq8qvilbw" path="res://art/health_bar/healthbarUnder.png" id="4_xwavj"]
 [ext_resource type="Texture2D" uid="uid://c6syu2u8p3w44" path="res://art/health_bar/healthbarProgressRed.png" id="5_xwavj"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xwavj"]
-radius = 9.999999
-height = 39.999996
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_gst0f"]
 atlas = ExtResource("2_4ra3w")
 region = Rect2(0, 1280, 64, 64)
@@ -485,6 +481,10 @@ animations = [{
 "speed": 13.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xwavj"]
+radius = 9.999999
+height = 39.999996
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
 radius = 7.500001
 height = 25.000002
@@ -496,11 +496,18 @@ radius = 202.74675
 radius = 45.000004
 
 [node name="enemy" type="CharacterBody2D" groups=["enemies"]]
+z_index = 1
 scale = Vector2(0.4, 0.4)
 collision_mask = 0
 script = ExtResource("1_4ra3w")
 
-[node name="hitbox" type="Area2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_y4r1p")
+animation = &"die"
+offset = Vector2(0, -23)
+
+[node name="hitbox" type="Area2D" parent="." groups=["enemies_hitbox"]]
 position = Vector2(7.105427e-14, 0)
 rotation = 1.5707964
 scale = Vector2(0.9999998, 0.9999998)
@@ -508,15 +515,10 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(-17.500002, 2.500001)
+position = Vector2(-17.5, 0)
 rotation = -1.5707964
 scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("CapsuleShape2D_xwavj")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_y4r1p")
-animation = &"die"
-offset = Vector2(0, -23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true

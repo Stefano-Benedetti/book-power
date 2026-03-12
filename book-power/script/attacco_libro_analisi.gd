@@ -11,6 +11,8 @@ func _ready():
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	if not area.is_in_group("enemies_hitbox"):
+		return
 	var enemy = area.get_parent()
 	if enemy.has_method("enemy"):	#verifico se è effettivamente un nemico
 		enemy.getHurt(DAMAGE)
