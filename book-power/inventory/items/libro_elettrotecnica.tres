@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://c4nbu1k72n240"]
+
+[ext_resource type="Script" uid="uid://dgjp33lf1xt56" path="res://inventory/script/invetory_item_resource.gd" id="1_rujfg"]
+[ext_resource type="Texture2D" uid="uid://ccsfe7e71l7kb" path="res://art/libro_elettrotecnica.png" id="2_pfar4"]
+
+[resource]
+script = ExtResource("1_rujfg")
+name = "libro_elettrotecnica"
+texture = ExtResource("2_pfar4")
