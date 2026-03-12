@@ -5,8 +5,8 @@ const DAMAGE = 50
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite2D.play()
-	#suono da mettere
-	await get_tree().create_timer(0.8).timeout
+	$FreesoundCommunityElectric90746.play()
+	await get_tree().create_timer(0.6).timeout
 	queue_free()
 
 
