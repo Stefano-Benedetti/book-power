@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="17_7t5mc"]
 [ext_resource type="PackedScene" uid="uid://c2fwthkouehnh" path="res://scenes/libro_asd.tscn" id="18_lakw3"]
 [ext_resource type="PackedScene" uid="uid://nqa5yxjsvvh8" path="res://scenes/libro_reti.tscn" id="19_pm21f"]
-[ext_resource type="PackedScene" uid="uid://dwroxtcbkxdus" path="res://scenes/libro_elettrotecnica.tscn" id="20_2lf6f"]
+[ext_resource type="PackedScene" path="res://scenes/libro_elettrotecnica.tscn" id="20_2lf6f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5onr"]
 texture = ExtResource("1_qfnet")
@@ -985,7 +985,6 @@ player = NodePath("../../player")
 metadata/_edit_use_anchors_ = true
 
 [node name="pause_menu" parent="CanvasLayer2" instance=ExtResource("14_xo05s")]
-visible = false
 metadata/_edit_use_anchors_ = true
 
 [node name="gameover_menu" parent="CanvasLayer2" instance=ExtResource("17_7t5mc")]

@@ -1,0 +1,133 @@
+[gd_scene load_steps=15 format=3 uid="uid://da82dug1vut1e"]
+
+[ext_resource type="Script" uid="uid://dqr4datq5xmgq" path="res://menus/script/pause_menu.gd" id="1_slou4"]
+[ext_resource type="Texture2D" uid="uid://4pe2csdghy84" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/p.png" id="2_8b56s"]
+[ext_resource type="Texture2D" uid="uid://b2yv7immxpekw" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/a.png" id="3_iu0tr"]
+[ext_resource type="Texture2D" uid="uid://cqn6g2l4hjsaf" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/u.png" id="4_cli0i"]
+[ext_resource type="Texture2D" uid="uid://o4btulsyqatm" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/s.png" id="5_r2hlc"]
+[ext_resource type="Texture2D" uid="uid://n8kynguol548" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 A-Z symbols only/e.png" id="6_58f32"]
+[ext_resource type="Texture2D" uid="uid://dluedb8fhxh35" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (9).png" id="7_cli0i"]
+[ext_resource type="Texture2D" uid="uid://4shfhof8m1cn" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (19).png" id="8_h1e57"]
+[ext_resource type="Texture2D" uid="uid://dlf2cq25a58pt" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (8).png" id="8_r2hlc"]
+[ext_resource type="Texture2D" uid="uid://s8wp35qnf725" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons blank Style 1/Orange (1).png" id="9_76u5q"]
+[ext_resource type="Texture2D" uid="uid://cnqn66x4aur6d" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (18).png" id="10_58f32"]
+[ext_resource type="Texture2D" uid="uid://dvlbaaamecq4w" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons blank Style 1/Orange (2).png" id="10_h1e57"]
+[ext_resource type="Texture2D" uid="uid://kxpoka4e8hn6" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 menu icons symbols only/16x16 Menu Symbols (47).png" id="11_qgttu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgttu"]
+bg_color = Color(0.45910054, 0.5359918, 0.37442467, 0.7764706)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="pause_menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.875
+offset_top = -137.125
+offset_right = 136.875
+offset_bottom = 137.125
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_slou4")
+
+[node name="Panel" type="Panel" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_top = -45.875
+offset_right = 273.75
+offset_bottom = 316.125
+theme_override_styles/panel = SubResource("StyleBoxFlat_qgttu")
+
+[node name="pause_text" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = -1.25
+offset_top = 0.25
+offset_right = 90.41667
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+theme_override_constants/separation = -28
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/pause_text"]
+layout_mode = 2
+texture = ExtResource("2_8b56s")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/pause_text"]
+layout_mode = 2
+texture = ExtResource("3_iu0tr")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="Panel/pause_text"]
+layout_mode = 2
+texture = ExtResource("4_cli0i")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="Panel/pause_text"]
+layout_mode = 2
+texture = ExtResource("5_r2hlc")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="Panel/pause_text"]
+layout_mode = 2
+texture = ExtResource("6_58f32")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="buttons" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -0.125
+offset_top = 61.124985
+offset_right = 68.0625
+offset_bottom = 115.124985
+scale = Vector2(4, 4)
+theme_override_constants/separation = 3
+
+[node name="Resume" type="TextureButton" parent="buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("7_cli0i")
+texture_pressed = ExtResource("8_r2hlc")
+
+[node name="Settings" type="TextureButton" parent="buttons"]
+layout_mode = 2
+texture_normal = ExtResource("9_76u5q")
+texture_pressed = ExtResource("10_h1e57")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="buttons/Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.250004
+offset_top = -7.500005
+offset_right = 53.619568
+offset_bottom = 54.45654
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("11_qgttu")
+
+[node name="Quit" type="TextureButton" parent="buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("8_h1e57")
+texture_pressed = ExtResource("10_58f32")
+
+[connection signal="pressed" from="buttons/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="buttons/Quit" to="." method="_on_quit_pressed"]
