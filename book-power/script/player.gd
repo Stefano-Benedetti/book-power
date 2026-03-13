@@ -17,6 +17,7 @@ var dead = false
 
 @export var inv: Inv	#con questo possiamo richiamare le funzioni dell'inventario del player
 @export var selected_item: InvItem 
+var selected_item_index
 
 var can_attack = true
 var can_move = true
@@ -130,6 +131,15 @@ func attacca():
 		attacck_cooldown.start()  # Avvia il timer
 		mov_cooldown.start()
 		play_anim(0, 1)
+	elif selected_item.name == "health_potion":
+		getHealed(selected_item.health_plus)
+		consume(selected_item_index)
+		
+		can_attack = false
+		can_move = false
+		attacck_cooldown.start()  # Avvia il timer
+		mov_cooldown.start()
+		$AnimatedSprite2D.play("drink")
 
 
 #funzione per gestire le animazioni del player, movement=1 => ci stiamo muovendo
@@ -174,11 +184,23 @@ func collect(item):
 	var inserimento_riuscito = inv.insert(item)		#lo possiamo fare perchè abbiamo fatto sopra nel codice l'export di inv
 	return inserimento_riuscito
 
-func updateSelectedItem(slot: InvSlot):
+func consume(indice):
+	inv.delete(indice)	#lo possiamo fare perchè abbiamo fatto sopra nel codice l'export di inv
+
+func updateSelectedItem(slot: InvSlot, indice):
 	selected_item = slot.item
+	selected_item_index = indice
+
 
 func getHurt():
 	current_health -= 10
+	health_changed.emit()	#per aggiornare la health bar
+
+func getHealed(health_plus):
+	if current_health < max_health:
+		current_health += health_plus
+	if current_health > max_health:
+		current_health = max_health
 	health_changed.emit()	#per aggiornare la health bar
 
 

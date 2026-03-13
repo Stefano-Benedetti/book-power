@@ -17,10 +17,7 @@ func insert(item: InvItem):
 		update.emit()
 		return true
 
-#func insert(item: InvItem):
-	#for i in range(slots.size()):
-		#if(!slots[i].item):
-			#slots[i].item = item
-			#update.emit(i, slots[i])
-			#return true
-	#return false
+
+func delete(indice):
+	slots[indice].item = null
+	update.emit()

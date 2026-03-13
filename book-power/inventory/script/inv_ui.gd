@@ -21,15 +21,15 @@ func _ready():
 
 func update_slots():
 	for i in range (min(inv.slots.size(), slots.size())):
-		if(i == selectedItem_index):
-			Global.emit_signal("selected_slot_update", inv.slots[i])
 		slots[i].update(inv.slots[i])
+		if(i == selectedItem_index):
+			Global.emit_signal("selected_slot_update", inv.slots[i], i)
 
 func manage_slot_selection(new_selection_index):
 	slots[selectedItem_index].deselect()
 	selectedItem_index = new_selection_index
 	slots[selectedItem_index].select()
-	Global.emit_signal("selected_slot_update", inv.slots[selectedItem_index])
+	Global.emit_signal("selected_slot_update", inv.slots[selectedItem_index], selectedItem_index)
 
 #in _process() "inventario" è il nome che ho dato all'azione quando premo i
 func _process(_delta):

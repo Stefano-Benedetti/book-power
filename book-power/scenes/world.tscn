@@ -928,26 +928,11 @@ tile_set = SubResource("TileSet_rup4s")
 position = Vector2(159, -144.99998)
 inv = ExtResource("8_jhx03")
 
-[node name="osso" parent="." instance=ExtResource("9_7r4gi")]
-position = Vector2(259, -117)
-
-[node name="osso2" parent="." instance=ExtResource("9_7r4gi")]
-position = Vector2(21, -119)
-
-[node name="osso3" parent="." instance=ExtResource("9_7r4gi")]
-position = Vector2(16, -84)
-
-[node name="osso4" parent="." instance=ExtResource("9_7r4gi")]
-position = Vector2(20, -44)
-
 [node name="enemy" parent="." instance=ExtResource("12_q5onr")]
 position = Vector2(329.00003, -91.999985)
 
 [node name="enemy2" parent="." instance=ExtResource("12_q5onr")]
 position = Vector2(371, -92)
-
-[node name="libro_analisi" parent="." instance=ExtResource("16_dss4m")]
-position = Vector2(177, -112)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -997,6 +982,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 
+[node name="libro_analisi" parent="." instance=ExtResource("16_dss4m")]
+position = Vector2(177, -112)
+
 [node name="libro_asd" parent="." instance=ExtResource("18_lakw3")]
 position = Vector2(206, -151)
 
@@ -1014,3 +1002,33 @@ position = Vector2(181, -135)
 
 [node name="chest" parent="." instance=ExtResource("23_kpybi")]
 position = Vector2(32, -223)
+
+[node name="osso" parent="." instance=ExtResource("9_7r4gi")]
+position = Vector2(259, -117)
+
+[node name="health_potion2" parent="." instance=ExtResource("21_7iits")]
+position = Vector2(160, -98)
+
+[node name="health_potion3" parent="." instance=ExtResource("21_7iits")]
+position = Vector2(222, -85)
+
+[node name="health_potion4" parent="." instance=ExtResource("21_7iits")]
+position = Vector2(29, -38)
+
+[node name="health_potion5" parent="." instance=ExtResource("21_7iits")]
+position = Vector2(16, -54)
+
+[node name="health_potion6" parent="." instance=ExtResource("21_7iits")]
+position = Vector2(45, -56)
+
+[node name="health_potion7" parent="." instance=ExtResource("21_7iits")]
+position = Vector2(17, -73)
+
+[node name="health_potion8" parent="." instance=ExtResource("21_7iits")]
+position = Vector2(17, -92)
+
+[node name="health_potion9" parent="." instance=ExtResource("21_7iits")]
+position = Vector2(42, -76)
+
+[node name="health_potion10" parent="." instance=ExtResource("21_7iits")]
+position = Vector2(42, -100)

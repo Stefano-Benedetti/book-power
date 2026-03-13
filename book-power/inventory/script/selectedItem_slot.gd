@@ -8,7 +8,7 @@ func _ready():
 	Global.selected_slot_update.connect(update)
 
 #aggiorna l'oggetto all'interno dello slot
-func update(slot: InvSlot):
+func update(slot: InvSlot, _indice):
 	if !slot.item:
 		item_visual.visible = false
 	else:
