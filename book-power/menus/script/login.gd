@@ -1,44 +1,71 @@
 extends Control
 
 func _ready():
-	pass
+	Auth.registration_succeeded.connect(_on_registration_succeeded)
+	Auth.registration_failed.connect(on_registration_failed)
+	Auth.login_succeeded.connect(_on_login_succeeded)
+	Auth.login_failed.connect(_on_login_failed)
+
+	SaveSystem.load_succeeded.connect(_on_load_succeeded)
+	SaveSystem.load_failed.connect(_on_load_failed)
 
 func _on_login_pressed():
 	var email = $VBoxContainer/email.text
 	var password = $VBoxContainer/password.text
+	if email.is_empty() or password.is_empty():
+		$Label.text = "Insert email and password."
+		return
+	
+	$Label.text = "Loggin in..."
+	Auth.login_user(email, password)
 	
 
 func _on_register_pressed():
 	var email = $VBoxContainer/email.text
 	var password = $VBoxContainer/password.text
+	if email.is_empty() or password.is_empty():
+		$Label.text = "Insert email and password."
+		return
+	
+	$Label.text = "Registration in progress..."
+	Auth.register_user(email, password) 
 	
 func _on_back_pressed():
+	var data = {
+		"global_volume" = db_to_linear(AudioServer.get_bus_volume_db(0)),
+		"effects_volume" = db_to_linear(AudioServer.get_bus_volume_db(1)),
+		"music_volume" = db_to_linear(AudioServer.get_bus_volume_db(2))
+	}
+	SaveSystem.save_data(data)
 	get_tree().change_scene_to_file("res://menus/scenes/main_menu.tscn")
 
-func _on_FirebaseAuth_login_succeeded():
-	
+func _on_login_succeeded():
 	$Label.text = "Login succeeded!"
+	SaveSystem.load_data()
+	
+func _on_registration_succeeded():
+	$Label.text = "Registration and login succeeded!"
+	# Nuovo utente, nuovi dati
+	Auth.player_data = {} 
 
-func on_login_failed(error_code, message):
-	print("error code: " + str(error_code))
-	print("message: " + str(message))
-	if str(message) == "INVALID_LOGIN_CREDENTIALS" :
-		$Label.text = "Wrong password!"
-	elif str(message) == "MISSING_PASSWORD" or str(message) == "WEAK_PASSWORD : Password should be at least 6 characters" :
-		$Label.text = "Password should be at least 6 characters!"
-	elif str(message) == "MISSING_EMAIL" or str(message) == "INVALID_EMAIL":
-		$Label.text = "Invalid email!"
-	else :
-		$Label.text = "Login failed: "+str(message)
+func _on_login_failed(error_message):
+	$Label.text = "Login failed: " + error_message
 
-func on_signup_failed(error_code, message):
-	print("error code: " + str(error_code))
-	print("message: " + str(message))
-	if str(message) == "EMAIL_EXISTS" :
-		$Label.text = "This account already exists!"
-	elif str(message) == "MISSING_PASSWORD" or str(message) == "WEAK_PASSWORD : Password should be at least 6 characters" :
-		$Label.text = "Password should be at least 6 characters!"
-	elif str(message) == "MISSING_EMAIL" or str(message) == "INVALID_EMAIL":
-		$Label.text = "Invalid email!"
-	else :
-		$Label.text = "Registration failed: "+str(message)
+func on_registration_failed(error_message : String):
+	$Label.text = "Registration failed: " + error_message
+
+
+func _on_load_succeeded(data: Dictionary):
+	$Label.text = "Your data has been loaded."
+	
+	# Store the data in the global variable.
+	Auth.player_data = data
+	
+	if !data.is_empty() :
+		# Carico le impostazioni del volume
+		AudioServer.set_bus_volume_db(0,linear_to_db(data.get("global_volume")))
+		AudioServer.set_bus_volume_db(1,linear_to_db(data.get("effects_volume")))
+		AudioServer.set_bus_volume_db(2,linear_to_db(data.get("music_volume")))
+
+func _on_load_failed():
+	$Label.text = "Error loading data, try again."

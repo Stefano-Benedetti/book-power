@@ -12,6 +12,12 @@ func _on_logreg_pressed() -> void:
 	get_tree().change_scene_to_file("res://menus/scenes/login.tscn")
 
 func _on_exit_pressed():
+	var data = {
+		"global_volume" = db_to_linear(AudioServer.get_bus_volume_db(0)),
+		"effects_volume" = db_to_linear(AudioServer.get_bus_volume_db(1)),
+		"music_volume" = db_to_linear(AudioServer.get_bus_volume_db(2))
+	}
+	SaveSystem.save_data(data)
 	get_tree().quit()
 
 func _on_settings_pressed():

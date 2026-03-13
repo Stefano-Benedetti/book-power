@@ -23,6 +23,8 @@ buses/default_bus_layout="uid://bm2rfgtrvev5u"
 
 Global="*res://script/global.gd"
 Musica="*res://sound/scenes/musica.tscn"
+SaveSystem="*res://script/save_system.gd"
+Auth="*res://menus/script/auth.gd"
 
 [display]
 
@@ -36,7 +38,7 @@ project/assembly_name="book-power"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/http-sse-client/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

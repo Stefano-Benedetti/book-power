@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6hkiqvxdg518"]
+[gd_scene load_steps=12 format=3 uid="uid://c6hkiqvxdg518"]
 
 [ext_resource type="Script" uid="uid://d1gnb3hgbj284" path="res://menus/script/login.gd" id="1_ydcfs"]
 [ext_resource type="Texture2D" uid="uid://c4nyotpyg4gwh" path="res://art/sfondo_main_menu.png" id="2_d2vhw"]
 [ext_resource type="Texture2D" uid="uid://bf1vuf6xsmcyd" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (55).png" id="2_pknag"]
 [ext_resource type="Texture2D" uid="uid://clfl4uo6s1kjh" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (54).png" id="3_d2vhw"]
+[ext_resource type="Script" uid="uid://bop37ia6ikrl7" path="res://menus/script/auth.gd" id="5_x56uj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x56uj"]
 content_margin_left = 5.0
@@ -132,6 +133,9 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_3jex7")
 text = "Log in"
+
+[node name="Auth" type="Node" parent="HBoxContainer/login"]
+script = ExtResource("5_x56uj")
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="HBoxContainer/register" to="." method="_on_register_pressed"]
