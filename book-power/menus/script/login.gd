@@ -31,12 +31,6 @@ func _on_register_pressed():
 	Auth.register_user(email, password) 
 	
 func _on_back_pressed():
-	var data = {
-		"global_volume" = db_to_linear(AudioServer.get_bus_volume_db(0)),
-		"effects_volume" = db_to_linear(AudioServer.get_bus_volume_db(1)),
-		"music_volume" = db_to_linear(AudioServer.get_bus_volume_db(2))
-	}
-	SaveSystem.save_data(data)
 	get_tree().change_scene_to_file("res://menus/scenes/main_menu.tscn")
 
 func _on_login_succeeded():
