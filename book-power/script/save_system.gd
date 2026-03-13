@@ -8,7 +8,7 @@ signal load_failed
 # Copy the URL from your bank.
 var DATABASE_URL = "https://book-power-default-rtdb.europe-west1.firebasedatabase.app/"
 
-# da inserire in EXIT di main_menu (no), EXIT di pause_menu (si)
+# da inserire in EXIT di main_menu (si), EXIT di pause_menu (si)
 func save_data(data: Dictionary):
 	if Auth.id_token.is_empty() or Auth.local_id.is_empty():
 		print("Saving failed: user not logged in.")
