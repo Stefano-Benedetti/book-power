@@ -69,14 +69,19 @@ func enemy_attack():
 	play_anim(0, 1)
 
 
-
-
+#non basta che una delle due direzioni sia maggiore dell'altra
+#deve essere proprio dominante (> di almento 0,5) in questo
+#modo comunque non esce dal percorso, perchè quando si avvicina
+#molto a un ostacolo (area non camminabile) la direzione dominan.
+#sarà quella che gli farà cambiare la direzione.
+#NOTA: finchè non cambia la direzione dominan. lui cammina sempre
+#nella stessa direzione
 func enemy_movement(_delta):
 	if player_in_area:
 		nav_agent.target_position = player.global_position	# Imposta la posizione target al player
 	else:
 		nav_agent.target_position = spawn_point
-		
+	
 	if nav_agent.is_navigation_finished():
 		play_anim(0, 0)
 		velocity.x = 0
@@ -87,27 +92,25 @@ func enemy_movement(_delta):
 		if not nav_agent.is_navigation_finished():
 			var next_pos = nav_agent.get_next_path_position()
 			var direction = (next_pos - global_position).normalized()
-			
-			# Determina la direzione di movimento
-			if abs(direction.x) >= abs(direction.y):
-				if direction.x > 0:
-					current_dir = "right"
-					velocity.x = SPEED
-					velocity.y = 0
+			if abs(abs(direction.x)-abs(direction.y))>0.5:
+				if abs(direction.x)>0.5:
+					if direction.x > 0:
+						current_dir = "right"
+						velocity.x = SPEED
+						velocity.y = 0
+					else:
+						current_dir = "left"
+						velocity.x = -SPEED
+						velocity.y = 0
 				else:
-					current_dir = "left"
-					velocity.x = -SPEED
-					velocity.y = 0
-			else:
-				if direction.y > 0:
-					current_dir = "down"
-					velocity.x = 0
-					velocity.y = SPEED
-				else:
-					current_dir = "up"
-					velocity.x = 0
-					velocity.y = -SPEED
-			
+					if direction.y > 0:
+						current_dir = "down"
+						velocity.x = 0
+						velocity.y = SPEED
+					else:
+						current_dir = "up"
+						velocity.x = 0
+						velocity.y = -SPEED
 			play_anim(1, 0)
 	
 	move_and_slide()
