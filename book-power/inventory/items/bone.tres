@@ -7,4 +7,6 @@
 script = ExtResource("1_mv1x7")
 name = "bone"
 texture = ExtResource("2_vailk")
+title = "Bone"
+description = "It is a bone. it can nothing :("
 metadata/_custom_type_script = "uid://dgjp33lf1xt56"

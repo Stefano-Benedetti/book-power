@@ -4,10 +4,17 @@ extends Control
 signal selected_slot_update(slot: InvSlot)
 
 @onready var inv: Inv = preload("res://inventory/player_inventory.tres")
-@onready var slots: Array = $NinePatchRect/GridContainer.get_children()
+@onready var slots: Array = $MarginContainer/HBoxContainer/MarginContainer/NinePatchRect/GridContainer.get_children()
+
+@onready var selectedItem: InvItem = null
+@onready var selectedItem_titleArea = $MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TitleArea
+@onready var selectedItem_imgArea = $MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/CenterContainer/TextureRect/MarginContainer/Panel/Sprite2D
+@onready var selectedItem_descrArea = $MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DescriptionArea
 
 var is_open = false
 var selectedItem_index = 0
+
+
 
 func _ready():
 	for i in slots.size():
@@ -23,13 +30,32 @@ func update_slots():
 	for i in range (min(inv.slots.size(), slots.size())):
 		slots[i].update(inv.slots[i])
 		if(i == selectedItem_index):
+			updateSelectedItem_info()
+			selectedItem = inv.slots[i].item
 			Global.emit_signal("selected_slot_update", inv.slots[i], i)
 
 func manage_slot_selection(new_selection_index):
 	slots[selectedItem_index].deselect()
 	selectedItem_index = new_selection_index
 	slots[selectedItem_index].select()
+	updateSelectedItem_info()
 	Global.emit_signal("selected_slot_update", inv.slots[selectedItem_index], selectedItem_index)
+
+
+func updateSelectedItem_info():
+	selectedItem = inv.slots[selectedItem_index].item
+	if !selectedItem:
+		selectedItem_titleArea.text = "Niente"
+		selectedItem_imgArea.visible = false
+		selectedItem_descrArea.text = "non hai selezionato niente!!"
+	else:
+		selectedItem_titleArea.text = selectedItem.title
+		selectedItem_imgArea.visible = true
+		selectedItem_imgArea.texture = selectedItem.texture
+		selectedItem_descrArea.text = selectedItem.description
+		#item_visual.visible = true
+		#item_visual.texture = slot.item.texture
+
 
 #in _process() "inventario" è il nome che ho dato all'azione quando premo i
 func _process(_delta):

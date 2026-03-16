@@ -7,3 +7,5 @@
 script = ExtResource("1_rxats")
 name = "key01"
 texture = ExtResource("2_j7y20")
+title = "Gold key"
+description = "mmhhhh. Try to use it to open your mind!!?"

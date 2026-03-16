@@ -48,7 +48,7 @@ texture_normal = ExtResource("6_tuipx")
 action = "Pick_object"
 
 [node name="inventory" type="TouchScreenButton" parent="."]
-position = Vector2(1128.0001, 462)
+position = Vector2(690, 575)
 scale = Vector2(7, 7)
 texture_normal = ExtResource("7_i3ajf")
 action = "inventario"

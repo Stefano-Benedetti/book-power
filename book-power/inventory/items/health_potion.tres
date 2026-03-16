@@ -8,3 +8,5 @@ script = ExtResource("1_wx2kq")
 health_plus = 10
 name = "health_potion"
 texture = ExtResource("2_lde0l")
+title = "Health potion"
+description = "drink it to receive some energy to intesificate the study session. Basically it heal you."

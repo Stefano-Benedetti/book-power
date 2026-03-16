@@ -945,23 +945,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("8_4mrxx")]
-visible = false
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 406.99997
-offset_top = 125.99999
-offset_right = 644.0
-offset_bottom = 305.0
-grow_horizontal = 1
-grow_vertical = 1
-
 [node name="sel_item_slot" parent="CanvasLayer2" instance=ExtResource("11_e3hyu")]
-offset_left = 1008.00006
-offset_top = 455.00003
-offset_right = 1046.0
-offset_bottom = 493.00003
+offset_left = 564.0
+offset_top = 571.0
+offset_right = 601.99994
+offset_bottom = 609.0
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" parent="CanvasLayer2" node_paths=PackedStringArray("player") instance=ExtResource("14_dss4m")]
@@ -972,10 +960,15 @@ offset_bottom = 30.0
 player = NodePath("../../player")
 metadata/_edit_use_anchors_ = true
 
-[node name="pause_menu" parent="CanvasLayer2" instance=ExtResource("14_xo05s")]
+[node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("8_4mrxx")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("14_xo05s")]
 metadata/_edit_use_anchors_ = true
 
-[node name="gameover_menu" parent="CanvasLayer2" instance=ExtResource("17_7t5mc")]
+[node name="gameover_menu" parent="CanvasLayer" instance=ExtResource("17_7t5mc")]
+process_mode = 0
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

@@ -7,3 +7,5 @@
 script = ExtResource("1_cn8yw")
 name = "libro_analisi"
 texture = ExtResource("2_7t0bh")
+title = "Calculus 1"
+description = "spawn an incredible sinusoide"

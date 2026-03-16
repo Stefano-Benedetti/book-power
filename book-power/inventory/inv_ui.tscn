@@ -1,32 +1,92 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt5ng80c6newu"]
+[gd_scene load_steps=11 format=3 uid="uid://dt5ng80c6newu"]
 
 [ext_resource type="Script" uid="uid://b0uc4x2yyxd68" path="res://inventory/script/inv_ui.gd" id="1_f2u1w"]
 [ext_resource type="Texture2D" uid="uid://b6airqjuhn8h1" path="res://art/Border and Panels Menu Part 1/bordo_inventario.png" id="2_w82yi"]
 [ext_resource type="PackedScene" uid="uid://dun115v27bcug" path="res://inventory/inv_ui_slot.tscn" id="3_dn3an"]
+[ext_resource type="Texture2D" uid="uid://qivma5t4mhqo" path="res://art/Border and Panels Menu Part 1/bordo_selected_item.png" id="4_r1b7r"]
+[ext_resource type="Texture2D" uid="uid://ccsfe7e71l7kb" path="res://art/libro_elettrotecnica.png" id="5_ars6i"]
+[ext_resource type="FontFile" uid="uid://ntu3b1wy2s24" path="res://art/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/LinLibertine_R.otf" id="7_sjsia"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwu3r"]
+bg_color = Color(0.34901962, 0.1882353, 0.21568628, 0.93333334)
+
+[sub_resource type="FontFile" id="FontFile_ars6i"]
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
+cache/0/48/0/ascent = 0.0
+cache/0/48/0/descent = 0.0
+cache/0/48/0/underline_position = 0.0
+cache/0/48/0/underline_thickness = 0.0
+cache/0/48/0/scale = 1.0
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ars6i"]
+line_spacing = -4.0
+font = ExtResource("7_sjsia")
+font_size = 24
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjsia"]
 
 [node name="Inv_UI" type="Control"]
-custom_minimum_size = Vector2(237, 179)
+custom_minimum_size = Vector2(512, 288)
 layout_mode = 3
-anchor_right = 0.20600002
-anchor_bottom = 0.27600002
-offset_right = -0.31201172
-offset_bottom = 0.15197754
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 288.0
 scale = Vector2(2.5, 2.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_f2u1w")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_right = 238.0
-offset_bottom = 180.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(512, 288)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 70
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(238, 188)
+layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("2_w82yi")
 patch_margin_left = 15
 patch_margin_top = 15
 patch_margin_right = 15
 patch_margin_bottom = 15
 
-[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/MarginContainer/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -42,86 +102,156 @@ grow_vertical = 2
 scale = Vector2(0.73, 0.73)
 columns = 4
 
-[node name="Inv_UI_slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+[node name="Inv_UI_slot" parent="MarginContainer/HBoxContainer/MarginContainer/NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
 
-[node name="Inv_UI_slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+[node name="Inv_UI_slot2" parent="MarginContainer/HBoxContainer/MarginContainer/NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
 
-[node name="Inv_UI_slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+[node name="Inv_UI_slot3" parent="MarginContainer/HBoxContainer/MarginContainer/NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
 
-[node name="Inv_UI_slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+[node name="Inv_UI_slot4" parent="MarginContainer/HBoxContainer/MarginContainer/NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
 
-[node name="Inv_UI_slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+[node name="Inv_UI_slot5" parent="MarginContainer/HBoxContainer/MarginContainer/NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
 
-[node name="Inv_UI_slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+[node name="Inv_UI_slot6" parent="MarginContainer/HBoxContainer/MarginContainer/NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
 
-[node name="Inv_UI_slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+[node name="Inv_UI_slot7" parent="MarginContainer/HBoxContainer/MarginContainer/NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
 
-[node name="Inv_UI_slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+[node name="Inv_UI_slot8" parent="MarginContainer/HBoxContainer/MarginContainer/NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
 
-[node name="Inv_UI_slot9" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+[node name="Inv_UI_slot9" parent="MarginContainer/HBoxContainer/MarginContainer/NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
 
-[node name="Inv_UI_slot10" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+[node name="Inv_UI_slot10" parent="MarginContainer/HBoxContainer/MarginContainer/NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
 
-[node name="Inv_UI_slot11" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+[node name="Inv_UI_slot11" parent="MarginContainer/HBoxContainer/MarginContainer/NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
 
-[node name="Inv_UI_slot12" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+[node name="Inv_UI_slot12" parent="MarginContainer/HBoxContainer/MarginContainer/NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qwu3r")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TitleArea" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4862745)
+theme_override_fonts/font = SubResource("FontFile_ars6i")
+theme_override_font_sizes/font_size = 32
+text = "titolo"
+label_settings = SubResource("LabelSettings_ars6i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sjsia")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/CenterContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("4_r1b7r")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/CenterContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/CenterContainer/TextureRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/CenterContainer/TextureRect/MarginContainer/Panel"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("5_ars6i")
+
+[node name="DescriptionArea" type="RichTextLabel" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("7_sjsia")
+theme_override_font_sizes/normal_font_size = 14
+text = "descrizioneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+scroll_active = false
