@@ -59,9 +59,9 @@ flip_h = true
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 402.0
-offset_top = 40.000008
+offset_top = 105.0
 offset_right = 879.0
-offset_bottom = 278.5894
+offset_bottom = 285.27722
 scale = Vector2(1, 0.9681906)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 40
@@ -124,7 +124,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_d2vhw")
-text = "Register"
+text = "Register
+and log in"
 
 [node name="login" type="Button" parent="HBoxContainer"]
 layout_mode = 2
@@ -138,15 +139,27 @@ script = ExtResource("5_x56uj")
 
 [node name="resetpass" type="Button" parent="."]
 layout_mode = 0
-offset_left = 536.0
+offset_left = 546.0
 offset_top = 563.0
-offset_right = 744.0
+offset_right = 734.0
 offset_bottom = 673.0
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_d2vhw")
 text = "Reset
 password"
+
+[node name="newpassword" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 449.0
+offset_right = 879.0
+offset_bottom = 523.0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_f8a0b")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d2vhw")
+placeholder_text = " New password"
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="HBoxContainer/register" to="." method="_on_register_pressed"]

@@ -8,6 +8,12 @@ signal registration_failed(error_message)
 signal login_succeeded(local_id, id_token)
 signal login_failed(error_message)
 
+signal resetpass_succeeded
+signal resetpass_failed
+
+signal verification_succeeded
+signal verification_failed
+
 # This variable will store our API key after we read it from the file.
 var FIREBASE_API_KEY: String = ""
 
@@ -46,8 +52,7 @@ func register_user(email, password):
 	# This is the data that Firebase expects (email, password).
 	var body = {
 		"email": email,
-		"password": password,
-		"returnSecureToken": true
+		"password": password
 	}
 
 	_send_request(url, body, "register")
@@ -66,6 +71,34 @@ func login_user(email, password):
 		"returnSecureToken": true
 	}
 	_send_request(url, body, "login")
+	
+func reset_password(email):
+	if FIREBASE_API_KEY.is_empty():
+		print("API key not loaded. Check 'secrets.cfg'.")
+		return
+
+	# The oob code endpoint is different (sendOobCode).
+	var url = "https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=" + FIREBASE_API_KEY
+	var body = {
+		"requestType": "PASSWORD_RESET",
+		"email": email,
+		"userIp": "0.0.0.0"
+		}
+	_send_request(url, body, "resetpass")
+	
+func verify_email(email):
+	if FIREBASE_API_KEY.is_empty():
+		print("API key not loaded. Check 'secrets.cfg'.")
+		return
+
+	# The oob code endpoint is different (sendOobCode).
+	var url = "https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=" + FIREBASE_API_KEY
+	var body = {
+		"requestType": "VERIFY_EMAIL",
+		"email": email,
+		"idToken": id_token
+		}
+	_send_request(url, body, "verification")
 	
 func logout():
 	id_token = ""
@@ -92,8 +125,12 @@ func _send_request(url: String, body: Dictionary, request_type: String) -> void:
 		print("Error starting the request: ", error)
 		if request_type == "register":
 			registration_failed.emit("Initial connection error.")
-		else:
+		elif request_type == "login":
 			login_failed.emit("Initial connection error.")
+		elif request_type == "resetpass":
+			resetpass_failed.emit("Initial connection error.")
+		else :
+			verification_failed.emit("Initial connection error.")
 		http_request.queue_free()
 
 func _on_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray, request_type: String, http_node: HTTPRequest) -> void:
@@ -107,8 +144,12 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 		print("JSON parse error: ", json.get_error_message())
 		if request_type == "register":
 			registration_failed.emit("Invalid server response.")
-		else:
+		elif request_type == "login":
 			login_failed.emit("Invalid server response.")
+		elif request_type == "resetpass":
+			resetpass_failed.emit("Invalid server response.")
+		else :
+			verification_failed.emit("Invalid server response.")
 		http_node.queue_free()
 		return
 		
@@ -121,8 +162,12 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 		var translated_message = _translate_firebase_error(error_code)
 		if request_type == "register":
 			registration_failed.emit(translated_message)
-		else:
+		elif request_type == "login":
 			login_failed.emit(translated_message)
+		elif request_type == "resetpass":
+			resetpass_failed.emit(translated_message)
+		else :
+			verification_failed.emit(translated_message)
 	
 	elif response_data.has("idToken"):
 		id_token = response_data["idToken"]
@@ -133,13 +178,24 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 			registration_succeeded.emit()
 		else:
 			login_succeeded.emit()
+	elif response_data.has("email") and request_type=="resetpass":
+		print("Success! Email sent to ",response_data.get("email"))
+		resetpass_succeeded.emit()
+	elif response_data.has("email") and request_type=="verification":
+		print("Success! Email sent to ",response_data.get("email"))
+		verification_succeeded.emit()
+		
 	else:
 		# If the response contains neither "error" nor "idToken".
 		print("Unknown response from Firebase: ", response_data)
 		if request_type == "register":
 			registration_failed.emit("Unknown error.")
-		else:
+		elif request_type == "login":
 			login_failed.emit("Unknown error.")
+		elif request_type == "resetpass":
+			resetpass_failed.emit("Unknown error.")
+		else :
+			verification_failed.emit("Unknown error.")
 	http_node.queue_free()
 
 func _translate_firebase_error(error_code: String) -> String:
@@ -156,5 +212,7 @@ func _translate_firebase_error(error_code: String) -> String:
 			return "invalid email."
 		"MISSING_PASSWORD":
 			return "password is empty."
+		"MISSING_EMAIL":
+			return "email is empty."
 		_:
 			return "Error: (" + error_code + ")"

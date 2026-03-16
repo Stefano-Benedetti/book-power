@@ -3,11 +3,20 @@ extends Control
 func _ready():
 	Auth.registration_succeeded.connect(_on_registration_succeeded)
 	Auth.registration_failed.connect(on_registration_failed)
+	
 	Auth.login_succeeded.connect(_on_login_succeeded)
 	Auth.login_failed.connect(_on_login_failed)
+	
+	Auth.resetpass_succeeded.connect(_on_resetpass_succeeded)
+	Auth.resetpass_failed.connect(_on_resetpass_failed)
+	
+	Auth.verification_succeeded.connect(_on_verification_succeeded)
+	Auth.verification_failed.connect(_on_verification_failed)
 
 	SaveSystem.load_succeeded.connect(_on_load_succeeded)
 	SaveSystem.load_failed.connect(_on_load_failed)
+
+
 
 func _on_login_pressed():
 	var email = $VBoxContainer/email.text
@@ -18,7 +27,6 @@ func _on_login_pressed():
 	
 	$Label.text = "Loggin in..."
 	Auth.login_user(email, password)
-	
 
 func _on_register_pressed():
 	var email = $VBoxContainer/email.text
@@ -28,25 +36,50 @@ func _on_register_pressed():
 		return
 	
 	$Label.text = "Registration in progress..."
-	Auth.register_user(email, password) 
-	
+	Auth.register_user(email, password)
+
+func _on_resetpass_pressed() -> void:
+	var email = $VBoxContainer/email.text
+	Auth.reset_password(email)
+	$Label.text = "Sending email..."
+
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://menus/scenes/main_menu.tscn")
+
+
+
+func _on_registration_succeeded():
+	$Label.text = "Registration succeeded!"
+	# Nuovo utente, nuovi dati
+	Auth.player_data = {}
+	
+	var email = $VBoxContainer/email.text
+	Auth.verify_email(email)
+
+func on_registration_failed(error_message : String):
+	$Label.text = "Registration failed: " + error_message
+
+
+func _on_resetpass_succeeded():
+	$Label.text = "Password reset email sent, check your spelling or spam if you can't find it."
+	
+func _on_resetpass_failed(error_message : String):
+	$Label.text = "Password reset failed: " + error_message
+
 
 func _on_login_succeeded():
 	$Label.text = "Login succeeded!"
 	SaveSystem.load_data()
-	
-func _on_registration_succeeded():
-	$Label.text = "Registration and login succeeded!"
-	# Nuovo utente, nuovi dati
-	Auth.player_data = {} 
 
 func _on_login_failed(error_message):
 	$Label.text = "Login failed: " + error_message
-
-func on_registration_failed(error_message : String):
-	$Label.text = "Registration failed: " + error_message
+	
+func _on_verification_succeeded():
+	$Label.text = "Verification email sent, check your spelling or spam if you can't find it."
+	Auth.logout()
+	
+func _on_verification_failed(error_message):
+	$Label.text = "Email verification failed: " + error_message
 
 
 func _on_load_succeeded(data: Dictionary):
