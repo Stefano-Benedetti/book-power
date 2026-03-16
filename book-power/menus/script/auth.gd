@@ -204,7 +204,7 @@ func _translate_firebase_error(error_code: String) -> String:
 			return "this email is already in use."
 		"EMAIL_NOT_FOUND":
 			return "email not found."
-		"INVALID_PASSWORD":
+		"INVALID_LOGIN_CREDENTIALS":
 			return "incorrect password."
 		"WEAK_PASSWORD":
 			return "password too short (must be at least 6 characters)."
