@@ -20,7 +20,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [node name="gameover_menu" type="Control"]
-process_mode = 2
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -135,7 +135,6 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="ok" type="TextureButton" parent="Panel"]
-process_mode = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
