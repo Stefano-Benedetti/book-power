@@ -13,6 +13,9 @@ https://starmixu.itch.io/little-dreamyland-asset-pack
 asset pixel crawler (per le case) link:
 https://anokolisa.itch.io/free-pixel-art-asset-pack-topdown-tileset-rpg-16x16-sprites
 
+asset interni Pixel Lands Interiors Demo link:
+https://trislin.itch.io/pixel-lands-interiors
+
 
 
 set icone oggetti inventario
