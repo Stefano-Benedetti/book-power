@@ -6,6 +6,10 @@ https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generato
 enemy set link:
 https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generator/#sex=male&body=Body_color_light&head=Human_male_light&shadow=Shadow_shadow&eyebrows=Thick_Eyebrows_dark%20brown&mustache=Chevron_Mustache_gray&hair=Balding_gray&wrinkes=Wrinkles_light&clothes=Longsleeve_Polo_black&legs=Long_Pants_bluegray&shoes=Basic_Shoes_brown&belt=Other_belts_leather&expression=Angry_light
 
+fuoricorso set link:
+https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generator/#sex=male&body=Body_Color_light&expression=Neutral_light&head=Human_Male_Gaunt_light&legs=Formal_Pants_blue&shoes=Basic_Shoes_white&overalls=Suspenders_blue&clothes=Longsleeve_pink&hair=Parted_2_black&facial_eyes=Shades_black
+
+
 
 tile set link:
 https://starmixu.itch.io/little-dreamyland-asset-pack
