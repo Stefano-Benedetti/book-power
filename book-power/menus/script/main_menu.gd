@@ -1,7 +1,6 @@
 extends Control
 
 var _save_done := false
-var _load_done := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Control/HBoxContainer.hide()
@@ -43,7 +42,8 @@ func _on_exit_pressed():
 	# Connetti una sola volta save_succeded/failed a _on_save_end
 	#SaveSystem.save_succeeded.connect(_on_save_end, CONNECT_ONE_SHOT)
 	#SaveSystem.save_failed.connect(_on_save_end, CONNECT_ONE_SHOT)
-
+	
+	_save_done = false
 	SaveSystem.save_data(data)
 
 	# Aspetta finché non arriva success/fail del salvataggio
