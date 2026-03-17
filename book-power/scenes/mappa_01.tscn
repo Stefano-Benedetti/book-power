@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://srd38742n167" path="res://art/Pixel Crawler - Free Pack/Environment/Structures/Buildings/Roofs.png" id="8_06ste"]
 [ext_resource type="Texture2D" uid="uid://buq427men6tpj" path="res://art/Pixel Crawler - Free Pack/Environment/Props/Static/Furniture.png" id="9_06ste"]
 [ext_resource type="Texture2D" uid="uid://oh650tnr4wcq" path="res://art/Pixel Crawler - Free Pack/Environment/Props/Static/Shadows.png" id="10_rd3ml"]
-[ext_resource type="PackedScene" uid="uid://bdyg3nigp8cpo" path="res://scenes/enemy.tscn" id="13_upoh4"]
+[ext_resource type="PackedScene" uid="uid://bdyg3nigp8cpo" path="res://characters/scenes/enemy.tscn" id="13_upoh4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pey3w"]
 texture = ExtResource("1_jtoye")

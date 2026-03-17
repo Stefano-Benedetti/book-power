@@ -1,9 +1,9 @@
 [gd_scene load_steps=70 format=3 uid="uid://bdyg3nigp8cpo"]
 
-[ext_resource type="Script" uid="uid://b0ltilmtchiy4" path="res://script/enemy.gd" id="1_4ra3w"]
+[ext_resource type="Script" uid="uid://b0ltilmtchiy4" path="res://characters/script/enemy.gd" id="1_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://cg8df54io6358" path="res://art/enemy01_set.png" id="2_4ra3w"]
-[ext_resource type="PackedScene" uid="uid://b5u258nmsxnsu" path="res://scenes/enemy_cloud.tscn" id="4_5uy6h"]
-[ext_resource type="Script" uid="uid://lor6gv5snyfo" path="res://script/enemy_health_bar.gd" id="4_c4w8v"]
+[ext_resource type="PackedScene" uid="uid://b5u258nmsxnsu" path="res://characters/scenes/enemy_cloud.tscn" id="4_5uy6h"]
+[ext_resource type="Script" uid="uid://lor6gv5snyfo" path="res://characters/script/enemy_health_bar.gd" id="4_c4w8v"]
 [ext_resource type="Texture2D" uid="uid://ba8hnq8qvilbw" path="res://art/health_bar/healthbarUnder.png" id="4_xwavj"]
 [ext_resource type="Texture2D" uid="uid://c6syu2u8p3w44" path="res://art/health_bar/healthbarProgressRed.png" id="5_xwavj"]
 

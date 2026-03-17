@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dayobmyverrdd"]
 
-[ext_resource type="Script" uid="uid://dcrv6x0fos52m" path="res://script/attacco_libro_elettrotecnica.gd" id="1_igjpf"]
+[ext_resource type="Script" uid="uid://dcrv6x0fos52m" path="res://attacks/script/attacco_libro_elettrotecnica.gd" id="1_igjpf"]
 [ext_resource type="Texture2D" uid="uid://fcbo7dugkgxu" path="res://art/Effects Pack 14/1/1.png" id="1_ls6uk"]
 [ext_resource type="Texture2D" uid="uid://dpc3o7r6j6y2g" path="res://art/Effects Pack 14/1/2.png" id="2_igjpf"]
 [ext_resource type="Texture2D" uid="uid://c20bhra7ljq0o" path="res://art/Effects Pack 14/1/3.png" id="3_704ui"]

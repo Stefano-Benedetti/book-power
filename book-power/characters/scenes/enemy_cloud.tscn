@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5u258nmsxnsu"]
 
 [ext_resource type="Texture2D" uid="uid://dme11xvx8gwup" path="res://art/nuvoletta.png" id="1_15d4g"]
-[ext_resource type="Script" uid="uid://drfco10xvoaho" path="res://script/enemy_cloud.gd" id="1_j7pu4"]
+[ext_resource type="Script" uid="uid://drfco10xvoaho" path="res://characters/script/enemy_cloud.gd" id="1_j7pu4"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

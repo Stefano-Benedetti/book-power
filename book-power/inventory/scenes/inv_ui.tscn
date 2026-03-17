@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b0uc4x2yyxd68" path="res://inventory/script/inv_ui.gd" id="1_f2u1w"]
 [ext_resource type="Texture2D" uid="uid://b6airqjuhn8h1" path="res://art/Border and Panels Menu Part 1/bordo_inventario.png" id="2_w82yi"]
-[ext_resource type="PackedScene" uid="uid://dun115v27bcug" path="res://inventory/inv_ui_slot.tscn" id="3_dn3an"]
+[ext_resource type="PackedScene" uid="uid://dun115v27bcug" path="res://inventory/scenes/inv_ui_slot.tscn" id="3_dn3an"]
 [ext_resource type="Texture2D" uid="uid://qivma5t4mhqo" path="res://art/Border and Panels Menu Part 1/bordo_selected_item.png" id="4_r1b7r"]
 [ext_resource type="Texture2D" uid="uid://ccsfe7e71l7kb" path="res://art/libro_elettrotecnica.png" id="5_ars6i"]
 [ext_resource type="FontFile" uid="uid://ntu3b1wy2s24" path="res://art/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/LinLibertine_R.otf" id="7_sjsia"]
@@ -251,7 +251,7 @@ scale = Vector2(0.9, 0.9)
 texture = ExtResource("5_ars6i")
 
 [node name="DescriptionArea" type="RichTextLabel" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("7_sjsia")

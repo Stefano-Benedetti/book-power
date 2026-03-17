@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://blkx8eeratfr0"]
 
 [ext_resource type="Texture2D" uid="uid://bfehkt0i82cfo" path="res://art/albero_binario06.png" id="1_63mu0"]
-[ext_resource type="Script" uid="uid://jrgru5da3thu" path="res://script/attacco_libro_asd.gd" id="1_rrpl6"]
+[ext_resource type="Script" uid="uid://jrgru5da3thu" path="res://attacks/script/attacco_libro_asd.gd" id="1_rrpl6"]
 [ext_resource type="AudioStream" uid="uid://bu8o3skec1own" path="res://sound/sound effects/freesound_community-sortdemo_qb45_bubble-33039.mp3" id="3_nnq8a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rrpl6"]

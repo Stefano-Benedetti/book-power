@@ -24,10 +24,10 @@ var can_move = true
 var offset_attacchi = Vector2(0, -7)
 @onready var attacck_cooldown: Timer=$attackCooldown
 @onready var mov_cooldown: Timer=$movementPostAttackCooldown
-@onready var attacco_libro_analisi = preload("res://scenes/attacco_libro_analisi.tscn")
-@onready var attacco_libro_asd = preload("res://scenes/attacco_libro_asd.tscn")
-@onready var attacco_libro_reti = preload("res://scenes/attacco_libro_reti.tscn")
-@onready var attacco_libro_elettrotecnica = preload("res://scenes/attacco_libro_elettrotecnica.tscn")
+@onready var attacco_libro_analisi = preload("res://attacks/scenes/attacco_libro_analisi.tscn")
+@onready var attacco_libro_asd = preload("res://attacks/scenes/attacco_libro_asd.tscn")
+@onready var attacco_libro_reti = preload("res://attacks/scenes/attacco_libro_reti.tscn")
+@onready var attacco_libro_elettrotecnica = preload("res://attacks/scenes/attacco_libro_elettrotecnica.tscn")
 
 func _ready():
 	Global.selected_slot_update.connect(updateSelectedItem)
