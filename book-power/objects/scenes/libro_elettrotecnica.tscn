@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dwroxtcbkxdus"]
 
 [ext_resource type="Texture2D" uid="uid://ccsfe7e71l7kb" path="res://art/libro_elettrotecnica.png" id="1_0ol7m"]
-[ext_resource type="Script" uid="uid://dd3ukfvucnsl7" path="res://script/libro_elettrotecnica.gd" id="1_f3lmb"]
+[ext_resource type="Script" uid="uid://dd3ukfvucnsl7" path="res://objects/script/libro_elettrotecnica.gd" id="1_f3lmb"]
 [ext_resource type="Resource" uid="uid://c4nbu1k72n240" path="res://inventory/items/libro_elettrotecnica.tres" id="2_7coru"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f3lmb"]

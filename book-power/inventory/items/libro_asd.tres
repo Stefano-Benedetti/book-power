@@ -7,5 +7,5 @@
 script = ExtResource("1_g5vrg")
 name = "libro_asd"
 texture = ExtResource("2_0qvn1")
-title = "Data structures and algorithms"
-description = "spawn a giant red-black binary tree that no enemy could ever block"
+title = "Data Structures and Algorithms Book"
+description = "Summons a giant red-black binary tree that no enemy could ever block."

@@ -7,5 +7,5 @@
 script = ExtResource("1_rujfg")
 name = "libro_elettrotecnica"
 texture = ExtResource("2_pfar4")
-title = "electrotechnics book"
-description = "zzrzrzrzrrrzrzrzr"
+title = "Electrotechnics Book"
+description = "Summons an electrical, short range blast that deals a lot of damage. It could be used to power something..."

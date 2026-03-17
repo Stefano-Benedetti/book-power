@@ -45,9 +45,9 @@ func manage_slot_selection(new_selection_index):
 func updateSelectedItem_info():
 	selectedItem = inv.slots[selectedItem_index].item
 	if !selectedItem:
-		selectedItem_titleArea.text = "Niente"
+		selectedItem_titleArea.text = "Nothing"
 		selectedItem_imgArea.visible = false
-		selectedItem_descrArea.text = "non hai selezionato niente!!"
+		selectedItem_descrArea.text = "Literally nothing."
 	else:
 		selectedItem_titleArea.text = selectedItem.title
 		selectedItem_imgArea.visible = true
