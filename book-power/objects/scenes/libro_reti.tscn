@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://nqa5yxjsvvh8"]
 
-[ext_resource type="Script" uid="uid://cxlhthcw8klli" path="res://script/libro_reti.gd" id="1_l2523"]
+[ext_resource type="Script" uid="uid://cxlhthcw8klli" path="res://objects/script/libro_reti.gd" id="1_l2523"]
 [ext_resource type="Resource" uid="uid://tp2c0rn5fbwv" path="res://inventory/items/libro_reti.tres" id="2_456tt"]
 [ext_resource type="Texture2D" uid="uid://cgx0iaqnk5lx5" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/libro_reti.png" id="2_p7hs1"]
 

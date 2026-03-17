@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://s4sgnvd5jpqj"]
 
 [ext_resource type="Texture2D" uid="uid://dss8n6oo7v2gl" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/potion_02a.png" id="1_1dg5g"]
-[ext_resource type="Script" uid="uid://bx8npf8l8tmys" path="res://script/health_potion.gd" id="1_np0hw"]
+[ext_resource type="Script" uid="uid://bx8npf8l8tmys" path="res://objects/script/health_potion.gd" id="1_np0hw"]
 [ext_resource type="Resource" uid="uid://diilydmty2tfg" path="res://inventory/items/health_potion.tres" id="2_gan2x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_np0hw"]

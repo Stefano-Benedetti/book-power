@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bv5iyu783u257"]
 
-[ext_resource type="Script" uid="uid://djur0dwswnu8b" path="res://script/osso.gd" id="1_fxb40"]
+[ext_resource type="Script" uid="uid://djur0dwswnu8b" path="res://objects/script/osso.gd" id="1_fxb40"]
 [ext_resource type="Texture2D" uid="uid://c4o2wu4fxdsh1" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/bone01a.png" id="1_xltmb"]
 [ext_resource type="Resource" uid="uid://cn7y4bnuc7t5n" path="res://inventory/items/bone.tres" id="2_kr12b"]
 

@@ -47,10 +47,11 @@ attacco economia: lasci una moneta per qualche secondo e tutti i nemici a una ce
 
 
 dati da salvare:
+email e password in locale (se si seleziona l'opzione)
 stato attuale della scena corrente.
 se non è possibile salvare l'intero stato della scena corrente allora si userà la mappa e lo stato in cui questa è stata raggiunta come checkpoint, ovvero si salveà:
 mappa raggiunta
-vita quando si ha raggiunto quella mappa
+vita quando si ha raggiunto quella mappa* meglio di no, altrimenti se entri con poca o zero vita è un casino
 inventario quando si ha raggiunto quella mappa
 
 
@@ -64,7 +65,7 @@ difficoltà di ogni mappa via via crescente
 
 nemici: vecchietto base, robot che controlla un'area e fa danno, boss ansia (altrimenti tesi o altra roba così)
 
-armi: libro di analisi, libro di asd, libro di reti
+armi: libro di analisi, libro di asd, libro di elettrotecnica, libro di reti
 elementi per avanzare: libro di automatica (serve per spegnere il robot e passare), altre chiavi
 elementi aggiuntivi: pozioni curative (droppate da ogni vecchietto morto)
 

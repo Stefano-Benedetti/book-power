@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://crkdwpc8kmk48"]
 
 [ext_resource type="Texture2D" uid="uid://dmg4qos1f33p2" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/key_01d.png" id="1_f0bfv"]
-[ext_resource type="Script" uid="uid://tv2lhjselfx1" path="res://script/key_01.gd" id="1_g22u8"]
+[ext_resource type="Script" uid="uid://tv2lhjselfx1" path="res://objects/script/key_01.gd" id="1_g22u8"]
 [ext_resource type="Resource" uid="uid://bxj0m0tvjw7xn" path="res://inventory/items/key01.tres" id="2_n5x43"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g22u8"]

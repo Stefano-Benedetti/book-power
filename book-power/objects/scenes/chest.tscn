@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bm3suhb0o6ksq"]
 
 [ext_resource type="Texture2D" uid="uid://12qgrtsavcbu" path="res://art/Little Dreamyland - Free Pack/Tileset/Object Animation/Chest.png" id="1_oii8l"]
-[ext_resource type="Script" uid="uid://dabhtd7bu53ab" path="res://script/chest.gd" id="1_sy5e1"]
+[ext_resource type="Script" uid="uid://dabhtd7bu53ab" path="res://objects/script/chest.gd" id="1_sy5e1"]
 [ext_resource type="Resource" uid="uid://cn7y4bnuc7t5n" path="res://inventory/items/bone.tres" id="2_yue2o"]
 [ext_resource type="Resource" uid="uid://bxj0m0tvjw7xn" path="res://inventory/items/key01.tres" id="3_yhylo"]
 
