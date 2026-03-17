@@ -138,17 +138,31 @@ script = ExtResource("5_x56uj")
 
 [node name="resetpass" type="Button" parent="."]
 layout_mode = 0
-offset_left = 536.0
-offset_top = 563.0
-offset_right = 744.0
-offset_bottom = 673.0
+offset_left = 402.0
+offset_top = 449.0
+offset_right = 638.0
+offset_bottom = 550.0
 size_flags_horizontal = 3
+theme_override_constants/outline_size = 0
+theme_override_constants/line_spacing = -15
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_d2vhw")
 text = "Reset
 password"
 
+[node name="logout" type="Button" parent="."]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 449.0
+offset_right = 879.0
+offset_bottom = 550.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_d2vhw")
+text = "Log out"
+
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="HBoxContainer/register" to="." method="_on_register_pressed"]
 [connection signal="pressed" from="HBoxContainer/login" to="." method="_on_login_pressed"]
 [connection signal="pressed" from="resetpass" to="." method="_on_resetpass_pressed"]
+[connection signal="pressed" from="logout" to="." method="_on_logout_pressed"]

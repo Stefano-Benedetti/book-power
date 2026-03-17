@@ -22,7 +22,6 @@ func save_data(data: Dictionary):
 
 
 # Retrieves user data from the cloud.
-# da inserire in login (ok)
 func load_data():
 	if Auth.id_token.is_empty() or Auth.local_id.is_empty():
 		print("Loading data failed: user not logged in.")
@@ -58,7 +57,7 @@ func _send_request(url: String, method: HTTPClient.Method, request_type: String,
 			load_failed.emit()
 		http_request.queue_free()
 
-# Transforma a resposta de bytes em texto
+# Trasforma la risposta da bytes a testo
 func _on_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray, request_type: String, http_node: HTTPRequest) -> void:
 	
 	var json = JSON.new()
@@ -83,7 +82,7 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 
 	var response_data = json.get_data()
 	
-	# Se a resposta tiver um erro do Firebase
+	# Se la risposta è un errore di firebase
 	if response_data.has("error"):
 		print("Firebase error: ", response_data["error"])
 		if request_type == "save":
@@ -91,7 +90,7 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 		else:
 			load_failed.emit()
 	
-	# Se deu tudo certo
+	# Se va tutto bene
 	else:
 		if request_type == "save":
 			print("Data successfully saved!")

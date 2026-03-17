@@ -1,10 +1,30 @@
 extends Control
 
 var _save_done := false
-
+var _load_done := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	$Control/HBoxContainer.hide()
+	$Control/logreg.hide()
+	$Control/settings.hide()
+	
+	SaveSystem.save_succeeded.connect(_on_save_end)
+	SaveSystem.save_failed.connect(_on_save_end)
+	
+	SaveSystem.load_succeeded.connect(_on_load_succeeded)
+	SaveSystem.load_failed.connect(_on_load_failed)
+	
+	Auth.login_succeeded.connect(_on_login_succeeded)
+	Auth.login_failed.connect(_on_login_failed)
+	
+	if !Auth.is_logged_in():
+		autologin()
+	
+	else:
+		$Label.text = "Logged in."
+		show_buttons()
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_play_pressed():
@@ -21,14 +41,13 @@ func _on_exit_pressed():
 		"music_volume" = db_to_linear(AudioServer.get_bus_volume_db(2))
 	}
 	# Connetti una sola volta save_succeded/failed a _on_save_end
-	SaveSystem.save_succeeded.connect(_on_save_end, CONNECT_ONE_SHOT)
-	SaveSystem.save_failed.connect(_on_save_end, CONNECT_ONE_SHOT)
+	#SaveSystem.save_succeeded.connect(_on_save_end, CONNECT_ONE_SHOT)
+	#SaveSystem.save_failed.connect(_on_save_end, CONNECT_ONE_SHOT)
 
 	SaveSystem.save_data(data)
 
-	# Aspetta finché non arriva success/fail del salvataggio, ma con timeout
-	var timer := get_tree().create_timer(5.0)
-	while not _save_done and timer.time_left > 0.0:
+	# Aspetta finché non arriva success/fail del salvataggio
+	while not _save_done:
 		await get_tree().process_frame
 		
 	# poi esce
@@ -39,3 +58,47 @@ func _on_settings_pressed():
 
 func _on_save_end() -> void:
 	_save_done = true
+
+func autologin():
+	var path = "user://creds.save"
+	if FileAccess.file_exists(path):
+		var file = FileAccess.open(path,FileAccess.READ)
+		var email = 0
+		var password = 0
+		email = file.get_var(email)
+		password = file.get_var(password)
+		Auth.login_user(email, password)
+	else:
+		$Label.text = "NOT logged in, your data will NOT be saved!"
+		show_buttons()
+
+
+func _on_login_succeeded():
+	SaveSystem.load_data()
+	$Label.text = "Successfully logged in."
+func _on_login_failed(message: String):
+	print(message)
+	show_buttons()
+	$Label.text = "LOGIN FAILED, your data will NOT be saved!"
+	
+func _on_load_succeeded(data: Dictionary):
+	# Store the data in the global variable.
+	Auth.player_data = data
+	
+	if !data.is_empty() :
+		# Carico le impostazioni del volume
+		AudioServer.set_bus_volume_db(0,linear_to_db(data.get("global_volume")))
+		AudioServer.set_bus_volume_db(1,linear_to_db(data.get("effects_volume")))
+		AudioServer.set_bus_volume_db(2,linear_to_db(data.get("music_volume")))
+	show_buttons()
+	$Label.text = "Your data has been loaded."
+	
+func _on_load_failed():
+	print("Error loading data.")
+	show_buttons()
+	$Label.text = "Error loading data."
+
+func show_buttons():
+	$Control/HBoxContainer.show()
+	$Control/logreg.show()
+	$Control/settings.show()

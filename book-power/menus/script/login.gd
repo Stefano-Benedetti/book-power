@@ -1,5 +1,7 @@
 extends Control
 
+var save_path = "user://creds.save"
+
 func _ready():
 	Auth.registration_succeeded.connect(_on_registration_succeeded)
 	Auth.registration_failed.connect(on_registration_failed)
@@ -15,7 +17,16 @@ func _ready():
 
 	SaveSystem.load_succeeded.connect(_on_load_succeeded)
 	SaveSystem.load_failed.connect(_on_load_failed)
-
+	
+	update_ui()
+	
+	if FileAccess.file_exists(save_path) and Auth.is_logged_in():
+		var file = FileAccess.open(save_path,FileAccess.READ)
+		var email = 0
+		var password = 0
+		$VBoxContainer/email.text = file.get_var(email)
+		$VBoxContainer/password.text = file.get_var(password)
+		$Label.text = "Logged in"
 
 
 func _on_login_pressed():
@@ -26,6 +37,7 @@ func _on_login_pressed():
 		return
 	
 	$Label.text = "Loggin in..."
+	$back.hide()
 	Auth.login_user(email, password)
 
 func _on_register_pressed():
@@ -34,7 +46,7 @@ func _on_register_pressed():
 	if email.is_empty() or password.is_empty():
 		$Label.text = "Insert email and password."
 		return
-	
+	$back.hide()
 	$Label.text = "Registration in progress..."
 	Auth.register_user(email, password)
 
@@ -58,6 +70,7 @@ func _on_registration_succeeded():
 
 func on_registration_failed(error_message : String):
 	$Label.text = "Registration failed: " + error_message
+	$back.show()
 
 
 func _on_resetpass_succeeded():
@@ -70,16 +83,25 @@ func _on_resetpass_failed(error_message : String):
 func _on_login_succeeded():
 	$Label.text = "Login succeeded!"
 	SaveSystem.load_data()
+	var email = $VBoxContainer/email.text
+	var password = $VBoxContainer/password.text
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	file.store_var(email)
+	file.store_var(password)
+	update_ui()
 
 func _on_login_failed(error_message):
 	$Label.text = "Login failed: " + error_message
+	$back.show()
 	
 func _on_verification_succeeded():
 	$Label.text = "Verification email sent, check your spelling or spam if you can't find it."
 	Auth.logout()
+	$back.show()
 	
 func _on_verification_failed(error_message):
 	$Label.text = "Email verification failed: " + error_message
+	$back.show()
 
 
 func _on_load_succeeded(data: Dictionary):
@@ -93,6 +115,27 @@ func _on_load_succeeded(data: Dictionary):
 		AudioServer.set_bus_volume_db(0,linear_to_db(data.get("global_volume")))
 		AudioServer.set_bus_volume_db(1,linear_to_db(data.get("effects_volume")))
 		AudioServer.set_bus_volume_db(2,linear_to_db(data.get("music_volume")))
+	$back.show()
 
 func _on_load_failed():
 	$Label.text = "Error loading data, try again."
+	$back.show()
+
+
+func _on_logout_pressed() -> void:
+	DirAccess.remove_absolute(save_path)
+	Auth.logout()
+	$VBoxContainer/email.text = ""
+	$VBoxContainer/password.text = ""
+	$Label.text = "Successfully logged out."
+	update_ui()
+
+func update_ui():
+	if Auth.is_logged_in():
+		$HBoxContainer.hide()
+		$resetpass.show()
+		$logout.show()
+	else:
+		$resetpass.hide()
+		$logout.hide()
+		$HBoxContainer.show()

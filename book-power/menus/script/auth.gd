@@ -123,14 +123,6 @@ func _send_request(url: String, body: Dictionary, request_type: String) -> void:
 	
 	if error != OK:
 		print("Error starting the request: ", error)
-		if request_type == "register":
-			registration_failed.emit("Initial connection error.")
-		elif request_type == "login":
-			login_failed.emit("Initial connection error.")
-		elif request_type == "resetpass":
-			resetpass_failed.emit("Initial connection error.")
-		else :
-			verification_failed.emit("Initial connection error.")
 		http_request.queue_free()
 
 func _on_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray, request_type: String, http_node: HTTPRequest) -> void:
@@ -216,3 +208,6 @@ func _translate_firebase_error(error_code: String) -> String:
 			return "email is empty."
 		_:
 			return "Error: (" + error_code + ")"
+
+func is_logged_in():
+	return id_token != "" and local_id != ""
