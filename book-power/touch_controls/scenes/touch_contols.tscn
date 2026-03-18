@@ -65,6 +65,14 @@ scale = Vector2(7, 7)
 texture_normal = ExtResource("9_q4btn")
 action = "attacca"
 
+[node name="next_quest" type="Button" parent="."]
+offset_left = 12.0
+offset_top = 204.0
+offset_right = 142.0
+offset_bottom = 271.0
+theme_override_font_sizes/font_size = 25
+text = "quest++"
+
 [connection signal="pressed" from="up" to="." method="_on_up_pressed"]
 [connection signal="released" from="up" to="." method="_on_up_released"]
 [connection signal="pressed" from="down" to="." method="_on_down_pressed"]
@@ -81,3 +89,4 @@ action = "attacca"
 [connection signal="released" from="pause" to="." method="_on_pause_released"]
 [connection signal="pressed" from="attack" to="." method="_on_attack_pressed"]
 [connection signal="released" from="attack" to="." method="_on_attack_released"]
+[connection signal="pressed" from="next_quest" to="." method="_on_next_quest_pressed"]

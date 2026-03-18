@@ -10,10 +10,6 @@ func _ready() -> void:
 	# deve essere la prima canzone che inizia quando apri il gioco
 	$menu_music.play()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func changeMusic() -> void:
 	if get_tree().current_scene!=null  and  current_scene!=get_tree().current_scene.scene_file_path :
 		current_scene = get_tree().current_scene.scene_file_path

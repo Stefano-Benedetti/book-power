@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://bkr4aiyvfhvqs"]
+[gd_scene load_steps=37 format=4 uid="uid://bkr4aiyvfhvqs"]
 
 [ext_resource type="Texture2D" uid="uid://c63psyhe5s0k4" path="res://art/Little Dreamyland - Free Pack/Tileset/Autotile_Grass_and_Dirt_Path_Tileset.png" id="1_qfnet"]
 [ext_resource type="Texture2D" uid="uid://cpav256v07sbt" path="res://art/Little Dreamyland - Free Pack/Tileset/Crops_Tileset.png" id="2_i7141"]
@@ -10,11 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://dt5ng80c6newu" path="res://inventory/scenes/inv_ui.tscn" id="8_4mrxx"]
 [ext_resource type="Resource" uid="uid://bl6hkk3gjnss2" path="res://inventory/player_inventory.tres" id="8_jhx03"]
 [ext_resource type="PackedScene" uid="uid://bv5iyu783u257" path="res://objects/scenes/osso.tscn" id="9_7r4gi"]
+[ext_resource type="PackedScene" uid="uid://b5x5dbko4mw4h" path="res://scenes/npc_fuoricorso.tscn" id="9_ctatt"]
 [ext_resource type="PackedScene" uid="uid://c4wlaldocgqtl" path="res://touch_controls/scenes/touch_contols.tscn" id="10_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://b5axlii2oyhdf" path="res://scenes/selectedItem_slot.tscn" id="11_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://bdyg3nigp8cpo" path="res://characters/scenes/enemy.tscn" id="12_q5onr"]
 [ext_resource type="PackedScene" uid="uid://c78woh6vfcevh" path="res://scenes/player_health_bar.tscn" id="14_dss4m"]
 [ext_resource type="PackedScene" uid="uid://da82dug1vut1e" path="res://menus/scenes/pause_menu.tscn" id="14_xo05s"]
+[ext_resource type="PackedScene" uid="uid://c8rs30phkkd0r" path="res://scenes/casella_dialogo.tscn" id="15_xgqkh"]
 [ext_resource type="PackedScene" uid="uid://4q20bgjmsri5" path="res://objects/scenes/libro_analisi.tscn" id="16_dss4m"]
 [ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="17_7t5mc"]
 [ext_resource type="PackedScene" uid="uid://c2fwthkouehnh" path="res://objects/scenes/libro_asd.tscn" id="18_lakw3"]
@@ -928,6 +930,10 @@ tile_set = SubResource("TileSet_rup4s")
 position = Vector2(159, -144.99998)
 inv = ExtResource("8_jhx03")
 
+[node name="npc_fuoricorso" parent="." instance=ExtResource("9_ctatt")]
+position = Vector2(129, -200)
+scale = Vector2(0.4, 0.4)
+
 [node name="enemy" parent="." instance=ExtResource("12_q5onr")]
 position = Vector2(329.00003, -91.999985)
 
@@ -962,9 +968,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("8_4mrxx")]
 
+[node name="casella_dialogo" parent="CanvasLayer2" instance=ExtResource("15_xgqkh")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="pause_menu" parent="CanvasLayer" instance=ExtResource("14_xo05s")]
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="gameover_menu" parent="CanvasLayer" instance=ExtResource("17_7t5mc")]
@@ -973,6 +982,7 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+mouse_filter = 2
 
 [node name="libro_analisi" parent="." instance=ExtResource("16_dss4m")]
 position = Vector2(177, -112)

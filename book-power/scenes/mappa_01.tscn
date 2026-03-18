@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://5qac7823w8cl"]
+[gd_scene load_steps=60 format=4 uid="uid://5qac7823w8cl"]
 
 [ext_resource type="Texture2D" uid="uid://c63psyhe5s0k4" path="res://art/Little Dreamyland - Free Pack/Tileset/Autotile_Grass_and_Dirt_Path_Tileset.png" id="1_jtoye"]
 [ext_resource type="Texture2D" uid="uid://cpav256v07sbt" path="res://art/Little Dreamyland - Free Pack/Tileset/Crops_Tileset.png" id="2_nwfk3"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://stw33m56xai6" path="res://art/Little Dreamyland - Free Pack/Tileset/Nature_Tileset.png" id="5_06ste"]
 [ext_resource type="Texture2D" uid="uid://d1ji32d1aowet" path="res://art/Little Dreamyland - Free Pack/Tileset/Tileset_Floor_Detail.png" id="6_rd3ml"]
 [ext_resource type="Texture2D" uid="uid://qxn8eniycd6s" path="res://art/Pixel Crawler - Free Pack/Environment/Structures/Buildings/Walls.png" id="7_bwsgv"]
-[ext_resource type="PackedScene" uid="uid://ckwr713fqij6n" path="res://scenes/player.tscn" id="7_nwfk3"]
 [ext_resource type="Texture2D" uid="uid://c5ma4mxjjt3ke" path="res://art/Little Dreamyland - Free Pack/Tileset/Object Animation/Campfire.png" id="7_pey3w"]
 [ext_resource type="Texture2D" uid="uid://srd38742n167" path="res://art/Pixel Crawler - Free Pack/Environment/Structures/Buildings/Roofs.png" id="8_06ste"]
 [ext_resource type="Texture2D" uid="uid://birwquf6td6b2" path="res://art/Pixel Lands Interiors Demo/interiors_demo.png" id="8_fa53s"]
@@ -15,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://buq427men6tpj" path="res://art/Pixel Crawler - Free Pack/Environment/Props/Static/Furniture.png" id="9_06ste"]
 [ext_resource type="Texture2D" uid="uid://oh650tnr4wcq" path="res://art/Pixel Crawler - Free Pack/Environment/Props/Static/Shadows.png" id="10_rd3ml"]
 [ext_resource type="Texture2D" uid="uid://cwdt6qimsgt60" path="res://art/City cars/city_cars_2.png" id="13_aauss"]
-[ext_resource type="PackedScene" uid="uid://bdyg3nigp8cpo" path="res://characters/scenes/enemy.tscn" id="13_upoh4"]
 [ext_resource type="Texture2D" uid="uid://l0ni0niwlo20" path="res://art/City cars/blueCar_front.png" id="14_s0lqx"]
 [ext_resource type="Texture2D" uid="uid://bjnty6uds3a0r" path="res://art/City cars/blueCar_left.png" id="15_qi11m"]
 [ext_resource type="Texture2D" uid="uid://dngv44m8im5ot" path="res://art/City cars/blueCar_rear.png" id="16_wqy4y"]
@@ -5875,9 +5873,3 @@ tile_set = SubResource("TileSet_s0lqx")
 [node name="city cars" type="TileMapLayer" parent="TileMap"]
 scale = Vector2(1.5, 1.5)
 tile_set = SubResource("TileSet_vaj4t")
-
-[node name="player" parent="." instance=ExtResource("7_nwfk3")]
-position = Vector2(124.00001, -177.99997)
-
-[node name="enemy" parent="." instance=ExtResource("13_upoh4")]
-position = Vector2(843.99994, 83.99999)

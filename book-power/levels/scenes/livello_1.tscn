@@ -1,0 +1,72 @@
+[gd_scene load_steps=12 format=3 uid="uid://dotk8wkljroor"]
+
+[ext_resource type="PackedScene" uid="uid://5qac7823w8cl" path="res://scenes/mappa_01.tscn" id="1_icrkw"]
+[ext_resource type="PackedScene" uid="uid://c4wlaldocgqtl" path="res://touch_controls/scenes/touch_contols.tscn" id="2_m2jwi"]
+[ext_resource type="PackedScene" uid="uid://b5axlii2oyhdf" path="res://scenes/selectedItem_slot.tscn" id="3_eoc0k"]
+[ext_resource type="PackedScene" uid="uid://c78woh6vfcevh" path="res://scenes/player_health_bar.tscn" id="4_sj3x5"]
+[ext_resource type="PackedScene" uid="uid://dt5ng80c6newu" path="res://inventory/scenes/inv_ui.tscn" id="5_55gh7"]
+[ext_resource type="PackedScene" uid="uid://c8rs30phkkd0r" path="res://scenes/casella_dialogo.tscn" id="6_8x68r"]
+[ext_resource type="PackedScene" uid="uid://da82dug1vut1e" path="res://menus/scenes/pause_menu.tscn" id="7_dxc6x"]
+[ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="8_k6sjt"]
+[ext_resource type="PackedScene" uid="uid://b5x5dbko4mw4h" path="res://scenes/npc_fuoricorso.tscn" id="9_sj3x5"]
+[ext_resource type="PackedScene" uid="uid://ckwr713fqij6n" path="res://scenes/player.tscn" id="10_55gh7"]
+[ext_resource type="PackedScene" uid="uid://bdyg3nigp8cpo" path="res://characters/scenes/enemy.tscn" id="11_8x68r"]
+
+[node name="livello_1" type="Node2D"]
+y_sort_enabled = true
+
+[node name="mappa01" parent="." instance=ExtResource("1_icrkw")]
+position = Vector2(448, -864)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="touchContols" parent="Control" instance=ExtResource("2_m2jwi")]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="sel_item_slot" parent="CanvasLayer2" instance=ExtResource("3_eoc0k")]
+offset_left = 564.0
+offset_top = 571.0
+offset_right = 601.99994
+offset_bottom = 609.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" parent="CanvasLayer2" node_paths=PackedStringArray("player") instance=ExtResource("4_sj3x5")]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 84.0
+offset_bottom = 30.0
+player = NodePath("../../player")
+metadata/_edit_use_anchors_ = true
+
+[node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("5_55gh7")]
+
+[node name="casella_dialogo" parent="CanvasLayer2" instance=ExtResource("6_8x68r")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("7_dxc6x")]
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="gameover_menu" parent="CanvasLayer" instance=ExtResource("8_k6sjt")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+mouse_filter = 2
+
+[node name="npc_fuoricorso" parent="." instance=ExtResource("9_sj3x5")]
+position = Vector2(269, -161)
+
+[node name="player" parent="." instance=ExtResource("10_55gh7")]
+position = Vector2(282, -217)
+
+[node name="enemy" parent="." instance=ExtResource("11_8x68r")]
+position = Vector2(703.99994, -668.99994)

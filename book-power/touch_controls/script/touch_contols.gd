@@ -54,3 +54,8 @@ func _on_attack_pressed() -> void:
 	button_attack.modulate.a = 0.5
 func _on_attack_released() -> void:
 	button_attack.modulate.a = 1
+
+
+# da togliere insieme al pulsante, usato solo per testing
+func _on_next_quest_pressed() -> void:
+	QuestCounter.to_next_quest()
