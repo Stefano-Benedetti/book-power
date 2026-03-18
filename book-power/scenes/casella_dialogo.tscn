@@ -37,5 +37,17 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_override_constants/line_spacing = -10
 theme_override_font_sizes/font_size = 40
-text = "Apelle figlio di apollo fece una palla di pelle di pollo, tutti i pesci vennero a galla per vedere la palla di pelle di pollo, fatta da apelle figlio di apollo. Sotto la panca la capra campa, sotto la panca la capra crepa. Trentatré trentini entrarono in Trento tutti e trentatré trotterellando."
 autowrap_mode = 3
+
+[node name="next" type="Button" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="next_quest" type="Button" parent="."]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 117.0
+offset_right = 726.0
+offset_bottom = 267.0
+
+[connection signal="pressed" from="PanelContainer/next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="next_quest" to="." method="_on_next_quest_pressed"]

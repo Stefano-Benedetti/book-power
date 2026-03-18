@@ -74,12 +74,12 @@ func autologin():
 
 
 func _on_login_succeeded():
-	SaveSystem.load_data()
 	$Label.text = "Successfully logged in."
+	SaveSystem.load_data()
 func _on_login_failed(message: String):
 	print(message)
-	show_buttons()
 	$Label.text = "LOGIN FAILED, your data will NOT be saved!"
+	show_buttons()
 	
 func _on_load_succeeded(data: Dictionary):
 	# Store the data in the global variable.
@@ -90,13 +90,13 @@ func _on_load_succeeded(data: Dictionary):
 		AudioServer.set_bus_volume_db(0,linear_to_db(data.get("global_volume")))
 		AudioServer.set_bus_volume_db(1,linear_to_db(data.get("effects_volume")))
 		AudioServer.set_bus_volume_db(2,linear_to_db(data.get("music_volume")))
-	show_buttons()
 	$Label.text = "Your data has been loaded."
+	show_buttons()
 	
 func _on_load_failed():
 	print("Error loading data.")
-	show_buttons()
 	$Label.text = "Error loading data."
+	show_buttons()
 
 func show_buttons():
 	$Control/HBoxContainer.show()
