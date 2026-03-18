@@ -20,6 +20,12 @@ https://anokolisa.itch.io/free-pixel-art-asset-pack-topdown-tileset-rpg-16x16-sp
 asset interni Pixel Lands Interiors Demo link:
 https://trislin.itch.io/pixel-lands-interiors
 
+asset city cars link:
+https://ipixl.itch.io/city-cars
+
+asset city CP_V1.1.0... link:
+https://nyknck.itch.io/citypackpixelart
+
 
 
 set icone oggetti inventario
