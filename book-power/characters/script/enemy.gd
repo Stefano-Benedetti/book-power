@@ -31,20 +31,47 @@ var can_move = true
 
 var spawn_point = null
 
-var default_nav_timer = randf()
-var nav_timer
+@export var nav_group: int = 0
+@export var repath_distance: float = 16.0 # evita ricalcoli se player quasi fermo
+var _last_target: Vector2
+var _nav_manager: AINavManager = null
 
 func _ready():
+	nav_group = randi() % 3
+	
 	spawn_point = global_position
 	nuvoletta.visible = false
-	resetNavTimer()
+	_last_target = global_position
+
+	# registra al manager se esiste nel livello
+	# (nome nodo: "ai_nav_manager" in livello_1)
+	if get_tree().current_scene and get_tree().current_scene.has_node("ai_nav_manager"):
+		_nav_manager = get_tree().current_scene.get_node("ai_nav_manager")
+		_nav_manager.register_enemy(self, nav_group)
 
 func _physics_process(delta: float):
-	nav_timer -= delta
 	manage_enemy(delta)
-	if nav_timer<0:
-		resetNavTimer()
 
+func _exit_tree() -> void:
+	if _nav_manager != null:
+		_nav_manager.unregister_enemy(self, nav_group)
+
+
+func nav_tick() -> void:
+	if dead:
+		return
+	# se sei fermo allo spawn e player non in area, non aggiornare path
+	if abs(position.x-spawn_point.x) < 20 and abs(position.y-spawn_point.y) < 20 and !player_in_area:
+		return
+	var target: Vector2
+	if player_in_area and player != null:
+		target = player.global_position
+	else:
+		target = spawn_point
+	if target.distance_to(_last_target) < repath_distance:
+		return
+	_last_target = target
+	nav_agent.target_position = target
 
 func manage_enemy(delta):
 	if dead:
@@ -87,47 +114,62 @@ func enemy_attack():
 #NOTA: finchè non cambia la direzione dominan. lui cammina sempre
 #nella stessa direzione
 func enemy_movement(delta):
-	if nav_timer>=0:
+	# 1) se sei “a casa” e player non in area => idle
+	if abs(position.x-spawn_point.x) < 20 and abs(position.y-spawn_point.y) < 20 and !player_in_area:
+		play_anim(0, 0)
+		velocity = Vector2.ZERO
 		move_and_slide()
 		return
-	if abs(position.x-spawn_point.x) < 20 and abs(position.y-spawn_point.y)<20 and !player_in_area:
-		play_anim(0, 0)
-		velocity.x = 0
-		velocity.y = 0
-		return
-	elif player_in_area:
-		nav_agent.target_position = player.global_position	# Imposta la posizione target al player
-	else:
-		nav_agent.target_position = spawn_point
-		
-	# Ottieni il prossimo waypoint dal percorso calcolato
-	if not nav_agent.is_navigation_finished():
-		var next_pos = nav_agent.get_next_path_position()
-		var direction = (next_pos - global_position).normalized()
-		if abs(abs(direction.x)-abs(direction.y))>0.5:
-			if abs(direction.x)>0.5:
-				if direction.x > 0:
-					current_dir = "right"
-					velocity.x = SPEED
-					velocity.y = 0
-				else:
-					current_dir = "left"
-					velocity.x = -SPEED
-					velocity.y = 0
-			else:
-				if direction.y > 0:
-					current_dir = "down"
-					velocity.x = 0
-					velocity.y = SPEED
-				else:
-					current_dir = "up"
-					velocity.x = 0
-					velocity.y = -SPEED
-		play_anim(1, 0)
-	move_and_slide()
 
-func resetNavTimer():
-	nav_timer = default_nav_timer
+	# 2) scegli target (come facevi tu)
+	var target: Vector2
+	if player_in_area and player != null:
+		target = player.global_position
+	else:
+		target = spawn_point
+
+	# 3) ricalcolo PATH SOLO a turno (1/3 dei frame)
+	var turn := int(Engine.get_physics_frames() % 3)
+	if turn == posmod(nav_group, 3):
+		# evita ricalcoli inutili se il target si è mosso poco
+		if target.distance_to(_last_target) >= repath_distance:
+			_last_target = target
+			nav_agent.target_position = target
+	else:
+		# fallback: se il path è finito/mai calcolato, aggiorna comunque (così non si “blocca”)
+		# (questa riga evita il “non si muovono”)
+		if nav_agent.is_navigation_finished():
+			_last_target = target
+			nav_agent.target_position = target
+
+	# 4) MOVIMENTO: sempre, usando il path corrente
+	if nav_agent.is_navigation_finished():
+		play_anim(0, 0)
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+
+	var next_pos = nav_agent.get_next_path_position()
+	var direction = (next_pos - global_position).normalized()
+
+	if abs(abs(direction.x) - abs(direction.y)) > 0.5:
+		if abs(direction.x) > 0.5:
+			if direction.x > 0:
+				current_dir = "right"
+				velocity = Vector2(SPEED, 0)
+			else:
+				current_dir = "left"
+				velocity = Vector2(-SPEED, 0)
+		else:
+			if direction.y > 0:
+				current_dir = "down"
+				velocity = Vector2(0, SPEED)
+			else:
+				current_dir = "up"
+				velocity = Vector2(0, -SPEED)
+
+	play_anim(1, 0)
+	move_and_slide()
 
 
 #funzione per gestire le animazioni del player, movement=1 => ci stiamo muovendo
