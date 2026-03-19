@@ -8,7 +8,10 @@ func enemy():
 const SPEED = 30
 var current_dir = "down"		#la inizializziamo giù
 
-@export var max_health = 200
+@export var dropped_object: PackedScene
+var offset_drop = Vector2(0, -3)
+
+@export var max_health = 10
 @onready var current_health: int = max_health
 @onready var health_bar: TextureProgressBar=$enemy_health_bar
 var dead = false
@@ -183,9 +186,21 @@ func getHurt(damage):
 	current_health -= damage
 	health_bar.update()
 
+
+func dropObject():
+	if dropped_object == null:
+		print("null")
+		return
+	print("non null")
+	var scena_dropped_object = dropped_object.instantiate()
+	get_parent().add_child(scena_dropped_object)
+	scena_dropped_object.global_position = global_position + offset_drop
+
+
 func die():
 	dead = true
 	var anim = $AnimatedSprite2D
 	anim.play("die")
 	await get_tree().create_timer(2.0).timeout #crea un timer di due secondi e aspetta la fine
+	dropObject()
 	queue_free()
