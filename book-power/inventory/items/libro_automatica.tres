@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://di30bq1l2l5xm"]
+
+[ext_resource type="Script" uid="uid://dgjp33lf1xt56" path="res://inventory/script/invetory_item_resource.gd" id="1_lsypt"]
+[ext_resource type="Texture2D" uid="uid://cgf5ovfsd36n0" path="res://art/libro_automatica.png" id="2_rc41o"]
+
+[resource]
+script = ExtResource("1_lsypt")
+name = "libro_automatica"
+texture = ExtResource("2_rc41o")
+title = "Control systems book"
+description = "regnerjingkjernguiernkjgnvdjkngie"
