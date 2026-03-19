@@ -192,6 +192,16 @@ func collect(item):
 func consume(indice):
 	inv.delete(indice)	#lo possiamo fare perchè abbiamo fatto sopra nel codice l'export di inv
 
+func consumeItem(item: InvItem, num_item: int):
+	var i=0
+	var indici_item_da_rimuovere = []
+	for current_item in inv.slots:
+		if item == current_item and indici_item_da_rimuovere.size()<num_item:
+			indici_item_da_rimuovere.append(i)
+		i+=1
+	for indice in indici_item_da_rimuovere:
+		consume(indice)
+
 func updateSelectedItem(slot: InvSlot, indice):
 	selected_item = slot.item
 	selected_item_index = indice
