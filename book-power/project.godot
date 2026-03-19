@@ -26,6 +26,7 @@ Musica="*res://sound/scenes/musica.tscn"
 SaveSystem="*res://script/save_system.gd"
 Auth="*res://menus/script/auth.gd"
 QuestCounter="*res://script/quest_counter.gd"
+GameState="*res://script/GameState.gd"
 
 [display]
 

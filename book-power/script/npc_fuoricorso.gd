@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-signal start_dialog
 signal update_quest
 
 var player_in_area = false

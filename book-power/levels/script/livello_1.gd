@@ -2,7 +2,7 @@ extends Node2D
 
 @export var item_richiesto: InvItem
 
-var qta_item_richiesti = 3
+var qta_item_richiesti = 4
 
 var quest_completata = false
 
@@ -12,6 +12,5 @@ func _ready() -> void:
 
 func quest_update():
 	if !quest_completata and $player.inv.countItem(item_richiesto) >= qta_item_richiesti:
-		print("quest++")
 		quest_completata = true
 		QuestCounter.to_next_quest()

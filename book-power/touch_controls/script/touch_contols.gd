@@ -9,6 +9,27 @@ extends CanvasLayer
 @onready var button_pause = $pause
 @onready var button_attack =$attack
 
+func _ready() -> void:
+	Global.in_dialogo.connect(set_dialogue_mode)
+
+func set_dialogue_mode(enabled: bool) -> void:
+	# enabled = true => siamo in dialogo
+	if enabled :
+		button_up.hide()
+		button_down.hide()
+		button_left.hide()
+		button_right.hide()
+		button_attack.hide()
+		button_pick.hide()
+		button_inv.hide()
+	else:
+		button_up.show()
+		button_down.show()
+		button_left.show()
+		button_right.show()
+		button_attack.show()
+		button_pick.show()
+		button_inv.show()
 
 func _on_up_pressed() -> void:
 	button_up.modulate.a = 0.5

@@ -73,17 +73,19 @@ position = Vector2(269, -161)
 
 [node name="player" parent="." instance=ExtResource("10_55gh7")]
 position = Vector2(282, -217)
-max_health = 100
 inv = ExtResource("12_dxc6x")
 
 [node name="enemy" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(703.99994, -668.99994)
+position = Vector2(387.00003, -306.00003)
 
 [node name="osso" parent="." instance=ExtResource("13_8x68r")]
-position = Vector2(346, -244)
+position = Vector2(352, -255)
 
 [node name="osso2" parent="." instance=ExtResource("13_8x68r")]
-position = Vector2(308, -247)
+position = Vector2(329, -201)
 
 [node name="osso3" parent="." instance=ExtResource("13_8x68r")]
-position = Vector2(321, -219)
+position = Vector2(311, -218)
+
+[node name="osso4" parent="." instance=ExtResource("13_8x68r")]
+position = Vector2(292, -199)

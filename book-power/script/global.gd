@@ -5,3 +5,5 @@ signal selected_slot_update(slot: InvSlot, indice)
 
 signal death
 signal start_dialog
+
+signal in_dialogo

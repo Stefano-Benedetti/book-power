@@ -568,7 +568,6 @@ height = 25.000002
 z_index = 1
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_g2els")
-max_health = null
 inv = SubResource("Resource_dqkch")
 
 [node name="attackCooldown" type="Timer" parent="."]
