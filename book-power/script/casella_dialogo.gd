@@ -4,19 +4,22 @@ extends Control
 
 var index = 0
 
+signal fine_dialogo
+
 var dialoghi_per_quest := {
 	0: [
-		"Hi, you seem new around here. I remember how hard the first year was, luckily I'm at the eigth year now! Computer Engineering is hard for sure.",
+		"Hi, you seem new around here. I remember how hard the first year was, luckily I'm at my eigth year now! Computer Engineering is hard for sure.",
 		"While you're here, could you do me a favor? I need 2 euros to get potato chips at the vending machine. You can steal 50 cents from each one of the old dudes wondering around the place.",
-		"Watch out, they are very bad people and will try to demotivate you as soon as you get close to them. They will say very mean things to you that might push you to drop out the university at some point."
+		"Watch out, they are very bad people and will try to demotivate you as soon as you get close to them. They will say very mean things to you that will eventually push you to drop out of university.",
+		"Take this book, this will help you in studying and keeping your motivation. Good luck!"
 	],
 	1: [
-		"Thank you! Go up and then to the right, at the end of the road there is a gate I opened. ",
-		"I will be there waiting for you, we have another problem to solve."
+		"Thank you! You are very good at this, many students would have already dropped out. Now go up and then to the right, past the road block, the police removed it just now.",
+		"I will be there, waiting for you. We have another problem to solve."
 	],
 	2: [
-		"Ottimo lavoro!",
-		"Ci vediamo al prossimo livello."
+		"BABBO",
+		"aaaaa"
 	]
 }
 
@@ -50,3 +53,4 @@ func _on_next_pressed() -> void:
 		$".".hide()
 		GameState.in_dialogue = false
 		Global.emit_signal("in_dialogo",false)
+		fine_dialogo.emit()

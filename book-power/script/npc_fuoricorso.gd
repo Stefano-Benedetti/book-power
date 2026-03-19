@@ -2,6 +2,10 @@ extends CharacterBody2D
 
 signal update_quest
 
+@export var dropped_object: PackedScene
+var offset_drop = Vector2(0, 20)
+var dropped = false
+
 var player_in_area = false
 var player = null
 
@@ -28,3 +32,11 @@ func _on_talk_area_body_entered(body: Node2D) -> void:
 func _on_talk_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = false
+
+func dropObject():
+	if dropped_object == null or dropped:
+		return
+	var scena_dropped_object = dropped_object.instantiate()
+	get_parent().add_child(scena_dropped_object)
+	scena_dropped_object.global_position = global_position + offset_drop
+	dropped = true

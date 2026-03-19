@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dk03medwanjub" path="res://levels/script/livello_1.gd" id="1_55gh7"]
 [ext_resource type="PackedScene" uid="uid://5qac7823w8cl" path="res://scenes/mappa_01.tscn" id="1_icrkw"]
+[ext_resource type="Resource" uid="uid://cn7y4bnuc7t5n" path="res://inventory/items/bone.tres" id="2_8x68r"]
 [ext_resource type="PackedScene" uid="uid://c4wlaldocgqtl" path="res://touch_controls/scenes/touch_contols.tscn" id="2_m2jwi"]
-[ext_resource type="Resource" uid="uid://cd2ncmd3tm8dy" path="res://inventory/items/moneta_bronzo.tres" id="2_xk28k"]
 [ext_resource type="PackedScene" uid="uid://b5axlii2oyhdf" path="res://scenes/selectedItem_slot.tscn" id="3_eoc0k"]
 [ext_resource type="PackedScene" uid="uid://c78woh6vfcevh" path="res://scenes/player_health_bar.tscn" id="4_sj3x5"]
 [ext_resource type="PackedScene" uid="uid://dt5ng80c6newu" path="res://inventory/scenes/inv_ui.tscn" id="5_55gh7"]
@@ -20,7 +20,7 @@
 [node name="livello_1" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_55gh7")
-item_richiesto = ExtResource("2_xk28k")
+item_richiesto = ExtResource("2_8x68r")
 
 [node name="mappa01" parent="." instance=ExtResource("1_icrkw")]
 position = Vector2(448, -864)
@@ -74,42 +74,15 @@ position = Vector2(269, -161)
 dropped_object = ExtResource("15_k6sjt")
 
 [node name="player" parent="." instance=ExtResource("10_55gh7")]
-position = Vector2(303, -152)
-max_health = 1000
+position = Vector2(282, -217)
 inv = ExtResource("12_dxc6x")
 
 [node name="enemy" parent="." instance=ExtResource("11_8x68r")]
 position = Vector2(387.00003, -306.00003)
 dropped_object = ExtResource("16_xk28k")
+max_health = null
 
 [node name="enemy2" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(579, -459)
+position = Vector2(407, -298)
 dropped_object = ExtResource("16_xk28k")
-
-[node name="enemy3" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(568, -435)
-dropped_object = ExtResource("16_xk28k")
-
-[node name="enemy4" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(527, -445)
-dropped_object = ExtResource("16_xk28k")
-
-[node name="enemy5" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(463, -442)
-dropped_object = ExtResource("16_xk28k")
-
-[node name="enemy6" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(492, -458)
-dropped_object = ExtResource("16_xk28k")
-
-[node name="enemy7" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(595, -396)
-dropped_object = ExtResource("16_xk28k")
-
-[node name="enemy8" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(498, -425)
-dropped_object = ExtResource("16_xk28k")
-
-[node name="enemy9" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(543, -407)
-dropped_object = ExtResource("16_xk28k")
+max_health = null

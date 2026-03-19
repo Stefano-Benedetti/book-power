@@ -33,11 +33,16 @@ func _ready():
 	Global.selected_slot_update.connect(updateSelectedItem)
 
 func _physics_process(delta: float):
-	if Input.is_action_pressed("attacca") and can_attack:
-		attacca()
-	elif can_move:
-		player_movement(delta)
-		
+	if GameState.in_dialogue:
+		play_anim(0,0)
+		velocity.x = 0
+		velocity.y = 0
+	else:
+		if Input.is_action_pressed("attacca") and can_attack:
+			attacca()
+		elif can_move:
+			player_movement(delta)
+			
 	if current_health <= 0 and !dead :
 		Global.emit_signal("death")
 		dead = true

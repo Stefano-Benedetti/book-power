@@ -59,7 +59,7 @@ func updateSelectedItem_info():
 
 #in _process() "inventario" è il nome che ho dato all'azione quando premo i
 func _process(_delta):
-	if Input.is_action_just_pressed("inventario"):
+	if Input.is_action_just_pressed("inventario") and !GameState.in_dialogue:
 		if is_open:
 			close()
 		else:

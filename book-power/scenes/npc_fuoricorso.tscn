@@ -358,17 +358,20 @@ animations = [{
 radius = 45.000004
 
 [node name="npc_fuoricorso" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_sxcdu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o5iqk")
 animation = &"front_idle"
+offset = Vector2(0, -26)
 
 [node name="TalkArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TalkArea"]
-position = Vector2(0, 8)
+position = Vector2(0, -19.999998)
 shape = SubResource("CircleShape2D_sxcdu")
 
 [connection signal="body_entered" from="TalkArea" to="." method="_on_talk_area_body_entered"]
