@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal start_dialog
+signal update_quest
 
 var player_in_area = false
 var player = null
@@ -20,6 +21,7 @@ func play_anim():
 
 func _on_talk_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
+		update_quest.emit()
 		player_in_area = true
 		player = body
 

@@ -928,11 +928,11 @@ tile_set = SubResource("TileSet_rup4s")
 
 [node name="player" parent="." instance=ExtResource("7_i7141")]
 position = Vector2(159, -144.99998)
+max_health = 100
 inv = ExtResource("8_jhx03")
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("9_ctatt")]
 position = Vector2(129, -200)
-scale = Vector2(0.4, 0.4)
 
 [node name="enemy" parent="." instance=ExtResource("12_q5onr")]
 position = Vector2(329.00003, -91.999985)

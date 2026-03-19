@@ -191,7 +191,6 @@ func updateSelectedItem(slot: InvSlot, indice):
 	selected_item = slot.item
 	selected_item_index = indice
 
-
 func getHurt():
 	current_health -= 10
 	health_changed.emit()	#per aggiornare la health bar

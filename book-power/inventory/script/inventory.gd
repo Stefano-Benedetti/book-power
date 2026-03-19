@@ -21,3 +21,9 @@ func insert(item: InvItem):
 func delete(indice):
 	slots[indice].item = null
 	update.emit()
+
+# restituisce il numero di item specificati presenti nell'inventario
+func countItem(item: InvItem):
+	var slots_with_item = slots.filter(func(slot): return slot.item == item)
+	return slots_with_item.size()
+	

@@ -1,6 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dotk8wkljroor"]
+[gd_scene load_steps=16 format=3 uid="uid://dotk8wkljroor"]
 
+[ext_resource type="Script" uid="uid://dk03medwanjub" path="res://levels/script/livello_1.gd" id="1_55gh7"]
 [ext_resource type="PackedScene" uid="uid://5qac7823w8cl" path="res://scenes/mappa_01.tscn" id="1_icrkw"]
+[ext_resource type="Resource" uid="uid://cn7y4bnuc7t5n" path="res://inventory/items/bone.tres" id="2_8x68r"]
 [ext_resource type="PackedScene" uid="uid://c4wlaldocgqtl" path="res://touch_controls/scenes/touch_contols.tscn" id="2_m2jwi"]
 [ext_resource type="PackedScene" uid="uid://b5axlii2oyhdf" path="res://scenes/selectedItem_slot.tscn" id="3_eoc0k"]
 [ext_resource type="PackedScene" uid="uid://c78woh6vfcevh" path="res://scenes/player_health_bar.tscn" id="4_sj3x5"]
@@ -11,9 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://b5x5dbko4mw4h" path="res://scenes/npc_fuoricorso.tscn" id="9_sj3x5"]
 [ext_resource type="PackedScene" uid="uid://ckwr713fqij6n" path="res://scenes/player.tscn" id="10_55gh7"]
 [ext_resource type="PackedScene" uid="uid://bdyg3nigp8cpo" path="res://characters/scenes/enemy.tscn" id="11_8x68r"]
+[ext_resource type="Resource" uid="uid://bl6hkk3gjnss2" path="res://inventory/player_inventory.tres" id="12_dxc6x"]
+[ext_resource type="PackedScene" uid="uid://bv5iyu783u257" path="res://objects/scenes/osso.tscn" id="13_8x68r"]
 
 [node name="livello_1" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_55gh7")
+item_richiesto = ExtResource("2_8x68r")
 
 [node name="mappa01" parent="." instance=ExtResource("1_icrkw")]
 position = Vector2(448, -864)
@@ -67,6 +73,17 @@ position = Vector2(269, -161)
 
 [node name="player" parent="." instance=ExtResource("10_55gh7")]
 position = Vector2(282, -217)
+max_health = 100
+inv = ExtResource("12_dxc6x")
 
 [node name="enemy" parent="." instance=ExtResource("11_8x68r")]
 position = Vector2(703.99994, -668.99994)
+
+[node name="osso" parent="." instance=ExtResource("13_8x68r")]
+position = Vector2(346, -244)
+
+[node name="osso2" parent="." instance=ExtResource("13_8x68r")]
+position = Vector2(308, -247)
+
+[node name="osso3" parent="." instance=ExtResource("13_8x68r")]
+position = Vector2(321, -219)
