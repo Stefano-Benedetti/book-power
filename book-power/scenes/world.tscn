@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://bkr4aiyvfhvqs"]
+[gd_scene load_steps=39 format=4 uid="uid://bkr4aiyvfhvqs"]
 
 [ext_resource type="Texture2D" uid="uid://c63psyhe5s0k4" path="res://art/Little Dreamyland - Free Pack/Tileset/Autotile_Grass_and_Dirt_Path_Tileset.png" id="1_qfnet"]
 [ext_resource type="Texture2D" uid="uid://cpav256v07sbt" path="res://art/Little Dreamyland - Free Pack/Tileset/Crops_Tileset.png" id="2_i7141"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://crkdwpc8kmk48" path="res://objects/scenes/key_01.tscn" id="22_oo54l"]
 [ext_resource type="PackedScene" uid="uid://bm3suhb0o6ksq" path="res://objects/scenes/chest.tscn" id="23_kpybi"]
 [ext_resource type="PackedScene" uid="uid://c7xdwphdrhvbx" path="res://objects/scenes/libro_automatica.tscn" id="26_munwf"]
+[ext_resource type="PackedScene" uid="uid://ch53egphidssg" path="res://objects/scenes/moneta_bronzo.tscn" id="27_ts3gi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5onr"]
 texture = ExtResource("1_qfnet")
@@ -998,6 +999,9 @@ position = Vector2(140, -157)
 [node name="libro_elettrotecnica" parent="." instance=ExtResource("20_2lf6f")]
 position = Vector2(129, -118)
 
+[node name="libro_automatica" parent="." instance=ExtResource("26_munwf")]
+position = Vector2(113, -98)
+
 [node name="health_potion" parent="." instance=ExtResource("21_7iits")]
 position = Vector2(211, -118)
 
@@ -1037,5 +1041,5 @@ position = Vector2(42, -76)
 [node name="health_potion10" parent="." instance=ExtResource("21_7iits")]
 position = Vector2(42, -100)
 
-[node name="libro_automatica" parent="." instance=ExtResource("26_munwf")]
-position = Vector2(113, -98)
+[node name="moneta_bronzo" parent="." instance=ExtResource("27_ts3gi")]
+position = Vector2(117, -145)
