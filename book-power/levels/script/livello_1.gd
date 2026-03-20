@@ -2,6 +2,7 @@ extends Node2D
 
 @export var item_richiesto: InvItem
 
+var MoneyTaken = false
 
 var qta_item_richiesti = 4
 
@@ -23,5 +24,6 @@ func dropBook():
 		$npc_fuoricorso.dropObject()
 
 func takeMoney():
-	if QuestCounter.quest_corrente==1 :
+	if QuestCounter.quest_corrente==1 and !MoneyTaken :
+		MoneyTaken = true
 		$player.consumeItem(item_richiesto,4)

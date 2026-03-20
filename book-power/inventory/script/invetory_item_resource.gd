@@ -12,3 +12,7 @@ class_name InvItem
 @export var texture: Texture2D
 @export var title: String = ""
 @export var description: String = ""
+
+func equals(item: InvItem):
+	if item!=null :
+		return name == item.name and description == item.description and title == item.title

@@ -7,5 +7,5 @@
 script = ExtResource("1_do4fj")
 name = "moneta_bronzo"
 texture = ExtResource("2_i7qgh")
-title = "50 cent"
-description = "moneyy!!!!"
+title = "50 cents"
+description = "Not a lot, but 4 of these can get you a bag of chips."

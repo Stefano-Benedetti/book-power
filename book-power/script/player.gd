@@ -196,8 +196,8 @@ func consumeItem(item: InvItem, num_item: int):
 	var i=0
 	var indici_item_da_rimuovere = []
 	for current_item in inv.slots:
-		if item == current_item and indici_item_da_rimuovere.size()<num_item:
-			indici_item_da_rimuovere.append(i)
+		if item.equals(current_item.item) and indici_item_da_rimuovere.size()<num_item:
+			indici_item_da_rimuovere.push_back(i)
 		i+=1
 	for indice in indici_item_da_rimuovere:
 		consume(indice)
