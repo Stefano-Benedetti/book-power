@@ -538,7 +538,6 @@ path_desired_distance = 4.0
 target_desired_distance = 15.0
 path_search_max_polygons = 256
 max_speed = 30.0
-debug_enabled = true
 
 [node name="attack_area" type="Area2D" parent="."]
 scale = Vector2(0.99999994, 0.99999994)

@@ -73,6 +73,7 @@ func nav_tick() -> void:
 	_last_target = target
 	nav_agent.target_position = target
 
+
 func manage_enemy(delta):
 	if dead:
 		return
@@ -82,7 +83,6 @@ func manage_enemy(delta):
 		enemy_attack()
 	elif can_move:
 		enemy_movement(delta)
-
 
 
 #quando il timer finisce imposta can_attack a true
@@ -114,21 +114,20 @@ func enemy_attack():
 #NOTA: finchè non cambia la direzione dominan. lui cammina sempre
 #nella stessa direzione
 func enemy_movement(delta):
-	# 1) se sei “a casa” e player non in area => idle
 	if abs(position.x-spawn_point.x) < 20 and abs(position.y-spawn_point.y) < 20 and !player_in_area:
 		play_anim(0, 0)
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
 
-	# 2) scegli target (come facevi tu)
+	#scegli target
 	var target: Vector2
 	if player_in_area and player != null:
 		target = player.global_position
 	else:
 		target = spawn_point
 
-	# 3) ricalcolo PATH SOLO a turno (1/3 dei frame)
+	#ricalcolo PATH SOLO a turno (1/3 dei frame)
 	var turn := int(Engine.get_physics_frames() % 3)
 	if turn == posmod(nav_group, 3):
 		# evita ricalcoli inutili se il target si è mosso poco
@@ -137,12 +136,11 @@ func enemy_movement(delta):
 			nav_agent.target_position = target
 	else:
 		# fallback: se il path è finito/mai calcolato, aggiorna comunque (così non si “blocca”)
-		# (questa riga evita il “non si muovono”)
 		if nav_agent.is_navigation_finished():
 			_last_target = target
 			nav_agent.target_position = target
 
-	# 4) MOVIMENTO: sempre, usando il path corrente
+	#movimento usando il path corrente
 	if nav_agent.is_navigation_finished():
 		play_anim(0, 0)
 		velocity = Vector2.ZERO
