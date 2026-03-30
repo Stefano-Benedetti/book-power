@@ -9,3 +9,5 @@ signal start_dialog
 signal in_dialogo
 
 signal fine_dialogo
+
+signal leva_tirata

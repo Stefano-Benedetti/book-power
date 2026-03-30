@@ -8,7 +8,6 @@ var player = null
 @export var one_shot: bool	#per indicare se la leva può essere ritirata più volte
 var tirata = false	#per indicare se la leva è stata tirata
 
-signal leva_tirata
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -20,7 +19,7 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("Pick_object"):
 			$Sprite2D.flip_h = true
 			tirata = true
-			leva_tirata.emit()
+			Global.leva_tirata.emit()
 
 
 func _on_area_of_interaction_body_entered(body: Node2D) -> void:

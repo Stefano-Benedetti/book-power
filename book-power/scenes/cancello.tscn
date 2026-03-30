@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmlju7fcbigs7"]
+[gd_scene load_steps=8 format=3 uid="uid://cmlju7fcbigs7"]
 
+[ext_resource type="Script" uid="uid://gn162c0uy014" path="res://script/cancello.gd" id="1_0rmye"]
 [ext_resource type="Texture2D" uid="uid://4fpcy2d0wlra" path="res://art/sbarra_giu3.png" id="1_e51cc"]
 [ext_resource type="Texture2D" uid="uid://huuyphqinpnk" path="res://art/sbarra_su3.png" id="2_dgfks"]
 
@@ -31,6 +32,7 @@ animations = [{
 [node name="cancello" type="StaticBody2D"]
 z_index = 1
 y_sort_enabled = true
+script = ExtResource("1_0rmye")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-41.75, -1)
