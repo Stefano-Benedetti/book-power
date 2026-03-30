@@ -1,6 +1,6 @@
 extends Control
 
-var save_path = "user://creds.save"
+var creds_save_path = "user://creds.save"
 
 func _ready():
 	Auth.registration_succeeded.connect(_on_registration_succeeded)
@@ -20,8 +20,8 @@ func _ready():
 	
 	update_ui()
 	
-	if FileAccess.file_exists(save_path) and Auth.is_logged_in():
-		var file = FileAccess.open(save_path,FileAccess.READ)
+	if FileAccess.file_exists(creds_save_path) and Auth.is_logged_in():
+		var file = FileAccess.open(creds_save_path,FileAccess.READ)
 		var email = 0
 		var password = 0
 		$VBoxContainer/email.text = file.get_var(email)
@@ -35,7 +35,6 @@ func _on_login_pressed():
 	if email.is_empty() or password.is_empty():
 		$Label.text = "Insert email and password."
 		return
-	
 	$Label.text = "Loggin in..."
 	$back.hide()
 	Auth.login_user(email, password)
@@ -62,8 +61,6 @@ func _on_back_pressed():
 
 func _on_registration_succeeded():
 	$Label.text = "Registration succeeded!"
-	# Nuovo utente, nuovi dati
-	Auth.player_data = {}
 	
 	var email = $VBoxContainer/email.text
 	Auth.verify_email(email)
@@ -82,13 +79,7 @@ func _on_resetpass_failed(error_message : String):
 
 func _on_login_succeeded():
 	$Label.text = "Login succeeded!"
-	SaveSystem.load_data()
-	var email = $VBoxContainer/email.text
-	var password = $VBoxContainer/password.text
-	var file = FileAccess.open(save_path, FileAccess.WRITE)
-	file.store_var(email)
-	file.store_var(password)
-	update_ui()
+	$DataChoice.show()
 
 func _on_login_failed(error_message):
 	$Label.text = "Login failed: " + error_message
@@ -107,9 +98,6 @@ func _on_verification_failed(error_message):
 func _on_load_succeeded(data: Dictionary):
 	$Label.text = "Your data has been loaded."
 	
-	# Store the data in the global variable.
-	Auth.player_data = data
-	
 	if !data.is_empty() :
 		# Carico le impostazioni del volume
 		AudioServer.set_bus_volume_db(0,linear_to_db(data.get("global_volume")))
@@ -123,14 +111,37 @@ func _on_load_failed():
 
 
 func _on_logout_pressed() -> void:
-	DirAccess.remove_absolute(save_path)
+	var data = Global.getData()
+	SaveSystem.save_data(data)
+	DirAccess.remove_absolute(creds_save_path)
 	Auth.logout()
 	$VBoxContainer/email.text = ""
 	$VBoxContainer/password.text = ""
 	$Label.text = "Successfully logged out."
 	update_ui()
 
+func _on_remote_pressed():
+	SaveSystem.load_data()
+	var email = $VBoxContainer/email.text
+	var password = $VBoxContainer/password.text
+	var file = FileAccess.open(creds_save_path, FileAccess.WRITE)
+	file.store_var(email)
+	file.store_var(password)
+	update_ui()
+	
+func _on_local_pressed():
+	var data = Global.getData()
+	SaveSystem.save_data(data)
+	var email = $VBoxContainer/email.text
+	var password = $VBoxContainer/password.text
+	var file = FileAccess.open(creds_save_path, FileAccess.WRITE)
+	file.store_var(email)
+	file.store_var(password)
+	update_ui()
+	$back.show()
+
 func update_ui():
+	$DataChoice.hide()
 	if Auth.is_logged_in():
 		$HBoxContainer.hide()
 		$resetpass.show()

@@ -1,7 +1,5 @@
 extends Node
 
-var player_data: Dictionary = {}
-
 signal registration_succeeded(local_id)
 signal registration_failed(error_message)
 

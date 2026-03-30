@@ -8,26 +8,40 @@ signal load_failed
 # Copy the URL from your bank.
 var DATABASE_URL = "https://book-power-default-rtdb.europe-west1.firebasedatabase.app/"
 
-# da inserire in EXIT di main_menu (si), EXIT di pause_menu (si)
+var save_path = "user://data.save"
+
+var never_loaded = true
+
 func save_data(data: Dictionary):
-	if Auth.id_token.is_empty() or Auth.local_id.is_empty():
-		print("Saving failed: user not logged in.")
-		save_failed.emit()
-		return
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	if file.store_var(data):
+		print("Data saved on local file.")
+	else:
+		print("Saving on local file failed.")
 		
-	# creating an URL
-	var url = DATABASE_URL + "/users/" + Auth.local_id + ".json?auth=" + Auth.id_token
+	if !Auth.id_token.is_empty() or !Auth.local_id.is_empty():
+		# creating an URL
+		var url = DATABASE_URL + "/users/" + Auth.local_id + ".json?auth=" + Auth.id_token
 
-	_send_request(url, HTTPClient.METHOD_PUT, "save", JSON.stringify(data))
+		_send_request(url, HTTPClient.METHOD_PUT, "save", JSON.stringify(data))
 
 
-# Retrieves user data from the cloud.
+# Retrieves user data from the cloud or from local file.
 func load_data():
+	never_loaded = false
 	if Auth.id_token.is_empty() or Auth.local_id.is_empty():
-		print("Loading data failed: user not logged in.")
-		load_failed.emit()
-		return
-
+		if FileAccess.file_exists(save_path):
+			var file = FileAccess.open(save_path,FileAccess.READ)
+			var data = 0
+			data = file.get_var(data)
+			print("Data loaded from local file, user not logged in.")
+			load_succeeded.emit(data)
+			return
+		else:
+			print("Loading data failed both from cloud and from local file.")
+			load_failed.emit()
+			return
+	
 	var url = DATABASE_URL + "/users/" + Auth.local_id + ".json?auth=" + Auth.id_token
 	
 	_send_request(url, HTTPClient.METHOD_GET, "load")
@@ -93,7 +107,7 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 	# Se va tutto bene
 	else:
 		if request_type == "save":
-			print("Data successfully saved!")
+			print("Data saved on cloud.")
 			save_succeeded.emit()
 		elif request_type == "load":
 			print("Data loaded: ", response_data)

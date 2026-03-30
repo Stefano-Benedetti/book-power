@@ -16,11 +16,11 @@ func _ready() -> void:
 	Auth.login_succeeded.connect(_on_login_succeeded)
 	Auth.login_failed.connect(_on_login_failed)
 	
-	if !Auth.is_logged_in():
+	if SaveSystem.never_loaded:
 		autologin()
 	
 	else:
-		$Label.text = "Logged in."
+		#$Label.text = "Logged in."
 		show_buttons()
 	
 	
@@ -34,11 +34,7 @@ func _on_logreg_pressed() -> void:
 
 # occhio: se non aspetta la fine di save_data, poi esegue get_tree.quit() senza salvare
 func _on_exit_pressed():
-	var data = {
-		"global_volume" = db_to_linear(AudioServer.get_bus_volume_db(0)),
-		"effects_volume" = db_to_linear(AudioServer.get_bus_volume_db(1)),
-		"music_volume" = db_to_linear(AudioServer.get_bus_volume_db(2))
-	}
+	var data = Global.getData()
 	# Connetti una sola volta save_succeded/failed a _on_save_end
 	#SaveSystem.save_succeeded.connect(_on_save_end, CONNECT_ONE_SHOT)
 	#SaveSystem.save_failed.connect(_on_save_end, CONNECT_ONE_SHOT)
@@ -61,6 +57,7 @@ func _on_save_end() -> void:
 
 func autologin():
 	var path = "user://creds.save"
+	
 	if FileAccess.file_exists(path):
 		var file = FileAccess.open(path,FileAccess.READ)
 		var email = 0
@@ -69,8 +66,8 @@ func autologin():
 		password = file.get_var(password)
 		Auth.login_user(email, password)
 	else:
-		$Label.text = "NOT logged in, your data will NOT be saved!"
-		show_buttons()
+		$Label.text = "NOT logged in, your data will be saved locally."
+		SaveSystem.load_data()
 
 
 func _on_login_succeeded():
@@ -78,12 +75,10 @@ func _on_login_succeeded():
 	SaveSystem.load_data()
 func _on_login_failed(message: String):
 	print(message)
-	$Label.text = "LOGIN FAILED, your data will NOT be saved!"
-	show_buttons()
+	$Label.text = "LOGIN FAILED, your data will be saved locally."
+	SaveSystem.load_data()
 	
 func _on_load_succeeded(data: Dictionary):
-	# Store the data in the global variable.
-	Auth.player_data = data
 	
 	if !data.is_empty() :
 		# Carico le impostazioni del volume

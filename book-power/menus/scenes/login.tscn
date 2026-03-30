@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6hkiqvxdg518"]
+[gd_scene load_steps=13 format=3 uid="uid://c6hkiqvxdg518"]
 
 [ext_resource type="Script" uid="uid://d1gnb3hgbj284" path="res://menus/script/login.gd" id="1_ydcfs"]
 [ext_resource type="Texture2D" uid="uid://c4nyotpyg4gwh" path="res://art/sfondo_main_menu.png" id="2_d2vhw"]
@@ -37,6 +37,8 @@ bg_color = Color(0.02745098, 0.03529412, 0.047058824, 0.7764706)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jex7"]
 bg_color = Color(0.02745098, 0.03529412, 0.047058824, 0.7764706)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h53d6"]
 
 [node name="Login" type="Control"]
 layout_mode = 3
@@ -161,8 +163,44 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_d2vhw")
 text = "Log out"
 
+[node name="DataChoice" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 82.0
+offset_right = 1112.0
+offset_bottom = 598.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_h53d6")
+
+[node name="Label" type="Label" parent="DataChoice"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 42
+text = "Load the account's remote data from cloud or keep data from local file? WARNING: the choosen data will overwrite the other. "
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="local" type="Button" parent="DataChoice/Label"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 300.0
+offset_right = 344.0
+offset_bottom = 451.0
+theme_override_font_sizes/font_size = 40
+text = "Local"
+
+[node name="remote" type="Button" parent="DataChoice/Label"]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 295.0
+offset_right = 769.0
+offset_bottom = 446.0
+theme_override_font_sizes/font_size = 40
+text = "Remote"
+
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="HBoxContainer/register" to="." method="_on_register_pressed"]
 [connection signal="pressed" from="HBoxContainer/login" to="." method="_on_login_pressed"]
 [connection signal="pressed" from="resetpass" to="." method="_on_resetpass_pressed"]
 [connection signal="pressed" from="logout" to="." method="_on_logout_pressed"]
+[connection signal="pressed" from="DataChoice/Label/local" to="." method="_on_local_pressed"]
+[connection signal="pressed" from="DataChoice/Label/remote" to="." method="_on_remote_pressed"]
