@@ -1,6 +1,7 @@
 extends Control
 
 var creds_save_path = "user://creds.save"
+var new_account = false
 
 func _ready():
 	Auth.registration_succeeded.connect(_on_registration_succeeded)
@@ -63,6 +64,7 @@ func _on_registration_succeeded():
 	$Label.text = "Registration succeeded!"
 	
 	var email = $VBoxContainer/email.text
+	new_account = true
 	Auth.verify_email(email)
 
 func on_registration_failed(error_message : String):
@@ -79,8 +81,12 @@ func _on_resetpass_failed(error_message : String):
 
 func _on_login_succeeded():
 	$Label.text = "Login succeeded!"
-	$DataChoice.show()
-
+	if new_account:
+		new_account = false
+		_on_local_pressed()
+	else:
+		$DataChoice.show()
+		
 func _on_login_failed(error_message):
 	$Label.text = "Login failed: " + error_message
 	$back.show()
