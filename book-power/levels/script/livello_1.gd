@@ -32,3 +32,8 @@ func takeMoney():
 func removeRoadblock():
 	if QuestCounter.quest_corrente==1:
 		Global.emit_signal("removeRoadblock")
+
+
+func _on_to_next_level_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if body.has_method("player"):
+		print("SEI PASSATO AL LIVELLO 2 QUANTO GODO(t)")

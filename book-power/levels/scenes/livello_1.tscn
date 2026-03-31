@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dotk8wkljroor"]
+[gd_scene load_steps=19 format=3 uid="uid://dotk8wkljroor"]
 
 [ext_resource type="Script" uid="uid://dk03medwanjub" path="res://levels/script/livello_1.gd" id="1_55gh7"]
 [ext_resource type="PackedScene" uid="uid://5qac7823w8cl" path="res://scenes/mappa_01.tscn" id="1_icrkw"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://4q20bgjmsri5" path="res://objects/scenes/libro_analisi.tscn" id="15_k6sjt"]
 [ext_resource type="PackedScene" uid="uid://ch53egphidssg" path="res://objects/scenes/moneta_bronzo.tscn" id="16_xk28k"]
 [ext_resource type="Script" uid="uid://dpuorsedpgpke" path="res://levels/script/ai_nav_manager.gd" id="17_0ik74"]
+[ext_resource type="PackedScene" uid="uid://ormd5fwveh3q" path="res://scenes/to_next_level.tscn" id="18_n3k4e"]
 
 [node name="livello_1" type="Node2D"]
 y_sort_enabled = true
@@ -118,7 +119,7 @@ max_health = 100
 nav_group = 2
 
 [node name="enemy8" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(1565, -357.00003)
+position = Vector2(1478, -330)
 dropped_object = ExtResource("16_xk28k")
 max_health = 100
 nav_group = 2
@@ -131,3 +132,8 @@ nav_group = 2
 
 [node name="NavManager" type="Node2D" parent="."]
 script = ExtResource("17_0ik74")
+
+[node name="ToNextLevel" parent="." instance=ExtResource("18_n3k4e")]
+position = Vector2(1628, -353)
+
+[connection signal="body_shape_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_shape_entered"]

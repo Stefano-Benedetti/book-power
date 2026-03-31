@@ -8,4 +8,4 @@ func _ready() -> void:
 		removeRoadblock()
 	
 func removeRoadblock():
-	remove_child($TileMap/temporary_objects)
+	$TileMap/temporary_objects.queue_free()
