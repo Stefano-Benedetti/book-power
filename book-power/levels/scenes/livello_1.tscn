@@ -28,7 +28,6 @@ position = Vector2(448, -864)
 
 [node name="player" parent="." instance=ExtResource("10_55gh7")]
 position = Vector2(303, -152)
-max_health = 1000
 inv = ExtResource("12_dxc6x")
 
 [node name="Control" type="Control" parent="."]
@@ -80,46 +79,55 @@ position = Vector2(269, -161)
 dropped_object = ExtResource("15_k6sjt")
 
 [node name="enemy" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(387.00003, -306.00003)
+position = Vector2(651, -713)
 dropped_object = ExtResource("16_xk28k")
+max_health = 100
 
 [node name="enemy2" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(579, -459)
+position = Vector2(442, -378)
 dropped_object = ExtResource("16_xk28k")
+max_health = 100
 
 [node name="enemy3" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(568, -435)
+position = Vector2(1358, -874)
 dropped_object = ExtResource("16_xk28k")
+max_health = 100
 
 [node name="enemy4" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(527, -445)
+position = Vector2(736, -711)
 dropped_object = ExtResource("16_xk28k")
+max_health = 100
 nav_group = 1
 
 [node name="enemy5" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(463, -442)
+position = Vector2(1418, -808)
 dropped_object = ExtResource("16_xk28k")
+max_health = 100
 nav_group = 1
 
 [node name="enemy6" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(492, -458)
+position = Vector2(1477, -367.00003)
 dropped_object = ExtResource("16_xk28k")
+max_health = 100
 nav_group = 1
 
 [node name="enemy7" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(595, -396)
+position = Vector2(601, -1066)
 dropped_object = ExtResource("16_xk28k")
+max_health = 100
 nav_group = 2
 
 [node name="enemy8" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(498, -425)
+position = Vector2(1565, -357.00003)
 dropped_object = ExtResource("16_xk28k")
+max_health = 100
 nav_group = 2
 
 [node name="enemy9" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(543, -407)
+position = Vector2(544, -1073)
 dropped_object = ExtResource("16_xk28k")
+max_health = 100
 nav_group = 2
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="NavManager" type="Node2D" parent="."]
 script = ExtResource("17_0ik74")

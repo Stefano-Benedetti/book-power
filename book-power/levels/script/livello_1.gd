@@ -13,6 +13,7 @@ func _ready() -> void:
 	$npc_fuoricorso.update_quest.connect(quest_update)
 	$CanvasLayer2/casella_dialogo.fine_dialogo.connect(dropBook)
 	$CanvasLayer2/casella_dialogo.fine_dialogo.connect(takeMoney)
+	$CanvasLayer2/casella_dialogo.fine_dialogo.connect(removeRoadblock)
 
 func quest_update():
 	if !quest_completata and $player.inv.countItem(item_richiesto) >= qta_item_richiesti:
@@ -27,3 +28,7 @@ func takeMoney():
 	if QuestCounter.quest_corrente==1 and !MoneyTaken :
 		MoneyTaken = true
 		$player.consumeItem(item_richiesto,4)
+
+func removeRoadblock():
+	if QuestCounter.quest_corrente==1:
+		Global.emit_signal("removeRoadblock")
