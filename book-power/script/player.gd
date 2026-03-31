@@ -31,6 +31,7 @@ var offset_attacchi = Vector2(0, -7)
 
 func _ready():
 	Global.selected_slot_update.connect(updateSelectedItem)
+	#updateSelectedItem(inv.slots[0], 0)
 
 func _physics_process(delta: float):
 	if GameState.in_dialogue:

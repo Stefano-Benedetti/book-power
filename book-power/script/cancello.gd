@@ -15,3 +15,4 @@ func _process(delta: float) -> void:
 func open():
 	$AnimatedSprite2D.play("open")
 	opened = true
+	$CollisionShapeChiuso.queue_free()

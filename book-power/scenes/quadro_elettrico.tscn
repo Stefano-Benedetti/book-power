@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5pdjxw82yqt3"]
+
+[ext_resource type="Script" uid="uid://ck5ovrmoufywq" path="res://script/quadro_elettrico.gd" id="1_nmsqp"]
+[ext_resource type="Texture2D" uid="uid://d2it383chfwbu" path="res://art/Pannello_elettrico.png" id="1_ox0gy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox0gy"]
+size = Vector2(26, 21)
+
+[node name="quadro_elettrico" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_nmsqp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_ox0gy")
+
+[node name="area_of_interaction" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_of_interaction"]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_ox0gy")
+
+[connection signal="body_entered" from="area_of_interaction" to="." method="_on_area_of_interaction_body_entered"]
+[connection signal="body_exited" from="area_of_interaction" to="." method="_on_area_of_interaction_body_exited"]

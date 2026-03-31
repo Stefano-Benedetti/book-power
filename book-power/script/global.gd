@@ -10,6 +10,7 @@ signal in_dialogo
 
 signal fine_dialogo
 
+signal quadro_attivato
 signal leva_tirata
 
 func getData():
