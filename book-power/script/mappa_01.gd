@@ -8,4 +8,5 @@ func _ready() -> void:
 		removeRoadblock()
 	
 func removeRoadblock():
-	$TileMap/temporary_objects.queue_free()
+	if $TileMap/temporary_objects:
+		$TileMap/temporary_objects.queue_free()
