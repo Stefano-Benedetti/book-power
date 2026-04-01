@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dotk8wkljroor"]
+[gd_scene load_steps=20 format=3 uid="uid://dotk8wkljroor"]
 
 [ext_resource type="Script" uid="uid://dk03medwanjub" path="res://levels/script/livello_1.gd" id="1_55gh7"]
 [ext_resource type="PackedScene" uid="uid://5qac7823w8cl" path="res://scenes/mappa_01.tscn" id="1_icrkw"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bdyg3nigp8cpo" path="res://characters/scenes/enemy.tscn" id="11_8x68r"]
 [ext_resource type="Resource" uid="uid://bl6hkk3gjnss2" path="res://inventory/player_inventory.tres" id="12_dxc6x"]
 [ext_resource type="PackedScene" uid="uid://4q20bgjmsri5" path="res://objects/scenes/libro_analisi.tscn" id="15_k6sjt"]
+[ext_resource type="PackedScene" uid="uid://s4sgnvd5jpqj" path="res://objects/scenes/health_potion.tscn" id="16_gqnl7"]
 [ext_resource type="PackedScene" uid="uid://ch53egphidssg" path="res://objects/scenes/moneta_bronzo.tscn" id="16_xk28k"]
 [ext_resource type="Script" uid="uid://dpuorsedpgpke" path="res://levels/script/ai_nav_manager.gd" id="17_0ik74"]
 [ext_resource type="PackedScene" uid="uid://ormd5fwveh3q" path="res://scenes/to_next_level.tscn" id="18_n3k4e"]
@@ -28,7 +29,7 @@ item_richiesto = ExtResource("2_xk28k")
 position = Vector2(448, -864)
 
 [node name="player" parent="." instance=ExtResource("10_55gh7")]
-position = Vector2(303, -152)
+position = Vector2(275, -240)
 inv = ExtResource("12_dxc6x")
 
 [node name="Control" type="Control" parent="."]
@@ -81,22 +82,22 @@ dropped_object = ExtResource("15_k6sjt")
 
 [node name="enemy" parent="." instance=ExtResource("11_8x68r")]
 position = Vector2(651, -713)
-dropped_object = ExtResource("16_xk28k")
+dropped_object = ExtResource("16_gqnl7")
 max_health = 100
 
 [node name="enemy2" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(442, -378)
+position = Vector2(504, -466)
 dropped_object = ExtResource("16_xk28k")
 max_health = 100
 
 [node name="enemy3" parent="." instance=ExtResource("11_8x68r")]
 position = Vector2(1358, -874)
-dropped_object = ExtResource("16_xk28k")
+dropped_object = ExtResource("16_gqnl7")
 max_health = 100
 
 [node name="enemy4" parent="." instance=ExtResource("11_8x68r")]
 position = Vector2(736, -711)
-dropped_object = ExtResource("16_xk28k")
+dropped_object = ExtResource("16_gqnl7")
 max_health = 100
 nav_group = 1
 
@@ -108,7 +109,7 @@ nav_group = 1
 
 [node name="enemy6" parent="." instance=ExtResource("11_8x68r")]
 position = Vector2(1477, -367.00003)
-dropped_object = ExtResource("16_xk28k")
+dropped_object = ExtResource("16_gqnl7")
 max_health = 100
 nav_group = 1
 
@@ -126,7 +127,7 @@ nav_group = 2
 
 [node name="enemy9" parent="." instance=ExtResource("11_8x68r")]
 position = Vector2(544, -1073)
-dropped_object = ExtResource("16_xk28k")
+dropped_object = ExtResource("16_gqnl7")
 max_health = 100
 nav_group = 2
 
