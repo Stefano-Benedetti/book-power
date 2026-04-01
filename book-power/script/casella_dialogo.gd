@@ -18,7 +18,8 @@ var dialoghi_per_quest := {
 		"I will be there, waiting for you. We have another problem to solve."
 	],
 	2: [
-		"BABBO",
+		"Hi again, the police was here a few minutes ago as you could see from the roadblock: that's probably because someone passed through here and broke this house's electrical system.",
+		"I think we should get to the bottom of this, ",
 		"aaaaa"
 	]
 }

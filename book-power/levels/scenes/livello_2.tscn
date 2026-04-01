@@ -1,21 +1,32 @@
-[gd_scene load_steps=11 format=3 uid="uid://d4qx0lg3fjsr"]
+[gd_scene load_steps=14 format=3 uid="uid://d4qx0lg3fjsr"]
 
+[ext_resource type="Script" uid="uid://b4vqq0h33rops" path="res://levels/script/livello_2.gd" id="1_1rfpw"]
 [ext_resource type="PackedScene" uid="uid://ckwr713fqij6n" path="res://scenes/player.tscn" id="1_fpoen"]
 [ext_resource type="Resource" uid="uid://bl6hkk3gjnss2" path="res://inventory/player_inventory.tres" id="2_5g1qj"]
 [ext_resource type="PackedScene" uid="uid://c4wlaldocgqtl" path="res://touch_controls/scenes/touch_contols.tscn" id="3_8dcr0"]
 [ext_resource type="PackedScene" uid="uid://b5axlii2oyhdf" path="res://scenes/selectedItem_slot.tscn" id="4_1rfpw"]
 [ext_resource type="PackedScene" uid="uid://c78woh6vfcevh" path="res://scenes/player_health_bar.tscn" id="5_5was6"]
+[ext_resource type="PackedScene" uid="uid://b5x5dbko4mw4h" path="res://scenes/npc_fuoricorso.tscn" id="5_k03t6"]
 [ext_resource type="PackedScene" uid="uid://dt5ng80c6newu" path="res://inventory/scenes/inv_ui.tscn" id="6_k03t6"]
+[ext_resource type="PackedScene" uid="uid://4q20bgjmsri5" path="res://objects/scenes/libro_analisi.tscn" id="6_mekmw"]
 [ext_resource type="PackedScene" uid="uid://c8rs30phkkd0r" path="res://scenes/casella_dialogo.tscn" id="7_mekmw"]
 [ext_resource type="PackedScene" uid="uid://da82dug1vut1e" path="res://menus/scenes/pause_menu.tscn" id="8_6byl5"]
 [ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="9_l2rcj"]
 [ext_resource type="PackedScene" uid="uid://cwnrexdwh3j1f" path="res://scenes/mappa_02.tscn" id="10_qp0i7"]
 
 [node name="livello_2" type="Node2D"]
+script = ExtResource("1_1rfpw")
+
+[node name="mappa02" parent="." instance=ExtResource("10_qp0i7")]
+position = Vector2(448, -864)
 
 [node name="player" parent="." instance=ExtResource("1_fpoen")]
-position = Vector2(275, -240)
+position = Vector2(182, -652)
 inv = ExtResource("2_5g1qj")
+
+[node name="npc_fuoricorso" parent="." instance=ExtResource("5_k03t6")]
+position = Vector2(273, -673)
+dropped_object = ExtResource("6_mekmw")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -40,7 +51,7 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 84.0
 offset_bottom = 30.0
-player = NodePath("")
+player = NodePath("../../player")
 metadata/_edit_use_anchors_ = true
 
 [node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("6_k03t6")]
@@ -63,6 +74,3 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
-
-[node name="mappa02" parent="." instance=ExtResource("10_qp0i7")]
-position = Vector2(448, -864)
