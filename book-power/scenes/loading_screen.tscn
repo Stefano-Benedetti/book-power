@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjtur2bny1t64"]
+
+[ext_resource type="Texture2D" uid="uid://cb36av8ipmkn4" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/armor_01a.png" id="1_ep5rh"]
+
+[node name="loading_screen" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/ColorRect"]
+position = Vector2(622, 339)
+scale = Vector2(7.25, 7.25)
+texture = ExtResource("1_ep5rh")
