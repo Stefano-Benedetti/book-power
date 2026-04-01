@@ -1,6 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjtur2bny1t64"]
+[gd_scene load_steps=11 format=3 uid="uid://cjtur2bny1t64"]
 
-[ext_resource type="Texture2D" uid="uid://cb36av8ipmkn4" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/armor_01a.png" id="1_ep5rh"]
+[ext_resource type="Texture2D" uid="uid://blj3xc8rdag5f" path="res://art/loading_wheel/LoadingWheel1.png" id="1_if62a"]
+[ext_resource type="Texture2D" uid="uid://cysy5m68l4tyn" path="res://art/loading_wheel/LoadingWheel2.png" id="2_f7y4a"]
+[ext_resource type="Texture2D" uid="uid://4s4rr0aiur66" path="res://art/loading_wheel/LoadingWheel3.png" id="3_gcv3i"]
+[ext_resource type="Texture2D" uid="uid://ctqk7w0a8hwpw" path="res://art/loading_wheel/LoadingWheel4.png" id="4_amnj2"]
+[ext_resource type="Texture2D" uid="uid://bpv6tr3y67wk3" path="res://art/loading_wheel/LoadingWheel5.png" id="5_v1mdd"]
+[ext_resource type="Texture2D" uid="uid://daso6at47poeh" path="res://art/loading_wheel/LoadingWheel6.png" id="6_5slh2"]
+[ext_resource type="Texture2D" uid="uid://jwusmre4dy0x" path="res://art/loading_wheel/LoadingWheel7.png" id="7_pvqkx"]
+[ext_resource type="Texture2D" uid="uid://djxqlve1gdoa2" path="res://art/loading_wheel/LoadingWheel8.png" id="8_e7oyx"]
+[ext_resource type="FontFile" uid="uid://cg0gfwfei5f" path="res://art/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection_ii/ConnectionII.otf" id="9_f7y4a"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_bqhjm"]
+frames = 8
+speed_scale = 4.0
+frame_0/texture = ExtResource("1_if62a")
+frame_1/texture = ExtResource("2_f7y4a")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_gcv3i")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_amnj2")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_v1mdd")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("6_5slh2")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("7_pvqkx")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("8_e7oyx")
+frame_7/duration = 1.0
 
 [node name="loading_screen" type="CanvasLayer"]
 
@@ -21,7 +48,33 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/ColorRect"]
-position = Vector2(622, 339)
-scale = Vector2(7.25, 7.25)
-texture = ExtResource("1_ep5rh")
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="Control/ColorRect/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AnimatedTexture_bqhjm")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Control/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_f7y4a")
+theme_override_font_sizes/font_size = 48
+text = "loading..."

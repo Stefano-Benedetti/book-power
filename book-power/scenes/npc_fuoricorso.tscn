@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://b5x5dbko4mw4h"]
+[gd_scene load_steps=50 format=3 uid="uid://b5x5dbko4mw4h"]
 
 [ext_resource type="Texture2D" uid="uid://cvvt58dw0di5o" path="res://art/fuoricorso_set.png" id="1_jx5kn"]
 [ext_resource type="Script" uid="uid://b7x2wpyqfstc1" path="res://script/npc_fuoricorso.gd" id="1_sxcdu"]
@@ -357,6 +357,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_sxcdu"]
 radius = 45.000004
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sxcdu"]
+
 [node name="npc_fuoricorso" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
@@ -373,6 +375,11 @@ offset = Vector2(0, -26)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TalkArea"]
 position = Vector2(0, -19.999998)
 shape = SubResource("CircleShape2D_sxcdu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.1316282e-14, -7.499999)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_sxcdu")
 
 [connection signal="body_entered" from="TalkArea" to="." method="_on_talk_area_body_entered"]
 [connection signal="body_exited" from="TalkArea" to="." method="_on_talk_area_body_exited"]

@@ -19,12 +19,14 @@
 [ext_resource type="PackedScene" uid="uid://ormd5fwveh3q" path="res://scenes/to_next_level.tscn" id="17_6byl5"]
 
 [node name="livello_2" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_1rfpw")
 
 [node name="mappa02" parent="." instance=ExtResource("10_qp0i7")]
 position = Vector2(448, -864)
 
 [node name="player" parent="." instance=ExtResource("1_fpoen")]
+y_sort_enabled = true
 position = Vector2(182, -652)
 inv = ExtResource("2_5g1qj")
 
