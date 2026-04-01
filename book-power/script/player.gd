@@ -6,7 +6,7 @@ func player():
 	pass
 
 
-const SPEED = 70
+const SPEED = 300
 var current_dir = "down"		#la inizializziamo giù
 
 @export var max_health = 100

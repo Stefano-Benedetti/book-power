@@ -59,8 +59,10 @@ player = NodePath("../../player")
 metadata/_edit_use_anchors_ = true
 
 [node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("5_55gh7")]
+metadata/_edit_use_anchors_ = true
 
 [node name="casella_dialogo" parent="CanvasLayer2" instance=ExtResource("6_8x68r")]
+metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -75,6 +77,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("9_sj3x5")]
 position = Vector2(269, -161)
@@ -136,5 +139,17 @@ script = ExtResource("17_0ik74")
 
 [node name="ToNextLevel" parent="." instance=ExtResource("18_n3k4e")]
 position = Vector2(1628, -353)
+
+[node name="moneta_bronzo" parent="." instance=ExtResource("16_xk28k")]
+position = Vector2(259, -230)
+
+[node name="moneta_bronzo2" parent="." instance=ExtResource("16_xk28k")]
+position = Vector2(276.00003, -229)
+
+[node name="moneta_bronzo3" parent="." instance=ExtResource("16_xk28k")]
+position = Vector2(284, -220)
+
+[node name="moneta_bronzo4" parent="." instance=ExtResource("16_xk28k")]
+position = Vector2(268.00003, -218)
 
 [connection signal="body_shape_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_shape_entered"]
