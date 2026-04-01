@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d4qx0lg3fjsr"]
+[gd_scene load_steps=18 format=3 uid="uid://d4qx0lg3fjsr"]
 
 [ext_resource type="Script" uid="uid://b4vqq0h33rops" path="res://levels/script/livello_2.gd" id="1_1rfpw"]
 [ext_resource type="PackedScene" uid="uid://ckwr713fqij6n" path="res://scenes/player.tscn" id="1_fpoen"]
@@ -13,6 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://da82dug1vut1e" path="res://menus/scenes/pause_menu.tscn" id="8_6byl5"]
 [ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="9_l2rcj"]
 [ext_resource type="PackedScene" uid="uid://cwnrexdwh3j1f" path="res://scenes/mappa_02.tscn" id="10_qp0i7"]
+[ext_resource type="PackedScene" uid="uid://bdyg3nigp8cpo" path="res://characters/scenes/enemy.tscn" id="14_mekmw"]
+[ext_resource type="PackedScene" uid="uid://dwroxtcbkxdus" path="res://objects/scenes/libro_elettrotecnica.tscn" id="15_6byl5"]
+[ext_resource type="PackedScene" uid="uid://s4sgnvd5jpqj" path="res://objects/scenes/health_potion.tscn" id="16_l2rcj"]
+[ext_resource type="PackedScene" uid="uid://ormd5fwveh3q" path="res://scenes/to_next_level.tscn" id="17_6byl5"]
 
 [node name="livello_2" type="Node2D"]
 script = ExtResource("1_1rfpw")
@@ -74,3 +78,49 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="enemy" parent="." instance=ExtResource("14_mekmw")]
+position = Vector2(323, -286)
+
+[node name="enemy2" parent="." instance=ExtResource("14_mekmw")]
+position = Vector2(465, -997.99994)
+
+[node name="enemy3" parent="." instance=ExtResource("14_mekmw")]
+position = Vector2(1127, -285)
+
+[node name="enemy4" parent="." instance=ExtResource("14_mekmw")]
+position = Vector2(1129, -251)
+dropped_object = ExtResource("15_6byl5")
+
+[node name="enemy5" parent="." instance=ExtResource("14_mekmw")]
+position = Vector2(1129, -319)
+dropped_object = ExtResource("16_l2rcj")
+
+[node name="enemy7" parent="." instance=ExtResource("14_mekmw")]
+position = Vector2(318, -162)
+dropped_object = ExtResource("16_l2rcj")
+
+[node name="enemy9" parent="." instance=ExtResource("14_mekmw")]
+position = Vector2(1371.9999, -1028)
+dropped_object = ExtResource("16_l2rcj")
+
+[node name="enemy10" parent="." instance=ExtResource("14_mekmw")]
+position = Vector2(1381, -1002)
+dropped_object = ExtResource("16_l2rcj")
+
+[node name="enemy11" parent="." instance=ExtResource("14_mekmw")]
+position = Vector2(872, -779)
+dropped_object = ExtResource("16_l2rcj")
+
+[node name="enemy12" parent="." instance=ExtResource("14_mekmw")]
+position = Vector2(716, -804)
+dropped_object = ExtResource("16_l2rcj")
+
+[node name="enemy13" parent="." instance=ExtResource("14_mekmw")]
+position = Vector2(1050, -811)
+
+[node name="ToNextLevel" parent="." instance=ExtResource("17_6byl5")]
+position = Vector2(1407, -1117)
+rotation = 1.5707964
+
+[connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]

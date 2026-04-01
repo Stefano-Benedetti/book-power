@@ -15,7 +15,8 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("Pick_object") and player.selected_item==activation_key:
 			Global.quadro_attivato.emit()
 			attivo = true
-			print("quadro elettrico attivato")
+			$AnimatedSprite2D.play()
+			Global.emit_signal("fixElSys")
 
 
 func _on_area_of_interaction_body_entered(body: Node2D) -> void:

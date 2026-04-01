@@ -18,9 +18,13 @@ var dialoghi_per_quest := {
 		"I will be there, waiting for you. We have another problem to solve."
 	],
 	2: [
-		"Hi again, the police was here a few minutes ago as you could see from the roadblock... that's probably because someone passed through here and broke that house's electrical system, the one down this road.",
-		"I think we should get to the bottom of this, but we need to get past the barrier and the only way to open it, is to fix the house's electrical system.",
-		"However, nobody knows how to fix it: someone, probably one of the old men, stole the book containing the knowledge needed to understand electronic circuits. You should go and retrieve the book, then you could use it and fix the electrical system."
+		"Hi again, the police was here a few minutes ago as you could see from the roadblock... that's probably because someone passed through here and broke a house's electrical system.",
+		"The house I'm talking about is a very big house and you will find it going down this road. On one of its walls there is an access panel for its electrical system.",
+		"I think we should get to the bottom of this, but we need to get past the barrier, located next to the house, and the only way to open it, is to fix the house's electrical system. After that, you will be able to pull a lever and open the barrier.",
+		"However, nobody knows how to fix it: someone, probably one of the old men, stole the book containing the knowledge needed to understand electronic circuits. You should go and retrieve the book, then you could use it on the access panel."
+	],
+	3: [
+		"Good job! I will be waiting for you on the other side of the barrier. Remember you also need to pull the lever in front of the barrier."
 	]
 }
 

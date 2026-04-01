@@ -94,7 +94,7 @@ dropped_object = ExtResource("16_xk28k")
 max_health = 100
 
 [node name="enemy3" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(1358, -874)
+position = Vector2(1359, -869)
 dropped_object = ExtResource("16_gqnl7")
 max_health = 100
 

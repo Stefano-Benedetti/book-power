@@ -16,6 +16,7 @@ func save_data(data: Dictionary):
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	if file.store_var(data):
 		print("Data saved on local file.")
+		save_succeeded.emit()
 	else:
 		print("Saving on local file failed.")
 		

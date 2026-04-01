@@ -15,6 +15,8 @@ signal leva_tirata
 
 signal removeRoadblock
 
+signal fixElSys
+
 func getData():
 	var data = {
 		"global_volume" = db_to_linear(AudioServer.get_bus_volume_db(0)),
