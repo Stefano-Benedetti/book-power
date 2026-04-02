@@ -30,6 +30,7 @@ position = Vector2(448, -864)
 
 [node name="player" parent="." instance=ExtResource("10_55gh7")]
 position = Vector2(275, -240)
+SPEED = 70
 inv = ExtResource("12_dxc6x")
 
 [node name="Control" type="Control" parent="."]
@@ -80,7 +81,7 @@ mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("9_sj3x5")]
-position = Vector2(269, -161)
+position = Vector2(275, -160)
 dropped_object = ExtResource("15_k6sjt")
 
 [node name="enemy" parent="." instance=ExtResource("11_8x68r")]
@@ -139,17 +140,5 @@ script = ExtResource("17_0ik74")
 
 [node name="ToNextLevel" parent="." instance=ExtResource("18_n3k4e")]
 position = Vector2(1628, -353)
-
-[node name="moneta_bronzo" parent="." instance=ExtResource("16_xk28k")]
-position = Vector2(259, -230)
-
-[node name="moneta_bronzo2" parent="." instance=ExtResource("16_xk28k")]
-position = Vector2(276.00003, -229)
-
-[node name="moneta_bronzo3" parent="." instance=ExtResource("16_xk28k")]
-position = Vector2(284, -220)
-
-[node name="moneta_bronzo4" parent="." instance=ExtResource("16_xk28k")]
-position = Vector2(268.00003, -218)
 
 [connection signal="body_shape_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_shape_entered"]

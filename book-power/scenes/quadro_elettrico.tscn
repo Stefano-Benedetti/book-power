@@ -27,7 +27,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox0gy"]
-size = Vector2(26, 21)
+size = Vector2(26, 23)
 
 [node name="quadro_elettrico" type="StaticBody2D"]
 z_index = 1
@@ -41,7 +41,7 @@ sprite_frames = SubResource("SpriteFrames_rgg26")
 [node name="area_of_interaction" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_of_interaction"]
-position = Vector2(0, 7.5)
+position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_ox0gy")
 
 [connection signal="body_entered" from="area_of_interaction" to="." method="_on_area_of_interaction_body_entered"]

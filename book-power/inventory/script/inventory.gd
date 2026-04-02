@@ -26,4 +26,9 @@ func delete(indice):
 func countItem(item: InvItem):
 	var slots_with_item = slots.filter(func(slot): return slot.item == item)
 	return slots_with_item.size()
-	
+
+func contain(item: InvItem):
+	for slot in slots:
+		if slot.item == item:
+			return true
+	return false

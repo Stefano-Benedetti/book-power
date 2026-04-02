@@ -1,13 +1,7 @@
-[gd_resource type="Resource" script_class="Inv" load_steps=16 format=3 uid="uid://bl6hkk3gjnss2"]
+[gd_resource type="Resource" script_class="Inv" load_steps=15 format=3 uid="uid://bl6hkk3gjnss2"]
 
 [ext_resource type="Script" uid="uid://47g3fyggunyi" path="res://inventory/script/Inv_slot.gd" id="2_fhgtu"]
 [ext_resource type="Script" uid="uid://b0vfatiua8e68" path="res://inventory/script/inventory.gd" id="3_65xq6"]
-[ext_resource type="Resource" uid="uid://c4nbu1k72n240" path="res://inventory/items/libro_elettrotecnica.tres" id="3_ptr4k"]
-
-[sub_resource type="Resource" id="Resource_ptr4k"]
-script = ExtResource("2_fhgtu")
-item = ExtResource("3_ptr4k")
-metadata/_custom_type_script = "uid://47g3fyggunyi"
 
 [sub_resource type="Resource" id="Resource_fi1x0"]
 script = ExtResource("2_fhgtu")
@@ -53,7 +47,11 @@ metadata/_custom_type_script = "uid://47g3fyggunyi"
 script = ExtResource("2_fhgtu")
 metadata/_custom_type_script = "uid://47g3fyggunyi"
 
+[sub_resource type="Resource" id="Resource_fhgtu"]
+script = ExtResource("2_fhgtu")
+metadata/_custom_type_script = "uid://47g3fyggunyi"
+
 [resource]
 script = ExtResource("3_65xq6")
-slots = Array[ExtResource("2_fhgtu")]([SubResource("Resource_ptr4k"), SubResource("Resource_fi1x0"), SubResource("Resource_65xq6"), SubResource("Resource_3ih0p"), SubResource("Resource_cwv8g"), SubResource("Resource_pu72b"), SubResource("Resource_cajua"), SubResource("Resource_rfny4"), SubResource("Resource_rdqbr"), SubResource("Resource_7fytk"), SubResource("Resource_1vmji"), SubResource("Resource_3luym")])
+slots = Array[ExtResource("2_fhgtu")]([SubResource("Resource_fi1x0"), SubResource("Resource_65xq6"), SubResource("Resource_3ih0p"), SubResource("Resource_cwv8g"), SubResource("Resource_pu72b"), SubResource("Resource_cajua"), SubResource("Resource_rfny4"), SubResource("Resource_rdqbr"), SubResource("Resource_7fytk"), SubResource("Resource_1vmji"), SubResource("Resource_3luym"), SubResource("Resource_fhgtu")])
 metadata/_custom_type_script = "uid://b0vfatiua8e68"
