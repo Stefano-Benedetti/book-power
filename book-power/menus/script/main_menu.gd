@@ -27,7 +27,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://scenes/world.tscn")
+	get_tree().change_scene_to_file("res://scenes/game.tscn")
 	
 func _on_logreg_pressed() -> void:
 	get_tree().change_scene_to_file("res://menus/scenes/login.tscn")
@@ -85,6 +85,8 @@ func _on_load_succeeded(data: Dictionary):
 		AudioServer.set_bus_volume_db(0,linear_to_db(data.get("global_volume")))
 		AudioServer.set_bus_volume_db(1,linear_to_db(data.get("effects_volume")))
 		AudioServer.set_bus_volume_db(2,linear_to_db(data.get("music_volume")))
+		Progress.livello_corrente = data.get("current_level")
+		## TO FIX Progress.inventory = data.get("inventory")
 	$Label.text = "Your data has been loaded."
 	show_buttons()
 	

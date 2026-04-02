@@ -10,6 +10,7 @@ var quest_completata = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	$npc_fuoricorso.update_quest.connect(quest_update)
 	$CanvasLayer2/casella_dialogo.fine_dialogo.connect(dropBook)
 	$CanvasLayer2/casella_dialogo.fine_dialogo.connect(takeMoney)
@@ -39,4 +40,6 @@ func _on_to_next_level_body_shape_entered(body_rid: RID, body: Node2D, body_shap
 		#se non si sta runnando game non passa al livello successivo
 		if get_parent().name != "game":
 			return
+		Progress.livello_corrente = 2		#salvo il livello corrente nella classe dei progressi
+		Progress.inventory = $player.inv	#salvo inventario nella classe dei progressi
 		get_parent().loadNextLevel()

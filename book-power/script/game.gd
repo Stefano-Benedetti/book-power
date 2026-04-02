@@ -7,6 +7,7 @@ extends Node2D
 var indice_livello: int = 0
 
 func _ready() -> void:
+	livello_partenza = Progress.livello_corrente
 	livelli = [
 		preload("res://levels/scenes/livello_1.tscn"),
 		preload("res://levels/scenes/livello_2.tscn")

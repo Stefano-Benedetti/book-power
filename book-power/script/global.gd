@@ -21,6 +21,8 @@ func getData():
 	var data = {
 		"global_volume" = db_to_linear(AudioServer.get_bus_volume_db(0)),
 		"effects_volume" = db_to_linear(AudioServer.get_bus_volume_db(1)),
-		"music_volume" = db_to_linear(AudioServer.get_bus_volume_db(2))
+		"music_volume" = db_to_linear(AudioServer.get_bus_volume_db(2)),
+		"current_level" = Progress.livello_corrente,
+		"inventory" = Progress.inventory
 	}
 	return data
