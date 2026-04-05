@@ -26,9 +26,9 @@
 [ext_resource type="Texture2D" uid="uid://b55usg80npden" path="res://art/City cars/pinkCar_left.png" id="19_pq1ok"]
 [ext_resource type="Texture2D" uid="uid://dsjotf47i16sj" path="res://art/City cars/pinkCar_rear.png" id="20_jncu2"]
 [ext_resource type="Texture2D" uid="uid://dbqqe4f2h7brh" path="res://art/City cars/pinkCar_right.png" id="21_66uo4"]
-[ext_resource type="PackedScene" uid="uid://c2mdlpogsvn0m" path="res://scenes/leva.tscn" id="24_1aom2"]
-[ext_resource type="PackedScene" uid="uid://cmlju7fcbigs7" path="res://scenes/cancello.tscn" id="26_00eix"]
-[ext_resource type="PackedScene" uid="uid://c5pdjxw82yqt3" path="res://scenes/quadro_elettrico.tscn" id="26_3y7ub"]
+[ext_resource type="PackedScene" uid="uid://c2mdlpogsvn0m" path="res://objects_of_scene/scenes/leva.tscn" id="24_1aom2"]
+[ext_resource type="PackedScene" uid="uid://cmlju7fcbigs7" path="res://objects_of_scene/scenes/cancello.tscn" id="26_00eix"]
+[ext_resource type="PackedScene" uid="uid://c5pdjxw82yqt3" path="res://objects_of_scene/scenes/quadro_elettrico.tscn" id="26_3y7ub"]
 [ext_resource type="Resource" uid="uid://c4nbu1k72n240" path="res://inventory/items/libro_elettrotecnica.tres" id="28_hh3ej"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pey3w"]

@@ -9,6 +9,8 @@ https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generato
 fuoricorso set link:
 https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generator/#sex=male&body=Body_Color_light&expression=Neutral_light&head=Human_Male_Gaunt_light&legs=Formal_Pants_blue&shoes=Basic_Shoes_white&overalls=Suspenders_blue&clothes=Longsleeve_pink&hair=Parted_2_black&facial_eyes=Shades_black
 
+robot set link:
+https://art-man-oil.itch.io/bots-and-bolts-player
 
 
 tile set link:

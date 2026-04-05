@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2mdlpogsvn0m"]
+
+[ext_resource type="Texture2D" uid="uid://cmyn5887cww5w" path="res://art/leva.png" id="1_g6x4t"]
+[ext_resource type="Script" uid="uid://cfk17lgrj4trk" path="res://objects_of_scene/script/leva.gd" id="1_mjhut"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mjhut"]
+radius = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjhut"]
+size = Vector2(16, 10)
+
+[node name="leva" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_mjhut")
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("1_g6x4t")
+
+[node name="area_of_interaction" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_of_interaction"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_mjhut")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_mjhut")
+
+[connection signal="body_entered" from="area_of_interaction" to="." method="_on_area_of_interaction_body_entered"]
+[connection signal="body_exited" from="area_of_interaction" to="." method="_on_area_of_interaction_body_exited"]

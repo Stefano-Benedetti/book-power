@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv5iyu783u257"]
+
+[ext_resource type="Script" uid="uid://djur0dwswnu8b" path="res://objects_pickable/script/osso.gd" id="1_fxb40"]
+[ext_resource type="Texture2D" uid="uid://c4o2wu4fxdsh1" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/bone01a.png" id="1_xltmb"]
+[ext_resource type="Resource" uid="uid://cn7y4bnuc7t5n" path="res://inventory/items/bone.tres" id="2_kr12b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xltmb"]
+radius = 8.0
+
+[node name="osso" type="Node2D"]
+script = ExtResource("1_fxb40")
+item = ExtResource("2_kr12b")
+
+[node name="Bone01a" type="Sprite2D" parent="."]
+position = Vector2(3.999998, 4)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_xltmb")
+
+[node name="PickableArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickableArea"]
+position = Vector2(4, 4)
+shape = SubResource("CircleShape2D_xltmb")
+
+[connection signal="body_entered" from="PickableArea" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="PickableArea" to="." method="_on_pickable_area_body_exited"]
