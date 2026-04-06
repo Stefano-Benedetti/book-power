@@ -3,6 +3,7 @@ extends Control
 var _save_done := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$ConfirmNewgame.hide()
 	$Control/HBoxContainer.hide()
 	$Control/logreg.hide()
 	$Control/settings.hide()
@@ -86,7 +87,7 @@ func _on_load_succeeded(data: Dictionary):
 		AudioServer.set_bus_volume_db(1,linear_to_db(data.get("effects_volume")))
 		AudioServer.set_bus_volume_db(2,linear_to_db(data.get("music_volume")))
 		Progress.livello_corrente = data.get("current_level")
-		## TO FIX Progress.inventory = data.get("inventory")
+		##TO FIX Progress.inventory = data.get("inventory")
 	$Label.text = "Your data has been loaded."
 	show_buttons()
 	
@@ -99,3 +100,21 @@ func show_buttons():
 	$Control/HBoxContainer.show()
 	$Control/logreg.show()
 	$Control/settings.show()
+
+
+func _on_newgame_pressed() -> void:
+	$ConfirmNewgame.show()
+
+
+func _on_yes_pressed() -> void:
+	DirAccess.remove_absolute("user://data.save")
+	$Label.text = "New game loaded, old game was deleted."
+	Progress.livello_corrente = 1
+	##TO FIX Progress.inventory = 0
+	var data = Global.getData()
+	SaveSystem.save_data(data)
+	$ConfirmNewgame.hide()
+
+
+func _on_no_pressed() -> void:
+	$ConfirmNewgame.hide()

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bhkl5888pq6s4" path="res://art/health_bar/healthbarProgressGreen.png" id="2_ujpt8"]
 [ext_resource type="Script" uid="uid://cehldpbbprqd8" path="res://script/player_health_bar.gd" id="3_tumid"]
 
-[node name="TextureProgressBar" type="TextureProgressBar"]
+[node name="health_bar" type="TextureProgressBar"]
 offset_right = 64.0
 offset_bottom = 10.0
 scale = Vector2(5, 5)

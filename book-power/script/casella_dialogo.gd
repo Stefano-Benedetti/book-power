@@ -25,6 +25,9 @@ var dialoghi_per_quest := {
 	],
 	3: [
 		"Good job! I will be waiting for you on the other side of the barrier. Remember you also need to pull the lever in front of the barrier."
+	],
+	4: [
+		"Simone is a very big chicken."
 	]
 }
 

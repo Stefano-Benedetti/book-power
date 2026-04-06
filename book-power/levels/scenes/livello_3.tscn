@@ -1,0 +1,82 @@
+[gd_scene load_steps=15 format=3 uid="uid://lakebj3hfh7g"]
+
+[ext_resource type="Script" uid="uid://y1ccwa01wasr" path="res://levels/script/livello_3.gd" id="1_2dpvf"]
+[ext_resource type="PackedScene" uid="uid://dbl6qfpdg73ma" path="res://scenes/mappa_03.tscn" id="1_whg46"]
+[ext_resource type="PackedScene" uid="uid://ckwr713fqij6n" path="res://scenes/player.tscn" id="2_bucqw"]
+[ext_resource type="PackedScene" uid="uid://b5x5dbko4mw4h" path="res://characters/scenes/npc_fuoricorso.tscn" id="3_8u7u8"]
+[ext_resource type="PackedScene" uid="uid://ormd5fwveh3q" path="res://scenes/to_next_level.tscn" id="4_8fypu"]
+[ext_resource type="PackedScene" uid="uid://c4wlaldocgqtl" path="res://touch_controls/scenes/touch_contols.tscn" id="4_qgr84"]
+[ext_resource type="PackedScene" uid="uid://b5axlii2oyhdf" path="res://scenes/selectedItem_slot.tscn" id="5_8fypu"]
+[ext_resource type="PackedScene" uid="uid://c78woh6vfcevh" path="res://scenes/player_health_bar.tscn" id="6_2dpvf"]
+[ext_resource type="PackedScene" uid="uid://dt5ng80c6newu" path="res://inventory/scenes/inv_ui.tscn" id="7_k1rne"]
+[ext_resource type="PackedScene" uid="uid://c8rs30phkkd0r" path="res://scenes/casella_dialogo.tscn" id="8_cosgv"]
+[ext_resource type="PackedScene" uid="uid://da82dug1vut1e" path="res://menus/scenes/pause_menu.tscn" id="9_o72rr"]
+[ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="10_01ucw"]
+[ext_resource type="PackedScene" uid="uid://db3bydrtx06ys" path="res://characters/scenes/robot.tscn" id="13_cosgv"]
+[ext_resource type="Script" uid="uid://lkt3ke5tddde" path="res://characters/script/robot.gd" id="14_o72rr"]
+
+[node name="livello_3" type="Node2D"]
+script = ExtResource("1_2dpvf")
+
+[node name="mappa03" parent="." instance=ExtResource("1_whg46")]
+position = Vector2(480, -1120)
+
+[node name="player" parent="." instance=ExtResource("2_bucqw")]
+position = Vector2(320.99997, -97.99999)
+
+[node name="npc_fuoricorso" parent="." instance=ExtResource("3_8u7u8")]
+position = Vector2(301.00003, -181)
+
+[node name="ToNextLevel" parent="." instance=ExtResource("4_8fypu")]
+position = Vector2(1633, -287)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="touchContols" parent="Control" instance=ExtResource("4_qgr84")]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="sel_item_slot" parent="CanvasLayer2" instance=ExtResource("5_8fypu")]
+offset_left = 564.0
+offset_top = 571.0
+offset_right = 601.99994
+offset_bottom = 609.0
+metadata/_edit_use_anchors_ = true
+
+[node name="health_bar" parent="CanvasLayer2" node_paths=PackedStringArray("player") instance=ExtResource("6_2dpvf")]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 84.0
+offset_bottom = 30.0
+player = NodePath("../../player")
+metadata/_edit_use_anchors_ = true
+
+[node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("7_k1rne")]
+metadata/_edit_use_anchors_ = true
+
+[node name="casella_dialogo" parent="CanvasLayer2" instance=ExtResource("8_cosgv")]
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("9_o72rr")]
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="gameover_menu" parent="CanvasLayer" instance=ExtResource("10_01ucw")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="robot" parent="." instance=ExtResource("13_cosgv")]
+position = Vector2(1598, -290)
+script = ExtResource("14_o72rr")

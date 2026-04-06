@@ -1,16 +1,17 @@
 extends Node2D
 
-@export var livello_partenza: int = 1
+@export var livello_partenza: int
 @onready var livelli: Array
 @onready var livello_corrente: PackedScene = null
 @onready var scena_liv_corrente: Node = null
 var indice_livello: int = 0
 
 func _ready() -> void:
-	livello_partenza = Progress.livello_corrente
+	livello_partenza = Progress.livello_corrente ##DA DECOMMENTARE
 	livelli = [
 		preload("res://levels/scenes/livello_1.tscn"),
-		preload("res://levels/scenes/livello_2.tscn")
+		preload("res://levels/scenes/livello_2.tscn"),
+		preload("res://levels/scenes/livello_3.tscn")
 	]
 	loadLevel(livello_partenza-1) # carica il primo livello (indice 0)
 

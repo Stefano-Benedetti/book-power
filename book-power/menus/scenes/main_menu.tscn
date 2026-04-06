@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://j5rqm6aeahix"]
+[gd_scene load_steps=19 format=3 uid="uid://j5rqm6aeahix"]
 
 [ext_resource type="Script" uid="uid://wnjq1xg4ef51" path="res://menus/script/main_menu.gd" id="1_r3aaf"]
 [ext_resource type="Texture2D" uid="uid://dluedb8fhxh35" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (9).png" id="2_5um5d"]
@@ -11,6 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://cbhthh67f5jsw" path="res://art/titolo_gioco.png" id="9_2yqld"]
 [ext_resource type="Texture2D" uid="uid://c5rdgoulaxjkt" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/Orange Settings (1).png" id="10_iyvcr"]
 [ext_resource type="Texture2D" uid="uid://c133lcroggwag" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/Orange Settings (2).png" id="11_d2tgv"]
+[ext_resource type="Texture2D" uid="uid://bwwbvkwl7ld7m" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 menu icons/16x16 Menu Buttons (78).png" id="12_sabtx"]
+[ext_resource type="Texture2D" uid="uid://bx4e152pucthg" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 menu icons/16x16 Menu Buttons (77).png" id="13_8i50l"]
+[ext_resource type="Texture2D" uid="uid://coxhqpqy5wsxn" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (3).png" id="14_ct1kt"]
+[ext_resource type="Texture2D" uid="uid://bmrtpurdacoyi" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (2).png" id="15_05lm6"]
+[ext_resource type="Texture2D" uid="uid://dvc8n0u4e3rnn" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (21).png" id="16_rqa4x"]
+[ext_resource type="Texture2D" uid="uid://xrlydndd5t4u" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (20).png" id="17_p03ih"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjb8g"]
+bg_color = Color(0.14767182, 0.14767182, 0.14767176, 1)
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -115,6 +124,23 @@ texture_normal = ExtResource("10_iyvcr")
 texture_pressed = ExtResource("11_d2tgv")
 stretch_mode = 5
 
+[node name="newgame" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 467.0
+offset_top = -69.0
+offset_right = 483.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("12_sabtx")
+texture_pressed = ExtResource("13_8i50l")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -132,7 +158,48 @@ theme_override_font_sizes/font_size = 22
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="ConfirmNewgame" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 33.0
+offset_top = 25.0
+offset_right = 1239.0
+offset_bottom = 705.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gjb8g")
+
+[node name="Label" type="Label" parent="ConfirmNewgame"]
+layout_mode = 0
+offset_left = 346.99997
+offset_top = 34.0
+offset_right = 446.99997
+offset_bottom = 57.0
+scale = Vector2(5, 5)
+text = "U SURE??????"
+
+[node name="yes" type="TextureButton" parent="ConfirmNewgame"]
+layout_mode = 0
+offset_left = 273.0
+offset_top = 322.0
+offset_right = 305.0
+offset_bottom = 338.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("14_ct1kt")
+texture_pressed = ExtResource("15_05lm6")
+
+[node name="no" type="TextureButton" parent="ConfirmNewgame"]
+layout_mode = 0
+offset_left = 717.0
+offset_top = 315.0
+offset_right = 749.0
+offset_bottom = 331.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("16_rqa4x")
+texture_pressed = ExtResource("17_p03ih")
+
 [connection signal="pressed" from="Control/HBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Control/logreg" to="." method="_on_logreg_pressed"]
 [connection signal="pressed" from="Control/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Control/newgame" to="." method="_on_newgame_pressed"]
+[connection signal="pressed" from="ConfirmNewgame/yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="ConfirmNewgame/no" to="." method="_on_no_pressed"]
