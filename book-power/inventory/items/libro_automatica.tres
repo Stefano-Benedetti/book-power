@@ -8,4 +8,4 @@ script = ExtResource("1_lsypt")
 name = "libro_automatica"
 texture = ExtResource("2_rc41o")
 title = "Control systems book"
-description = "regnerjingkjernguiernkjgnvdjkngie"
+description = "This book is very useful if you need to fix a robot."
