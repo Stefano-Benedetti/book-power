@@ -11,7 +11,7 @@ var current_dir = "down"		#la inizializziamo giù
 @export var dropped_object: PackedScene
 var offset_drop = Vector2(0, -3)
 
-@export var max_health = 10
+@export var max_health = 100
 @onready var current_health: int = max_health
 @onready var health_bar: TextureProgressBar=$enemy_health_bar
 var dead = false
@@ -20,6 +20,7 @@ var dead = false
 var player_in_area = false
 var player = null
 
+@export var damage = 10
 var player_attackable = false
 var can_attack = true
 var can_move = true
@@ -96,7 +97,7 @@ func _on_movement_post_attack_cooldown_timeout() -> void:
 func enemy_attack():
 	can_attack = false
 	can_move = false
-	player.getHurt()
+	player.getHurt(damage)
 	attacck_cooldown.start()  # Avvia il timer
 	mov_cooldown.start()
 	

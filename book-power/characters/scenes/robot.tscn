@@ -1,6 +1,7 @@
-[gd_scene load_steps=90 format=3 uid="uid://db3bydrtx06ys"]
+[gd_scene load_steps=92 format=3 uid="uid://db3bydrtx06ys"]
 
 [ext_resource type="Texture2D" uid="uid://dnvcdu3odspik" path="res://art/Robot/Character/Sprite sheets/Full sprite sheet.png" id="1_1kwae"]
+[ext_resource type="Script" uid="uid://lkt3ke5tddde" path="res://characters/script/robot.gd" id="1_np56g"]
 [ext_resource type="Texture2D" uid="uid://bwy5jt6hokvc7" path="res://art/Robot/Character/Front/Standing/Front_Standing_Walk_1.png" id="2_np56g"]
 [ext_resource type="Texture2D" uid="uid://bmrb0fj082d61" path="res://art/Robot/Character/Front/Standing/Front_Standing_Walk_2.png" id="3_ahuyi"]
 [ext_resource type="Texture2D" uid="uid://c50l5hvb4byph" path="res://art/Robot/Character/Front/Standing/Front_Standing_Walk_3.png" id="4_t7x4o"]
@@ -33,7 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://dcu3iwhjpbfpq" path="res://art/Robot/Character/Back/Standing/Back_Standing_Walk_5.png" id="26_ty7xo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kwae"]
-size = Vector2(21, 20)
+size = Vector2(20, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1kwae"]
 atlas = ExtResource("1_1kwae")
@@ -490,13 +491,36 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1kwae"]
+radius = 22.022715
+
 [node name="robot" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_np56g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_1kwae")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -10)
+position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_5y7b3")
-animation = &"left_idle"
+animation = &"left_attack"
+frame = 3
+frame_progress = 1.0
+
+[node name="attackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackArea"]
+shape = SubResource("CircleShape2D_1kwae")
+
+[node name="attackCooldown" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="movementPostAttackCooldown" type="Timer" parent="."]
+wait_time = 0.8
+
+[connection signal="body_entered" from="attackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="attackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="timeout" from="attackCooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="movementPostAttackCooldown" to="." method="_on_movement_post_attack_cooldown_timeout"]

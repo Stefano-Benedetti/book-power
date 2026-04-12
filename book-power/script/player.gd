@@ -6,7 +6,7 @@ func player():
 	pass
 
 
-@export var SPEED = 300
+@export var SPEED = 70
 var current_dir = "down"		#la inizializziamo giù
 
 @export var max_health = 100
@@ -29,6 +29,21 @@ var offset_attacchi = Vector2(0, -7)
 @onready var attacco_libro_reti = preload("res://attacks/scenes/attacco_libro_reti.tscn")
 @onready var attacco_libro_elettrotecnica = preload("res://attacks/scenes/attacco_libro_elettrotecnica.tscn")
 
+
+class PushData:
+	var direction: Vector2
+	var force: float
+	var decay: float		#valori buoni sono tipo 0.9
+	var duration: float
+
+	func _init(dir: Vector2, f: float, d: float, dur: float):
+		direction = dir
+		force = f
+		decay = d
+		duration = dur
+var is_being_pushed = false
+var push: PushData = null
+
 func _ready():
 	Global.selected_slot_update.connect(updateSelectedItem)
 	#updateSelectedItem(inv.slots[0], 0)
@@ -43,7 +58,8 @@ func _physics_process(delta: float):
 			attacca()
 		elif can_move:
 			player_movement(delta)
-			
+		elif is_being_pushed:
+			getPushed(delta)
 	if current_health <= 0 and !dead :
 		Global.emit_signal("death")
 		dead = true
@@ -207,8 +223,8 @@ func updateSelectedItem(slot: InvSlot, indice):
 	selected_item = slot.item
 	selected_item_index = indice
 
-func getHurt():
-	current_health -= 10
+func getHurt(damage):
+	current_health -= damage
 	health_changed.emit()	#per aggiornare la health bar
 
 func getHealed(health_plus):
@@ -217,6 +233,26 @@ func getHealed(health_plus):
 	if current_health > max_health:
 		current_health = max_health
 	health_changed.emit()	#per aggiornare la health bar
+
+func setPushed(direction: Vector2, force, decay, duration):
+	can_move = false
+	is_being_pushed = true
+	push = PushData.new(direction, force, decay, duration)
+
+func getPushed(delta:float):
+	if push == null:
+		return
+	play_anim(0,0)
+	velocity = push.direction.normalized() * push.force
+	push.force *= push.decay		# Decadimento esponenziale
+	push.duration -= delta
+	
+	if push.duration<=0 or push.force<1:
+		is_being_pushed = false
+		can_move = true
+		push = null
+	
+	move_and_slide()
 
 
 func _on_attack_cooldown_timeout() -> void:
