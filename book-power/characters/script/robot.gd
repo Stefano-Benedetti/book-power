@@ -14,8 +14,11 @@ var can_move = true
 
 var player = null
 
-
+var player_in_talkArea = false
 var offset_drop = Vector2(0, 10)
+
+func _ready():
+	Global.sbloccaRobot.connect(sblocca)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -23,6 +26,9 @@ func _process(_delta: float) -> void:
 		robot_attack()
 	elif can_move:
 		$AnimatedSprite2D.play("left_idle")
+		if player_in_talkArea and not attack_mode:
+			#parla
+			pass
 
 
 
@@ -46,6 +52,9 @@ func robot_attack():
 	await $AnimatedSprite2D.animation_finished
 
 
+func sblocca():
+	attack_mode = false
+
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_attackArea = true
@@ -61,3 +70,13 @@ func _on_attack_cooldown_timeout() -> void:
 
 func _on_movement_post_attack_cooldown_timeout() -> void:
 	can_move = true
+
+
+func _on_talk_area_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		player_in_talkArea = true
+		player = body
+
+func _on_talk_area_body_exited(body: Node2D) -> void:
+	if body.has_method("player"):
+		player_in_talkArea = false

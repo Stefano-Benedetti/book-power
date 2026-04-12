@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://lakebj3hfh7g"]
+[gd_scene load_steps=17 format=3 uid="uid://lakebj3hfh7g"]
 
 [ext_resource type="Script" uid="uid://y1ccwa01wasr" path="res://levels/script/livello_3.gd" id="1_2dpvf"]
 [ext_resource type="PackedScene" uid="uid://dbl6qfpdg73ma" path="res://scenes/mappa_03.tscn" id="1_whg46"]
 [ext_resource type="PackedScene" uid="uid://ckwr713fqij6n" path="res://scenes/player.tscn" id="2_bucqw"]
 [ext_resource type="PackedScene" uid="uid://b5x5dbko4mw4h" path="res://characters/scenes/npc_fuoricorso.tscn" id="3_8u7u8"]
 [ext_resource type="PackedScene" uid="uid://ormd5fwveh3q" path="res://scenes/to_next_level.tscn" id="4_8fypu"]
+[ext_resource type="Resource" uid="uid://bl6hkk3gjnss2" path="res://inventory/player_inventory.tres" id="4_o72rr"]
 [ext_resource type="PackedScene" uid="uid://c4wlaldocgqtl" path="res://touch_controls/scenes/touch_contols.tscn" id="4_qgr84"]
 [ext_resource type="PackedScene" uid="uid://b5axlii2oyhdf" path="res://scenes/selectedItem_slot.tscn" id="5_8fypu"]
 [ext_resource type="PackedScene" uid="uid://c78woh6vfcevh" path="res://scenes/player_health_bar.tscn" id="6_2dpvf"]
@@ -13,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://da82dug1vut1e" path="res://menus/scenes/pause_menu.tscn" id="9_o72rr"]
 [ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="10_01ucw"]
 [ext_resource type="PackedScene" uid="uid://db3bydrtx06ys" path="res://characters/scenes/robot.tscn" id="13_cosgv"]
+[ext_resource type="PackedScene" uid="uid://c7xdwphdrhvbx" path="res://objects_pickable/scenes/libro_automatica.tscn" id="14_cosgv"]
+[ext_resource type="PackedScene" uid="uid://crkdwpc8kmk48" path="res://objects_pickable/scenes/key_01.tscn" id="16_01ucw"]
 
 [node name="livello_3" type="Node2D"]
 y_sort_enabled = true
@@ -22,7 +25,8 @@ script = ExtResource("1_2dpvf")
 position = Vector2(480, -1120)
 
 [node name="player" parent="." instance=ExtResource("2_bucqw")]
-position = Vector2(1465.9999, -281.99997)
+position = Vector2(1521.9999, -279)
+inv = ExtResource("4_o72rr")
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("3_8u7u8")]
 position = Vector2(301.00003, -181)
@@ -79,3 +83,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="robot" parent="." instance=ExtResource("13_cosgv")]
 position = Vector2(1624, -286)
+
+[node name="libro_automatica" parent="." instance=ExtResource("14_cosgv")]
+position = Vector2(1564, -298)
+
+[node name="key01" parent="." instance=ExtResource("16_01ucw")]
+position = Vector2(1308, -949)
