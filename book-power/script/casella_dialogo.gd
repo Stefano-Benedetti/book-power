@@ -28,7 +28,7 @@ var dialoghi_per_quest := {
 	],
 	4: [
 		"I think I found who did all that mess! There's a robot blocking the road and it pushes back and hurts anyone who tries to go past him.",
-		"We should find a way to disable it, or at least to calm it down, however I don't know how to do that. Try to find a book with the necessary knowledge.",
+		"We should find a way to disable it, or at least to calm it down, however I don't know how to do that. I only know that you need to use a computer connected to the robot, it should be next to the robot. Try to find a book with the necessary knowledge to use that computer.",
 		"There's a closed chest somewhere, maybe you can find something useful in it, but you need a key to open it. I actually had found a key, but I lost it on the way here. I probably dropped it on the ground. Woops."
 	]
 }
