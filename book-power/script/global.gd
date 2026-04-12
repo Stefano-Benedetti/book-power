@@ -17,6 +17,8 @@ signal removeRoadblock
 
 signal fixElSys
 
+signal sbloccaRobot
+
 func getData():
 	var data = {
 		"global_volume" = db_to_linear(AudioServer.get_bus_volume_db(0)),

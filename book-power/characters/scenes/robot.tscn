@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://db3bydrtx06ys"]
+[gd_scene load_steps=93 format=3 uid="uid://db3bydrtx06ys"]
 
 [ext_resource type="Texture2D" uid="uid://dnvcdu3odspik" path="res://art/Robot/Character/Sprite sheets/Full sprite sheet.png" id="1_1kwae"]
 [ext_resource type="Script" uid="uid://lkt3ke5tddde" path="res://characters/script/robot.gd" id="1_np56g"]
@@ -494,6 +494,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_1kwae"]
 radius = 22.022715
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_np56g"]
+size = Vector2(81, 63)
+
 [node name="robot" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
@@ -520,7 +523,15 @@ wait_time = 3.0
 [node name="movementPostAttackCooldown" type="Timer" parent="."]
 wait_time = 0.8
 
+[node name="talkArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="talkArea"]
+position = Vector2(-15, 0)
+shape = SubResource("RectangleShape2D_np56g")
+
 [connection signal="body_entered" from="attackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="attackArea" to="." method="_on_attack_area_body_exited"]
 [connection signal="timeout" from="attackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="movementPostAttackCooldown" to="." method="_on_movement_post_attack_cooldown_timeout"]
+[connection signal="body_entered" from="talkArea" to="." method="_on_talk_area_body_entered"]
+[connection signal="body_exited" from="talkArea" to="." method="_on_talk_area_body_exited"]
