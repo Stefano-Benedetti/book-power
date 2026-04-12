@@ -7,6 +7,7 @@ func _ready() -> void:
 	$Control/HBoxContainer.hide()
 	$Control/logreg.hide()
 	$Control/settings.hide()
+	$Control/newgame.hide()
 	
 	SaveSystem.save_succeeded.connect(_on_save_end)
 	SaveSystem.save_failed.connect(_on_save_end)
@@ -100,6 +101,7 @@ func show_buttons():
 	$Control/HBoxContainer.show()
 	$Control/logreg.show()
 	$Control/settings.show()
+	$Control/newgame.show()
 
 
 func _on_newgame_pressed() -> void:
