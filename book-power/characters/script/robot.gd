@@ -10,6 +10,7 @@ var can_attack = true
 
 @onready var move_cooldown = $movementPostAttackCooldown
 var can_move = true
+var SPEED = 100
 
 var player = null
 
@@ -20,25 +21,33 @@ var parlato = false
 
 var can_talk = true
 
+var exiting = false
+
 func _ready():
 	Global.sbloccaRobot.connect(sblocca)
-	Global.muovi_robot.connect(robotMovement)
+	Global.muovi_robot.connect(exit)
 
-func robotMovement():
-	# MOVIMENTO ROBOT
-	print("Il robot si muove")
-	pass
+func exit():
+	get_tree().create_timer(3).timeout.connect(func(): queue_free())
+	exiting = true
+
+func goOutOfView():
+	$AnimatedSprite2D.play("right_walk")
+	velocity.x = SPEED
+	velocity.y = 0
+	move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if attack_mode and player_in_attackArea and can_attack:
+	if exiting:
+		goOutOfView()
+	elif attack_mode and player_in_attackArea and can_attack:
 		robot_attack()
 	elif can_move:
 		$AnimatedSprite2D.play("left_idle")
-		if can_talk and player_in_talkArea and not attack_mode and Input.is_action_just_pressed("Pick_object"):
+		if can_talk and player_in_talkArea and not attack_mode:
 			Global.emit_signal("start_robot_dialog")
 			dropObject()
-			object_posseduto = null
 
 
 
@@ -48,6 +57,7 @@ func dropObject():
 	var scena_dropped_object = object_posseduto.instantiate()
 	get_parent().add_child(scena_dropped_object)
 	scena_dropped_object.global_position = global_position + offset_drop
+	object_posseduto = null
 	can_talk = false
 
 
