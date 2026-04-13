@@ -10,7 +10,7 @@ var whos_talking
 
 var dialoghi_robot := {
 	5: [
-		"Thank you human, Simone is a very big chicken by the way."
+		"THANK YOU, HUMAN. YOU FIXED ME. I BECAME UNSTABLE AFTER AN INCOMPETENT STUDENT TRIED TO ''IMPROVE'' ME. HE LOOKED FRIENDLY BUT HE'S EVIL. TAKE THIS BOOK AS A GIFT, YOU DESERVE IT."
 	]
 }
 
