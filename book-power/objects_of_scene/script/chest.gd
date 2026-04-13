@@ -25,6 +25,7 @@ func openChest():
 	await $AnimatedSprite2D.animation_finished
 	dropObject()
 	opened = true
+	player.consumeItem(chiave,1)
 
 
 func dropObject():

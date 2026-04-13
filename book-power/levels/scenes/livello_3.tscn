@@ -26,7 +26,7 @@ script = ExtResource("1_2dpvf")
 position = Vector2(480, -1120)
 
 [node name="player" parent="." instance=ExtResource("2_bucqw")]
-position = Vector2(1521.9999, -279)
+position = Vector2(1499.9999, -284)
 inv = ExtResource("4_o72rr")
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("3_8u7u8")]
@@ -86,11 +86,10 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(1620, -288)
 object_posseduto = ExtResource("15_fq77h")
 
-[node name="libro_automatica" parent="." instance=ExtResource("14_cosgv")]
-position = Vector2(1555, -299)
-
 [node name="key01" parent="." instance=ExtResource("16_01ucw")]
 position = Vector2(1308, -949)
 
-[node name="libro_asd" parent="." instance=ExtResource("15_fq77h")]
-position = Vector2(1555, -277)
+[node name="libro_automatica" parent="." instance=ExtResource("14_cosgv")]
+position = Vector2(1543, -294)
+
+[connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]

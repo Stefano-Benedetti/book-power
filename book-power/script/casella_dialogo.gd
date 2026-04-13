@@ -4,8 +4,6 @@ extends Control
 
 var index = 0
 
-signal fine_dialogo
-
 var whos_talking
 
 var dialoghi_robot := {
@@ -71,6 +69,7 @@ func mostra_riga_corrente() -> void:
 	if whos_talking == "robot":
 		righe = dialoghi_robot.get(QuestCounter.get_counter(),["..."])
 	else :
+		#parla npc fuoricorso
 		righe = dialoghi_per_quest.get(QuestCounter.get_counter(),["..."])
 	label.text = righe[index]
 
@@ -79,13 +78,18 @@ func _on_next_pressed() -> void:
 	if whos_talking == "robot":
 		righe = dialoghi_robot.get(QuestCounter.get_counter(),["..."])
 	else:
+		#parla npc fuoricorso
 		righe = dialoghi_per_quest.get(QuestCounter.get_counter(),["..."])
+		
 	if index < righe.size() - 1:
+		# mostra riga successiva
 		index += 1
 		mostra_riga_corrente()
 	else:
-		whos_talking = ""
 		hide()
-		GameState.in_dialogue = false
-		Global.emit_signal("in_dialogo",false)
-		fine_dialogo.emit()
+		GameState.in_dialogue = false            #per sbloccare l'input
+		Global.emit_signal("in_dialogo",false)   #per mostrare gli altri tasti
+		Global.emit_signal("fine_dialogo")
+		if whos_talking == "robot":
+			Global.emit_signal("fine_dialogo_robot")
+		whos_talking = ""

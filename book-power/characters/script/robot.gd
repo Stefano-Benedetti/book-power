@@ -17,7 +17,7 @@ var player = null
 var player_in_talkArea = false
 var offset_drop = Vector2(-20,0)
 
-var parlato = false
+var dialogo_iniziato = false
 
 var can_talk = true
 
@@ -26,6 +26,7 @@ var exiting = false
 func _ready():
 	Global.sbloccaRobot.connect(sblocca)
 	Global.muovi_robot.connect(exit)
+	Global.fine_dialogo_robot.connect(dropObject)
 
 func exit():
 	get_tree().create_timer(3).timeout.connect(func(): queue_free())
@@ -45,11 +46,8 @@ func _process(_delta: float) -> void:
 		robot_attack()
 	elif can_move:
 		$AnimatedSprite2D.play("left_idle")
-		if can_talk and player_in_talkArea and not attack_mode:
+		if player_in_talkArea and can_talk and Input.is_action_just_pressed("Pick_object"):
 			Global.emit_signal("start_robot_dialog")
-			dropObject()
-
-
 
 func dropObject():
 	if object_posseduto == null:
@@ -94,12 +92,14 @@ func _on_movement_post_attack_cooldown_timeout() -> void:
 
 
 func _on_talk_area_body_entered(body: Node2D) -> void:
+	if not can_talk:
+		return
 	if body.has_method("player"):
 		player_in_talkArea = true
 		player = body
-		if not attack_mode and not parlato:
+		if not attack_mode:
 			Global.emit_signal("start_robot_dialog")
-			parlato = true
+			dialogo_iniziato = true
 
 func _on_talk_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):

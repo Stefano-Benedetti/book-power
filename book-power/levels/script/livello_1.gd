@@ -12,9 +12,9 @@ var quest_completata = false
 func _ready() -> void:
 	QuestCounter.quest_corrente = 0
 	$npc_fuoricorso.update_quest.connect(quest_update)
-	$CanvasLayer2/casella_dialogo.fine_dialogo.connect(dropBook)
-	$CanvasLayer2/casella_dialogo.fine_dialogo.connect(takeMoney)
-	$CanvasLayer2/casella_dialogo.fine_dialogo.connect(removeRoadblock)
+	Global.fine_dialogo.connect(dropBook)
+	Global.fine_dialogo.connect(takeMoney)
+	Global.fine_dialogo.connect(removeRoadblock)
 
 func quest_update():
 	if !quest_completata and $player.inv.countItem(item_richiesto) >= qta_item_richiesti:
@@ -41,5 +41,5 @@ func _on_to_next_level_body_shape_entered(body_rid: RID, body: Node2D, body_shap
 		if get_parent().name != "game":
 			return
 		Progress.livello_corrente = 2		#salvo il livello corrente nella classe dei progressi
-		Progress.inventory = $player.inv	#salvo inventario nella classe dei progressi
+		Progress.inventory = $player.inv	#TO FIX salvo inventario nella classe dei progressi
 		get_parent().loadNextLevel()
