@@ -19,6 +19,8 @@ signal fixElSys
 
 signal sbloccaRobot
 
+signal start_robot_dialog
+
 func getData():
 	var data = {
 		"global_volume" = db_to_linear(AudioServer.get_bus_volume_db(0)),

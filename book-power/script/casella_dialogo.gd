@@ -6,6 +6,14 @@ var index = 0
 
 signal fine_dialogo
 
+var whos_talking
+
+var dialoghi_robot := {
+	5: [
+		"Thank you human, Simone is a very big chicken by the way."
+	]
+}
+
 var dialoghi_per_quest := {
 	0: [
 		"Hi, you seem new around here. I remember how hard the first year was, luckily I'm at my eigth year now! Computer Engineering is hard for sure.",
@@ -30,37 +38,54 @@ var dialoghi_per_quest := {
 		"I think I found who did all that mess! There's a robot blocking the road and it pushes back and hurts anyone who tries to go past him.",
 		"We should find a way to disable it, or at least to calm it down, however I don't know how to do that. I only know that you need to use a computer connected to the robot, it should be next to the robot. Try to find a book with the necessary knowledge to use that computer.",
 		"There's a closed chest somewhere, maybe you can find something useful in it, but you need a key to open it. I actually had found a key, but I lost it on the way here. I probably dropped it on the ground. Woops."
+	],
+	5: [
+		"Looks like you fixed the robot, good job! Now we should continue and check if he did any more damage."
 	]
 }
 
 func _ready() -> void:
 	# finché nessuno mi parla deve rimanere nascosto
-	$".".hide()
+	hide()
 	Global.start_dialog.connect(avvia_dialogo_quest)
+	Global.start_robot_dialog.connect(avvia_dialogo_robot)
 	
+	
+func avvia_dialogo_robot():
+	whos_talking = "robot"
+	avvia_dialogo_quest()
 
 func avvia_dialogo_quest() -> void:
-	if !$".".visible:
+	if !visible:
 		index = 0
-		$".".show()
+		show()
 		mostra_riga_corrente()
 		GameState.in_dialogue = true
 		Global.emit_signal("in_dialogo",true)
 	else:
 		_on_next_pressed()
-		
+
 
 func mostra_riga_corrente() -> void:
-	var righe: Array = dialoghi_per_quest.get(QuestCounter.get_counter(),["..."])
+	var righe: Array
+	if whos_talking == "robot":
+		righe = dialoghi_robot.get(QuestCounter.get_counter(),["..."])
+	else :
+		righe = dialoghi_per_quest.get(QuestCounter.get_counter(),["..."])
 	label.text = righe[index]
 
 func _on_next_pressed() -> void:
-	var righe: Array = dialoghi_per_quest.get(QuestCounter.get_counter(),["..."])
+	var righe: Array
+	if whos_talking == "robot":
+		righe = dialoghi_robot.get(QuestCounter.get_counter(),["..."])
+	else:
+		righe = dialoghi_per_quest.get(QuestCounter.get_counter(),["..."])
 	if index < righe.size() - 1:
 		index += 1
 		mostra_riga_corrente()
 	else:
-		$".".hide()
+		whos_talking = ""
+		hide()
 		GameState.in_dialogue = false
 		Global.emit_signal("in_dialogo",false)
 		fine_dialogo.emit()
