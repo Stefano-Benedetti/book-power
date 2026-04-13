@@ -12,6 +12,7 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("Pick_object"):
 			var has_picked = player.collect(item)
 			if(has_picked):
+				Global.emit_signal("muovi_robot")
 				queue_free()
 
 
@@ -24,3 +25,6 @@ func _on_pickable_area_body_entered(body: Node2D) -> void:
 func _on_pickable_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = false
+
+func libro_asd():
+	pass

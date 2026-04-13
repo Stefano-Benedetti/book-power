@@ -33,8 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://c1r1olkegdua0" path="res://art/Robot/Character/Back/Standing/Back_Standing_Walk_4.png" id="25_gfloy"]
 [ext_resource type="Texture2D" uid="uid://dcu3iwhjpbfpq" path="res://art/Robot/Character/Back/Standing/Back_Standing_Walk_5.png" id="26_ty7xo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kwae"]
-size = Vector2(20, 34)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ahuyi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1kwae"]
 atlas = ExtResource("1_1kwae")
@@ -494,8 +493,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_1kwae"]
 radius = 22.022715
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_np56g"]
-size = Vector2(81, 63)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_np56g"]
+radius = 15.0
+height = 46.0
 
 [node name="robot" type="CharacterBody2D"]
 z_index = 1
@@ -503,18 +503,20 @@ y_sort_enabled = true
 script = ExtResource("1_np56g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_1kwae")
+shape = SubResource("CapsuleShape2D_ahuyi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -12)
+position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_5y7b3")
 animation = &"left_attack"
 frame = 3
 frame_progress = 1.0
 
 [node name="attackArea" type="Area2D" parent="."]
+position = Vector2(0, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackArea"]
+position = Vector2(0, 9)
 shape = SubResource("CircleShape2D_1kwae")
 
 [node name="attackCooldown" type="Timer" parent="."]
@@ -524,10 +526,12 @@ wait_time = 3.0
 wait_time = 0.8
 
 [node name="talkArea" type="Area2D" parent="."]
+position = Vector2(0, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="talkArea"]
-position = Vector2(-15, 0)
-shape = SubResource("RectangleShape2D_np56g")
+position = Vector2(-5, 9)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_np56g")
 
 [connection signal="body_entered" from="attackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="attackArea" to="." method="_on_attack_area_body_exited"]

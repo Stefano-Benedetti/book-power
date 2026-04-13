@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://lakebj3hfh7g"]
+[gd_scene load_steps=18 format=3 uid="uid://lakebj3hfh7g"]
 
 [ext_resource type="Script" uid="uid://y1ccwa01wasr" path="res://levels/script/livello_3.gd" id="1_2dpvf"]
 [ext_resource type="PackedScene" uid="uid://dbl6qfpdg73ma" path="res://scenes/mappa_03.tscn" id="1_whg46"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="10_01ucw"]
 [ext_resource type="PackedScene" uid="uid://db3bydrtx06ys" path="res://characters/scenes/robot.tscn" id="13_cosgv"]
 [ext_resource type="PackedScene" uid="uid://c7xdwphdrhvbx" path="res://objects_pickable/scenes/libro_automatica.tscn" id="14_cosgv"]
+[ext_resource type="PackedScene" uid="uid://c2fwthkouehnh" path="res://objects_pickable/scenes/libro_asd.tscn" id="15_fq77h"]
 [ext_resource type="PackedScene" uid="uid://crkdwpc8kmk48" path="res://objects_pickable/scenes/key_01.tscn" id="16_01ucw"]
 
 [node name="livello_3" type="Node2D"]
@@ -82,10 +83,14 @@ mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="robot" parent="." instance=ExtResource("13_cosgv")]
-position = Vector2(1624, -286)
+position = Vector2(1620, -288)
+object_posseduto = ExtResource("15_fq77h")
 
 [node name="libro_automatica" parent="." instance=ExtResource("14_cosgv")]
-position = Vector2(1564, -298)
+position = Vector2(1555, -299)
 
 [node name="key01" parent="." instance=ExtResource("16_01ucw")]
 position = Vector2(1308, -949)
+
+[node name="libro_asd" parent="." instance=ExtResource("15_fq77h")]
+position = Vector2(1555, -277)

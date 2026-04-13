@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @export var object_posseduto: PackedScene
-@export var chiave: InvItem
 
 @export var damage = 5
 @export var attack_mode = true
@@ -15,12 +14,20 @@ var can_move = true
 var player = null
 
 var player_in_talkArea = false
-var offset_drop = Vector2(0, 10)
+var offset_drop = Vector2(-20,0)
 
 var parlato = false
 
+var can_talk = true
+
 func _ready():
 	Global.sbloccaRobot.connect(sblocca)
+	Global.muovi_robot.connect(robotMovement)
+
+func robotMovement():
+	# MOVIMENTO ROBOT
+	print("Il robot si muove")
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -28,8 +35,10 @@ func _process(_delta: float) -> void:
 		robot_attack()
 	elif can_move:
 		$AnimatedSprite2D.play("left_idle")
-		if player_in_talkArea and not attack_mode and Input.is_action_just_pressed("Pick_object"):
+		if can_talk and player_in_talkArea and not attack_mode and Input.is_action_just_pressed("Pick_object"):
 			Global.emit_signal("start_robot_dialog")
+			dropObject()
+			object_posseduto = null
 
 
 
@@ -39,6 +48,7 @@ func dropObject():
 	var scena_dropped_object = object_posseduto.instantiate()
 	get_parent().add_child(scena_dropped_object)
 	scena_dropped_object.global_position = global_position + offset_drop
+	can_talk = false
 
 
 func robot_attack():
@@ -84,3 +94,6 @@ func _on_talk_area_body_entered(body: Node2D) -> void:
 func _on_talk_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_talkArea = false
+	if body.has_method("libro_asd"):
+		await get_tree().create_timer(1).timeout
+		can_talk = true
