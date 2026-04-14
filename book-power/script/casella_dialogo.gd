@@ -8,7 +8,7 @@ var whos_talking
 
 var dialoghi_computer := {
 	6: [
-		"Simone has got a big fat booty"
+		"aaaaaaaaaaaaaaa"
 	]
 }
 
