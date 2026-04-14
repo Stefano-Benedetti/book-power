@@ -3,6 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$player.current_dir = "right"
 	Global.fixElSys.connect(circuiti_attivati)
 	QuestCounter.quest_corrente = 2
 

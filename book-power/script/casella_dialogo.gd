@@ -8,14 +8,15 @@ var whos_talking
 
 var dialoghi_robot := {
 	5: [
-		"THANK YOU, HUMAN. YOU FIXED ME. I BECAME UNSTABLE AFTER AN INCOMPETENT STUDENT TRIED TO ''IMPROVE'' ME. HE LOOKED FRIENDLY BUT HE'S EVIL. TAKE THIS BOOK AS A GIFT, YOU DESERVE IT."
+		"THANK YOU, HUMAN. YOU FIXED ME. I BECAME UNSTABLE AFTER AN INCOMPETENT STUDENT TRIED TO ''IMPROVE'' ME. HE LOOKED FRIENDLY BUT HE'S EVIL.",
+		"I SEE YOU USED A BOOK TO FIX ME, GIVE IT TO ME. I WANT TO LEARN TO IMPROVE MYSELF WITHOUT RELYING ON OTHERS. I HAVE ANOTHER BOOK I CAN GIVE YOU IN RETURN."
 	]
 }
 
 var dialoghi_per_quest := {
 	0: [
 		"Hi, you seem new around here. I remember how hard the first year was, luckily I'm at my eigth year now! Computer Engineering is hard for sure.",
-		"While you're here, could you do me a favor? I need 2 euros to get potato chips at the vending machine. You can steal 50 cents from each one of the old dudes wondering around the place.",
+		"While you're here, would you do me a favor? I need 2 euros to get potato chips at the vending machine. You can steal 50 cents from each one of the old dudes wondering around the place.",
 		"Watch out, they are very bad people and will try to demotivate you as soon as you get close to them. They will say very mean things to you that will eventually push you to drop out of university.",
 		"Take this book, this will help you in studying and keeping your motivation. Good luck!"
 	],

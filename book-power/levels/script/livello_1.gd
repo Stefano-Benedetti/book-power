@@ -10,6 +10,7 @@ var quest_completata = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Progress.livello_corrente = 1
 	QuestCounter.quest_corrente = 0
 	$npc_fuoricorso.update_quest.connect(quest_update)
 	Global.fine_dialogo.connect(dropBook)

@@ -12,7 +12,7 @@ func _ready() -> void:
 		preload("res://levels/scenes/livello_1.tscn"),
 		preload("res://levels/scenes/livello_2.tscn"),
 		preload("res://levels/scenes/livello_3.tscn"),
-		preload("res://menus/scenes/main_menu.tscn")
+		preload("res://levels/scenes/livello_4.tscn")
 	]
 	loadLevel(livello_partenza-1) # carica il primo livello (indice 0)
 
