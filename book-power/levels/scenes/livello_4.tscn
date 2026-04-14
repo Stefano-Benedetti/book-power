@@ -1,0 +1,76 @@
+[gd_scene load_steps=13 format=3 uid="uid://c7q3anbqtjy0n"]
+
+[ext_resource type="PackedScene" uid="uid://cfrovdukqneaj" path="res://scenes/mappa_04.tscn" id="1_r6f3t"]
+[ext_resource type="PackedScene" uid="uid://ckwr713fqij6n" path="res://scenes/player.tscn" id="2_e4j1e"]
+[ext_resource type="Resource" uid="uid://bl6hkk3gjnss2" path="res://inventory/player_inventory.tres" id="3_qlehc"]
+[ext_resource type="PackedScene" uid="uid://b5x5dbko4mw4h" path="res://characters/scenes/npc_fuoricorso.tscn" id="4_3j3hp"]
+[ext_resource type="PackedScene" uid="uid://ormd5fwveh3q" path="res://scenes/to_next_level.tscn" id="5_ms8rw"]
+[ext_resource type="PackedScene" uid="uid://c4wlaldocgqtl" path="res://touch_controls/scenes/touch_contols.tscn" id="6_edasw"]
+[ext_resource type="PackedScene" uid="uid://b5axlii2oyhdf" path="res://scenes/selectedItem_slot.tscn" id="7_a34kp"]
+[ext_resource type="PackedScene" uid="uid://c78woh6vfcevh" path="res://scenes/player_health_bar.tscn" id="8_dbd16"]
+[ext_resource type="PackedScene" uid="uid://dt5ng80c6newu" path="res://inventory/scenes/inv_ui.tscn" id="9_u5lof"]
+[ext_resource type="PackedScene" uid="uid://c8rs30phkkd0r" path="res://scenes/casella_dialogo.tscn" id="10_ovfhu"]
+[ext_resource type="PackedScene" uid="uid://da82dug1vut1e" path="res://menus/scenes/pause_menu.tscn" id="11_ht61p"]
+[ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="12_ofigy"]
+
+[node name="livello_4" type="Node2D"]
+
+[node name="mappa04" parent="." instance=ExtResource("1_r6f3t")]
+position = Vector2(480, -1120)
+
+[node name="player" parent="." instance=ExtResource("2_e4j1e")]
+position = Vector2(1500.9998, -284.00003)
+inv = ExtResource("3_qlehc")
+
+[node name="npc_fuoricorso" parent="." instance=ExtResource("4_3j3hp")]
+position = Vector2(301.00003, -181)
+
+[node name="ToNextLevel" parent="." instance=ExtResource("5_ms8rw")]
+position = Vector2(1633, -287)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="touchContols" parent="Control" instance=ExtResource("6_edasw")]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="sel_item_slot" parent="CanvasLayer2" instance=ExtResource("7_a34kp")]
+offset_left = 564.0
+offset_top = 571.0
+offset_right = 601.99994
+offset_bottom = 609.0
+metadata/_edit_use_anchors_ = true
+
+[node name="health_bar" parent="CanvasLayer2" node_paths=PackedStringArray("player") instance=ExtResource("8_dbd16")]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 84.0
+offset_bottom = 30.0
+player = NodePath("")
+metadata/_edit_use_anchors_ = true
+
+[node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("9_u5lof")]
+metadata/_edit_use_anchors_ = true
+
+[node name="casella_dialogo" parent="CanvasLayer2" instance=ExtResource("10_ovfhu")]
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("11_ht61p")]
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="gameover_menu" parent="CanvasLayer" instance=ExtResource("12_ofigy")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
