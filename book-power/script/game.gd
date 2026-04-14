@@ -1,13 +1,15 @@
 extends Node2D
 
 @export var livello_partenza: int
+@export var usa_file: bool
 @onready var livelli: Array
 @onready var livello_corrente: PackedScene = null
 @onready var scena_liv_corrente: Node = null
 var indice_livello: int = 0
 
 func _ready() -> void:
-	livello_partenza = Progress.livello_corrente #DA DECOMMENTARE PER I TEST
+	if usa_file:
+		livello_partenza = Progress.livello_corrente #DA DECOMMENTARE PER I TEST
 	livelli = [
 		preload("res://levels/scenes/livello_1.tscn"),
 		preload("res://levels/scenes/livello_2.tscn"),

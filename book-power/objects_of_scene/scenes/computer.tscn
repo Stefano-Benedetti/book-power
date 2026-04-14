@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7b28vb1wixa7"]
+[gd_scene load_steps=13 format=3 uid="uid://c7b28vb1wixa7"]
 
 [ext_resource type="Script" uid="uid://daq0by2h6arpa" path="res://objects_of_scene/script/computer.gd" id="1_s1ee8"]
 [ext_resource type="Texture2D" uid="uid://bt7jojhnjae2c" path="res://art/computer_su_tavolino/computer_acceso_bluescreen.png" id="2_bei50"]
@@ -60,7 +60,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cljn"]
 size = Vector2(40, 27)
 
-[node name="computer" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k384s"]
+size = Vector2(22, 14)
+
+[node name="computer" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_s1ee8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -76,6 +81,9 @@ z_index = 2
 y_sort_enabled = true
 position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_6cljn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k384s")
 
 [connection signal="body_entered" from="interactionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="interactionArea" to="." method="_on_interaction_area_body_exited"]

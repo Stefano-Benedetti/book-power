@@ -19,7 +19,7 @@
 position = Vector2(480, -1120)
 
 [node name="player" parent="." instance=ExtResource("2_e4j1e")]
-position = Vector2(1500.9998, -284.00003)
+position = Vector2(1437, -1036)
 inv = ExtResource("3_qlehc")
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("4_3j3hp")]
@@ -51,7 +51,7 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 84.0
 offset_bottom = 30.0
-player = NodePath("")
+player = NodePath("../../player")
 metadata/_edit_use_anchors_ = true
 
 [node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("9_u5lof")]
