@@ -1,11 +1,17 @@
 extends Node2D
 
+var talked_with_computer = false
 
 func _ready() -> void:
+	Global.fine_dialogo_computer.connect(talkedWithComputer)
 	$player.current_dir = "down"
 	QuestCounter.quest_corrente = 6
-	
+	$CanvasLayer2/counter.hide()
 
+func talkedWithComputer():
+	if not talked_with_computer:
+		talked_with_computer = true
+		$CanvasLayer2/counter.show()
 
 func _on_to_next_level_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):

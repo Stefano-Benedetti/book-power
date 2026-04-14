@@ -993,8 +993,10 @@ player = NodePath("../../player")
 metadata/_edit_use_anchors_ = true
 
 [node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("8_4mrxx")]
+metadata/_edit_use_anchors_ = true
 
 [node name="casella_dialogo" parent="CanvasLayer2" instance=ExtResource("15_xgqkh")]
+metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -1009,6 +1011,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="libro_analisi" parent="." instance=ExtResource("16_dss4m")]
 position = Vector2(177, -112)

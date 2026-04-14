@@ -12,8 +12,7 @@ var offset_drop = Vector2(0, 10)
 var talked_with_computer = false
 
 func _ready() -> void:
-	if not talked_with_computer:
-		Global.fine_dialogo_computer.connect(talkedWithComputer)
+	Global.fine_dialogo_computer.connect(talkedWithComputer)
 	if mappa_corrente == "mappa03":
 		$AnimatedSprite2D.animation = "turn_red_screen"
 	if mappa_corrente == "mappa04":
