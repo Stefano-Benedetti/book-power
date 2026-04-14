@@ -28,7 +28,7 @@ script = ExtResource("1_2dpvf")
 position = Vector2(480, -1120)
 
 [node name="player" parent="." instance=ExtResource("2_bucqw")]
-position = Vector2(319, -91.99999)
+position = Vector2(319, -90)
 inv = ExtResource("4_o72rr")
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("3_8u7u8")]

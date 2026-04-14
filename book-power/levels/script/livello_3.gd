@@ -3,6 +3,7 @@ extends Node2D
 
 func _ready() -> void:
 	$player.current_dir = "up"
+	
 	QuestCounter.quest_corrente = 4
 	Global.sbloccaRobot.connect(robotCurato)
 
