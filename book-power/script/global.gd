@@ -25,6 +25,9 @@ signal muovi_robot
 
 signal fine_dialogo_robot
 
+signal incrementCounter
+signal totalReached
+
 func getData():
 	var data = {
 		"global_volume" = db_to_linear(AudioServer.get_bus_volume_db(0)),

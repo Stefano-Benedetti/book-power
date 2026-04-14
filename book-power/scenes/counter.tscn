@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnc7ehnsi42ol"]
+
+[ext_resource type="FontFile" uid="uid://cg0gfwfei5f" path="res://art/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection_ii/ConnectionII.otf" id="1_8h8dy"]
+[ext_resource type="Script" uid="uid://c8jy4y8mnabp2" path="res://script/counter.gd" id="2_jyhvf"]
+
+[node name="counter" type="Label"]
+custom_minimum_size = Vector2(150, 80)
+offset_left = 378.0
+offset_top = 19.0
+offset_right = 528.0
+offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("1_8h8dy")
+theme_override_font_sizes/font_size = 64
+text = "0/4"
+script = ExtResource("2_jyhvf")

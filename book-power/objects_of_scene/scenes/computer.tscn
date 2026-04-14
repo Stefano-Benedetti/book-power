@@ -36,7 +36,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vkfvp")
 }],
-"loop": true,
+"loop": false,
 "name": &"turn_green_screen",
 "speed": 5.0
 }, {
@@ -52,7 +52,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j378j")
 }],
-"loop": true,
+"loop": false,
 "name": &"turn_red_screen",
 "speed": 5.0
 }]
@@ -71,7 +71,7 @@ script = ExtResource("1_s1ee8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_vkfvp")
-animation = &"turn_off"
+animation = &"turn_red_screen"
 
 [node name="interactionArea" type="Area2D" parent="."]
 position = Vector2(0, -3)
