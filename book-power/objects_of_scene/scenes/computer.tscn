@@ -1,25 +1,40 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7b28vb1wixa7"]
+[gd_scene load_steps=10 format=3 uid="uid://c7b28vb1wixa7"]
 
-[ext_resource type="Texture2D" uid="uid://fpi73gitax3g" path="res://art/computer_acceso.png" id="1_6cljn"]
 [ext_resource type="Script" uid="uid://daq0by2h6arpa" path="res://objects_of_scene/script/computer.gd" id="1_s1ee8"]
-[ext_resource type="Texture2D" uid="uid://nxe8ntqqtgm8" path="res://art/computer_spento.png" id="2_s1ee8"]
+[ext_resource type="Texture2D" uid="uid://bt7jojhnjae2c" path="res://art/computer_su_tavolino/computer_acceso_bluescreen.png" id="2_bei50"]
+[ext_resource type="Texture2D" uid="uid://b33t6dmkc0ssm" path="res://art/computer_su_tavolino/computer_spento.png" id="3_k384s"]
+[ext_resource type="Texture2D" uid="uid://de2lb3i4olr2u" path="res://art/computer_su_tavolino/computer_acceso_redscreen.png" id="4_vkfvp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bei50"]
-atlas = ExtResource("1_6cljn")
-region = Rect2(0, 0, 14, 11)
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3jbf"]
+atlas = ExtResource("2_bei50")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k384s"]
-atlas = ExtResource("2_s1ee8")
-region = Rect2(0, 0, 14, 11)
+[sub_resource type="AtlasTexture" id="AtlasTexture_j378j"]
+atlas = ExtResource("3_k384s")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xce26"]
+atlas = ExtResource("4_vkfvp")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vkfvp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bei50")
+"texture": SubResource("AtlasTexture_n3jbf")
+}],
+"loop": false,
+"name": &"turn_blue_screen",
+"speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"turn_green_screen",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k384s")
+"texture": SubResource("AtlasTexture_j378j")
 }],
 "loop": false,
 "name": &"turn_off",
@@ -27,13 +42,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k384s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bei50")
+"texture": SubResource("AtlasTexture_xce26")
 }],
-"loop": false,
-"name": &"turn_on",
+"loop": true,
+"name": &"turn_red_screen",
 "speed": 5.0
 }]
 
@@ -46,7 +58,7 @@ script = ExtResource("1_s1ee8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_vkfvp")
-animation = &"turn_off"
+animation = &"turn_green_screen"
 
 [node name="interactionArea" type="Area2D" parent="."]
 
