@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7q3anbqtjy0n"]
+[gd_scene load_steps=16 format=3 uid="uid://c7q3anbqtjy0n"]
 
+[ext_resource type="Script" uid="uid://bs431npcmmv2s" path="res://levels/script/livello_4.gd" id="1_3j3hp"]
 [ext_resource type="PackedScene" uid="uid://cfrovdukqneaj" path="res://scenes/mappa_04.tscn" id="1_r6f3t"]
 [ext_resource type="PackedScene" uid="uid://ckwr713fqij6n" path="res://scenes/player.tscn" id="2_e4j1e"]
 [ext_resource type="Resource" uid="uid://bl6hkk3gjnss2" path="res://inventory/player_inventory.tres" id="3_qlehc"]
@@ -13,16 +14,18 @@
 [ext_resource type="PackedScene" uid="uid://c8rs30phkkd0r" path="res://scenes/casella_dialogo.tscn" id="10_ovfhu"]
 [ext_resource type="PackedScene" uid="uid://da82dug1vut1e" path="res://menus/scenes/pause_menu.tscn" id="11_ht61p"]
 [ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="12_ofigy"]
+[ext_resource type="PackedScene" uid="uid://6u23eafxpa8r" path="res://characters/scenes/computer_parlante.tscn" id="14_qlehc"]
 
 [node name="livello_4" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_3j3hp")
 
 [node name="mappa04" parent="." instance=ExtResource("1_r6f3t")]
 position = Vector2(480, -1120)
 
 [node name="player" parent="." instance=ExtResource("2_e4j1e")]
 y_sort_enabled = true
-position = Vector2(857.00006, -988)
+position = Vector2(845, -573)
 inv = ExtResource("3_qlehc")
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("4_3j3hp")]
@@ -80,3 +83,6 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="computer_parlante" parent="." instance=ExtResource("14_qlehc")]
+position = Vector2(842, -591)
