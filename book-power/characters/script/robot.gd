@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var object_posseduto: PackedScene
+@export var item_richiesto: InvItem
 
 @export var damage = 5
 @export var attack_mode = true
@@ -50,6 +51,7 @@ func _process(_delta: float) -> void:
 			Global.emit_signal("start_robot_dialog")
 
 func dropObject():
+	player.consumeItem(item_richiesto,1)
 	if object_posseduto == null:
 		return
 	var scena_dropped_object = object_posseduto.instantiate()
