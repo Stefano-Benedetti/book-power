@@ -9,7 +9,11 @@ var player = null
 var used = false
 var offset_drop = Vector2(0, 10)
 
+var talked_with_computer = false
+
 func _ready() -> void:
+	if not talked_with_computer:
+		Global.fine_dialogo_computer.connect(talkedWithComputer)
 	if mappa_corrente == "mappa03":
 		$AnimatedSprite2D.animation = "turn_red_screen"
 	if mappa_corrente == "mappa04":
@@ -31,13 +35,15 @@ func thirdMapBehavior():
 		used = true
 
 func fourthMapBehavior():
-	if used or not player_in_area:
+	if used or not player_in_area or not talked_with_computer:
 		return
 	if Input.is_action_just_pressed("Pick_object"):
 		Global.incrementCounter.emit()
 		$AnimatedSprite2D.animation = "turn_blue_screen"
 		used = true
 
+func talkedWithComputer():
+	talked_with_computer = true
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
