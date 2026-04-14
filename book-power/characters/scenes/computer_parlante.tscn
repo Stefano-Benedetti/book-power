@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://6u23eafxpa8r"]
+
+[ext_resource type="Script" uid="uid://kibrcc84ty5u" path="res://characters/script/computer_parlante.gd" id="1_mv6el"]
+[ext_resource type="Texture2D" uid="uid://ctlxbiwbunff4" path="res://art/computer_parlante/idle.png" id="2_oeim8"]
+[ext_resource type="Texture2D" uid="uid://be2j77pexyw6m" path="res://art/computer_parlante/talking.png" id="3_3c3wp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2peej"]
+atlas = ExtResource("2_oeim8")
+region = Rect2(0, 0, 9, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14l2x"]
+atlas = ExtResource("3_3c3wp")
+region = Rect2(0, 0, 9, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8t4o"]
+atlas = ExtResource("3_3c3wp")
+region = Rect2(9, 0, 9, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujvx6"]
+atlas = ExtResource("3_3c3wp")
+region = Rect2(18, 0, 9, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tnfb"]
+atlas = ExtResource("3_3c3wp")
+region = Rect2(27, 0, 9, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj6dk"]
+atlas = ExtResource("3_3c3wp")
+region = Rect2(36, 0, 9, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n1wah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2peej")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14l2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8t4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujvx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tnfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj6dk")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oeim8"]
+radius = 45.000004
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oeim8"]
+size = Vector2(9, 12)
+
+[node name="computer_parlante" type="CharacterBody2D"]
+script = ExtResource("1_mv6el")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -22)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_n1wah")
+animation = &"idle"
+
+[node name="TalkArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkArea"]
+position = Vector2(0, -12)
+scale = Vector2(0.4, 0.4)
+shape = SubResource("CircleShape2D_oeim8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12.5)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_oeim8")
+
+[connection signal="body_entered" from="TalkArea" to="." method="_on_talk_area_body_entered"]
+[connection signal="body_exited" from="TalkArea" to="." method="_on_talk_area_body_exited"]

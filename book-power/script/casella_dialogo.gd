@@ -6,6 +6,12 @@ var index = 0
 
 var whos_talking
 
+var dialoghi_computer := {
+	6: [
+		"Simone has got a big fat booty"
+	]
+}
+
 var dialoghi_robot := {
 	5: [
 		"THANK YOU, HUMAN. YOU FIXED ME. I BECAME UNSTABLE AFTER AN INCOMPETENT STUDENT TRIED TO ''IMPROVE'' ME. HE LOOKED FRIENDLY BUT HE'S EVIL.",
@@ -48,7 +54,11 @@ func _ready() -> void:
 	hide()
 	Global.start_dialog.connect(avvia_dialogo_quest)
 	Global.start_robot_dialog.connect(avvia_dialogo_robot)
+	Global.start_computer_dialog.connect(avvia_dialogo_computer)
 	
+func avvia_dialogo_computer():
+	whos_talking = "computer"
+	avvia_dialogo_quest()
 	
 func avvia_dialogo_robot():
 	whos_talking = "robot"
@@ -69,6 +79,8 @@ func mostra_riga_corrente() -> void:
 	var righe: Array
 	if whos_talking == "robot":
 		righe = dialoghi_robot.get(QuestCounter.get_counter(),["..."])
+	elif whos_talking == "computer":
+		righe = dialoghi_computer.get(QuestCounter.get_counter(),["..."])
 	else :
 		#parla npc fuoricorso
 		righe = dialoghi_per_quest.get(QuestCounter.get_counter(),["..."])
@@ -78,6 +90,8 @@ func _on_next_pressed() -> void:
 	var righe: Array
 	if whos_talking == "robot":
 		righe = dialoghi_robot.get(QuestCounter.get_counter(),["..."])
+	elif whos_talking == "computer":
+		righe = dialoghi_computer.get(QuestCounter.get_counter(),["..."])
 	else:
 		#parla npc fuoricorso
 		righe = dialoghi_per_quest.get(QuestCounter.get_counter(),["..."])
@@ -93,4 +107,6 @@ func _on_next_pressed() -> void:
 		Global.emit_signal("fine_dialogo")
 		if whos_talking == "robot":
 			Global.emit_signal("fine_dialogo_robot")
+		elif whos_talking == "computer":
+			Global.emit_signal("fine_dialogo_computer")
 		whos_talking = ""
