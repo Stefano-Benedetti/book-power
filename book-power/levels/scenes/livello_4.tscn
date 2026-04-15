@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://c7q3anbqtjy0n"]
+[gd_scene load_steps=19 format=3 uid="uid://c7q3anbqtjy0n"]
 
 [ext_resource type="Script" uid="uid://bs431npcmmv2s" path="res://levels/script/livello_4.gd" id="1_3j3hp"]
 [ext_resource type="PackedScene" uid="uid://cfrovdukqneaj" path="res://scenes/mappa_04.tscn" id="1_r6f3t"]
 [ext_resource type="PackedScene" uid="uid://ckwr713fqij6n" path="res://scenes/player.tscn" id="2_e4j1e"]
+[ext_resource type="Resource" uid="uid://4b2wbsl1vx2u" path="res://inventory/items/access_point.tres" id="2_ms8rw"]
 [ext_resource type="Resource" uid="uid://bl6hkk3gjnss2" path="res://inventory/player_inventory.tres" id="3_qlehc"]
 [ext_resource type="PackedScene" uid="uid://b5x5dbko4mw4h" path="res://characters/scenes/npc_fuoricorso.tscn" id="4_3j3hp"]
 [ext_resource type="PackedScene" uid="uid://ormd5fwveh3q" path="res://scenes/to_next_level.tscn" id="5_ms8rw"]
@@ -15,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://da82dug1vut1e" path="res://menus/scenes/pause_menu.tscn" id="11_ht61p"]
 [ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="12_ofigy"]
 [ext_resource type="PackedScene" uid="uid://6u23eafxpa8r" path="res://characters/scenes/computer_parlante.tscn" id="14_qlehc"]
+[ext_resource type="PackedScene" uid="uid://b5w60np3r2r0c" path="res://objects_of_scene/scenes/access_point.tscn" id="17_edasw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3j3hp"]
 radius = 23.0
@@ -22,6 +24,7 @@ radius = 23.0
 [node name="livello_4" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_3j3hp")
+required_item = ExtResource("2_ms8rw")
 
 [node name="mappa04" parent="." instance=ExtResource("1_r6f3t")]
 position = Vector2(480, -1120)
@@ -95,5 +98,8 @@ position = Vector2(928, -576)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="place_router"]
 shape = SubResource("CircleShape2D_3j3hp")
+
+[node name="access_point" parent="." instance=ExtResource("17_edasw")]
+position = Vector2(878, -548)
 
 [connection signal="body_entered" from="place_router" to="." method="_on_place_router_body_entered"]

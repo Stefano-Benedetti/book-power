@@ -1,8 +1,12 @@
 extends Node2D
 
+@export var required_item : InvItem
+
 var talked_with_computer = false
 
-var player_in_router_area = false
+var player_in_ap_area = false
+
+var player
 
 func _ready() -> void:
 	Global.fine_dialogo_computer.connect(talkedWithComputer)
@@ -13,10 +17,12 @@ func _ready() -> void:
 	$CanvasLayer2/counter.hide()
 
 func _process(delta: float) -> void:
-	if player_in_router_area and Input.is_action_just_pressed("Pick_object"): #and router in inv:
-		#piazza router
-		QuestCounter.quest_corrente = 8
-		Global.emit_signal("removeFireWall")
+	if QuestCounter.quest_corrente == 7:
+		if player_in_ap_area and Input.is_action_just_pressed("Pick_object") and player.inv.countItem(required_item)>0:
+			QuestCounter.quest_corrente = 8
+			player.consumeItem(required_item,1)
+			#istanzia oggetto AP
+			Global.emit_signal("removeFireWall")
 
 func talkedWithComputer():
 	if not talked_with_computer:
@@ -42,4 +48,5 @@ func _on_to_next_level_body_entered(body: Node2D) -> void:
 
 func _on_place_router_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
-		player_in_router_area = true
+		player_in_ap_area = true
+		player = body
