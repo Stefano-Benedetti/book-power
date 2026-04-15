@@ -25,6 +25,7 @@ radius = 23.0
 y_sort_enabled = true
 script = ExtResource("1_3j3hp")
 required_item = ExtResource("2_ms8rw")
+object_ap = ExtResource("17_edasw")
 
 [node name="mappa04" parent="." instance=ExtResource("1_r6f3t")]
 position = Vector2(480, -1120)

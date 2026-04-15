@@ -2,6 +2,8 @@ extends Node2D
 
 @export var required_item : InvItem
 
+@export var object_ap : PackedScene
+
 var talked_with_computer = false
 
 var player_in_ap_area = false
@@ -21,8 +23,13 @@ func _process(delta: float) -> void:
 		if player_in_ap_area and Input.is_action_just_pressed("Pick_object") and player.inv.countItem(required_item)>0:
 			QuestCounter.quest_corrente = 8
 			player.consumeItem(required_item,1)
-			#istanzia oggetto AP
+			if object_ap == null:
+				return
+			var scena_dropped_object = object_ap.instantiate()
+			add_child(scena_dropped_object)
+			scena_dropped_object.global_position = Vector2(927.802,-576.853)
 			Global.emit_signal("removeFireWall")
+			object_ap = null
 
 func talkedWithComputer():
 	if not talked_with_computer:
