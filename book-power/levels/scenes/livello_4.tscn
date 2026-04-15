@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7q3anbqtjy0n"]
+[gd_scene load_steps=17 format=3 uid="uid://c7q3anbqtjy0n"]
 
 [ext_resource type="Script" uid="uid://bs431npcmmv2s" path="res://levels/script/livello_4.gd" id="1_3j3hp"]
 [ext_resource type="PackedScene" uid="uid://cfrovdukqneaj" path="res://scenes/mappa_04.tscn" id="1_r6f3t"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="12_ofigy"]
 [ext_resource type="PackedScene" uid="uid://6u23eafxpa8r" path="res://characters/scenes/computer_parlante.tscn" id="14_qlehc"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3j3hp"]
+radius = 23.0
+
 [node name="livello_4" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_3j3hp")
@@ -32,7 +35,7 @@ inv = ExtResource("3_qlehc")
 position = Vector2(301.00003, -181)
 
 [node name="ToNextLevel" parent="." instance=ExtResource("5_ms8rw")]
-position = Vector2(1633, -287)
+position = Vector2(1633, -371)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -86,3 +89,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="computer_parlante" parent="." instance=ExtResource("14_qlehc")]
 position = Vector2(842, -591)
+
+[node name="place_router" type="Area2D" parent="."]
+position = Vector2(928, -576)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="place_router"]
+shape = SubResource("CircleShape2D_3j3hp")
+
+[connection signal="body_entered" from="place_router" to="." method="_on_place_router_body_entered"]

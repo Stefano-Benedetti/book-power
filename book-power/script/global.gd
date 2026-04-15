@@ -32,6 +32,8 @@ signal start_computer_dialog
 
 signal fine_dialogo_computer
 
+signal removeFireWall
+
 func getData():
 	var data = {
 		"global_volume" = db_to_linear(AudioServer.get_bus_volume_db(0)),

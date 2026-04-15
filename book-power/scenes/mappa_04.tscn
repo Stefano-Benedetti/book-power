@@ -1,5 +1,6 @@
-[gd_scene load_steps=83 format=4 uid="uid://cfrovdukqneaj"]
+[gd_scene load_steps=85 format=4 uid="uid://cfrovdukqneaj"]
 
+[ext_resource type="Script" uid="uid://k1wbj37vu483" path="res://script/mappa_04.gd" id="1_6w4hx"]
 [ext_resource type="Texture2D" uid="uid://c63psyhe5s0k4" path="res://art/Little Dreamyland - Free Pack/Tileset/Autotile_Grass_and_Dirt_Path_Tileset.png" id="1_y21nw"]
 [ext_resource type="Texture2D" uid="uid://cpav256v07sbt" path="res://art/Little Dreamyland - Free Pack/Tileset/Crops_Tileset.png" id="2_hsltt"]
 [ext_resource type="Texture2D" uid="uid://ce5lwpwbls0ll" path="res://art/Little Dreamyland - Free Pack/Tileset/Exterior_Tileset.png" id="3_d6e0n"]
@@ -26,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://b55usg80npden" path="res://art/City cars/pinkCar_left.png" id="24_k75jx"]
 [ext_resource type="Texture2D" uid="uid://dsjotf47i16sj" path="res://art/City cars/pinkCar_rear.png" id="25_t5orj"]
 [ext_resource type="Texture2D" uid="uid://dbqqe4f2h7brh" path="res://art/City cars/pinkCar_right.png" id="26_emb15"]
+[ext_resource type="Texture2D" uid="uid://ufq7pj3a1ikw" path="res://art/Pixel Crawler - Free Pack/Environment/Structures/Stations/Bonfire/Fire_01-Sheet.png" id="27_shx3m"]
 [ext_resource type="Texture2D" uid="uid://c5g035kgehk2r" path="res://art/stone_statue.png" id="27_ts7ev"]
 [ext_resource type="Texture2D" uid="uid://ch8op7yfsij7u" path="res://art/Pixel Crawler - Free Pack/Environment/Tilesets/Wall_Tiles.png" id="28_ciskg"]
 [ext_resource type="PackedScene" uid="uid://c7b28vb1wixa7" path="res://objects_of_scene/scenes/computer.tscn" id="28_hsltt"]
@@ -6669,19 +6671,20 @@ sources/6 = SubResource("TileSetAtlasSource_qynpr")
 sources/7 = SubResource("TileSetAtlasSource_2lw8m")
 sources/8 = SubResource("TileSetAtlasSource_nmr4q")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_si5lh"]
-texture = ExtResource("8_y1m58")
-31:8/0 = 0
-31:8/0/y_sort_origin = 5
-31:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12.898821, -21.006653, 13.144513, -20.638115, 12.898822, 24.0778, -12.775974, 23.70926)
-19:30/size_in_atlas = Vector2i(2, 3)
-19:30/0 = 0
-19:30/0/y_sort_origin = 11
-19:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12.898821, -21.006653, 13.144513, -20.638115, 12.898822, 24.0778, -12.775974, 23.70926)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1m58"]
+texture = ExtResource("27_shx3m")
+0:0/size_in_atlas = Vector2i(2, 3)
+0:0/animation_columns = 4
+0:0/animation_frame_0/duration = 0.2
+0:0/animation_frame_1/duration = 0.2
+0:0/animation_frame_2/duration = 0.2
+0:0/animation_frame_3/duration = 0.2
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_ykeq8"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_si5lh")
+sources/3 = SubResource("TileSetAtlasSource_y1m58")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oma1a"]
 texture = ExtResource("9_tccwc")
@@ -7849,6 +7852,7 @@ size = Vector2(20, 57)
 
 [node name="mappa04" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_6w4hx")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -7911,7 +7915,8 @@ y_sort_enabled = true
 scale = Vector2(1.5, 1.5)
 tile_set = SubResource("TileSet_tdf5c")
 
-[node name="temporaney_object" type="TileMapLayer" parent="TileMap"]
+[node name="temporary_objects" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray("AABHAC0AAwAAAAAAAABHAC4AAwAAAAAAAABHAC8AAwAAAAAAAABHADAAAwAAAAAAAABIAC0AAwAAAAAAAABIAC4AAwAAAAAAAABIAC8AAwAAAAAAAABIADAAAwAAAAAAAAA=")
 tile_set = SubResource("TileSet_ykeq8")
 
 [node name="ground_on_ground" type="TileMapLayer" parent="TileMap"]
