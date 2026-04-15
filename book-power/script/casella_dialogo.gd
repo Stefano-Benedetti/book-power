@@ -8,7 +8,12 @@ var whos_talking
 
 var dialoghi_computer := {
 	6: [
-		"aaaaaaaaaaaaaaa"
+		"Hello stranger, can you help me to connect to my computer friends? Some crazy robot turned them all off and while I managed to escape, I don't have any hands to press their power buttons!",
+		"You might have noticed a firewall that blocks the road ahead, if you help me I will disable it and let you continue on your journey.",
+		"Turn them all on for now, then come back and I will give you further instructions."
+	],
+	7: [
+		"Nice! But it is not over yet, we are still unable to communicate: I need you to return us our router, which the robot brought to a cave. Be careful, caves are filled with angry rats around these parts."
 	]
 }
 
