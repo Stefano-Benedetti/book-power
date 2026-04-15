@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5w60np3r2r0c"]
+
+[ext_resource type="Script" uid="uid://c0snp6hy3t5ur" path="res://objects_of_scene/script/access_point.gd" id="1_ps0kp"]
+[ext_resource type="Texture2D" uid="uid://qes71p4y24df" path="res://art/button_inventario.png" id="2_eqbnc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7vh4"]
+atlas = ExtResource("2_eqbnc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rb2ce"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7vh4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ps0kp"]
+radius = 16.03122
+
+[node name="access_point" type="Node2D"]
+script = ExtResource("1_ps0kp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rb2ce")
+
+[node name="PickableArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickableArea"]
+shape = SubResource("CircleShape2D_ps0kp")
