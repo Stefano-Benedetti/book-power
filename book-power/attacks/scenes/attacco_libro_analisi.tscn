@@ -37,6 +37,7 @@ animations = [{
 size = Vector2(207.49998, 26)
 
 [node name="attacco_libro_analisi" type="Node2D"]
+z_index = 1
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_m80u7")
 

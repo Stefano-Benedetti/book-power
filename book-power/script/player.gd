@@ -145,7 +145,7 @@ func attacca():
 		play_anim(0, 1)
 	elif selected_item.name == "libro_elettrotecnica":
 		var scena_attacco_elettrotecnica = attacco_libro_elettrotecnica.instantiate()
-		scena_attacco_elettrotecnica.global_position = global_position + offset_attacchi
+		scena_attacco_elettrotecnica.global_position = global_position + offset_attacchi + Vector2(0,-34)
 		get_tree().current_scene.add_child(scena_attacco_elettrotecnica)
 		
 		can_attack = false

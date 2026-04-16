@@ -55,14 +55,19 @@ animations = [{
 radius = 28.01785
 
 [node name="attacco_libro_elettrotecnica" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -35)
 script = ExtResource("1_igjpf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 34.999996)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_v52cf")
 frame_progress = 0.7630644
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 35)
 collision_layer = 4
 collision_mask = 2
 

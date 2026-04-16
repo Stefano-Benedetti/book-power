@@ -210,8 +210,8 @@ func dropObject():
 
 func die():
 	dead = true
-	var anim = $AnimatedSprite2D
-	anim.play("die")
+	$AnimatedSprite2D.play("die")
+	$AnimatedSprite2D.global_position.y += 8
 	await get_tree().create_timer(2.0).timeout #crea un timer di due secondi e aspetta la fine
 	dropObject()
 	queue_free()

@@ -1,24 +1,18 @@
-[gd_resource type="Resource" script_class="Inv" load_steps=18 format=3 uid="uid://bl6hkk3gjnss2"]
+[gd_resource type="Resource" script_class="Inv" load_steps=15 format=3 uid="uid://bl6hkk3gjnss2"]
 
 [ext_resource type="Script" uid="uid://47g3fyggunyi" path="res://inventory/script/Inv_slot.gd" id="2_fhgtu"]
-[ext_resource type="Resource" uid="uid://c4nbu1k72n240" path="res://inventory/items/libro_elettrotecnica.tres" id="3_3ih0p"]
 [ext_resource type="Script" uid="uid://b0vfatiua8e68" path="res://inventory/script/inventory.gd" id="3_65xq6"]
-[ext_resource type="Resource" uid="uid://dfndl5n4ffy2n" path="res://inventory/items/libro_analisi.tres" id="4_cwv8g"]
-[ext_resource type="Resource" uid="uid://bapfltvvgg7i8" path="res://inventory/items/libro_asd.tres" id="5_pu72b"]
 
 [sub_resource type="Resource" id="Resource_fi1x0"]
 script = ExtResource("2_fhgtu")
-item = ExtResource("3_3ih0p")
 metadata/_custom_type_script = "uid://47g3fyggunyi"
 
 [sub_resource type="Resource" id="Resource_65xq6"]
 script = ExtResource("2_fhgtu")
-item = ExtResource("4_cwv8g")
 metadata/_custom_type_script = "uid://47g3fyggunyi"
 
 [sub_resource type="Resource" id="Resource_3ih0p"]
 script = ExtResource("2_fhgtu")
-item = ExtResource("5_pu72b")
 metadata/_custom_type_script = "uid://47g3fyggunyi"
 
 [sub_resource type="Resource" id="Resource_cwv8g"]

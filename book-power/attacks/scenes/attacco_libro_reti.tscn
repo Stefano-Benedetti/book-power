@@ -68,6 +68,8 @@ animations = [{
 radius = 11.18034
 
 [node name="attacco_libro_reti" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_56g6o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
