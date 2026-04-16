@@ -57,6 +57,7 @@ animations = [{
 radius = 16.03122
 
 [node name="access_point" type="Node2D"]
+z_index = 1
 script = ExtResource("1_ps0kp")
 item = ExtResource("2_b7vh4")
 

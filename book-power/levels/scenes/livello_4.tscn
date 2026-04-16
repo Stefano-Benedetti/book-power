@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c7q3anbqtjy0n"]
+[gd_scene load_steps=21 format=3 uid="uid://c7q3anbqtjy0n"]
 
 [ext_resource type="Script" uid="uid://bs431npcmmv2s" path="res://levels/script/livello_4.gd" id="1_3j3hp"]
 [ext_resource type="PackedScene" uid="uid://cfrovdukqneaj" path="res://scenes/mappa_04.tscn" id="1_r6f3t"]
@@ -20,6 +20,10 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_edasw"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_edasw"]
+radius = 12.0
+height = 28.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_3j3hp"]
 radius = 23.0
 
@@ -38,7 +42,7 @@ position = Vector2(1308, -1070)
 inv = ExtResource("3_qlehc")
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("4_3j3hp")]
-position = Vector2(301.00003, -181)
+position = Vector2(260, -1000.99994)
 
 [node name="ToNextLevel" parent="." instance=ExtResource("5_ms8rw")]
 position = Vector2(1633, -371)
@@ -49,6 +53,20 @@ position = Vector2(1311, -1111)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cave_entrance"]
 position = Vector2(0.5, 4.5)
 shape = SubResource("CircleShape2D_edasw")
+
+[node name="cave_exit" type="Area2D" parent="."]
+position = Vector2(1311, -1114)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cave_exit"]
+position = Vector2(-1041, -196)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_edasw")
+
+[node name="spawn_caverna" type="Node2D" parent="."]
+position = Vector2(270, -1326)
+
+[node name="fuori_caverna" type="Node2D" parent="."]
+position = Vector2(1311, -1093)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -110,9 +128,11 @@ position = Vector2(928, -576)
 shape = SubResource("CircleShape2D_3j3hp")
 
 [node name="access_point" parent="." instance=ExtResource("17_edasw")]
-position = Vector2(878, -548)
+position = Vector2(641, -1593)
 
 [connection signal="body_entered" from="cave_entrance" to="." method="_on_cave_entrance_body_entered"]
 [connection signal="body_exited" from="cave_entrance" to="." method="_on_cave_entrance_body_exited"]
+[connection signal="body_entered" from="cave_exit" to="." method="_on_cave_exit_body_entered"]
+[connection signal="body_exited" from="cave_exit" to="." method="_on_cave_exit_body_exited"]
 [connection signal="body_entered" from="place_router" to="." method="_on_place_router_body_entered"]
 [connection signal="body_exited" from="place_router" to="." method="_on_place_router_body_exited"]

@@ -10,6 +10,8 @@ var player_in_ap_area = false
 
 var player_in_cave_entrance = false
 
+var player_in_cave_exit = false
+
 var player
 
 func _ready() -> void:
@@ -35,8 +37,11 @@ func _process(delta: float) -> void:
 			Global.emit_signal("removeFireWall")
 			object_ap = null
 	if player_in_cave_entrance and player.current_dir == "up":
-		player.position = Vector2(0,0)
+		player.position = $spawn_caverna.position
 		player_in_cave_entrance = false
+	if player_in_cave_exit and player.current_dir == "down":
+		player.position = $fuori_caverna.position
+		player_in_cave_exit = false
 
 func talkedWithComputer():
 	if not talked_with_computer:
@@ -68,7 +73,6 @@ func _on_place_router_body_entered(body: Node2D) -> void:
 func _on_place_router_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_ap_area = false
-		player = null
 		
 func _on_cave_entrance_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
@@ -78,4 +82,14 @@ func _on_cave_entrance_body_entered(body: Node2D) -> void:
 func _on_cave_entrance_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_cave_entrance = false
-		player = null
+
+
+func _on_cave_exit_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		player_in_cave_exit = true
+		player = body
+
+
+func _on_cave_exit_body_exited(body: Node2D) -> void:
+	if body.has_method("player"):
+		player_in_cave_exit = false
