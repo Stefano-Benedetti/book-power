@@ -1074,3 +1074,6 @@ position = Vector2(117, -145)
 
 [node name="bat" parent="." instance=ExtResource("28_0nbtd")]
 position = Vector2(213, -221)
+max_health = 100
+damage = 10
+repath_distance = 10.0

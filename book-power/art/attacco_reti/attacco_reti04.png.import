@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dejdsa5s4eyrj"
-path="res://.godot/imported/albero_binario03.png-d7bbd984e77fc97a2f4e87a445fd26cb.ctex"
+uid="uid://bh6y41u04ehnj"
+path="res://.godot/imported/attacco_reti04.png-70d89a16ec172b205ba0ce5830bfcb1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/albero_binario03.png"
-dest_files=["res://.godot/imported/albero_binario03.png-d7bbd984e77fc97a2f4e87a445fd26cb.ctex"]
+source_file="res://art/attacco_reti/attacco_reti04.png"
+dest_files=["res://.godot/imported/attacco_reti04.png-70d89a16ec172b205ba0ce5830bfcb1a.ctex"]
 
 [params]
 

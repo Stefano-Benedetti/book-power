@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dy48v3egowa6p" path="res://attacks/script/attacco_libro_analisi.gd" id="1_m80u7"]
 [ext_resource type="AudioStream" uid="uid://cqc6dmtoykdpf" path="res://sound/sound effects/freesound_community-300hz-91946.mp3" id="3_px3xj"]
-[ext_resource type="Texture2D" uid="uid://bp5anqfkatcid" path="res://art/coseno08.png" id="4_uwk18"]
+[ext_resource type="Texture2D" uid="uid://bp5anqfkatcid" path="res://art/coseno/coseno08.png" id="4_uwk18"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqsmo"]
 atlas = ExtResource("4_uwk18")

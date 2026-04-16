@@ -1,7 +1,7 @@
 extends TextureProgressBar
 
 
-@export var enemy: Enemy
+@export var enemy: CharacterBody2D
 
 func _ready():
 	value = enemy.max_health

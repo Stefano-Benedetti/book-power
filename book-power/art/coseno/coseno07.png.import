@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbin56nca4ino"
-path="res://.godot/imported/coseno02.png-8e30f6f45d973f1543c76c30f44e3836.ctex"
+uid="uid://bleba3fo67yo8"
+path="res://.godot/imported/coseno07.png-a38e3fce48eb5c4ca6c0482d9e558fc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/coseno02.png"
-dest_files=["res://.godot/imported/coseno02.png-8e30f6f45d973f1543c76c30f44e3836.ctex"]
+source_file="res://art/coseno/coseno07.png"
+dest_files=["res://.godot/imported/coseno07.png-a38e3fce48eb5c4ca6c0482d9e558fc0.ctex"]
 
 [params]
 

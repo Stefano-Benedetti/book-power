@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c7q3anbqtjy0n"]
+[gd_scene load_steps=26 format=3 uid="uid://c7q3anbqtjy0n"]
 
 [ext_resource type="Script" uid="uid://bs431npcmmv2s" path="res://levels/script/livello_4.gd" id="1_3j3hp"]
 [ext_resource type="PackedScene" uid="uid://cfrovdukqneaj" path="res://scenes/mappa_04.tscn" id="1_r6f3t"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://nqa5yxjsvvh8" path="res://objects_pickable/scenes/libro_reti.tscn" id="18_a34kp"]
 [ext_resource type="PackedScene" uid="uid://bdyg3nigp8cpo" path="res://characters/scenes/enemy.tscn" id="19_u5lof"]
 [ext_resource type="PackedScene" uid="uid://s4sgnvd5jpqj" path="res://objects_pickable/scenes/health_potion.tscn" id="20_ovfhu"]
+[ext_resource type="PackedScene" uid="uid://dwf3csj7xxyxj" path="res://characters/scenes/bat.tscn" id="22_ht61p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a34kp"]
 radius = 3.5
@@ -44,7 +45,8 @@ position = Vector2(480, -1120)
 
 [node name="player" parent="." instance=ExtResource("2_e4j1e")]
 y_sort_enabled = true
-position = Vector2(172, -996)
+position = Vector2(269, -1341)
+SPEED = 70
 inv = ExtResource("3_qlehc")
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("4_3j3hp")]
@@ -139,7 +141,7 @@ position = Vector2(928, -576)
 shape = SubResource("CircleShape2D_3j3hp")
 
 [node name="access_point" parent="." instance=ExtResource("17_edasw")]
-position = Vector2(641, -1593)
+position = Vector2(641, -1603)
 
 [node name="enemy" parent="." instance=ExtResource("19_u5lof")]
 position = Vector2(1326, -1060)
@@ -161,6 +163,30 @@ dropped_object = ExtResource("20_ovfhu")
 
 [node name="enemy6" parent="." instance=ExtResource("19_u5lof")]
 position = Vector2(685, -694)
+
+[node name="bat" parent="." instance=ExtResource("22_ht61p")]
+position = Vector2(418, -1599)
+
+[node name="bat2" parent="." instance=ExtResource("22_ht61p")]
+position = Vector2(530, -1571)
+
+[node name="bat3" parent="." instance=ExtResource("22_ht61p")]
+position = Vector2(638, -1567)
+
+[node name="bat4" parent="." instance=ExtResource("22_ht61p")]
+position = Vector2(552, -1471)
+
+[node name="bat5" parent="." instance=ExtResource("22_ht61p")]
+position = Vector2(209, -1487)
+
+[node name="bat6" parent="." instance=ExtResource("22_ht61p")]
+position = Vector2(363, -1476)
+
+[node name="bat7" parent="." instance=ExtResource("22_ht61p")]
+position = Vector2(298, -1560)
+
+[node name="bat8" parent="." instance=ExtResource("22_ht61p")]
+position = Vector2(644, -1472)
 
 [connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]
 [connection signal="body_entered" from="cave_entrance" to="." method="_on_cave_entrance_body_entered"]

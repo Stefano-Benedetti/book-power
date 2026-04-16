@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc5ihy3wvaab2"
-path="res://.godot/imported/coseno04.png-6a933bc88d5dad5d044755cc474f28d5.ctex"
+uid="uid://cvk17f1s2o8ti"
+path="res://.godot/imported/attacco_reti02.png-50b7a75c684d30b869fea449390ed597.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/coseno04.png"
-dest_files=["res://.godot/imported/coseno04.png-6a933bc88d5dad5d044755cc474f28d5.ctex"]
+source_file="res://art/attacco_reti/attacco_reti02.png"
+dest_files=["res://.godot/imported/attacco_reti02.png-50b7a75c684d30b869fea449390ed597.ctex"]
 
 [params]
 

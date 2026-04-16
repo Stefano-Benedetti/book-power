@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4ib2t3pqrgk3"
-path="res://.godot/imported/albero_binario02.png-53c321826941fbcf985203201763f01c.ctex"
+uid="uid://b3o8w1v8edwfk"
+path="res://.godot/imported/32x32-bat-sprite.png-dc9a6e478ad46998419f29e9bbce257e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/albero_binario02.png"
-dest_files=["res://.godot/imported/albero_binario02.png-53c321826941fbcf985203201763f01c.ctex"]
+source_file="res://art/32x32-bat-sprite.png"
+dest_files=["res://.godot/imported/32x32-bat-sprite.png-dc9a6e478ad46998419f29e9bbce257e.ctex"]
 
 [params]
 

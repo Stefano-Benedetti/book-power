@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2h80fflpporb"
-path="res://.godot/imported/coseno01.png-3de8ac7d827136607c3ed1a4ef14b76a.ctex"
+uid="uid://cy8q6wismtvga"
+path="res://.godot/imported/albero_binario05.png-6f180456605258525f3fd338888f6df4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/coseno01.png"
-dest_files=["res://.godot/imported/coseno01.png-3de8ac7d827136607c3ed1a4ef14b76a.ctex"]
+source_file="res://art/albero_binario/albero_binario05.png"
+dest_files=["res://.godot/imported/albero_binario05.png-6f180456605258525f3fd338888f6df4.ctex"]
 
 [params]
 

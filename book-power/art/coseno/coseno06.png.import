@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cuihy3v18axgg"
-path="res://.godot/imported/coseno06.png-d7f4fd3442135ccd4bc426bb73831bcc.ctex"
+path="res://.godot/imported/coseno06.png-7ed889fb4ed507b0ea8946e7d5127341.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/coseno06.png"
-dest_files=["res://.godot/imported/coseno06.png-d7f4fd3442135ccd4bc426bb73831bcc.ctex"]
+source_file="res://art/coseno/coseno06.png"
+dest_files=["res://.godot/imported/coseno06.png-7ed889fb4ed507b0ea8946e7d5127341.ctex"]
 
 [params]
 

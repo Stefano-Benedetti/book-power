@@ -62,11 +62,13 @@ script = ExtResource("1_ps0kp")
 item = ExtResource("2_b7vh4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5.9999995)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_rb2ce")
 animation = &"AP_spento"
 
 [node name="PickableArea" type="Area2D" parent="."]
+position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickableArea"]
 shape = SubResource("CircleShape2D_ps0kp")
