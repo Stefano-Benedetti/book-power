@@ -13,7 +13,13 @@ var dialoghi_computer := {
 		"Turn them all on for now, then come back and I will give you further instructions."
 	],
 	7: [
-		"Nice! But it is not over yet, we are still unable to communicate: I need you to return us our router, which the robot brought to a cave. Be careful, caves are filled with angry rats around these parts."
+		"Nice! But it is not over yet, we are still unable to communicate: I need you to return us our access point, I saw the robot bringing it into a cave. Be careful, caves are filled with angry rats around these parts.",
+		"Once you have it, place it on that white platform, then the access point will automatically connect to everyone."
+	],
+	8: [
+		"Sending ARP requests...",
+		"Yes! I can see all of them now! Thank you, whoever you are!",
+		"The firewall is now disabled, but wait, I have a present for you: take this book, as a reward for your kindness."
 	]
 }
 
@@ -51,6 +57,15 @@ var dialoghi_per_quest := {
 	],
 	5: [
 		"Looks like you fixed the robot, good job! Now we should continue and check if he did any more damage."
+	],
+	6: [
+		"Finally, here you are. I met a talking computer that wanted me to fix his friends and his network, but I am not very good with networks, so I will let you do the work.",
+	],
+	7: [
+		"Wow, I didn't know you had to press a button to turn on those computers, my laptop turns on automatically when I open its lid."
+	],
+	8: [
+		"What even is an access point anyway? Is it edible?"
 	]
 }
 

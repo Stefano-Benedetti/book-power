@@ -9,12 +9,13 @@ var indice_livello: int = 0
 
 func _ready() -> void:
 	if usa_file:
-		livello_partenza = Progress.livello_corrente #DA DECOMMENTARE PER I TEST
+		livello_partenza = Progress.livello_corrente
 	livelli = [
 		preload("res://levels/scenes/livello_1.tscn"),
 		preload("res://levels/scenes/livello_2.tscn"),
 		preload("res://levels/scenes/livello_3.tscn"),
-		preload("res://levels/scenes/livello_4.tscn")
+		preload("res://levels/scenes/livello_4.tscn"),
+		preload("res://levels/scenes/livello_1.tscn")
 	]
 	loadLevel(livello_partenza-1) # carica il primo livello (indice 0)
 

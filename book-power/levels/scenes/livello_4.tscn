@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c7q3anbqtjy0n"]
+[gd_scene load_steps=25 format=3 uid="uid://c7q3anbqtjy0n"]
 
 [ext_resource type="Script" uid="uid://bs431npcmmv2s" path="res://levels/script/livello_4.gd" id="1_3j3hp"]
 [ext_resource type="PackedScene" uid="uid://cfrovdukqneaj" path="res://scenes/mappa_04.tscn" id="1_r6f3t"]
@@ -15,8 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://c8rs30phkkd0r" path="res://scenes/casella_dialogo.tscn" id="10_ovfhu"]
 [ext_resource type="PackedScene" uid="uid://da82dug1vut1e" path="res://menus/scenes/pause_menu.tscn" id="11_ht61p"]
 [ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="12_ofigy"]
+[ext_resource type="FontFile" uid="uid://qx8umna40qip" path="res://art/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="13_ovfhu"]
 [ext_resource type="PackedScene" uid="uid://6u23eafxpa8r" path="res://characters/scenes/computer_parlante.tscn" id="14_qlehc"]
 [ext_resource type="PackedScene" uid="uid://b5w60np3r2r0c" path="res://objects_of_scene/scenes/access_point.tscn" id="17_edasw"]
+[ext_resource type="PackedScene" uid="uid://nqa5yxjsvvh8" path="res://objects_pickable/scenes/libro_reti.tscn" id="18_a34kp"]
+[ext_resource type="PackedScene" uid="uid://bdyg3nigp8cpo" path="res://characters/scenes/enemy.tscn" id="19_u5lof"]
+[ext_resource type="PackedScene" uid="uid://s4sgnvd5jpqj" path="res://objects_pickable/scenes/health_potion.tscn" id="20_ovfhu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a34kp"]
 radius = 3.5
@@ -40,11 +44,11 @@ position = Vector2(480, -1120)
 
 [node name="player" parent="." instance=ExtResource("2_e4j1e")]
 y_sort_enabled = true
-position = Vector2(1308, -1070)
+position = Vector2(172, -996)
 inv = ExtResource("3_qlehc")
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("4_3j3hp")]
-position = Vector2(260, -1000.99994)
+position = Vector2(221, -1012.99994)
 
 [node name="ToNextLevel" parent="." instance=ExtResource("5_ms8rw")]
 position = Vector2(1633, -371)
@@ -97,6 +101,10 @@ player = NodePath("../../player")
 metadata/_edit_use_anchors_ = true
 
 [node name="counter" parent="CanvasLayer2" instance=ExtResource("9_e4j1e")]
+offset_top = -26.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("13_ovfhu")
+theme_override_font_sizes/font_size = 83
 totale = 4
 
 [node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("9_u5lof")]
@@ -122,6 +130,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="computer_parlante" parent="." instance=ExtResource("14_qlehc")]
 position = Vector2(842, -591)
+dropped_object = ExtResource("18_a34kp")
 
 [node name="place_router" type="Area2D" parent="."]
 position = Vector2(928, -576)
@@ -132,6 +141,28 @@ shape = SubResource("CircleShape2D_3j3hp")
 [node name="access_point" parent="." instance=ExtResource("17_edasw")]
 position = Vector2(641, -1593)
 
+[node name="enemy" parent="." instance=ExtResource("19_u5lof")]
+position = Vector2(1326, -1060)
+dropped_object = ExtResource("20_ovfhu")
+
+[node name="enemy2" parent="." instance=ExtResource("19_u5lof")]
+position = Vector2(1299, -1060)
+
+[node name="enemy3" parent="." instance=ExtResource("19_u5lof")]
+position = Vector2(1334, -221)
+
+[node name="enemy4" parent="." instance=ExtResource("19_u5lof")]
+position = Vector2(866, -1001)
+dropped_object = ExtResource("20_ovfhu")
+
+[node name="enemy5" parent="." instance=ExtResource("19_u5lof")]
+position = Vector2(414, -276)
+dropped_object = ExtResource("20_ovfhu")
+
+[node name="enemy6" parent="." instance=ExtResource("19_u5lof")]
+position = Vector2(685, -694)
+
+[connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]
 [connection signal="body_entered" from="cave_entrance" to="." method="_on_cave_entrance_body_entered"]
 [connection signal="body_exited" from="cave_entrance" to="." method="_on_cave_entrance_body_exited"]
 [connection signal="body_entered" from="cave_exit" to="." method="_on_cave_exit_body_entered"]

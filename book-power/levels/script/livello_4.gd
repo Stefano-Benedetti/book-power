@@ -15,8 +15,8 @@ var player_in_cave_exit = false
 var player
 
 func _ready() -> void:
-	Global.fine_dialogo_computer.connect(talkedWithComputer)
-	Global.fine_dialogo_computer.connect(endUseOfCounter)
+	Global.fine_dialogo_computer.connect(updateFirewallAndDropBook)
+	Global.fine_dialogo_computer.connect(useOfCounter)
 	Global.totalReached.connect(turnedComputersOn)
 	$player.current_dir = "right"
 	QuestCounter.quest_corrente = 6
@@ -25,7 +25,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if QuestCounter.quest_corrente == 7:
 		if player_in_ap_area and Input.is_action_just_pressed("Pick_object") and player.inv.countItem(required_item)>0:
-			endUseOfCounter()
+			useOfCounter()
 			QuestCounter.quest_corrente = 8
 			player.consumeItem(required_item,1)
 			if object_ap == null:
@@ -33,8 +33,7 @@ func _process(delta: float) -> void:
 			var scena_dropped_object = object_ap.instantiate()
 			add_child(scena_dropped_object)
 			scena_dropped_object.global_position = Vector2(927.802,-576.853)
-			#scena_dropped_object.play...
-			Global.emit_signal("removeFireWall")
+			scena_dropped_object.playConnecting()
 			object_ap = null
 	if player_in_cave_entrance and player.current_dir == "up":
 		player.position = $spawn_caverna.position
@@ -43,15 +42,18 @@ func _process(delta: float) -> void:
 		player.position = $fuori_caverna.position
 		player_in_cave_exit = false
 
-func talkedWithComputer():
-	if not talked_with_computer:
-		talked_with_computer = true
-		$CanvasLayer2/counter.show()
+func updateFirewallAndDropBook():
+	if QuestCounter.quest_corrente == 8:
+		Global.emit_signal("removeFireWall")
+		$computer_parlante.dropObject()
 
 func turnedComputersOn():
 	QuestCounter.quest_corrente = 7
 
-func endUseOfCounter():
+func useOfCounter():
+	if not talked_with_computer:
+		talked_with_computer = true
+		$CanvasLayer2/counter.show()
 	if QuestCounter.quest_corrente == 7:
 		$CanvasLayer2/counter.hide()
 
