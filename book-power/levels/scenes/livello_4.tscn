@@ -18,11 +18,13 @@
 [ext_resource type="PackedScene" uid="uid://6u23eafxpa8r" path="res://characters/scenes/computer_parlante.tscn" id="14_qlehc"]
 [ext_resource type="PackedScene" uid="uid://b5w60np3r2r0c" path="res://objects_of_scene/scenes/access_point.tscn" id="17_edasw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_edasw"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a34kp"]
+radius = 3.5
+height = 21.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_edasw"]
 radius = 12.0
-height = 28.0
+height = 34.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3j3hp"]
 radius = 23.0
@@ -52,21 +54,21 @@ position = Vector2(1311, -1111)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cave_entrance"]
 position = Vector2(0.5, 4.5)
-shape = SubResource("CircleShape2D_edasw")
+shape = SubResource("CapsuleShape2D_a34kp")
 
 [node name="cave_exit" type="Area2D" parent="."]
 position = Vector2(1311, -1114)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cave_exit"]
-position = Vector2(-1041, -196)
+position = Vector2(-1040, -195)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_edasw")
 
 [node name="spawn_caverna" type="Node2D" parent="."]
-position = Vector2(270, -1326)
+position = Vector2(271, -1321)
 
 [node name="fuori_caverna" type="Node2D" parent="."]
-position = Vector2(1311, -1093)
+position = Vector2(1312, -1090)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

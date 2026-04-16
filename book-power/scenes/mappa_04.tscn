@@ -7953,4 +7953,4 @@ position = Vector2(-333, 122)
 shape = SubResource("RectangleShape2D_ciskg")
 
 [node name="mappa04_bis" parent="." instance=ExtResource("33_3urlu")]
-position = Vector2(-480, -88)
+position = Vector2(-480, -104)
