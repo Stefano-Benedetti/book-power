@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c7q3anbqtjy0n"]
+[gd_scene load_steps=20 format=3 uid="uid://c7q3anbqtjy0n"]
 
 [ext_resource type="Script" uid="uid://bs431npcmmv2s" path="res://levels/script/livello_4.gd" id="1_3j3hp"]
 [ext_resource type="PackedScene" uid="uid://cfrovdukqneaj" path="res://scenes/mappa_04.tscn" id="1_r6f3t"]
@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://6u23eafxpa8r" path="res://characters/scenes/computer_parlante.tscn" id="14_qlehc"]
 [ext_resource type="PackedScene" uid="uid://b5w60np3r2r0c" path="res://objects_of_scene/scenes/access_point.tscn" id="17_edasw"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_edasw"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_3j3hp"]
 radius = 23.0
 
@@ -32,7 +34,7 @@ position = Vector2(480, -1120)
 
 [node name="player" parent="." instance=ExtResource("2_e4j1e")]
 y_sort_enabled = true
-position = Vector2(845, -573)
+position = Vector2(1308, -1070)
 inv = ExtResource("3_qlehc")
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("4_3j3hp")]
@@ -40,6 +42,13 @@ position = Vector2(301.00003, -181)
 
 [node name="ToNextLevel" parent="." instance=ExtResource("5_ms8rw")]
 position = Vector2(1633, -371)
+
+[node name="cave_entrance" type="Area2D" parent="."]
+position = Vector2(1311, -1111)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cave_entrance"]
+position = Vector2(0.5, 4.5)
+shape = SubResource("CircleShape2D_edasw")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -103,4 +112,7 @@ shape = SubResource("CircleShape2D_3j3hp")
 [node name="access_point" parent="." instance=ExtResource("17_edasw")]
 position = Vector2(878, -548)
 
+[connection signal="body_entered" from="cave_entrance" to="." method="_on_cave_entrance_body_entered"]
+[connection signal="body_exited" from="cave_entrance" to="." method="_on_cave_entrance_body_exited"]
 [connection signal="body_entered" from="place_router" to="." method="_on_place_router_body_entered"]
+[connection signal="body_exited" from="place_router" to="." method="_on_place_router_body_exited"]
