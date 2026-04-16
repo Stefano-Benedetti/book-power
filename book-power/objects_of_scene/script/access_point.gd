@@ -5,6 +5,8 @@ extends Node2D
 var player_in_area = false
 var player = null
 
+func _ready():
+	$AnimatedSprite2D.play("AP_spento")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -14,6 +16,8 @@ func _process(_delta: float) -> void:
 			if(has_picked):
 				queue_free()
 
+func playConnecting():
+	$AnimatedSprite2D.play("connecting")
 
 func _on_pickable_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):

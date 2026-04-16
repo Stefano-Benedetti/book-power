@@ -1,22 +1,56 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5w60np3r2r0c"]
+[gd_scene load_steps=12 format=3 uid="uid://b5w60np3r2r0c"]
 
 [ext_resource type="Script" uid="uid://c0snp6hy3t5ur" path="res://objects_of_scene/script/access_point.gd" id="1_ps0kp"]
 [ext_resource type="Resource" uid="uid://4b2wbsl1vx2u" path="res://inventory/items/access_point.tres" id="2_b7vh4"]
-[ext_resource type="Texture2D" uid="uid://qes71p4y24df" path="res://art/button_inventario.png" id="2_eqbnc"]
+[ext_resource type="Texture2D" uid="uid://dyejw534ps7hr" path="res://art/access_point/AP_spento.png" id="3_b7vh4"]
+[ext_resource type="Texture2D" uid="uid://dymojulfjwism" path="res://art/access_point/AP_connecting.png" id="3_eqbnc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jff1e"]
+atlas = ExtResource("3_b7vh4")
+region = Rect2(0, 0, 33, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7vh4"]
-atlas = ExtResource("2_eqbnc")
-region = Rect2(0, 0, 16, 16)
+atlas = ExtResource("3_eqbnc")
+region = Rect2(0, 0, 33, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb2ce"]
+atlas = ExtResource("3_eqbnc")
+region = Rect2(33, 0, 33, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvewv"]
+atlas = ExtResource("3_eqbnc")
+region = Rect2(66, 0, 33, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpvf8"]
+atlas = ExtResource("3_eqbnc")
+region = Rect2(99, 0, 33, 38)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rb2ce"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jff1e")
+}],
+"loop": false,
+"name": &"AP_spento",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_b7vh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rb2ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvewv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpvf8")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"connecting",
+"speed": 4.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ps0kp"]
@@ -27,7 +61,9 @@ script = ExtResource("1_ps0kp")
 item = ExtResource("2_b7vh4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_rb2ce")
+animation = &"AP_spento"
 
 [node name="PickableArea" type="Area2D" parent="."]
 

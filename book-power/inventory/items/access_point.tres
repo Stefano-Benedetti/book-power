@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://4b2wbsl1vx2u"]
 
 [ext_resource type="Script" uid="uid://dgjp33lf1xt56" path="res://inventory/script/invetory_item_resource.gd" id="1_qvgie"]
-[ext_resource type="Texture2D" uid="uid://qes71p4y24df" path="res://art/button_inventario.png" id="2_ddhoi"]
+[ext_resource type="Texture2D" uid="uid://c6oh35u3jfpne" path="res://art/access_point/AP_item.png" id="2_qvgie"]
 
 [resource]
 script = ExtResource("1_qvgie")
 name = "access_point"
-texture = ExtResource("2_ddhoi")
+texture = ExtResource("2_qvgie")
 title = "Access Point"
 description = "aaaaaaaaaaaaaaaaaa"
