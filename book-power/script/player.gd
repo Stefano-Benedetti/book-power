@@ -224,15 +224,23 @@ func updateSelectedItem(slot: InvSlot, indice):
 	selected_item_index = indice
 
 func getHurt(damage):
+	$AnimatedSprite2D.modulate = Color(1, 0, 0)
+	await get_tree().create_timer(0.1).timeout
+	$AnimatedSprite2D.modulate = Color(1, 1, 1)
 	current_health -= damage
 	health_changed.emit()	#per aggiornare la health bar
 
 func getHealed(health_plus):
-	if current_health < max_health:
-		current_health += health_plus
+	for i in range(0,3):
+		$AnimatedSprite2D.modulate = Color(0, 1, 0)
+		await get_tree().create_timer(0.2).timeout
+		$AnimatedSprite2D.modulate = Color(1, 1, 1)
+		await get_tree().create_timer(0.1).timeout
+	current_health += health_plus
 	if current_health > max_health:
 		current_health = max_health
 	health_changed.emit()	#per aggiornare la health bar
+
 
 func setPushed(direction: Vector2, force, decay, duration):
 	can_move = false

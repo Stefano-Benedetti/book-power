@@ -21,7 +21,7 @@ var player_in_area = false
 var player = null
 
 @export var damage = 5
-var spostamento_attacco = 4
+var spostamento_attacco = 6
 var player_attackable = false
 var can_attack = true
 var can_move = true
@@ -35,9 +35,10 @@ var spawn_point = null
 var going_to_spawn = true
 
 #@export var nav_group: int = 0
-@export var repath_distance: float = 10.0 # evita ricalcoli se player quasi fermo
+@export var repath_distance: float = 5.0 # evita ricalcoli se player quasi fermo
 var _last_target: Vector2
 var fermo = true
+
 
 
 func _ready():
@@ -66,28 +67,30 @@ func _on_attack_cooldown_timeout():
 func _on_movement_post_attack_cooldown_timeout() -> void:
 	can_move = true
 
+
+func attack_animation(spostamento_attacco_x, spostamento_attacco_y):
+		$AnimatedSprite2D.global_position += Vector2(spostamento_attacco_x, spostamento_attacco_y)
+		$Shadow.global_position += Vector2(spostamento_attacco_x, spostamento_attacco_y)
+		await get_tree().create_timer(0.2).timeout
+		$AnimatedSprite2D.global_position -= Vector2(spostamento_attacco_x, spostamento_attacco_y)
+		$Shadow.global_position -= Vector2(spostamento_attacco_x, spostamento_attacco_y)
+
 func enemy_attack():
+	print("attacco")
+	fermo = true
 	can_attack = false
 	can_move = false
 	player.getHurt(damage)
 	attacck_cooldown.start()  # Avvia il timer
 	mov_cooldown.start()
 	if current_dir == "left":
-		global_position += Vector2(-spostamento_attacco, 0)
-		await get_tree().create_timer(0.2).timeout
-		global_position -= Vector2(-spostamento_attacco, 0)
+		attack_animation(-spostamento_attacco, 0)
 	elif current_dir == "right":
-		global_position += Vector2(spostamento_attacco, 0)
-		await get_tree().create_timer(0.2).timeout
-		global_position -= Vector2(spostamento_attacco, 0)
+		attack_animation(spostamento_attacco, 0)
 	elif current_dir == "up":
-		global_position += Vector2(0, -spostamento_attacco)
-		await get_tree().create_timer(0.2).timeout
-		global_position -= Vector2(0, -spostamento_attacco)
+		attack_animation(0, -spostamento_attacco)
 	elif current_dir == "down":
-		global_position += Vector2(0, spostamento_attacco)
-		await get_tree().create_timer(0.2).timeout
-		global_position -= Vector2(0, spostamento_attacco)
+		attack_animation(0, spostamento_attacco)
 
 
 func is_point_reachable(target_point: Vector2, tolerance: float = 2.0) -> bool:
@@ -103,7 +106,7 @@ func calcolo_target():
 		going_to_spawn = false
 		target = player.global_position
 		# se sei vicino al player non mandare un nuovo target
-		if abs(global_position.x-target.x) < 10 and abs(global_position.y-target.y) < 10:
+		if player_attackable:
 			return null
 	elif not going_to_spawn or (going_to_spawn and nav_agent.is_navigation_finished()):
 		going_to_spawn = true
@@ -123,22 +126,7 @@ func calcolo_target():
 		return _last_target
 	
 	return target
-	
-	#var target: Vector2
-	#if player_in_area:
-		#target = player.global_position
-	#else:
-		#var raggiungibile = false
-		#while not raggiungibile:
-			#target = Vector2(randi_range(spawn_point.x-10, spawn_point.x+10), randi_range(spawn_point.y-10, spawn_point.y+10))
-			#raggiungibile = is_point_reachable(target)
-	#
-	#
-	## se sei vicino al target non mandare un nuovo target
-	#if abs(global_position.x-target.x) < 10 and abs(global_position.y-target.y) < 10:
-		#return null
-	#
-	#return target
+
 
 
 #non basta che una delle due direzioni sia maggiore dell'altra
@@ -152,7 +140,6 @@ func enemy_movement(delta):
 	var target = calcolo_target()
 	if target == null:
 		fermo = true
-		play_anim(0, 0)
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
@@ -169,15 +156,15 @@ func enemy_movement(delta):
 		mod_dir_and_velocity(direction)
 	elif abs(abs(direction.x) - abs(direction.y)) > 0.5:
 		mod_dir_and_velocity(direction)
-
-	play_anim(1, 0)
+	
+	
+	play_anim()
 	move_and_slide()
 
 
 
 func mod_dir_and_velocity(direction):
 	if abs(direction.x) > abs(direction.y):
-		#if abs(direction.x) > 0.5:
 		if direction.x > 0:
 			current_dir = "right"
 			velocity = Vector2(SPEED, 0)
@@ -194,7 +181,7 @@ func mod_dir_and_velocity(direction):
 
 
 #funzione per gestire le animazioni del player, movement=1 => ci stiamo muovendo
-func play_anim(movement, attaccando):
+func play_anim():
 	var anim = $AnimatedSprite2D
 	if current_dir == "right":
 		anim.play("right_fly")
@@ -232,6 +219,9 @@ func _on_attack_area_body_exited(body: Node2D) -> void:
 
 
 func getHurt(damage):
+	$AnimatedSprite2D.modulate = Color(1, 0, 0)
+	await get_tree().create_timer(0.1).timeout
+	$AnimatedSprite2D.modulate = Color(1, 1, 1)
 	current_health -= damage
 	health_bar.update()
 

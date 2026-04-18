@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var livello_partenza: int
-@export var usa_file: bool
+@export var usa_file: bool = true
 @onready var livelli: Array
 @onready var livello_corrente: PackedScene = null
 @onready var scena_liv_corrente: Node = null

@@ -233,6 +233,9 @@ func _on_attack_area_body_exited(body: Node2D) -> void:
 
 
 func getHurt(damage):
+	$AnimatedSprite2D.modulate = Color(1, 0, 0)
+	await get_tree().create_timer(0.1).timeout
+	$AnimatedSprite2D.modulate = Color(1, 1, 1)
 	current_health -= damage
 	health_bar.update()
 

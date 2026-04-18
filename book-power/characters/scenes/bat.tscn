@@ -140,7 +140,7 @@ radius = 13.009612
 z_index = 1
 script = ExtResource("1_bgpk6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="."]
 scale = Vector2(0.365, 0.365)
 texture = ExtResource("2_fhd3l")
 

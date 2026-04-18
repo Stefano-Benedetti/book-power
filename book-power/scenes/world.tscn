@@ -931,7 +931,6 @@ tile_set = SubResource("TileSet_rup4s")
 
 [node name="player" parent="." instance=ExtResource("7_i7141")]
 position = Vector2(159, -144.99998)
-max_health = 10000
 inv = ExtResource("8_jhx03")
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("9_ctatt")]

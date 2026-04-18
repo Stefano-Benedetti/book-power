@@ -45,9 +45,8 @@ position = Vector2(480, -1120)
 
 [node name="player" parent="." instance=ExtResource("2_e4j1e")]
 y_sort_enabled = true
-position = Vector2(175, -996)
+position = Vector2(267, -1377)
 SPEED = 70
-max_health = 999999
 inv = ExtResource("3_qlehc")
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("4_3j3hp")]
