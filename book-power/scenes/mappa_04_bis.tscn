@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://cc80vngi5gfso"]
+[gd_scene load_steps=54 format=4 uid="uid://cc80vngi5gfso"]
 
 [ext_resource type="Texture2D" uid="uid://c63psyhe5s0k4" path="res://art/Little Dreamyland - Free Pack/Tileset/Autotile_Grass_and_Dirt_Path_Tileset.png" id="1_q61ka"]
 [ext_resource type="Texture2D" uid="uid://cpav256v07sbt" path="res://art/Little Dreamyland - Free Pack/Tileset/Crops_Tileset.png" id="2_rvhqw"]
@@ -20,10 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://ch8op7yfsij7u" path="res://art/Pixel Crawler - Free Pack/Environment/Tilesets/Wall_Tiles.png" id="28_071qo"]
 [ext_resource type="Texture2D" uid="uid://daiy52w4y7xqf" path="res://art/Pixel Crawler - Free Pack/Environment/Tilesets/Wall_Variations.png" id="29_jfo6q"]
 [ext_resource type="Texture2D" uid="uid://uouro2w5fm5b" path="res://art/Pixel Crawler - Free Pack/Environment/Tilesets/Dungeon_Tiles.png" id="30_o8g33"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_irkt5"]
-parsed_geometry_type = 1
-agent_radius = 100.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m1rbj"]
 texture = ExtResource("1_q61ka")
@@ -4806,9 +4802,6 @@ y_sort_enabled = true
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
 format = 2
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="TileMap"]
-navigation_polygon = SubResource("NavigationPolygon_irkt5")
 
 [node name="objects" type="TileMapLayer" parent="TileMap"]
 y_sort_enabled = true

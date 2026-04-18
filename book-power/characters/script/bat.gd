@@ -32,6 +32,7 @@ var can_move = true
 @onready var nav_agent = $NavigationAgent2D  # Collegamento al nodo NavigationAgent2D
 
 var spawn_point = null
+var going_to_spawn = true
 
 #@export var nav_group: int = 0
 @export var repath_distance: float = 10.0 # evita ricalcoli se player quasi fermo
@@ -40,12 +41,11 @@ var fermo = true
 
 
 func _ready():
+	randomize()
 	spawn_point = global_position
 	_last_target = global_position
 
 func _physics_process(delta: float):
-	#velocity = Vector2.LEFT * SPEED
-	#move_and_slide()
 	manage_enemy(delta)
 
 func manage_enemy(delta):
@@ -90,19 +90,55 @@ func enemy_attack():
 		global_position -= Vector2(0, spostamento_attacco)
 
 
+func is_point_reachable(target_point: Vector2, tolerance: float = 2.0) -> bool:
+	var map = nav_agent.get_navigation_map()
+	var closest = NavigationServer2D.map_get_closest_point(map, target_point)
+	return closest.distance_to(target_point) <= tolerance
+
+
 #restituisce null se non deve ricalcolare, altrimenti restituisce il target
 func calcolo_target():
 	var target: Vector2
 	if player_in_area:
+		going_to_spawn = false
 		target = player.global_position
+		# se sei vicino al player non mandare un nuovo target
+		if abs(global_position.x-target.x) < 10 and abs(global_position.y-target.y) < 10:
+			return null
+	elif not going_to_spawn or (going_to_spawn and nav_agent.is_navigation_finished()):
+		going_to_spawn = true
+		var raggiungibile = false
+		var tentativi = 0
+		var max_tentativi = 20
+		while not raggiungibile and tentativi < max_tentativi:
+			target = Vector2(
+				randi_range(spawn_point.x-60, spawn_point.x+60),
+				randi_range(spawn_point.y-60, spawn_point.y+60)
+			)
+			raggiungibile = is_point_reachable(target)
+			tentativi += 1
+		if not raggiungibile:
+			return spawn_point  # fallback sicuro
 	else:
-		target = spawn_point
-	
-	# se sei vicino al target non mandare un nuovo target
-	if abs(global_position.x-target.x) < 10 and abs(global_position.y-target.y) < 10:
-		return null
+		return _last_target
 	
 	return target
+	
+	#var target: Vector2
+	#if player_in_area:
+		#target = player.global_position
+	#else:
+		#var raggiungibile = false
+		#while not raggiungibile:
+			#target = Vector2(randi_range(spawn_point.x-10, spawn_point.x+10), randi_range(spawn_point.y-10, spawn_point.y+10))
+			#raggiungibile = is_point_reachable(target)
+	#
+	#
+	## se sei vicino al target non mandare un nuovo target
+	#if abs(global_position.x-target.x) < 10 and abs(global_position.y-target.y) < 10:
+		#return null
+	#
+	#return target
 
 
 #non basta che una delle due direzioni sia maggiore dell'altra
