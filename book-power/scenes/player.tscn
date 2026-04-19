@@ -1,9 +1,11 @@
-[gd_scene load_steps=82 format=3 uid="uid://ckwr713fqij6n"]
+[gd_scene load_steps=86 format=3 uid="uid://ckwr713fqij6n"]
 
 [ext_resource type="Texture2D" uid="uid://jqtjgfkuhcix" path="res://art/player_set.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://y22tc3o24p31" path="res://script/player.gd" id="1_g2els"]
 [ext_resource type="Script" uid="uid://b0vfatiua8e68" path="res://inventory/script/inventory.gd" id="2_dqkch"]
 [ext_resource type="Script" uid="uid://47g3fyggunyi" path="res://inventory/script/Inv_slot.gd" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://do6cci6ck548i" path="res://art/player_seduto.png" id="5_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://c68osa6y7ee7l" path="res://art/player_addormentato.png" id="6_fjrip"]
 
 [sub_resource type="Resource" id="Resource_qlg0r"]
 script = ExtResource("3_qlg0r")
@@ -270,6 +272,14 @@ region = Rect2(0, 1600, 64, 64)
 atlas = ExtResource("1_3vyb7")
 region = Rect2(64, 1600, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8svfe"]
+atlas = ExtResource("5_tuyoq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a3c5"]
+atlas = ExtResource("6_fjrip")
+region = Rect2(0, 0, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jc3p3"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(0, 704, 64, 64)
@@ -529,6 +539,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_8svfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2a3c5")
+}],
+"loop": false,
+"name": &"right_sitted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jc3p3")
 }, {
 "duration": 1.0,
@@ -577,7 +598,9 @@ inv = SubResource("Resource_dqkch")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_y4r1p")
-animation = &"front_idle"
+animation = &"right_sitted"
+frame = 1
+frame_progress = 1.0
 offset = Vector2(0, -26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
