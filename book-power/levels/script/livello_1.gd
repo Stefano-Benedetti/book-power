@@ -10,6 +10,11 @@ var quest_completata = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# l'inventario del player (e di Progress) qui deve essere vuoto
+	$player.inv.clean()
+	for slot in Progress.inventory.slots:
+		$player.inv.insert(slot.item)
+	
 	Progress.livello_corrente = 1
 	QuestCounter.quest_corrente = 0
 	$npc_fuoricorso.update_quest.connect(quest_update)
@@ -41,6 +46,17 @@ func _on_to_next_level_body_shape_entered(body_rid: RID, body: Node2D, body_shap
 		#se non si sta runnando game non passa al livello successivo
 		if get_parent().name != "game":
 			return
-		Progress.livello_corrente = 2		#salvo il livello corrente nella classe dei progressi
-		Progress.inventory = $player.inv	#TO FIX salvo inventario nella classe dei progressi
+			
+		#salvo il livello corrente nella classe dei progressi
+		Progress.livello_corrente = 2
+		
+		#salvo inventario nella classe dei progressi
+		Progress.inventory.clean()
+		for slot in $player.inv.slots:
+			Progress.inventory.insert(slot.item)
+		
+		#salvataggio dati
+		var data = Global.getData()
+		SaveSystem.save_data(data)
+		
 		get_parent().loadNextLevel()

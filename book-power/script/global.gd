@@ -35,11 +35,25 @@ signal fine_dialogo_computer
 signal removeFireWall
 
 func getData():
+	
+	var inv_elements : Dictionary
+	
+	var inventory = Progress.inventory
+	
+	var counter = 0
+		
+	if inventory != null:
+		for slot in inventory.slots:
+			if slot.item != null:
+				inv_elements.set("item"+str(counter),slot.item.name)
+				counter += 1
+		
 	var data = {
 		"global_volume" = db_to_linear(AudioServer.get_bus_volume_db(0)),
 		"effects_volume" = db_to_linear(AudioServer.get_bus_volume_db(1)),
 		"music_volume" = db_to_linear(AudioServer.get_bus_volume_db(2)),
 		"current_level" = Progress.livello_corrente,
-		"inventory" = Progress.inventory
+		"inventory" = inv_elements
 	}
+	
 	return data

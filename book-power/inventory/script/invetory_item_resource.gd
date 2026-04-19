@@ -1,6 +1,6 @@
 extends Resource
 
-#script per modellare gli la reource degli elementi dell'inventario
+#script per modellare gli la resource degli elementi dell'inventario
 #negli altri oggetti per avere associati un oggetto che può andare
 #nell'inventario bisognerà fare
 #@export var nome_che_useremo_nello_script: InvItem

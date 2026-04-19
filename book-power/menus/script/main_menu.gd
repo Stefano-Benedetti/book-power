@@ -88,7 +88,7 @@ func _on_load_succeeded(data: Dictionary):
 		AudioServer.set_bus_volume_db(1,linear_to_db(data.get("effects_volume")))
 		AudioServer.set_bus_volume_db(2,linear_to_db(data.get("music_volume")))
 		Progress.livello_corrente = data.get("current_level")
-		##TO FIX Progress.inventory = data.get("inventory")
+		Progress.setInventory(data.get("inventory"))
 	$Label.text = "Your data has been loaded."
 	show_buttons()
 	
@@ -112,7 +112,7 @@ func _on_yes_pressed() -> void:
 	DirAccess.remove_absolute("user://data.save")
 	$Label.text = "New game loaded, old game was deleted."
 	Progress.livello_corrente = 1
-	##TO FIX Progress.inventory = 0
+	Progress.inventory.clean()
 	var data = Global.getData()
 	SaveSystem.save_data(data)
 	$ConfirmNewgame.hide()

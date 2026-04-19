@@ -32,3 +32,7 @@ func contain(item: InvItem):
 		if slot.item == item:
 			return true
 	return false
+
+func clean():
+	for slot in slots:
+		slot.item = null

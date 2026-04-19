@@ -110,7 +110,7 @@ func _on_load_succeeded(data: Dictionary):
 		AudioServer.set_bus_volume_db(1,linear_to_db(data.get("effects_volume")))
 		AudioServer.set_bus_volume_db(2,linear_to_db(data.get("music_volume")))
 		Progress.livello_corrente = data.get("current_level")
-		## TO FIX Progress.inventory = data.get("inventory")
+		Progress.setInventory(data.get("inventory"))
 	$back.show()
 
 func _on_load_failed():

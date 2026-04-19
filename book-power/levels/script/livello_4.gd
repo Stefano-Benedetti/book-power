@@ -15,6 +15,11 @@ var player_in_cave_exit = false
 var player
 
 func _ready() -> void:
+	# carico inventario player
+	$player.inv.clean()
+	for slot in Progress.inventory.slots:
+		$player.inv.insert(slot.item)
+	
 	Global.fine_dialogo_computer.connect(updateFirewallAndDropBook)
 	Global.fine_dialogo_computer.connect(useOfCounter)
 	Global.totalReached.connect(turnedComputersOn)
@@ -62,8 +67,19 @@ func _on_to_next_level_body_entered(body: Node2D) -> void:
 		#se non si sta runnando game non passa al livello successivo
 		if get_parent().name != "game":
 			return
-		Progress.livello_corrente = 5		#salvo il livello corrente nella classe dei progressi
-		Progress.inventory = $player.inv	#salvo inventario nella classe dei progressi
+		
+		#salvo il livello corrente nella classe dei progressi
+		Progress.livello_corrente = 5
+		
+		#salvo inventario nella classe dei progressi
+		Progress.inventory.clean()
+		for slot in $player.inv.slots:
+			Progress.inventory.insert(slot.item)
+		
+		#salvataggio dati
+		var data = Global.getData()
+		SaveSystem.save_data(data)
+		
 		get_parent().loadNextLevel()
 
 
