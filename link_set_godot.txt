@@ -31,6 +31,9 @@ https://ipixl.itch.io/city-cars
 asset city CP_V1.1.0... link:
 https://nyknck.itch.io/citypackpixelart
 
+asset pixelinterior link:
+https://bitglow.itch.io/pixelinterior-livingroomkitchen
+https://bitglow.itch.io/pixelinterior-bedroom
 
 
 set icone oggetti inventario
@@ -53,8 +56,3 @@ https://xyezawr.itch.io/free-pixel-effects-pack-14-mini-magick-shoots-4
 
 asset pc (e altri oggetti di arredamento interno) link:
 https://alec-the-wizard.itch.io/modern-world-borderless-tileset-mega-pack
-
-
-
-backend service link:
-https://silentwolf.com/
