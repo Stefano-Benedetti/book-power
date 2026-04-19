@@ -45,7 +45,7 @@ position = Vector2(480, -1120)
 
 [node name="player" parent="." instance=ExtResource("2_e4j1e")]
 y_sort_enabled = true
-position = Vector2(267, -1377)
+position = Vector2(171, -995)
 SPEED = 70
 inv = ExtResource("3_qlehc")
 

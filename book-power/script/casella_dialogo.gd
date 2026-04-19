@@ -13,8 +13,8 @@ var dialoghi_computer := {
 		"Turn them all on for now, then come back and I will give you further instructions."
 	],
 	7: [
-		"Nice! But it is not over yet, we are still unable to communicate: I need you to return us our access point, I saw the robot bringing it into a cave. Be careful, caves are filled with angry rats around these parts.",
-		"Once you have it, place it on that white platform, then the access point will automatically connect to everyone."
+		"Nice! But it is not over yet, we are still unable to communicate: I need you to return us our access point, I saw the robot bringing it into a cave. Be careful, caves are filled with angry bats around these parts.",
+		"Once you have the access point, place it on that white platform, then everyone will automatically connect to it."
 	],
 	8: [
 		"Sending ARP requests...",
