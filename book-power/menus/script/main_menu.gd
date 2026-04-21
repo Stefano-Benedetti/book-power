@@ -91,7 +91,8 @@ func _on_load_succeeded(data: Dictionary):
 		AudioServer.set_bus_volume_db(1,linear_to_db(data.get("effects_volume")))
 		AudioServer.set_bus_volume_db(2,linear_to_db(data.get("music_volume")))
 		Progress.livello_corrente = data.get("current_level")
-		Progress.setInventory(data.get("inventory"))
+		if data.get("inventory")!=null:
+			Progress.setInventory(data.get("inventory"))
 	$Label.text = "Your data has been loaded."
 	show_buttons()
 	
