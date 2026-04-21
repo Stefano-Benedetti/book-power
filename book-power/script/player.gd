@@ -50,7 +50,7 @@ func _ready():
 
 func _physics_process(delta: float):
 	if get_parent() != null:
-		if get_parent().name == "livello_0":
+		if get_parent().name == "livello_0" or get_parent().name == "livello_6":
 			return
 	if GameState.in_dialogue:
 		play_anim(0,0)
@@ -276,7 +276,7 @@ func _on_movement_post_attack_cooldown_timeout() -> void:
 
 func move_camera():
 	if get_parent() != null:
-		if get_parent().name == "livello_0":
+		if get_parent().name == "livello_0" or get_parent().name == "livello_6" :
 			var tween = create_tween()
 			# Muove la camera verso il player
 			tween.tween_interval(2.0)

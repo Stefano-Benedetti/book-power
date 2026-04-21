@@ -34,6 +34,10 @@ signal fine_dialogo_computer
 
 signal removeFireWall
 
+signal start_player_dialog
+
+signal fine_dialogo_player
+
 func getData():
 	
 	var inv_elements : Dictionary
