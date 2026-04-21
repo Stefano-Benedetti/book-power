@@ -110,7 +110,7 @@ func _on_load_succeeded(data: Dictionary):
 		AudioServer.set_bus_volume_db(1,linear_to_db(data.get("effects_volume")))
 		AudioServer.set_bus_volume_db(2,linear_to_db(data.get("music_volume")))
 		Progress.livello_corrente = data.get("current_level")
-		if data.get("inventory")!=null and data.get("inventory").get_script().get_global_name() == "Dictionary":
+		if data.get("inventory")!=null and data.get("inventory") is Dictionary:
 			Progress.setInventory(data.get("inventory"))
 	$back.show()
 
