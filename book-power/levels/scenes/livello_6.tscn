@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://n05noolok634"]
+
+[ext_resource type="PackedScene" uid="uid://ceupxn5q6tn45" path="res://scenes/mappa_06.tscn" id="1_3qilh"]
+
+[node name="livello_6" type="Node2D"]
+
+[node name="mappa06" parent="." instance=ExtResource("1_3qilh")]
+position = Vector2(273, -198)

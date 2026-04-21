@@ -10,6 +10,7 @@ var quest_completata = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Musica.gaming_music.play()
 	# l'inventario del player (e di Progress) qui deve essere vuoto
 	$player.inv.clean()
 	for slot in Progress.inventory.slots:

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvw7uoq4ggk44"]
+
+[ext_resource type="PackedScene" uid="uid://dulg5ecfdm460" path="res://scenes/mappa_05.tscn" id="1_414vw"]
+
+[node name="livello_5" type="Node2D"]
+
+[node name="mappa05" parent="." instance=ExtResource("1_414vw")]

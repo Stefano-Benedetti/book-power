@@ -9,6 +9,8 @@ func _ready() -> void:
 	$Control/settings.hide()
 	$Control/newgame.hide()
 	
+	Musica.menu_music.play()
+	
 	SaveSystem.save_succeeded.connect(_on_save_end)
 	SaveSystem.save_failed.connect(_on_save_end)
 	

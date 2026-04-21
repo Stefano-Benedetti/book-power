@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://haf6v8ceqqhv"
+path="res://.godot/imported/Grieg Peer Gynt Suite No. 1, Op. 46 - I. Morning Mood.mp3-f63b3f03d9e52917eced28481d1f059a.mp3str"
+
+[deps]
+
+source_file="res://sound/music/Grieg Peer Gynt Suite No. 1, Op. 46 - I. Morning Mood.mp3"
+dest_files=["res://.godot/imported/Grieg Peer Gynt Suite No. 1, Op. 46 - I. Morning Mood.mp3-f63b3f03d9e52917eced28481d1f059a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

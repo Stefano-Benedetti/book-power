@@ -3,6 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Musica.gaming_music.play()
 	# carico inventario player
 	$player.inv.clean()
 	for slot in Progress.inventory.slots:

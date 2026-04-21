@@ -15,6 +15,7 @@ var player_in_cave_exit = false
 var player
 
 func _ready() -> void:
+	Musica.gaming_music.play()
 	# carico inventario player
 	$player.inv.clean()
 	for slot in Progress.inventory.slots:

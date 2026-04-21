@@ -8,12 +8,13 @@
 script = ExtResource("1_obftc")
 
 [node name="mappa00" parent="." instance=ExtResource("1_uxsb8")]
+position = Vector2(273, -198)
 
 [node name="player" parent="." instance=ExtResource("2_obftc")]
 z_index = 3
 y_sort_enabled = true
-position = Vector2(350.00003, -138)
+position = Vector2(351.00003, -143)
 scale = Vector2(0.7, 0.7)
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(266, -162)
+position = Vector2(267, -167)
