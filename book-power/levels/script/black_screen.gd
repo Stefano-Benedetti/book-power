@@ -9,10 +9,10 @@ func _process(delta: float) -> void:
 	pass
 
 
-func appari():
+func appari(time_to_show):
 	# Fade in
-	create_tween().tween_property(self, "modulate:a", 1.0, 1)
+	create_tween().tween_property(self, "modulate:a", 1.0, time_to_show)
 
-func sparisci():
+func sparisci(time_to_hide):
 	# Fade out
-	create_tween().tween_property(self, "modulate:a", 0.0, 1)
+	create_tween().tween_property(self, "modulate:a", 0.0, time_to_hide)

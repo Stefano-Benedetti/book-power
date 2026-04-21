@@ -280,15 +280,19 @@ func move_camera():
 			var tween = create_tween()
 			# Muove la camera verso il player
 			tween.tween_interval(2.0)
-			tween.tween_property(cam, "global_position", global_position+Vector2(0,-20), 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+			tween.tween_property(cam, "global_position", global_position+Vector2(10,-20), 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 			# Zoom contemporaneamente
 			tween.parallel().tween_property(cam, "zoom", Vector2(8, 8), 2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
+func zoom_camera_on_player():
+	if get_parent() != null:
+		if get_parent().name == "livello_0":
+			var tween = create_tween()
+			tween.parallel().tween_property(cam, "zoom", Vector2(90, 90), 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-func make_sitted():
-	$AnimatedSprite2D.animation = "right_sitted"
+func make_sit():
+	$AnimatedSprite2D.animation = "right_sit"
 	$AnimatedSprite2D.frame = 0
 
 func make_sleep():
-	$AnimatedSprite2D.animation = "right_sitted"
-	$AnimatedSprite2D.frame = 1
+	$AnimatedSprite2D.play("right_sleeping")
