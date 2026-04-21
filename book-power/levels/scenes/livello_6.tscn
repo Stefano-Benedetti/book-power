@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://n05noolok634"]
+[gd_scene load_steps=3 format=3 uid="uid://n05noolok634"]
 
-[ext_resource type="PackedScene" uid="uid://ceupxn5q6tn45" path="res://scenes/mappa_06.tscn" id="1_3qilh"]
+[ext_resource type="PackedScene" uid="uid://ceupxn5q6tn45" path="res://maps/scenes/mappa_06.tscn" id="1_3qilh"]
+[ext_resource type="Script" uid="uid://b3qum51pdmgos" path="res://levels/script/livello_6.gd" id="1_o1qll"]
 
 [node name="livello_6" type="Node2D"]
+script = ExtResource("1_o1qll")
 
 [node name="mappa06" parent="." instance=ExtResource("1_3qilh")]
 position = Vector2(273, -198)

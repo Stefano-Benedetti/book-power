@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dq3jkummxung"]
 
 [ext_resource type="Script" uid="uid://bx8n51aljh8xa" path="res://levels/script/livello_0.gd" id="1_obftc"]
-[ext_resource type="PackedScene" uid="uid://eblgi7tq50qk" path="res://scenes/mappa_00.tscn" id="1_uxsb8"]
+[ext_resource type="PackedScene" uid="uid://eblgi7tq50qk" path="res://maps/scenes/mappa_00.tscn" id="1_uxsb8"]
 [ext_resource type="PackedScene" uid="uid://ckwr713fqij6n" path="res://scenes/player.tscn" id="2_obftc"]
-[ext_resource type="Script" uid="uid://b73uroh6poypx" path="res://levels/script/black_screen.gd" id="4_ruehx"]
+[ext_resource type="Script" path="res://levels/script/black_screen.gd" id="4_ruehx"]
 
 [node name="livello_0" type="Node2D"]
 script = ExtResource("1_obftc")

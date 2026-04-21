@@ -11,6 +11,7 @@ var quest_completata = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Musica.gaming_music.play()
+	
 	# l'inventario del player (e di Progress) qui deve essere vuoto
 	$player.inv.clean()
 	for slot in Progress.inventory.slots:
@@ -59,5 +60,7 @@ func _on_to_next_level_body_shape_entered(body_rid: RID, body: Node2D, body_shap
 		#salvataggio dati
 		var data = Global.getData()
 		SaveSystem.save_data(data)
+		
+		Musica.stopMusic()
 		
 		get_parent().loadNextLevel()

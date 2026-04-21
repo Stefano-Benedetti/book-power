@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c8rs30phkkd0r" path="res://scenes/casella_dialogo.tscn" id="7_mekmw"]
 [ext_resource type="PackedScene" uid="uid://da82dug1vut1e" path="res://menus/scenes/pause_menu.tscn" id="8_6byl5"]
 [ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="9_l2rcj"]
-[ext_resource type="PackedScene" uid="uid://cwnrexdwh3j1f" path="res://scenes/mappa_02.tscn" id="10_qp0i7"]
+[ext_resource type="PackedScene" uid="uid://cwnrexdwh3j1f" path="res://maps/scenes/mappa_02.tscn" id="10_qp0i7"]
 [ext_resource type="PackedScene" uid="uid://bdyg3nigp8cpo" path="res://characters/scenes/enemy.tscn" id="14_mekmw"]
 [ext_resource type="PackedScene" uid="uid://dwroxtcbkxdus" path="res://objects_pickable/scenes/libro_elettrotecnica.tscn" id="15_6byl5"]
 [ext_resource type="PackedScene" uid="uid://s4sgnvd5jpqj" path="res://objects_pickable/scenes/health_potion.tscn" id="16_l2rcj"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://dotk8wkljroor"]
 
 [ext_resource type="Script" uid="uid://dk03medwanjub" path="res://levels/script/livello_1.gd" id="1_55gh7"]
-[ext_resource type="PackedScene" uid="uid://5qac7823w8cl" path="res://scenes/mappa_01.tscn" id="1_icrkw"]
+[ext_resource type="PackedScene" uid="uid://5qac7823w8cl" path="res://maps/scenes/mappa_01.tscn" id="1_icrkw"]
 [ext_resource type="PackedScene" uid="uid://c4wlaldocgqtl" path="res://touch_controls/scenes/touch_contols.tscn" id="2_m2jwi"]
 [ext_resource type="Resource" uid="uid://cd2ncmd3tm8dy" path="res://inventory/items/moneta_bronzo.tres" id="2_xk28k"]
 [ext_resource type="PackedScene" uid="uid://b5axlii2oyhdf" path="res://scenes/selectedItem_slot.tscn" id="3_eoc0k"]

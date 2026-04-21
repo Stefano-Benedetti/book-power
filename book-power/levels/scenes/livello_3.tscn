@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://lakebj3hfh7g"]
 
 [ext_resource type="Script" uid="uid://y1ccwa01wasr" path="res://levels/script/livello_3.gd" id="1_2dpvf"]
-[ext_resource type="PackedScene" uid="uid://dbl6qfpdg73ma" path="res://scenes/mappa_03.tscn" id="1_whg46"]
+[ext_resource type="PackedScene" uid="uid://dbl6qfpdg73ma" path="res://maps/scenes/mappa_03.tscn" id="1_whg46"]
 [ext_resource type="PackedScene" uid="uid://ckwr713fqij6n" path="res://scenes/player.tscn" id="2_bucqw"]
 [ext_resource type="PackedScene" uid="uid://b5x5dbko4mw4h" path="res://characters/scenes/npc_fuoricorso.tscn" id="3_8u7u8"]
 [ext_resource type="PackedScene" uid="uid://ormd5fwveh3q" path="res://scenes/to_next_level.tscn" id="4_8fypu"]

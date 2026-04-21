@@ -31,3 +31,6 @@ parameters/looping = true
 stream = ExtResource("5_yk83u")
 bus = &"Music"
 parameters/looping = true
+
+[node name="boss_music" type="AudioStreamPlayer" parent="."]
+bus = &"Music"

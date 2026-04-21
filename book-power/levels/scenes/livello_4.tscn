@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://c7q3anbqtjy0n"]
 
 [ext_resource type="Script" uid="uid://bs431npcmmv2s" path="res://levels/script/livello_4.gd" id="1_3j3hp"]
-[ext_resource type="PackedScene" uid="uid://cfrovdukqneaj" path="res://scenes/mappa_04.tscn" id="1_r6f3t"]
+[ext_resource type="PackedScene" uid="uid://cfrovdukqneaj" path="res://maps/scenes/mappa_04.tscn" id="1_r6f3t"]
 [ext_resource type="PackedScene" uid="uid://ckwr713fqij6n" path="res://scenes/player.tscn" id="2_e4j1e"]
 [ext_resource type="Resource" uid="uid://4b2wbsl1vx2u" path="res://inventory/items/access_point.tres" id="2_ms8rw"]
 [ext_resource type="Resource" uid="uid://bl6hkk3gjnss2" path="res://inventory/player_inventory.tres" id="3_qlehc"]

@@ -3,6 +3,7 @@ extends Node2D
 
 func _ready() -> void:
 	Musica.gaming_music.play()
+	
 	# carico inventario player
 	$player.inv.clean()
 	for slot in Progress.inventory.slots:
@@ -30,6 +31,8 @@ func _on_to_next_level_body_entered(body: Node2D) -> void:
 		#salvataggio dati
 		var data = Global.getData()
 		SaveSystem.save_data(data)
+		
+		Musica.stopMusic()
 		
 		get_parent().loadNextLevel()
 

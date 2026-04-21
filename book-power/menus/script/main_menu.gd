@@ -3,13 +3,13 @@ extends Control
 var _save_done := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Musica.menu_music.play()
+	
 	$ConfirmNewgame.hide()
 	$Control/HBoxContainer.hide()
 	$Control/logreg.hide()
 	$Control/settings.hide()
 	$Control/newgame.hide()
-	
-	Musica.menu_music.play()
 	
 	SaveSystem.save_succeeded.connect(_on_save_end)
 	SaveSystem.save_failed.connect(_on_save_end)
@@ -31,6 +31,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_play_pressed():
+	Musica.stopMusic()
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 	
 func _on_logreg_pressed() -> void:

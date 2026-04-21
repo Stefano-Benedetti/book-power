@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvw7uoq4ggk44"]
+[gd_scene load_steps=3 format=3 uid="uid://dvw7uoq4ggk44"]
 
-[ext_resource type="PackedScene" uid="uid://dulg5ecfdm460" path="res://scenes/mappa_05.tscn" id="1_414vw"]
+[ext_resource type="PackedScene" uid="uid://dulg5ecfdm460" path="res://maps/scenes/mappa_05.tscn" id="1_414vw"]
+[ext_resource type="Script" uid="uid://yremuj8a4k4n" path="res://levels/script/livello_5.gd" id="1_mmhjb"]
 
 [node name="livello_5" type="Node2D"]
+script = ExtResource("1_mmhjb")
 
 [node name="mappa05" parent="." instance=ExtResource("1_414vw")]
