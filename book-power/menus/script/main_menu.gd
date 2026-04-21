@@ -3,7 +3,8 @@ extends Control
 var _save_done := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Musica.menu_music.play()
+	if not Musica.menu_music.playing:
+		Musica.menu_music.play()
 	
 	$ConfirmNewgame.hide()
 	$Control/HBoxContainer.hide()
@@ -115,7 +116,7 @@ func _on_newgame_pressed() -> void:
 func _on_yes_pressed() -> void:
 	DirAccess.remove_absolute("user://data.save")
 	$Label.text = "New game loaded, old game was deleted."
-	Progress.livello_corrente = 1
+	Progress.livello_corrente = 0
 	Progress.inventory.clean()
 	var data = Global.getData()
 	SaveSystem.save_data(data)
