@@ -6,7 +6,7 @@
 [node name="game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_lnu2h")
-livello_partenza = 1
+usa_file = false
 
 [node name="loading_screen" parent="." instance=ExtResource("2_lbhrr")]
 process_mode = 3

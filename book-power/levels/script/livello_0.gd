@@ -27,5 +27,5 @@ func sequenza_scena():
 	$player.zoom_camera_on_player()
 	$CanvasLayer/black_screen.appari(0.3)
 	Musica.stopMusic()
-	
+	await get_tree().create_timer(0.2).timeout
 	get_parent().loadNextLevel()
