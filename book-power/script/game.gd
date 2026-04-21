@@ -8,7 +8,7 @@ extends Node2D
 var indice_livello: int = 0
 
 func _ready() -> void:
-	if usa_file:   #per debugging
+	if usa_file:   #per debugging DA TOGLIERE!!!!!!!!!
 		livello_partenza = Progress.livello_corrente
 	livelli = [
 		preload("res://levels/scenes/livello_0.tscn"),

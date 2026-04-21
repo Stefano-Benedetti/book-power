@@ -1,6 +1,6 @@
 extends Node
 
-var livello_corrente = 1
+var livello_corrente = 0
 @onready var inventory: Inv = preload("res://inventory/progress_inventory.tres")
 
 func _ready() -> void:
