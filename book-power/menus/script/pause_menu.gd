@@ -42,6 +42,7 @@ func _on_quit_pressed():
 	get_tree().paused = false
 	var data = Global.getData()
 	SaveSystem.save_data(data)
+	Musica.stopMusic()
 	get_tree().change_scene_to_file("res://menus/scenes/main_menu.tscn")
 	
 
