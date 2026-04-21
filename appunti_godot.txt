@@ -88,4 +88,33 @@ Per renderlo raggiungibile il player dovrà prendere l'access point da dentro un
 Tornando all'uscita il pc parlante dirà che hai la stoffa per le reti e ti regala il libro di reti.
 
 mappa05 (arena boss fight):
-spawni e c'è l'NPC fuori da una arena che ti dice che sei uno stupido e che adesso che hai preso tutti i libri con tutte le conoscenze che gli servono a laurearsi non dovrà fare altro che rubarteli, quindi ti sfida a duello (con l'intento di vincere e rubarti tutto). Ti avvisa che nonostante non abbia nessun libro, ha l'abbonamento a MessageGPT premium, che è in grado di fare più o meno gli stessi attacchi tuoi, ma non gli è mai bastato per laurerarsi. Confida sul fatto che nonostante i libri siano migliori, tu sei troppo stupido per usarli correttamente. Quindi l'NPC si sposta al centro dell'arena, diventa grosso cattivo e appena entri si chiude l'arena e inizia a farti attacchi che hanno un raggio di azione che occupa tutta l'arena. Gli attacchi sono parzialmente causali (scelta casuale da più pattern di sequenze di attacchi).
+spawni e c'è l'NPC fuori da una arena che ti dice che sei uno stupido e che adesso che hai preso tutti i libri con tutte le conoscenze che gli servono a laurearsi
+non dovrà fare altro che rubarteli, quindi ti sfida a duello (con l'intento di vincere e rubarti tutto). Ti avvisa che nonostante non abbia nessun libro, ha
+l'abbonamento a MessageGPT premium, che è in grado di fare più o meno gli stessi attacchi tuoi, ma non gli è mai bastato per laurerarsi. Confida sul fatto che
+nonostante i libri siano migliori, tu sei troppo stupido per usarli correttamente. Quindi l'NPC si sposta al centro dell'arena, diventa grosso cattivo e appena
+entri si chiude l'arena e inizia a farti attacchi che hanno un raggio di azione che occupa tutta l'arena.
+Gli attacchi sono parzialmente causali (scelta casuale da più pattern di sequenze di attacchi).
+
+
+
+
+prossime cose da fare:
+mappa05
+livello_5
+diaologo pre-fight NPC "cattivo"
+animazioni chiusura dell'arena mappa05 (opzionale)
+decidere meglio come dovrà attaccare l'NPC
+trovare musica di sottofondo per boss-fight
+
+fix finali:
+Sistemare y sort dello sgabello in mappa01
+Sistemare y sort degli assi davanti la porta della casa in mappa01
+rifare tutto il layer "camminabile" di mappa01
+sistemare danni di ogni attacco del player
+decidere se inserire un cooldown diverso per ogni attacco
+inserire dei suoni per ogni mini-quest completata (es.
+	mappa02: accensione quadro elettrico, apertura sbarra
+	mappa03: attacco robot, apertura chest, interazione pc, robot che se ne va
+	mappa04: accensione di ogni pc, posizionamento AP)
+inserire una nuvoletta sul player che dice qualcosa quando il player si avvicina a un oggetto con cui deve interagire per andare avanti
+	cosa scrivere nella nuvoletta andrà indicato nello script dell'oggetto con cui deve interagire il player
