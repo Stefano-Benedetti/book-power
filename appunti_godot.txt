@@ -99,8 +99,6 @@ Gli attacchi sono parzialmente causali (scelta casuale da più pattern di sequen
 
 
 prossime cose da fare:
-mappa05
-livello_5
 diaologo pre-fight NPC "cattivo"
 animazioni chiusura dell'arena mappa05 (opzionale)
 decidere meglio come dovrà attaccare l'NPC
@@ -118,3 +116,9 @@ inserire dei suoni per ogni mini-quest completata (es.
 	mappa04: accensione di ogni pc, posizionamento AP)
 inserire una nuvoletta sul player che dice qualcosa quando il player si avvicina a un oggetto con cui deve interagire per andare avanti
 	cosa scrivere nella nuvoletta andrà indicato nello script dell'oggetto con cui deve interagire il player
+modificare menu login conferma origine dati
+
+
+
+CREDITI:
+i tizi del character generator volevano una pagina di crediti enorme, gli ho messo direttamente il link alla loro repo

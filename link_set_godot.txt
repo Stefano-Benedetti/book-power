@@ -13,25 +13,25 @@ robot set link:
 https://art-man-oil.itch.io/bots-and-bolts-player
 
 bat set link:
-https://opengameart.org/content/bat-sprite
+https://opengameart.org/content/bat-sprite	[NON SPECIFICA NULLA SUI CREDITI MA SERVONO]
 
 
-tile set link:
+tile set link:		[NON UTILIZZABILE IN PROGETTI COMMERCIALI, A MENO CHE NON PAGHI. IL NOSTRO E' COMMERCIALE??]
 https://starmixu.itch.io/little-dreamyland-asset-pack
 
 asset pixel crawler (per le case) link:
-https://anokolisa.itch.io/free-pixel-art-asset-pack-topdown-tileset-rpg-16x16-sprites
+https://anokolisa.itch.io/free-pixel-art-asset-pack-topdown-tileset-rpg-16x16-sprites	[CREDITI NON NECESSARI]
 
 asset interni Pixel Lands Interiors Demo link:
-https://trislin.itch.io/pixel-lands-interiors
+https://trislin.itch.io/pixel-lands-interiors	[CREDITI NON NECESSARI]
 
 asset city cars link:
-https://ipixl.itch.io/city-cars
+https://ipixl.itch.io/city-cars		[NON SPECIFICA NULLA SUI CREDITI]
 
 asset city CP_V1.1.0... link:
 https://nyknck.itch.io/citypackpixelart
 
-asset pixelinterior link:
+asset pixelinterior link:	[CREDITI NON NECESSARI]
 https://bitglow.itch.io/pixelinterior-livingroomkitchen
 https://bitglow.itch.io/pixelinterior-bedroom
 
@@ -43,16 +43,16 @@ set per l'inventario
 https://bdragon1727.itch.io/border-and-panels-menu-part-1
 
 kit di bottoni
-https://rad-potato.itch.io/pixel-perfect-button-kit
+https://rad-potato.itch.io/pixel-perfect-button-kit	[CREDITI NON NECESSARI]
 
-health bar player link:
+health bar player link:		[CREDITI NON NECESSARI]
 https://makertech.itch.io/additional-art-for-godot-4-tutorial/download/eyJleHBpcmVzIjoxNzcyNzIyMTIxLCJpZCI6MjE3NjEwOH0%3d.mogF7%2bVuzY2Wzr4zDjG2Q8v7rg4%3d
 
-explosion asset link:
+explosion asset link:	[CREDITI NON NECESSARI]
 https://darkcesium.itch.io/pixel-art-explosions-free-pack
 
-lightning asset link:
+lightning asset link:	[CREDITI NON NECESSARI]
 https://xyezawr.itch.io/free-pixel-effects-pack-14-mini-magick-shoots-4
 
-asset pc (e altri oggetti di arredamento interno) link:
+asset pc (e altri oggetti di arredamento interno) link:		[CREDITI NON NECESSARI]
 https://alec-the-wizard.itch.io/modern-world-borderless-tileset-mega-pack
