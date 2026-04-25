@@ -123,3 +123,12 @@ l'attacco di reti lagga di brutto
 
 CREDITI:
 i tizi del character generator volevano una pagina di crediti enorme, gli ho messo direttamente il link alla loro repo
+
+
+attacchi di NPC_fuoricorso:
+spawna 4 sinusoidi (tipo libro di analisi) che prendono tutta la mappa.
+spawna linked-list a X nella mappa.
+spawna alberi rosso neri (come l'attacco del player) ma in tutte le direzione, se gli stai vicino in pratica ti colpisce
+ogni 3 colpi che spara decide di scappare velocemente sottoforma di scarica elettrica
+spawna i vecchietti
+spara un pacchetto enorme in una direzione
