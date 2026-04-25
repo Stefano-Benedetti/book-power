@@ -1,22 +1,22 @@
 extends Node2D
 
+@onready var firewall = $TileMap/temporary_objects
+
 func _ready() -> void:
 	removeFireWall()
 	Global.placeFireWall.connect(placeFireWall)
 	
 func removeFireWall():
-	var tmp := get_node_or_null("TileMap/temporary_objects")
-	if tmp.visible:
-		tmp.collision_enabled = false
-		tmp.hide()
+	if firewall.visible:
+		firewall.collision_enabled = false
+		firewall.hide()
 
 func placeFireWall():
-	var tmp := get_node_or_null("TileMap/temporary_objects")
-	if not tmp.visible:
-		tmp.collision_enabled = true
-		tmp.show()
+	if not firewall.visible:
+		firewall.collision_enabled = true
+		firewall.show()
 
 
 func _on_area_dialogo_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
+	if body.has_method("player"):	#opportuno verificare anche che non stai già combattendo
 		placeFireWall()
