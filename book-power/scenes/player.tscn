@@ -627,7 +627,7 @@ inv = SubResource("Resource_dqkch")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_y4r1p")
-animation = &"right_sleeping"
+animation = &"front_walk"
 offset = Vector2(0, -26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

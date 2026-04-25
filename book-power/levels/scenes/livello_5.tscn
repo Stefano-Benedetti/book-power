@@ -23,7 +23,7 @@ y_sort_enabled = true
 
 [node name="player" parent="." instance=ExtResource("3_p7v80")]
 y_sort_enabled = true
-position = Vector2(362, -368)
+position = Vector2(263, -369)
 SPEED = 70
 inv = ExtResource("4_klcqu")
 
@@ -75,7 +75,7 @@ mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("12_cpivs")]
-position = Vector2(456.99997, -375.99997)
+position = Vector2(454.99997, -368)
 fighting = true
 
 [node name="casual_boss_destination" parent="." instance=ExtResource("13_qpsbh")]

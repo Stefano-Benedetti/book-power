@@ -39,7 +39,7 @@ var dialoghi_robot := {
 var dialoghi_per_quest := {
 	0: [
 		"Hi, you seem new around here. I remember how hard the first year was, luckily I'm at my eigth year now! Computer Engineering is hard for sure.",
-		"While you're here, would you do me a favor? I need 2 euros to get potato chips at the vending machine. You can steal 50 cents from each one of the old dudes wondering around the place.",
+		"While you're here, would you do me a favor? I need 2 euros to get potato chips at the vending machine. You can steal 50 cents from each one of the old dudes wandering around the place.",
 		"Watch out, they are very bad people and will try to demotivate you as soon as you get close to them. They will say very mean things to you that will eventually push you to drop out of university.",
 		"Take this book, this will help you in studying and keeping your motivation. Good luck!"
 	],
