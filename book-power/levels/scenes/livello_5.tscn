@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dvw7uoq4ggk44"]
+[gd_scene load_steps=14 format=3 uid="uid://dvw7uoq4ggk44"]
 
 [ext_resource type="PackedScene" uid="uid://dulg5ecfdm460" path="res://maps/scenes/mappa_05.tscn" id="1_414vw"]
 [ext_resource type="Script" uid="uid://yremuj8a4k4n" path="res://levels/script/livello_5.gd" id="1_mmhjb"]
@@ -12,14 +12,18 @@
 [ext_resource type="PackedScene" uid="uid://b5x5dbko4mw4h" path="res://characters/scenes/npc_fuoricorso.tscn" id="12_cpivs"]
 [ext_resource type="PackedScene" uid="uid://da82dug1vut1e" path="res://menus/scenes/pause_menu.tscn" id="12_m3uv8"]
 [ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="13_fkvwp"]
+[ext_resource type="PackedScene" uid="uid://brtsthacom3p0" path="res://scenes/casual_boss_destination.tscn" id="13_qpsbh"]
 
 [node name="livello_5" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_mmhjb")
 
 [node name="mappa05" parent="." instance=ExtResource("1_414vw")]
+y_sort_enabled = true
 
 [node name="player" parent="." instance=ExtResource("3_p7v80")]
-position = Vector2(217, -363)
+y_sort_enabled = true
+position = Vector2(362, -368)
 SPEED = 70
 inv = ExtResource("4_klcqu")
 
@@ -72,3 +76,52 @@ metadata/_edit_use_anchors_ = true
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("12_cpivs")]
 position = Vector2(456.99997, -375.99997)
+fighting = true
+
+[node name="casual_boss_destination" parent="." instance=ExtResource("13_qpsbh")]
+position = Vector2(405, -456)
+
+[node name="casual_boss_destination2" parent="." instance=ExtResource("13_qpsbh")]
+position = Vector2(407, -562)
+
+[node name="casual_boss_destination3" parent="." instance=ExtResource("13_qpsbh")]
+position = Vector2(490, -526)
+
+[node name="casual_boss_destination4" parent="." instance=ExtResource("13_qpsbh")]
+position = Vector2(310, -487)
+
+[node name="casual_boss_destination5" parent="." instance=ExtResource("13_qpsbh")]
+position = Vector2(292, -398)
+
+[node name="casual_boss_destination6" parent="." instance=ExtResource("13_qpsbh")]
+position = Vector2(294, -294)
+
+[node name="casual_boss_destination7" parent="." instance=ExtResource("13_qpsbh")]
+position = Vector2(607, -501)
+
+[node name="casual_boss_destination8" parent="." instance=ExtResource("13_qpsbh")]
+position = Vector2(663, -403)
+
+[node name="casual_boss_destination9" parent="." instance=ExtResource("13_qpsbh")]
+position = Vector2(557, -431)
+
+[node name="casual_boss_destination10" parent="." instance=ExtResource("13_qpsbh")]
+position = Vector2(557, -431)
+
+[node name="casual_boss_destination11" parent="." instance=ExtResource("13_qpsbh")]
+position = Vector2(625, -338)
+
+[node name="casual_boss_destination12" parent="." instance=ExtResource("13_qpsbh")]
+position = Vector2(543, -296)
+
+[node name="casual_boss_destination13" parent="." instance=ExtResource("13_qpsbh")]
+position = Vector2(538, -182)
+
+[node name="casual_boss_destination14" parent="." instance=ExtResource("13_qpsbh")]
+position = Vector2(420, -163)
+
+[node name="casual_boss_destination15" parent="." instance=ExtResource("13_qpsbh")]
+position = Vector2(347, -211)
+
+[node name="casual_boss_destination16" parent="." instance=ExtResource("13_qpsbh")]
+position = Vector2(433, -322)

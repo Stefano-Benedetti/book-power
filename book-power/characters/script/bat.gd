@@ -180,7 +180,6 @@ func mod_dir_and_velocity(direction):
 			velocity = Vector2(0, -SPEED)
 
 
-#funzione per gestire le animazioni del player, movement=1 => ci stiamo muovendo
 func play_anim():
 	var anim = $AnimatedSprite2D
 	if current_dir == "right":

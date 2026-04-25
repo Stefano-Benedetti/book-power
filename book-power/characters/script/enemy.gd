@@ -171,7 +171,7 @@ func enemy_movement(delta):
 	move_and_slide()
 
 
-#funzione per gestire le animazioni del player, movement=1 => ci stiamo muovendo
+#funzione per gestire le animazioni del nemico, movement=1 => ci stiamo muovendo
 func play_anim(movement, attaccando):
 	var anim = $AnimatedSprite2D
 	if current_dir == "right":
