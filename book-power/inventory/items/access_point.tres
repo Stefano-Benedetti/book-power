@@ -8,4 +8,4 @@ script = ExtResource("1_qvgie")
 name = "access_point"
 texture = ExtResource("2_qvgie")
 title = "Access Point"
-description = "aaaaaaaaaaaaaaaaaa"
+description = "This device is needed to set up a wireless LAN."
