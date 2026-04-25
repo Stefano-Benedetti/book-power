@@ -118,6 +118,7 @@ inserire una nuvoletta sul player che dice qualcosa quando il player si avvicina
 	cosa scrivere nella nuvoletta andrà indicato nello script dell'oggetto con cui deve interagire il player
 modificare menu login conferma origine dati
 controllare che l'attacco di reti colpisca anche i pipistrelli
+l'attacco di reti lagga di brutto
 
 
 CREDITI:
