@@ -47,6 +47,7 @@ enabled=PackedStringArray()
 
 casual_boss_destination="punti tra i quali il boss sceglie di muoversi casualmente"
 spawn_attacco_analisi_verticale="punti in cui si genererà il coseno dell'attacco di analisi del boss"
+spawn_attacco_analisi_orizzontale=""
 
 [input]
 

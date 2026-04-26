@@ -89,7 +89,7 @@ func fight_behavior(_delta):
 		NPC_movement(_delta)
 
 func NPC_attack():
-	generate_attacco_analisi_verticale()
+	generate_attacco_analisi()
 	fermo = true
 	can_attack = false
 	can_move = false
@@ -98,8 +98,13 @@ func NPC_attack():
 	play_anim(0,1)
 	#crea attacco...
 
-func generate_attacco_analisi_verticale():
-	var generation_points = get_tree().get_nodes_in_group("spawn_attacco_analisi_verticale")
+func generate_attacco_analisi():
+	var coseni_verticali = randi_range(0, 1) == 1
+	var generation_points = []
+	if coseni_verticali:
+		generation_points = get_tree().get_nodes_in_group("spawn_attacco_analisi_verticale")
+	else:
+		generation_points = get_tree().get_nodes_in_group("spawn_attacco_analisi_orizzontale")
 	var coseni_da_generare = randi_range(4, 7)
 	var used_points = []
 	for i in range(0, coseni_da_generare):
@@ -109,7 +114,8 @@ func generate_attacco_analisi_verticale():
 	for point in used_points:
 		var scena_attacco_analisi = attacco_analisi.instantiate()
 		scena_attacco_analisi.global_position = point.global_position
-		scena_attacco_analisi.rotation = deg_to_rad(90)
+		if coseni_verticali:
+			scena_attacco_analisi.rotation = deg_to_rad(90)
 		get_tree().current_scene.add_child(scena_attacco_analisi)
 
 

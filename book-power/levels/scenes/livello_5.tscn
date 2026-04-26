@@ -19,7 +19,6 @@ y_sort_enabled = true
 script = ExtResource("1_mmhjb")
 
 [node name="mappa05" parent="." instance=ExtResource("1_414vw")]
-y_sort_enabled = true
 
 [node name="player" parent="." instance=ExtResource("3_p7v80")]
 y_sort_enabled = true
@@ -129,48 +128,94 @@ position = Vector2(347, -211)
 position = Vector2(433, -322)
 
 [node name="punti_attacco_analisi_verticale" type="Node2D" parent="."]
-position = Vector2(454, -363)
+position = Vector2(456, -367)
 
 [node name="Marker2D" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
-position = Vector2(-88, 1)
+position = Vector2(-88, 0)
 gizmo_extents = 20.0
 
 [node name="Marker2D3" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
-position = Vector2(88, 1)
+position = Vector2(88, 0)
 gizmo_extents = 20.0
 
 [node name="Marker2D5" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
-position = Vector2(-132, 1)
+position = Vector2(-132, 0)
 gizmo_extents = 20.0
 
 [node name="Marker2D10" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
-position = Vector2(132, 1)
+position = Vector2(132, 0)
 gizmo_extents = 20.0
 
 [node name="Marker2D6" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
-position = Vector2(-220, 1)
+position = Vector2(-220, 0)
 gizmo_extents = 20.0
 
 [node name="Marker2D11" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
-position = Vector2(220, 1)
+position = Vector2(220, 0)
 gizmo_extents = 20.0
 
 [node name="Marker2D7" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
-position = Vector2(-44, 1)
+position = Vector2(-44, 0)
 gizmo_extents = 20.0
 
 [node name="Marker2D9" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
-position = Vector2(44, 1)
+position = Vector2(44, 0)
 gizmo_extents = 20.0
 
 [node name="Marker2D8" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
-position = Vector2(0, 1)
 gizmo_extents = 20.0
 
 [node name="Marker2D2" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
-position = Vector2(-176, 1)
+position = Vector2(-176, 0)
 gizmo_extents = 20.0
 
 [node name="Marker2D4" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
-position = Vector2(176, 1)
+position = Vector2(176, 0)
+gizmo_extents = 20.0
+
+[node name="punti_attacco_analisi_orizzontale" type="Node2D" parent="."]
+position = Vector2(456, -367)
+rotation = 1.5707964
+
+[node name="Marker2D" type="Marker2D" parent="punti_attacco_analisi_orizzontale" groups=["spawn_attacco_analisi_orizzontale"]]
+position = Vector2(-88, 0)
+gizmo_extents = 20.0
+
+[node name="Marker2D3" type="Marker2D" parent="punti_attacco_analisi_orizzontale" groups=["spawn_attacco_analisi_orizzontale"]]
+position = Vector2(88, 0)
+gizmo_extents = 20.0
+
+[node name="Marker2D5" type="Marker2D" parent="punti_attacco_analisi_orizzontale" groups=["spawn_attacco_analisi_orizzontale"]]
+position = Vector2(-132, 0)
+gizmo_extents = 20.0
+
+[node name="Marker2D10" type="Marker2D" parent="punti_attacco_analisi_orizzontale" groups=["spawn_attacco_analisi_orizzontale"]]
+position = Vector2(132, 0)
+gizmo_extents = 20.0
+
+[node name="Marker2D6" type="Marker2D" parent="punti_attacco_analisi_orizzontale" groups=["spawn_attacco_analisi_orizzontale"]]
+position = Vector2(-220, 0)
+gizmo_extents = 20.0
+
+[node name="Marker2D11" type="Marker2D" parent="punti_attacco_analisi_orizzontale" groups=["spawn_attacco_analisi_orizzontale"]]
+position = Vector2(220, 0)
+gizmo_extents = 20.0
+
+[node name="Marker2D7" type="Marker2D" parent="punti_attacco_analisi_orizzontale" groups=["spawn_attacco_analisi_orizzontale"]]
+position = Vector2(-44, 0)
+gizmo_extents = 20.0
+
+[node name="Marker2D9" type="Marker2D" parent="punti_attacco_analisi_orizzontale" groups=["spawn_attacco_analisi_orizzontale"]]
+position = Vector2(44, 0)
+gizmo_extents = 20.0
+
+[node name="Marker2D8" type="Marker2D" parent="punti_attacco_analisi_orizzontale" groups=["spawn_attacco_analisi_orizzontale"]]
+gizmo_extents = 20.0
+
+[node name="Marker2D2" type="Marker2D" parent="punti_attacco_analisi_orizzontale" groups=["spawn_attacco_analisi_orizzontale"]]
+position = Vector2(-176, 0)
+gizmo_extents = 20.0
+
+[node name="Marker2D4" type="Marker2D" parent="punti_attacco_analisi_orizzontale" groups=["spawn_attacco_analisi_orizzontale"]]
+position = Vector2(176, 0)
 gizmo_extents = 20.0
