@@ -34,11 +34,11 @@ signal fine_dialogo_computer
 
 signal removeFireWall
 
-signal placeFireWall
-
 signal start_player_dialog
 
 signal fine_dialogo_player
+
+signal morte_fuoricorso
 
 func getData():
 	

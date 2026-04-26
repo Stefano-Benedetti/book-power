@@ -2,9 +2,17 @@ extends Node2D
 
 @onready var firewall = $TileMap/temporary_objects
 
+var parlato = false
+
+var player_in_talkArea = false
+
 func _ready() -> void:
+	Global.removeFireWall.connect(removeFireWall)
 	removeFireWall()
-	Global.placeFireWall.connect(placeFireWall)
+	
+func _process(delta: float) -> void:
+	if player_in_talkArea and Input.is_action_just_pressed("Pick_object"):
+			Global.emit_signal("start_dialog")
 	
 func removeFireWall():
 	if firewall.visible:
@@ -18,5 +26,8 @@ func placeFireWall():
 
 
 func _on_area_dialogo_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):	#opportuno verificare anche che non stai già combattendo
+	if !parlato and body.has_method("player"):
+		parlato = true
+		player_in_talkArea = true
 		placeFireWall()
+		Global.emit_signal("start_dialog")

@@ -22,7 +22,7 @@ var current_dir = "down"		#la inizializziamo giù
 @onready var health_bar: TextureProgressBar=$bat_health_bar
 var dead = false
 
-@export var fighting = false
+var fighting = false
 var can_attack = true
 var can_move = true
 var sosta = false
@@ -306,6 +306,7 @@ func getHurt(damage):
 
 func die():
 	dead = true
+	Global.emit_signal("morte_fuoricorso")
 	$AnimatedSprite2D.play("die")
 	await get_tree().create_timer(2.0).timeout #crea un timer di due secondi e aspetta la fine
 	dropObject()

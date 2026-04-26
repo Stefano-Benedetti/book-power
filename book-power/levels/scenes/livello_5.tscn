@@ -22,7 +22,7 @@ script = ExtResource("1_mmhjb")
 
 [node name="player" parent="." instance=ExtResource("3_p7v80")]
 y_sort_enabled = true
-position = Vector2(290, -398)
+position = Vector2(84.000015, -363)
 SPEED = 70
 inv = ExtResource("4_klcqu")
 
@@ -75,7 +75,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("12_cpivs")]
 position = Vector2(454.99997, -368)
-fighting = true
 
 [node name="casual_boss_destinations" type="Node2D" parent="."]
 

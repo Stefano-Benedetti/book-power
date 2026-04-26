@@ -1,11 +1,17 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.fine_dialogo.connect(startBossFight)
+	Global.morte_fuoricorso.connect(bossDeath)
+	
 	Musica.boss_music.play()
+	
+	QuestCounter.quest_corrente = 9
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func bossDeath():
 	pass
+
+func startBossFight():
+	$npc_fuoricorso.fighting = true
