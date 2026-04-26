@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bjnty6uds3a0r" path="res://art/City cars/blueCar_left.png" id="1_xnxpw"]
 
 [node name="casual_boss_destination" type="Marker2D" groups=["casual_boss_destination"]]
-gizmo_extents = 20.0
+gizmo_extents = 15.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

@@ -14,8 +14,6 @@ var dropped = false
 var player_in_talkArea = false
 var player = null
 
-
-
 const SPEED = 60
 var current_dir = "down"		#la inizializziamo giù
 
@@ -24,8 +22,6 @@ var current_dir = "down"		#la inizializziamo giù
 @onready var health_bar: TextureProgressBar=$bat_health_bar
 var dead = false
 
-var player_in_detectionArea = false
-
 @export var fighting = false
 var can_attack = true
 var can_move = true
@@ -33,6 +29,9 @@ var sosta = false
 @onready var attacck_cooldown: Timer=$attackCooldown
 @onready var mov_cooldown: Timer=$movementPostAttackCooldown
 
+@onready var attacco_analisi = preload("res://attacks/scenes/attacco_analisi_boss.tscn")
+
+var player_in_detectionArea = false
 @onready var nav_agent = $NavigationAgent2D  # Collegamento al nodo NavigationAgent2D
 var spawn_point = null
 var escaping_player = false
@@ -90,6 +89,7 @@ func fight_behavior(_delta):
 		NPC_movement(_delta)
 
 func NPC_attack():
+	generate_attacco_analisi_verticale()
 	fermo = true
 	can_attack = false
 	can_move = false
@@ -98,11 +98,20 @@ func NPC_attack():
 	play_anim(0,1)
 	#crea attacco...
 
+func generate_attacco_analisi_verticale():
+	var generation_points = get_tree().get_nodes_in_group("spawn_attacco_analisi_verticale")
+	var coseni_da_generare = randi_range(4, 7)
+	var used_points = []
+	for i in range(0, coseni_da_generare):
+		var temp_point = generation_points.pick_random()
+		used_points.append(temp_point)
+		generation_points.erase(temp_point) #per evitare che riprenda casualmente lo stesso punto di prima
+	for point in used_points:
+		var scena_attacco_analisi = attacco_analisi.instantiate()
+		scena_attacco_analisi.global_position = point.global_position
+		scena_attacco_analisi.rotation = deg_to_rad(90)
+		get_tree().current_scene.add_child(scena_attacco_analisi)
 
-func is_point_reachable(target_point: Vector2, tolerance: float = 2.0) -> bool:
-	var map = nav_agent.get_navigation_map()
-	var closest = NavigationServer2D.map_get_closest_point(map, target_point)
-	return closest.distance_to(target_point) <= tolerance
 
 #restituisce null se si deve fermare, altrimenti restituisce il target
 func calcolo_target():

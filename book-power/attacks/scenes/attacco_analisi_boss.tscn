@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://clsbpandhboea"]
+
+[ext_resource type="Texture2D" uid="uid://df5d66bwbw4yn" path="res://art/coseno/coseno05.png" id="1_rjifc"]
+[ext_resource type="Script" uid="uid://dshr6h8ehh76y" path="res://attacks/script/attacco_analisi_boss.gd" id="1_y6grc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6grc"]
+atlas = ExtResource("1_rjifc")
+region = Rect2(0, 0, 546, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4bkg"]
+atlas = ExtResource("1_rjifc")
+region = Rect2(0, 28, 546, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbs10"]
+atlas = ExtResource("1_rjifc")
+region = Rect2(0, 56, 546, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ijgo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6grc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4bkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbs10")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjifc"]
+size = Vector2(552, 28)
+
+[node name="attacco_analisi_boss" type="Node2D"]
+z_index = 2
+script = ExtResource("1_y6grc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4ijgo")
+frame = 1
+frame_progress = 0.02861435
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -275.0
+offset_top = -14.0
+offset_right = 277.0
+offset_bottom = 14.0
+color = Color(1, 1, 0.21568628, 0.4627451)
+
+[node name="damageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damageArea"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_rjifc")
+
+[connection signal="body_entered" from="damageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="body_exited" from="damageArea" to="." method="_on_damage_area_body_exited"]

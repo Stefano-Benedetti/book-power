@@ -6552,6 +6552,7 @@ sources/1 = SubResource("TileSetAtlasSource_1y5y1")
 radius = 91.00549
 
 [node name="mappa05" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_rljps")
 
 [node name="TileMap" type="TileMap" parent="."]

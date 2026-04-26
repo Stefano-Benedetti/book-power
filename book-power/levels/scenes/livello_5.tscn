@@ -23,7 +23,7 @@ y_sort_enabled = true
 
 [node name="player" parent="." instance=ExtResource("3_p7v80")]
 y_sort_enabled = true
-position = Vector2(263, -369)
+position = Vector2(290, -398)
 SPEED = 70
 inv = ExtResource("4_klcqu")
 
@@ -78,50 +78,99 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(454.99997, -368)
 fighting = true
 
-[node name="casual_boss_destination" parent="." instance=ExtResource("13_qpsbh")]
+[node name="casual_boss_destinations" type="Node2D" parent="."]
+
+[node name="casual_boss_destination" parent="casual_boss_destinations" instance=ExtResource("13_qpsbh")]
 position = Vector2(405, -456)
 
-[node name="casual_boss_destination2" parent="." instance=ExtResource("13_qpsbh")]
+[node name="casual_boss_destination2" parent="casual_boss_destinations" instance=ExtResource("13_qpsbh")]
 position = Vector2(407, -562)
 
-[node name="casual_boss_destination3" parent="." instance=ExtResource("13_qpsbh")]
+[node name="casual_boss_destination3" parent="casual_boss_destinations" instance=ExtResource("13_qpsbh")]
 position = Vector2(490, -526)
 
-[node name="casual_boss_destination4" parent="." instance=ExtResource("13_qpsbh")]
+[node name="casual_boss_destination4" parent="casual_boss_destinations" instance=ExtResource("13_qpsbh")]
 position = Vector2(310, -487)
 
-[node name="casual_boss_destination5" parent="." instance=ExtResource("13_qpsbh")]
+[node name="casual_boss_destination5" parent="casual_boss_destinations" instance=ExtResource("13_qpsbh")]
 position = Vector2(292, -398)
 
-[node name="casual_boss_destination6" parent="." instance=ExtResource("13_qpsbh")]
+[node name="casual_boss_destination6" parent="casual_boss_destinations" instance=ExtResource("13_qpsbh")]
 position = Vector2(294, -294)
 
-[node name="casual_boss_destination7" parent="." instance=ExtResource("13_qpsbh")]
+[node name="casual_boss_destination7" parent="casual_boss_destinations" instance=ExtResource("13_qpsbh")]
 position = Vector2(607, -501)
 
-[node name="casual_boss_destination8" parent="." instance=ExtResource("13_qpsbh")]
+[node name="casual_boss_destination8" parent="casual_boss_destinations" instance=ExtResource("13_qpsbh")]
 position = Vector2(663, -403)
 
-[node name="casual_boss_destination9" parent="." instance=ExtResource("13_qpsbh")]
+[node name="casual_boss_destination9" parent="casual_boss_destinations" instance=ExtResource("13_qpsbh")]
 position = Vector2(557, -431)
 
-[node name="casual_boss_destination10" parent="." instance=ExtResource("13_qpsbh")]
+[node name="casual_boss_destination10" parent="casual_boss_destinations" instance=ExtResource("13_qpsbh")]
 position = Vector2(557, -431)
 
-[node name="casual_boss_destination11" parent="." instance=ExtResource("13_qpsbh")]
+[node name="casual_boss_destination11" parent="casual_boss_destinations" instance=ExtResource("13_qpsbh")]
 position = Vector2(625, -338)
 
-[node name="casual_boss_destination12" parent="." instance=ExtResource("13_qpsbh")]
+[node name="casual_boss_destination12" parent="casual_boss_destinations" instance=ExtResource("13_qpsbh")]
 position = Vector2(543, -296)
 
-[node name="casual_boss_destination13" parent="." instance=ExtResource("13_qpsbh")]
+[node name="casual_boss_destination13" parent="casual_boss_destinations" instance=ExtResource("13_qpsbh")]
 position = Vector2(538, -182)
 
-[node name="casual_boss_destination14" parent="." instance=ExtResource("13_qpsbh")]
+[node name="casual_boss_destination14" parent="casual_boss_destinations" instance=ExtResource("13_qpsbh")]
 position = Vector2(420, -163)
 
-[node name="casual_boss_destination15" parent="." instance=ExtResource("13_qpsbh")]
+[node name="casual_boss_destination15" parent="casual_boss_destinations" instance=ExtResource("13_qpsbh")]
 position = Vector2(347, -211)
 
-[node name="casual_boss_destination16" parent="." instance=ExtResource("13_qpsbh")]
+[node name="casual_boss_destination16" parent="casual_boss_destinations" instance=ExtResource("13_qpsbh")]
 position = Vector2(433, -322)
+
+[node name="punti_attacco_analisi_verticale" type="Node2D" parent="."]
+position = Vector2(454, -363)
+
+[node name="Marker2D" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
+position = Vector2(-88, 1)
+gizmo_extents = 20.0
+
+[node name="Marker2D3" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
+position = Vector2(88, 1)
+gizmo_extents = 20.0
+
+[node name="Marker2D5" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
+position = Vector2(-132, 1)
+gizmo_extents = 20.0
+
+[node name="Marker2D10" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
+position = Vector2(132, 1)
+gizmo_extents = 20.0
+
+[node name="Marker2D6" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
+position = Vector2(-220, 1)
+gizmo_extents = 20.0
+
+[node name="Marker2D11" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
+position = Vector2(220, 1)
+gizmo_extents = 20.0
+
+[node name="Marker2D7" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
+position = Vector2(-44, 1)
+gizmo_extents = 20.0
+
+[node name="Marker2D9" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
+position = Vector2(44, 1)
+gizmo_extents = 20.0
+
+[node name="Marker2D8" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
+position = Vector2(0, 1)
+gizmo_extents = 20.0
+
+[node name="Marker2D2" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
+position = Vector2(-176, 1)
+gizmo_extents = 20.0
+
+[node name="Marker2D4" type="Marker2D" parent="punti_attacco_analisi_verticale" groups=["spawn_attacco_analisi_verticale"]]
+position = Vector2(176, 1)
+gizmo_extents = 20.0
