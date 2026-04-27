@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1ei5rqc3ctvh"]
+
+[ext_resource type="Texture2D" uid="uid://bh6y41u04ehnj" path="res://art/attacco_reti/attacco_reti04.png" id="1_2s32t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s6jd"]
+atlas = ExtResource("1_2s32t")
+region = Rect2(0, 0, 31, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3klv"]
+atlas = ExtResource("1_2s32t")
+region = Rect2(0, 19, 31, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0nc44"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s6jd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3klv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2s32t"]
+radius = 29.274563
+
+[node name="attacco_reti_boss" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0nc44")
+frame_progress = 0.509392
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = -20.0
+offset_right = 602.0
+offset_bottom = 20.0
+color = Color(0.078431375, 1, 1, 0.34509805)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_2s32t")

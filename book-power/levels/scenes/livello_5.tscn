@@ -22,6 +22,7 @@ script = ExtResource("1_mmhjb")
 [node name="mappa05" parent="." instance=ExtResource("1_414vw")]
 
 [node name="player" parent="." instance=ExtResource("3_p7v80")]
+z_index = 3
 y_sort_enabled = true
 position = Vector2(84.000015, -363)
 SPEED = 70
@@ -75,6 +76,7 @@ mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("12_cpivs")]
+z_index = 3
 position = Vector2(454.99997, -368)
 
 [node name="casual_boss_destinations" type="Node2D" parent="."]
