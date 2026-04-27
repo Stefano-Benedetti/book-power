@@ -115,7 +115,7 @@ inserire dei suoni per ogni mini-quest completata (es.
 inserire una nuvoletta sul player che dice qualcosa quando il player si avvicina a un oggetto con cui deve interagire per andare avanti
 	cosa scrivere nella nuvoletta andrà indicato nello script dell'oggetto con cui deve interagire il player
 modificare menu login conferma origine dati
-l'attacco di reti lagga di brutto
+l'attacco di reti lagga di brutto, non attacca npc fuoricorso e va bilanciato
 
 
 CREDITI:
