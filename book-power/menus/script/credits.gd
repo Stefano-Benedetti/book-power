@@ -17,6 +17,8 @@ extends Node2D
 
 func _ready() -> void:
 	
+	Musica.credits_music.play()
+	
 	rtl1.bbcode_enabled = true
 	rtl2.bbcode_enabled = true
 	rtl3.bbcode_enabled = true

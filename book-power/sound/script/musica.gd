@@ -7,6 +7,8 @@ var current_scene
 @onready var level0_music = $level0_music
 @onready var level6_music = $level6_music
 @onready var boss_music = $boss_music
+@onready var credits_music = $credits_music
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

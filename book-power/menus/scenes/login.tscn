@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6hkiqvxdg518"]
+[gd_scene load_steps=16 format=3 uid="uid://c6hkiqvxdg518"]
 
 [ext_resource type="Script" uid="uid://d1gnb3hgbj284" path="res://menus/script/login.gd" id="1_ydcfs"]
 [ext_resource type="Texture2D" uid="uid://c4nyotpyg4gwh" path="res://art/sfondo_main_menu.png" id="2_d2vhw"]
@@ -39,6 +39,15 @@ bg_color = Color(0.02745098, 0.03529412, 0.047058824, 0.7764706)
 bg_color = Color(0.02745098, 0.03529412, 0.047058824, 0.7764706)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h53d6"]
+bg_color = Color(0, 0.037521224, 0.11047176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nre23"]
+bg_color = Color(0, 0.4119606, 0.96652585, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1l5q"]
+bg_color = Color(0, 0.20392546, 0.51404667, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x56uj"]
 
 [node name="Login" type="Control"]
 layout_mode = 3
@@ -164,43 +173,70 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_d2vhw")
 text = "Log out"
 
 [node name="DataChoice" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 179.0
-offset_top = 82.0
-offset_right = 1112.0
-offset_bottom = 598.0
+offset_right = 1280.0
+offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_h53d6")
 
-[node name="Label" type="Label" parent="DataChoice"]
+[node name="MarginContainer" type="MarginContainer" parent="DataChoice"]
+layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 150
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DataChoice/MarginContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="Label" type="Label" parent="DataChoice/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.99607843, 0.7176471, 0, 1)
 theme_override_font_sizes/font_size = 42
-text = "Load the account's remote data from cloud or keep data from local file? WARNING: the choosen data will overwrite the other. "
+text = "Load the account's remote data from cloud or keep data from local file?   WARNING:
+the choosen data will overwrite the other!"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="local" type="Button" parent="DataChoice/Label"]
-layout_mode = 0
-offset_left = 102.0
-offset_top = 300.0
-offset_right = 344.0
-offset_bottom = 451.0
-theme_override_font_sizes/font_size = 40
-text = "Local"
+[node name="HBoxContainer" type="HBoxContainer" parent="DataChoice/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 200
 
-[node name="remote" type="Button" parent="DataChoice/Label"]
-layout_mode = 0
-offset_left = 527.0
-offset_top = 295.0
-offset_right = 769.0
-offset_bottom = 446.0
+[node name="remote" type="Button" parent="DataChoice/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.039215688, 0.10980392, 1)
+theme_override_colors/font_focus_color = Color(0, 0.039215688, 0.10980392, 1)
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_nre23")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s1l5q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nre23")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x56uj")
 text = "Remote"
+
+[node name="local" type="Button" parent="DataChoice/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.039215688, 0.10980392, 1)
+theme_override_colors/font_focus_color = Color(0, 0.039215688, 0.10980392, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_nre23")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s1l5q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nre23")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x56uj")
+text = "Local"
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="HBoxContainer/register" to="." method="_on_register_pressed"]
 [connection signal="pressed" from="HBoxContainer/login" to="." method="_on_login_pressed"]
 [connection signal="pressed" from="resetpass" to="." method="_on_resetpass_pressed"]
 [connection signal="pressed" from="logout" to="." method="_on_logout_pressed"]
-[connection signal="pressed" from="DataChoice/Label/local" to="." method="_on_local_pressed"]
-[connection signal="pressed" from="DataChoice/Label/remote" to="." method="_on_remote_pressed"]
+[connection signal="pressed" from="DataChoice/MarginContainer/VBoxContainer/HBoxContainer/remote" to="." method="_on_remote_pressed"]
+[connection signal="pressed" from="DataChoice/MarginContainer/VBoxContainer/HBoxContainer/local" to="." method="_on_local_pressed"]

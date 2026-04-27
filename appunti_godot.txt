@@ -99,8 +99,6 @@ Gli attacchi sono parzialmente causali (scelta casuale da più pattern di sequen
 
 
 prossime cose da fare:
-diaologo pre-fight NPC "cattivo"
-animazioni chiusura dell'arena mappa05 (opzionale)
 decidere meglio come dovrà attaccare l'NPC
 trovare musica di sottofondo per boss-fight
 
@@ -117,7 +115,6 @@ inserire dei suoni per ogni mini-quest completata (es.
 inserire una nuvoletta sul player che dice qualcosa quando il player si avvicina a un oggetto con cui deve interagire per andare avanti
 	cosa scrivere nella nuvoletta andrà indicato nello script dell'oggetto con cui deve interagire il player
 modificare menu login conferma origine dati
-controllare che l'attacco di reti colpisca anche i pipistrelli
 l'attacco di reti lagga di brutto
 
 
