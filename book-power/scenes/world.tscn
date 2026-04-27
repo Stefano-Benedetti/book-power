@@ -940,33 +940,6 @@ position = Vector2(129, -200)
 position = Vector2(350, -106)
 dropped_object = ExtResource("21_7iits")
 
-[node name="enemy4" parent="." instance=ExtResource("12_q5onr")]
-position = Vector2(331, -12.000008)
-dropped_object = ExtResource("21_7iits")
-
-[node name="enemy5" parent="." instance=ExtResource("12_q5onr")]
-position = Vector2(384, -47)
-dropped_object = ExtResource("21_7iits")
-
-[node name="enemy6" parent="." instance=ExtResource("12_q5onr")]
-position = Vector2(359, -40.000004)
-dropped_object = ExtResource("21_7iits")
-
-[node name="enemy7" parent="." instance=ExtResource("12_q5onr")]
-position = Vector2(392, -136)
-dropped_object = ExtResource("21_7iits")
-
-[node name="enemy8" parent="." instance=ExtResource("12_q5onr")]
-position = Vector2(416, -74)
-dropped_object = ExtResource("21_7iits")
-
-[node name="enemy3" parent="." instance=ExtResource("12_q5onr")]
-position = Vector2(423, -140)
-dropped_object = ExtResource("21_7iits")
-
-[node name="enemy2" parent="." instance=ExtResource("12_q5onr")]
-position = Vector2(437, -90)
-
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0

@@ -71,10 +71,12 @@ func explode():
 	velocity = Vector2.ZERO
 	# attiva l'area e rileva i nemici
 	explosion_area.monitoring = true
-	var bodies = explosion_area.get_overlapping_bodies()
-	for body in bodies:
-		if body.has_method("enemy"):  # controlla che sia un nemico
-			body.getHurt(DAMAGE)
+	var areas = explosion_area.get_overlapping_areas()
+	for area in areas:
+		if area.is_in_group("enemies_hitbox"):
+			var enemy = area.get_parent()
+			if enemy.has_method("enemy"):  # controlla che sia un nemico
+				enemy.getHurt(DAMAGE)
 	$timer_sonoro.stop()
 	$esplosione.play()
 	sprite.play("explosion")
