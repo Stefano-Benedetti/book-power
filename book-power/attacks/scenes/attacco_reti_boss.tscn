@@ -66,6 +66,7 @@ animations = [{
 radius = 11.045361
 
 [node name="attacco_reti_boss" type="Node2D"]
+z_index = 2
 script = ExtResource("1_1s6jd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

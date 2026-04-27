@@ -1,7 +1,7 @@
 extends Node2D
 
 const DAMAGE = 50
-var speed = 300
+var speed = 400
 
 var launched = false
 var hittato = false
@@ -17,7 +17,7 @@ var direction: Vector2 = Vector2.ZERO
 func _ready():
 	traiettoria.rotation = direction.angle()
 	$AnimatedSprite2D.hide()
-	for i in range(0,3):
+	for i in range(0,2):
 		$traiettoria/ColorRect.show()
 		print("a")
 		await get_tree().create_timer(0.2).timeout

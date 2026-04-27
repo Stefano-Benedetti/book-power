@@ -92,13 +92,39 @@ func fight_behavior(_delta):
 		NPC_movement(_delta)
 
 func NPC_attack():
-	generate_bomb_packet()
+	var animazione_attacco = ""
+	var tipo_attacco = randi_range(0, 2)
 	fermo = true
 	can_attack = false
 	can_move = false
+	#decide che attacco a fare anche in base alla distanza dal player
+	var dist_to_player = global_position.distance_to(player.global_position)
+	if dist_to_player<=50: #cioè se il player è vicino
+		tipo_attacco = 2
+	elif dist_to_player<=100:	
+		tipo_attacco = randi_range(0, 1)
+	else:
+		tipo_attacco = randi_range(1, 2)
+	match tipo_attacco:
+		0:
+			generate_attacco_analisi()
+			animazione_attacco = "attacco_analisi"
+			$movementPostAttackCooldown.wait_time = 1
+			$attackCooldown.wait_time = 2
+		1:
+			generate_bomb_packet()
+			animazione_attacco = "attacco_reti"
+			$movementPostAttackCooldown.wait_time = 1
+			$attackCooldown.wait_time = 3
+		2:
+			generate_redblackTree_around()
+			animazione_attacco = "attacco_asd"
+			$movementPostAttackCooldown.wait_time = 1.5
+			$attackCooldown.wait_time = 3
+
 	attacck_cooldown.start()  # Avvia il timer
 	mov_cooldown.start()
-	play_anim(0,1)
+	$AnimatedSprite2D.play(animazione_attacco)
 	#crea attacco...
 
 func generate_attacco_analisi():
@@ -139,7 +165,6 @@ func calcolo_target():
 	if sosta:
 		return null
 	if nav_agent.is_navigation_finished():
-		print("raggiunto")
 		sosta = true
 		escaping_player = false
 		going_random = false
@@ -254,7 +279,6 @@ func mod_dir_and_velocity(direction, era_fermo):
 			else:
 				current_dir = "up"
 				velocity = Vector2(0, -SPEED)
-	print(current_dir)
 
 func play_anim(movement, attaccando):
 	var anim = $AnimatedSprite2D

@@ -14,9 +14,9 @@ func _ready():
 	for i in range(0,3):
 		$ColorRect.show()
 		print("a")
-		await get_tree().create_timer(0.5).timeout
-		$ColorRect.hide()
 		await get_tree().create_timer(0.3).timeout
+		$ColorRect.hide()
+		await get_tree().create_timer(0.2).timeout
 	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play()
 	damage_fase = true
