@@ -50,6 +50,7 @@ func _ready():
 	player = get_tree().get_first_node_in_group("player")
 
 func _process(_delta: float) -> void:
+	print(global_position.distance_to(player.global_position))
 	if fighting:
 		fight_behavior(_delta)
 		return
@@ -99,9 +100,9 @@ func NPC_attack():
 	can_move = false
 	#decide che attacco a fare anche in base alla distanza dal player
 	var dist_to_player = global_position.distance_to(player.global_position)
-	if dist_to_player<=50: #cioè se il player è vicino
+	if dist_to_player<=40: #cioè se il player è vicino
 		tipo_attacco = 2
-	elif dist_to_player<=100:	
+	elif dist_to_player<=80:	
 		tipo_attacco = randi_range(0, 1)
 	else:
 		tipo_attacco = randi_range(1, 2)
