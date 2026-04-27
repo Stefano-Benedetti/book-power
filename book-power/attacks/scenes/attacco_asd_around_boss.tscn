@@ -1,0 +1,99 @@
+[gd_scene load_steps=9 format=3 uid="uid://clq3emb8cwmhm"]
+
+[ext_resource type="Script" uid="uid://vrcuugeekirv" path="res://attacks/script/attacco_asd_around_boss.gd" id="1_gnltj"]
+[ext_resource type="Texture2D" uid="uid://bfehkt0i82cfo" path="res://art/albero_binario/albero_binario06.png" id="1_kwxx1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnltj"]
+atlas = ExtResource("1_kwxx1")
+region = Rect2(0, 0, 72, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7eh2"]
+atlas = ExtResource("1_kwxx1")
+region = Rect2(0, 95, 72, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tpkg"]
+atlas = ExtResource("1_kwxx1")
+region = Rect2(0, 190, 72, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx5ag"]
+atlas = ExtResource("1_kwxx1")
+region = Rect2(0, 285, 72, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_teper"]
+atlas = ExtResource("1_kwxx1")
+region = Rect2(0, 380, 72, 95)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_svvw1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnltj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7eh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tpkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx5ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_teper")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="attacco_asd_around_boss" type="Node2D"]
+z_index = 2
+script = ExtResource("1_gnltj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(25, 0)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_svvw1")
+frame = 4
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 25)
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_svvw1")
+frame = 4
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -25)
+rotation = -1.5707964
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_svvw1")
+frame = 4
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(-25, 0)
+rotation = 3.1415927
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_svvw1")
+frame = 4
+frame_progress = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -43.0
+offset_top = -43.0
+offset_right = 43.0
+offset_bottom = 43.0
+color = Color(0.8156863, 0.10980392, 0.047058824, 0.3372549)
+
+[node name="damageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="damageArea"]
+position = Vector2(-3.8146973e-06, 0)
+scale = Vector2(4.2999997, 4.2999997)
+polygon = PackedVector2Array(-5.813953, -10.000001, -5.813953, -8.139536, -4.651162, -7.6744194, -4.186046, -5.813954, -3.7209296, -4.651163, -2.0930226, -4.186047, -0.93023175, -2.0930235, -0.6976736, -0.6976745, -2.5581388, -1.1627908, -4.186046, -2.3255816, -4.8837204, -3.9534888, -6.2790694, -3.9534888, -7.6744184, -4.418605, -8.372093, -5.581396, -10, -5.581396, -10, 5.813954, -8.372093, 5.813954, -7.6744184, 4.418605, -6.2790694, 3.9534888, -4.8837204, 3.9534888, -4.186046, 2.3255816, -2.5581388, 1.1627908, -0.6976736, 0.23255816, -0.93023175, 1.6279072, -1.16279, 3.023256, -2.3255806, 4.186047, -3.9534879, 4.8837214, -3.9534879, 6.2790704, -4.651162, 7.9069777, -5.813953, 8.604652, -5.813953, 10.000001, 5.813955, 10.000001, 5.813955, 8.372094, 4.418606, 7.9069777, 3.9534898, 6.2790704, 3.9534898, 4.8837214, 2.3255825, 4.186047, 1.1627916, 3.023256, 0.93023354, 1.6279072, 0.6976754, 0.23255816, 2.3255825, 1.1627908, 4.186048, 2.0930235, 4.418606, 3.4883723, 5.581397, 4.186047, 7.209304, 4.186047, 8.372095, 5.581396, 10.000002, 5.581396, 10.000002, -5.813954, 8.372095, -5.813954, 7.209304, -4.186047, 4.418606, -3.7209306, 4.186048, -2.3255816, 2.3255825, -1.1627908, 0.6976754, -0.6976745, 0.93023354, -2.0930235, 2.3255825, -4.186047, 4.186048, -5.1162796, 4.651164, -7.6744194, 5.813955, -8.372094, 5.813955, -10.000001)
+
+[connection signal="body_entered" from="damageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="body_exited" from="damageArea" to="." method="_on_damage_area_body_exited"]

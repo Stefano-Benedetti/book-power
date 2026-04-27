@@ -1,0 +1,92 @@
+[gd_scene load_steps=15 format=3 uid="uid://d1ei5rqc3ctvh"]
+
+[ext_resource type="Script" uid="uid://wfs0gvqu3jlg" path="res://attacks/script/attacco_reti_boss.gd" id="1_1s6jd"]
+[ext_resource type="Texture2D" uid="uid://bh6y41u04ehnj" path="res://art/attacco_reti/attacco_reti04.png" id="1_2s32t"]
+[ext_resource type="Texture2D" uid="uid://blpduumlrh3kl" path="res://art/Pixel Explosions Free Pack/Pixel Explosions Free Pack/PNGs/bigboom/bigboom1.png" id="2_3v6ft"]
+[ext_resource type="Texture2D" uid="uid://ct8fe12gy1h3j" path="res://art/Pixel Explosions Free Pack/Pixel Explosions Free Pack/PNGs/bigboom/bigboom2.png" id="3_ox7xr"]
+[ext_resource type="Texture2D" uid="uid://348qee7f26c1" path="res://art/Pixel Explosions Free Pack/Pixel Explosions Free Pack/PNGs/bigboom/bigboom3.png" id="4_ldxrt"]
+[ext_resource type="Texture2D" uid="uid://bp526knatuwwu" path="res://art/Pixel Explosions Free Pack/Pixel Explosions Free Pack/PNGs/bigboom/bigboom4.png" id="5_swv72"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d30cn"]
+atlas = ExtResource("2_3v6ft")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33lse"]
+atlas = ExtResource("3_ox7xr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcvdi"]
+atlas = ExtResource("4_ldxrt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhbl6"]
+atlas = ExtResource("5_swv72")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s6jd"]
+atlas = ExtResource("1_2s32t")
+region = Rect2(0, 0, 31, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3klv"]
+atlas = ExtResource("1_2s32t")
+region = Rect2(0, 19, 31, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0nc44"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d30cn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33lse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcvdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhbl6")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s6jd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3klv")
+}],
+"loop": true,
+"name": &"in_movement",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2s32t"]
+radius = 11.045361
+
+[node name="attacco_reti_boss" type="Node2D"]
+script = ExtResource("1_1s6jd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_0nc44")
+animation = &"explosion"
+frame = 3
+frame_progress = 1.0
+
+[node name="explosionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="explosionArea"]
+shape = SubResource("CircleShape2D_2s32t")
+
+[node name="traiettoria" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="traiettoria"]
+offset_top = -11.0
+offset_right = 456.0
+offset_bottom = 11.0
+color = Color(0.078431375, 1, 1, 0.34509805)
+
+[connection signal="body_entered" from="explosionArea" to="." method="_on_explosion_area_body_entered"]
+[connection signal="body_exited" from="explosionArea" to="." method="_on_explosion_area_body_exited"]

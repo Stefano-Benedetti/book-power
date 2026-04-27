@@ -30,6 +30,8 @@ var sosta = false
 @onready var mov_cooldown: Timer=$movementPostAttackCooldown
 
 @onready var attacco_analisi = preload("res://attacks/scenes/attacco_analisi_boss.tscn")
+@onready var attacco_asd_around = preload("res://attacks/scenes/attacco_asd_around_boss.tscn")
+@onready var attacco_reti = preload("res://attacks/scenes/attacco_reti_boss.tscn")
 
 var player_in_detectionArea = false
 @onready var nav_agent = $NavigationAgent2D  # Collegamento al nodo NavigationAgent2D
@@ -45,7 +47,8 @@ var fermo = true
 func _ready():
 	play_anim(0,0)
 	randomize()
-	
+	player = get_tree().get_first_node_in_group("player")
+
 func _process(_delta: float) -> void:
 	if fighting:
 		fight_behavior(_delta)
@@ -89,7 +92,7 @@ func fight_behavior(_delta):
 		NPC_movement(_delta)
 
 func NPC_attack():
-	generate_attacco_analisi()
+	generate_bomb_packet()
 	fermo = true
 	can_attack = false
 	can_move = false
@@ -118,6 +121,17 @@ func generate_attacco_analisi():
 			scena_attacco_analisi.rotation = deg_to_rad(90)
 		get_tree().current_scene.add_child(scena_attacco_analisi)
 
+func generate_redblackTree_around():
+	var scena_attacco = attacco_asd_around.instantiate()
+	scena_attacco.global_position = global_position
+	get_tree().current_scene.add_child(scena_attacco)
+
+func generate_bomb_packet():
+	var scena_attacco = attacco_reti.instantiate()
+	scena_attacco.global_position = global_position
+	var dir = (player.global_position - global_position).normalized()
+	scena_attacco.direction = dir
+	get_tree().current_scene.add_child(scena_attacco)
 
 #restituisce null se si deve fermare, altrimenti restituisce il target
 func calcolo_target():

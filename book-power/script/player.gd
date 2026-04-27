@@ -47,7 +47,7 @@ var push: PushData = null
 
 func _ready():
 	Global.selected_slot_update.connect(updateSelectedItem)
-
+	
 func _physics_process(delta: float):
 	if get_parent() != null:
 		if get_parent().name == "livello_0" or get_parent().name == "livello_6":
