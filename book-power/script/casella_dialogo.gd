@@ -74,7 +74,7 @@ var dialoghi_per_quest := {
 		"What even is an access point anyway? Is it edible?"
 	],
 	9: [
-		"You fool, you fell right into my trap! You found all the books I still need to finally graduate. All I need to do now is get them from you and get out of this place.",
+		"You fool, you fell right into my trap! You found all the books that I need to finally graduate. All I need to do now is to get them from you and get out of this place.",
 		"The only downside is that you will be stuck here forever, because you wont have any book to study from. But do I care? Absolutely not!",
 		"Now, get ready to fight. Beware, I don't have any books, but I have MessageGPT Premium subscription, which will be more than enough to defeat you! You must be worse than such an expensive AI subscription, am I right?"
 	]
