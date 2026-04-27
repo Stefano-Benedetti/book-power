@@ -10,10 +10,6 @@ func _ready() -> void:
 	Global.removeFireWall.connect(removeFireWall)
 	removeFireWall()
 	
-func _process(delta: float) -> void:
-	if player_in_talkArea and Input.is_action_just_pressed("Pick_object"):
-			Global.emit_signal("start_dialog")
-	
 func removeFireWall():
 	if firewall.visible:
 		firewall.collision_enabled = false
