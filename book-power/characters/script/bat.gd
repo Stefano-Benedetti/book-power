@@ -76,7 +76,6 @@ func attack_animation(spostamento_attacco_x, spostamento_attacco_y):
 		$Shadow.global_position -= Vector2(spostamento_attacco_x, spostamento_attacco_y)
 
 func enemy_attack():
-	print("attacco")
 	fermo = true
 	can_attack = false
 	can_move = false

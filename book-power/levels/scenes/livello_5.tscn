@@ -37,6 +37,18 @@ metadata/_edit_use_anchors_ = true
 
 [node name="touchContols" parent="Control" instance=ExtResource("5_qpsbh")]
 
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="black_screen" type="ColorRect" parent="CanvasLayer3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("14_tjlpw")
+metadata/_edit_use_anchors_ = true
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="sel_item_slot" parent="CanvasLayer2" instance=ExtResource("6_tjlpw")]
@@ -221,15 +233,3 @@ gizmo_extents = 20.0
 [node name="Marker2D4" type="Marker2D" parent="punti_attacco_analisi_orizzontale" groups=["spawn_attacco_analisi_orizzontale"]]
 position = Vector2(176, 0)
 gizmo_extents = 20.0
-
-[node name="CanvasLayer3" type="CanvasLayer" parent="."]
-
-[node name="black_screen" type="ColorRect" parent="CanvasLayer3"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-script = ExtResource("14_tjlpw")
-metadata/_edit_use_anchors_ = true
