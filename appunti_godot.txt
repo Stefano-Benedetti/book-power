@@ -113,9 +113,20 @@ inserire dei suoni per ogni mini-quest completata (es.
 	mappa03: attacco robot, apertura chest, interazione pc, robot che se ne va
 	mappa04: accensione di ogni pc, posizionamento AP)
 inserire una nuvoletta sul player che dice qualcosa quando il player si avvicina a un oggetto con cui deve interagire per andare avanti
-	cosa scrivere nella nuvoletta andrà indicato nello script dell'oggetto con cui deve interagire il player
+	cosa scrivere nella nuvoletta andrà indicato nello script dell'oggetto con cui deve interagire il player.
+inserire l'icona del tasto da premere sopra gli oggetti con cui bisogna interagire quando ci si avvicina.
+inserire qualcosa che indichi bene con cosa bisogna interagire per andare avanti nel gioco.
+sistemare z-index degli oggetti droppati nel gioco.
 modificare menu login conferma origine dati
 l'attacco di reti lagga di brutto, non attacca npc fuoricorso e va bilanciato
+nel livello 1 e nel livello 4 lagga un pochino da telefono.
+nel livello 4 dopo aver piazzato l'AP lo posso riprendere, non va bene.
+Spostare più su la posizione dei tasti per muoversi a destra e a sinistra, così da mobile risulta più semplice cambiare direzione trascinando il dito.
+I due tasti a destra devono stare uno sotto l'altro.
+Il tasto che raffigura la mano dovrebbe essere grigio scuro (per indicare che è disattivato) e diventare grigio chiaro solo quando effettivamente può
+essere cliccato (cioè per esempio quando si entra nell'area di un oggetto raccoglibile).
+Delle volte quando ci si avvicina ai nemici questi iniziano a camminare ma non si muovono, succede spesso al nemico vicino al pc nel livello 3.
+
 
 
 CREDITI:
@@ -123,9 +134,10 @@ i tizi del character generator volevano una pagina di crediti enorme, gli ho mes
 
 
 attacchi di NPC_fuoricorso:
-spawna 4 sinusoidi (tipo libro di analisi) che prendono tutta la mappa.
-spawna linked-list a X nella mappa.
+spawna 4-7 sinusoidi (tipo libro di analisi) che prendono tutta la mappa.
+spara un pacchetto enorme in una direzione
 spawna alberi rosso neri (come l'attacco del player) ma in tutte le direzione, se gli stai vicino in pratica ti colpisce
 ogni 3 colpi che spara decide di scappare velocemente sottoforma di scarica elettrica
 spawna i vecchietti
-spara un pacchetto enorme in una direzione
+spawna linked-list a X nella mappa.
+

@@ -102,9 +102,9 @@ func NPC_attack():
 	if dist_to_player<=40: #cioè se il player è vicino
 		tipo_attacco = 2
 	elif dist_to_player<=80:	
-		tipo_attacco = randi_range(0, 1)
-	else:
 		tipo_attacco = randi_range(1, 2)
+	else:
+		tipo_attacco = randi_range(0, 1)
 	match tipo_attacco:
 		0:
 			generate_attacco_analisi()
