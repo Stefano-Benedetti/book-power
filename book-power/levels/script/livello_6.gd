@@ -36,4 +36,4 @@ func fine_livello():
 	$CanvasLayer/black_screen.appari(1)
 	await get_tree().create_timer(1.5).timeout
 	Musica.stopMusic()
-	get_tree().change_scene_to_file("res://menus/scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://menus/scenes/credits.tscn")

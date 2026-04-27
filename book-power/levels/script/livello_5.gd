@@ -6,8 +6,6 @@ func _ready() -> void:
 	Global.morte_fuoricorso.connect(bossDeath)
 	Global.fine_dialogo.connect(levelEnd)
 	
-	Musica.boss_music.play()
-	
 	QuestCounter.quest_corrente = 9
 
 func _process(delta: float) -> void:
@@ -21,6 +19,7 @@ func _process(delta: float) -> void:
 
 func startBossFight():
 	if $npc_fuoricorso:
+		Musica.boss_music.play()
 		$npc_fuoricorso.fighting = true
 
 func bossDeath():

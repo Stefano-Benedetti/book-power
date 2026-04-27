@@ -3,8 +3,8 @@ extends Node2D
 
 
 @export var speed_px_per_sec: float = 80.0
-@export var start_padding: float = -1350.0
-@export var end_padding: float = 250.0
+@export var start_padding: float = -2350
+@export var end_padding: float = -800.0
 
 @onready var box: VBoxContainer = $CanvasLayer/VBoxContainer
 
@@ -38,7 +38,7 @@ func _ready() -> void:
 	tw.tween_property(box, "position:y", end_y, duration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 	tw.finished.connect(func():
 		# cambia scena
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://menus/scenes/main_menu.tscn")
 		)
 
 func _on_link_meta_clicked(meta: Variant) -> void:
