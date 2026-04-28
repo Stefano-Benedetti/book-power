@@ -120,7 +120,6 @@ sistemare z-index degli oggetti droppati nel gioco.
 modificare menu login conferma origine dati
 l'attacco di reti lagga di brutto, non attacca npc fuoricorso e va bilanciato
 nel livello 1 e nel livello 4 lagga un pochino da telefono.
-nel livello 4 dopo aver piazzato l'AP lo posso riprendere, non va bene.
 Spostare più su la posizione dei tasti per muoversi a destra e a sinistra, così da mobile risulta più semplice cambiare direzione trascinando il dito.
 I due tasti a destra devono stare uno sotto l'altro.
 Il tasto che raffigura la mano dovrebbe essere grigio scuro (per indicare che è disattivato) e diventare grigio chiaro solo quando effettivamente può

@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 			add_child(scena_dropped_object)
 			scena_dropped_object.global_position = Vector2(927.802,-576.853)
 			scena_dropped_object.playConnecting()
+			scena_dropped_object.pickable = false
 			object_ap = null
 	if player_in_cave_entrance and player.current_dir == "up":
 		player.position = $spawn_caverna.position
