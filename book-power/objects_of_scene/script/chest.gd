@@ -9,6 +9,8 @@ var player = null
 var opened = false
 var offset_drop = Vector2(0, 10)
 
+var icon_enabled = false
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if opened:
@@ -18,6 +20,12 @@ func _process(_delta: float) -> void:
 			print("serve una chiave per aprire")
 			return
 		openChest()
+	if player_in_area and player.selected_item==chiave and !icon_enabled:
+		Global.emit_signal("pick_enable")
+		icon_enabled = true
+	if player_in_area and player.selected_item!=chiave and icon_enabled:
+		Global.emit_signal("pick_disable")
+		icon_enabled = false
 
 
 func openChest():
@@ -26,6 +34,7 @@ func openChest():
 	dropObject()
 	opened = true
 	player.consumeItem(chiave,1)
+	Global.emit_signal("pick_disable")
 
 
 func dropObject():
@@ -39,7 +48,12 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = true
 		player = body
+		if player.selected_item==chiave and !opened:
+			Global.emit_signal("pick_enable")
+			icon_enabled = true
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = false
+		Global.emit_signal("pick_disable")
+		icon_enabled = false

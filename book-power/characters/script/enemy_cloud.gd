@@ -4,10 +4,10 @@ extends Control
 @onready var bubble = $TextureRect
 
 var texts = [
-	"giovani\nscansafatiche",
-	"siete\nsvogliatiii",
-	"ai miei\ntempi...",
-	"sempre col\ntelefono ;|"
+  "You're so lazy.",
+  "Get back to work, slacker!",
+  "Back in my day...",
+  "Always on your phone!"
 ]
 
 func _ready():

@@ -30,7 +30,9 @@ func _on_area_of_interaction_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = true
 		player = body
+		Global.emit_signal("pick_enable")
 
 func _on_area_of_interaction_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = false
+		Global.emit_signal("pick_disable")

@@ -119,17 +119,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -187.0
-offset_top = -71.00001
-offset_right = 881.5713
-offset_bottom = 290.0
+offset_top = -61.000008
+offset_right = 187.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.35, 0.35)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 64
-text = "you became demotivated :(
-you will be returned to
-the main menu"
+theme_override_font_sizes/font_size = 22
+text = "You dropped out of university :(
+Click OK to be returned to the main menu."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

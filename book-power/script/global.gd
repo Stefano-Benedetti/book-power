@@ -40,6 +40,10 @@ signal fine_dialogo_player
 
 signal morte_fuoricorso
 
+signal pick_enable
+
+signal pick_disable
+
 func getData():
 	
 	var inv_elements : Dictionary

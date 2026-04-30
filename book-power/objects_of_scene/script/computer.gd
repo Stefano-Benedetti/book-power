@@ -40,6 +40,7 @@ func fourthMapBehavior():
 		Global.incrementCounter.emit()
 		$AnimatedSprite2D.animation = "turn_blue_screen"
 		used = true
+		Global.emit_signal("pick_disable")
 
 func talkedWithComputer():
 	talked_with_computer = true
@@ -48,7 +49,11 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = true
 		player = body
+		if mappa_corrente == "mappa04" and talked_with_computer and !used:
+			Global.emit_signal("pick_enable")
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = false
+		if mappa_corrente == "mappa04" and talked_with_computer and !used:
+			Global.emit_signal("pick_disable")

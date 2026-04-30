@@ -1015,7 +1015,7 @@ position = Vector2(32, -223)
 position = Vector2(259, -117)
 
 [node name="health_potion2" parent="." instance=ExtResource("21_7iits")]
-position = Vector2(160, -98)
+position = Vector2(172, -88)
 
 [node name="health_potion3" parent="." instance=ExtResource("21_7iits")]
 position = Vector2(185, -89)
@@ -1045,4 +1045,4 @@ position = Vector2(42, -100)
 position = Vector2(117, -145)
 
 [node name="bat" parent="." instance=ExtResource("28_0nbtd")]
-position = Vector2(213, -221)
+position = Vector2(202, -225)
