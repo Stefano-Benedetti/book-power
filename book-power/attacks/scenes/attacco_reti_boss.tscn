@@ -63,7 +63,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2s32t"]
-radius = 11.045361
+radius = 7.0
 
 [node name="attacco_reti_boss" type="Node2D"]
 z_index = 2
@@ -72,9 +72,7 @@ script = ExtResource("1_1s6jd")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_0nc44")
-animation = &"explosion"
-frame = 3
-frame_progress = 1.0
+animation = &"in_movement"
 
 [node name="explosionArea" type="Area2D" parent="."]
 

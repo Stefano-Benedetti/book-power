@@ -14,7 +14,7 @@ var dropped = false
 var player_in_talkArea = false
 var player = null
 
-const SPEED = 60
+var SPEED = 60
 var current_dir = "down"		#la inizializziamo giù
 
 @export var max_health = 100
@@ -22,6 +22,7 @@ var current_dir = "down"		#la inizializziamo giù
 @onready var health_bar: TextureProgressBar=$bat_health_bar
 var dead = false
 
+@onready var collisionShape = $CollisionShape2D
 var fighting = false
 var can_attack = true
 var can_move = true
@@ -42,12 +43,14 @@ var going_random = true
 var _last_target: Vector2
 var fermo = true
 
+var electric_form = false
 
 
 func _ready():
 	play_anim(0,0)
 	randomize()
 	player = get_tree().get_first_node_in_group("player")
+	$AnimatedSprite2D/electric_particles.hide()
 
 func _process(_delta: float) -> void:
 	if fighting:
@@ -87,24 +90,34 @@ func fight_behavior(_delta):
 	elif current_health<=0:
 		die()
 	elif can_attack:
-		NPC_attack()
+		NPC_attack(_delta)
 	elif can_move:
 		NPC_movement(_delta)
 
-func NPC_attack():
+func NPC_attack(_delta):
 	var animazione_attacco = ""
-	var tipo_attacco = randi_range(0, 2)
+	var tipo_attacco
 	fermo = true
 	can_attack = false
 	can_move = false
+	var no_cooldown = false
 	#decide che attacco a fare anche in base alla distanza dal player
 	var dist_to_player = global_position.distance_to(player.global_position)
+	var attacchi_candidati = []
 	if dist_to_player<=40: #cioè se il player è vicino
-		tipo_attacco = 2
+		attacchi_candidati.append(2)
+		attacchi_candidati.append(3)
+	elif dist_to_player<=60:	
+		attacchi_candidati.append(1)
+		attacchi_candidati.append(2)
+		attacchi_candidati.append(3)
 	elif dist_to_player<=80:	
-		tipo_attacco = randi_range(1, 2)
+		attacchi_candidati.append(1)
+		attacchi_candidati.append(2)
 	else:
-		tipo_attacco = randi_range(0, 1)
+		attacchi_candidati.append(0)
+		attacchi_candidati.append(1)
+	tipo_attacco = attacchi_candidati.pick_random()
 	match tipo_attacco:
 		0:
 			generate_attacco_analisi()
@@ -121,9 +134,14 @@ func NPC_attack():
 			animazione_attacco = "attacco_asd"
 			$movementPostAttackCooldown.wait_time = 1.5
 			$attackCooldown.wait_time = 3
-
-	attacck_cooldown.start()  # Avvia il timer
-	mov_cooldown.start()
+		3:
+			electric_movement()
+			animazione_attacco = "electricity_form"
+			no_cooldown = true	#non avvio i timer che invece saranno avviati solo da electric_movement() a fine movimento
+	
+	if ! no_cooldown:
+		attacck_cooldown.start()  # Avvia il timer
+		mov_cooldown.start()
 	$AnimatedSprite2D.play(animazione_attacco)
 	#crea attacco...
 
@@ -158,6 +176,39 @@ func generate_bomb_packet():
 	var dir = (player.global_position - global_position).normalized()
 	scena_attacco.direction = dir
 	get_tree().current_scene.add_child(scena_attacco)
+
+func electric_movement():
+	var offset_normale = $AnimatedSprite2D.offset.y
+	$AnimatedSprite2D/electric_particles.show()
+	$AnimatedSprite2D.offset.y += -offset_normale
+	electric_form = true
+	var moltiplicare_speed = 3
+	SPEED = SPEED*moltiplicare_speed
+	#trovo la destinazione più lontana
+	var destinations = get_tree().get_nodes_in_group("casual_boss_destination")
+	var far_dest = destinations[0]
+	for dest in destinations:
+		if global_position.distance_to(dest.global_position) > global_position.distance_to(far_dest.global_position):
+			far_dest = dest
+	nav_agent.target_position = far_dest.global_position
+	await get_tree().create_timer(0.2).timeout
+	while ! nav_agent.is_navigation_finished():
+		var next_pos = nav_agent.get_next_path_position()
+		var direction = (next_pos - global_position).normalized()
+		mod_dir_and_velocity(direction, 1)
+		move_and_slide()
+		await get_tree().process_frame #altrimenti lo esegue velocissimo
+	SPEED = SPEED/moltiplicare_speed
+	await get_tree().create_timer(0.5).timeout
+	$AnimatedSprite2D.offset.y += offset_normale
+	electric_form = false
+	$AnimatedSprite2D/electric_particles.hide()
+	
+	$movementPostAttackCooldown.wait_time = 0.5
+	$attackCooldown.wait_time = 1
+	attacck_cooldown.start()  # Avvia il timer
+	mov_cooldown.start()
+
 
 #restituisce null se si deve fermare, altrimenti restituisce il target
 func calcolo_target():
@@ -228,7 +279,8 @@ func NPC_movement(_delta):
 	if target == null:
 		fermo = true
 		velocity = Vector2.ZERO
-		play_anim(0,0)
+		if not electric_form:
+			play_anim(0,0)
 		move_and_slide()
 		return
 	
@@ -245,7 +297,8 @@ func NPC_movement(_delta):
 	elif abs(abs(direction.x) - abs(direction.y)) > 0.5:
 		mod_dir_and_velocity(direction, 0)
 	
-	play_anim(1,0)
+	if not electric_form:
+		play_anim(1,0)
 	move_and_slide()
 
 func mod_dir_and_velocity(direction, era_fermo):
@@ -338,6 +391,7 @@ func _on_movement_sost_timeout() -> void:
 func set_on_fightmode():
 	fighting = true
 	self.add_to_group("enemies")
+	collisionShape.queue_free()
 
 func set_on_talkmode():
 	fighting = false

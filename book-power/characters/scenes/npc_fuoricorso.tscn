@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://b5x5dbko4mw4h"]
+[gd_scene load_steps=81 format=3 uid="uid://b5x5dbko4mw4h"]
 
 [ext_resource type="Texture2D" uid="uid://cvvt58dw0di5o" path="res://art/fuoricorso_set.png" id="1_jx5kn"]
 [ext_resource type="Script" uid="uid://b7x2wpyqfstc1" path="res://characters/script/npc_fuoricorso.gd" id="1_sxcdu"]
@@ -511,6 +511,45 @@ animations = [{
 "speed": 13.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_xbo6p"]
+offsets = PackedFloat32Array(0, 0.4386503, 1)
+colors = PackedColorArray(0, 0, 0.8784314, 1, 0, 0.17930293, 0.93581295, 1, 0.4447408, 0.844417, 0.91678965, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t7com"]
+gradient = SubResource("Gradient_xbo6p")
+width = 16
+height = 16
+fill_from = Vector2(0, 0.991453)
+fill_to = Vector2(0.85897434, 0.26495728)
+
+[sub_resource type="Curve" id="Curve_vdcjk"]
+_data = [Vector2(0, 0.17365658), 0.0, -0.031236527, 0, 0, Vector2(0.9675325, 0.0032764673), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ogagc"]
+curve = SubResource("Curve_vdcjk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eytjg"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+angular_velocity_min = 4.999984
+angular_velocity_max = 9.999984
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = 19.999977
+radial_velocity_max = 19.999977
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_ogagc")
+color = Color(0.12156863, 1, 0.9764706, 1)
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.09999997
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sxcdu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sxcdu"]
@@ -522,10 +561,6 @@ height = 44.999992
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8rpsd"]
 radius = 216.23195
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eytjg"]
-particle_flag_disable_z = true
-gravity = Vector3(0, 98, 0)
 
 [node name="npc_fuoricorso" type="CharacterBody2D"]
 z_index = 1
@@ -542,8 +577,18 @@ max_speed = 30.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o5iqk")
 animation = &"electricity_form"
-frame_progress = 0.9624329
+frame_progress = 0.17393893
 offset = Vector2(0, -26)
+
+[node name="electric_particles" type="GPUParticles2D" parent="AnimatedSprite2D"]
+show_behind_parent = true
+scale = Vector2(0.34499997, 0.34499997)
+amount = 100
+texture = SubResource("GradientTexture2D_t7com")
+lifetime = 0.5
+explosiveness = 0.1
+randomness = 0.8
+process_material = SubResource("ParticleProcessMaterial_eytjg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -580,11 +625,6 @@ wait_time = 5.0
 wait_time = 1.5
 
 [node name="movementSost" type="Timer" parent="."]
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 50
-lifetime = 0.5
-process_material = SubResource("ParticleProcessMaterial_eytjg")
 
 [connection signal="body_entered" from="TalkArea" to="." method="_on_talk_area_body_entered"]
 [connection signal="body_exited" from="TalkArea" to="." method="_on_talk_area_body_exited"]
