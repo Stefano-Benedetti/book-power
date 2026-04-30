@@ -28,27 +28,27 @@ passby_press = true
 action = "muovi_giù"
 
 [node name="left" type="TouchScreenButton" parent="."]
-position = Vector2(39.999996, 575)
+position = Vector2(40, 527.00006)
 scale = Vector2(7, 7)
 texture_normal = ExtResource("4_i3ajf")
 passby_press = true
 action = "muovi_a_sinistra"
 
 [node name="right" type="TouchScreenButton" parent="."]
-position = Vector2(280, 575.00006)
+position = Vector2(280.00003, 527.00006)
 scale = Vector2(7, 7)
 texture_normal = ExtResource("5_vyact")
 passby_press = true
 action = "muovi_a_destra"
 
 [node name="pick" type="TouchScreenButton" parent="."]
-position = Vector2(1128, 575.00006)
+position = Vector2(1128, 462)
 scale = Vector2(7, 7)
 texture_normal = ExtResource("6_tuipx")
 action = "Pick_object"
 
 [node name="inventory" type="TouchScreenButton" parent="."]
-position = Vector2(690, 575)
+position = Vector2(749, 575)
 scale = Vector2(7, 7)
 texture_normal = ExtResource("7_i3ajf")
 action = "inventario"
@@ -60,7 +60,7 @@ texture_normal = ExtResource("8_74ne6")
 action = "pause"
 
 [node name="attack" type="TouchScreenButton" parent="."]
-position = Vector2(1008, 575)
+position = Vector2(1126.9999, 575)
 scale = Vector2(7, 7)
 texture_normal = ExtResource("9_q4btn")
 action = "attacca"

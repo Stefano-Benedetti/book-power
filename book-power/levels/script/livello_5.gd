@@ -21,6 +21,7 @@ func startBossFight():
 	if $npc_fuoricorso:
 		Musica.boss_music.play()
 		$npc_fuoricorso.fighting = true
+		$npc_fuoricorso.add_to_group("enemies")
 
 func bossDeath():
 	QuestCounter.quest_corrente = 10

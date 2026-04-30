@@ -75,8 +75,7 @@ func explode():
 	for area in areas:
 		if area.is_in_group("enemies_hitbox"):
 			var enemy = area.get_parent()
-			if enemy.has_method("enemy"):  # controlla che sia un nemico
-				enemy.getHurt(DAMAGE)
+			enemy.getHurt(DAMAGE)
 	$timer_sonoro.stop()
 	$esplosione.play()
 	sprite.play("explosion")

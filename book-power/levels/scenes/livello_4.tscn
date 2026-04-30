@@ -88,9 +88,9 @@ metadata/_edit_use_anchors_ = true
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="sel_item_slot" parent="CanvasLayer2" instance=ExtResource("7_a34kp")]
-offset_left = 564.0
+offset_left = 627.0
 offset_top = 571.0
-offset_right = 601.99994
+offset_right = 664.99994
 offset_bottom = 609.0
 metadata/_edit_use_anchors_ = true
 

@@ -45,13 +45,14 @@ metadata/_edit_use_anchors_ = true
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="sel_item_slot" parent="CanvasLayer2" instance=ExtResource("3_eoc0k")]
-offset_left = 564.0
+offset_left = 627.0
 offset_top = 571.0
-offset_right = 601.99994
+offset_right = 664.99994
 offset_bottom = 609.0
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" parent="CanvasLayer2" node_paths=PackedStringArray("player") instance=ExtResource("4_sj3x5")]
+visible = false
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 84.0
@@ -60,9 +61,11 @@ player = NodePath("../../player")
 metadata/_edit_use_anchors_ = true
 
 [node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("5_55gh7")]
+visible = false
 metadata/_edit_use_anchors_ = true
 
 [node name="casella_dialogo" parent="CanvasLayer2" instance=ExtResource("6_8x68r")]
+visible = false
 metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
