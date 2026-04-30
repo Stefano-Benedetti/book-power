@@ -335,6 +335,14 @@ func _on_movement_post_attack_cooldown_timeout() -> void:
 func _on_movement_sost_timeout() -> void:
 	sosta = false
 
+func set_on_fightmode():
+	fighting = true
+	self.add_to_group("enemies")
+
+func set_on_talkmode():
+	fighting = false
+	self.remove_from_group("enemies")
+
 func getHurt(damage):
 	$AnimatedSprite2D.modulate = Color(1, 0, 0)
 	await get_tree().create_timer(0.1).timeout

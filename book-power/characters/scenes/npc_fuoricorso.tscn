@@ -1,7 +1,13 @@
-[gd_scene load_steps=64 format=3 uid="uid://b5x5dbko4mw4h"]
+[gd_scene load_steps=77 format=3 uid="uid://b5x5dbko4mw4h"]
 
 [ext_resource type="Texture2D" uid="uid://cvvt58dw0di5o" path="res://art/fuoricorso_set.png" id="1_jx5kn"]
 [ext_resource type="Script" uid="uid://b7x2wpyqfstc1" path="res://characters/script/npc_fuoricorso.gd" id="1_sxcdu"]
+[ext_resource type="Texture2D" uid="uid://cwofhkimhnku8" path="res://art/Effects Pack 14/1/46.png" id="3_xbo6p"]
+[ext_resource type="Texture2D" uid="uid://trsful81b87c" path="res://art/Effects Pack 14/1/48.png" id="4_t7com"]
+[ext_resource type="Texture2D" uid="uid://cqguy751elgpg" path="res://art/Effects Pack 14/1/49.png" id="5_vdcjk"]
+[ext_resource type="Texture2D" uid="uid://bn12ybn2wfmms" path="res://art/Effects Pack 14/1/50.png" id="6_ogagc"]
+[ext_resource type="Texture2D" uid="uid://c1eekbok2onv2" path="res://art/Effects Pack 14/1/51.png" id="7_028o1"]
+[ext_resource type="Texture2D" uid="uid://hqts3noa4un0" path="res://art/Effects Pack 14/1/52.png" id="8_rdra2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8rpsd"]
 atlas = ExtResource("1_jx5kn")
@@ -50,6 +56,30 @@ region = Rect2(64, 1280, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nuxml"]
 atlas = ExtResource("1_jx5kn")
 region = Rect2(128, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44so3"]
+atlas = ExtResource("3_xbo6p")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_saemb"]
+atlas = ExtResource("4_t7com")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwhgh"]
+atlas = ExtResource("5_vdcjk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8aerl"]
+atlas = ExtResource("6_ogagc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i818c"]
+atlas = ExtResource("7_028o1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjaug"]
+atlas = ExtResource("8_rdra2")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sxcdu"]
 atlas = ExtResource("1_jx5kn")
@@ -287,6 +317,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_44so3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_saemb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwhgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8aerl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i818c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjaug")
+}],
+"loop": true,
+"name": &"electricity_form",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_sxcdu")
 }, {
 "duration": 1.0,
@@ -470,6 +523,10 @@ height = 44.999992
 [sub_resource type="CircleShape2D" id="CircleShape2D_8rpsd"]
 radius = 216.23195
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eytjg"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
 [node name="npc_fuoricorso" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
@@ -484,10 +541,12 @@ max_speed = 30.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o5iqk")
-animation = &"attacco_analisi"
+animation = &"electricity_form"
+frame_progress = 0.9624329
 offset = Vector2(0, -26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-2.131628e-14, -7.4999986)
 rotation = 1.5707964
 scale = Vector2(0.99999994, 0.99999994)
@@ -496,12 +555,14 @@ shape = SubResource("CapsuleShape2D_sxcdu")
 [node name="TalkArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TalkArea"]
+visible = false
 position = Vector2(0, -5.000002)
 shape = SubResource("CircleShape2D_sxcdu")
 
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+visible = false
 position = Vector2(0, -20)
 shape = SubResource("CapsuleShape2D_8rpsd")
 
@@ -509,6 +570,7 @@ shape = SubResource("CapsuleShape2D_8rpsd")
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_detection_area"]
+visible = false
 shape = SubResource("CircleShape2D_8rpsd")
 
 [node name="attackCooldown" type="Timer" parent="."]
@@ -518,6 +580,11 @@ wait_time = 5.0
 wait_time = 1.5
 
 [node name="movementSost" type="Timer" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 50
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_eytjg")
 
 [connection signal="body_entered" from="TalkArea" to="." method="_on_talk_area_body_entered"]
 [connection signal="body_exited" from="TalkArea" to="." method="_on_talk_area_body_exited"]

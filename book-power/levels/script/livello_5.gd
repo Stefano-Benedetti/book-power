@@ -20,8 +20,7 @@ func _process(delta: float) -> void:
 func startBossFight():
 	if $npc_fuoricorso:
 		Musica.boss_music.play()
-		$npc_fuoricorso.fighting = true
-		$npc_fuoricorso.add_to_group("enemies")
+		$npc_fuoricorso.set_on_fightmode()
 
 func bossDeath():
 	QuestCounter.quest_corrente = 10
