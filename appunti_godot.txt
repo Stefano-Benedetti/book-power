@@ -102,8 +102,6 @@ prossime cose da fare:
 trovare musica di sottofondo per boss-fight
 
 fix finali:
--modificare il layer camminabile nei punti vicino ai laghi in mappa03, mappa04
--sistemare z-index degli oggetti droppati nel gioco.
 -inserire dei suoni per ogni mini-quest completata (es.
 	mappa02: accensione quadro elettrico, apertura sbarra
 	mappa03: attacco robot, apertura chest, interazione pc, robot che se ne va

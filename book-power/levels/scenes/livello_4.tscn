@@ -34,7 +34,7 @@ height = 34.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_3j3hp"]
 radius = 23.0
 
-[node name="livello_4" type="Node2D"]
+[node name="livello_4" type="Node2D" groups=["in_cave"]]
 y_sort_enabled = true
 script = ExtResource("1_3j3hp")
 required_item = ExtResource("2_ms8rw")
@@ -163,29 +163,32 @@ dropped_object = ExtResource("20_ovfhu")
 [node name="enemy6" parent="." instance=ExtResource("19_u5lof")]
 position = Vector2(685, -694)
 
-[node name="bat" parent="." instance=ExtResource("22_ht61p")]
+[node name="bat" parent="." groups=["in_cave"] instance=ExtResource("22_ht61p")]
 position = Vector2(418, -1599)
 
-[node name="bat2" parent="." instance=ExtResource("22_ht61p")]
+[node name="bat2" parent="." groups=["in_cave"] instance=ExtResource("22_ht61p")]
 position = Vector2(530, -1571)
 
-[node name="bat3" parent="." instance=ExtResource("22_ht61p")]
+[node name="bat3" parent="." groups=["in_cave"] instance=ExtResource("22_ht61p")]
 position = Vector2(638, -1567)
 
-[node name="bat4" parent="." instance=ExtResource("22_ht61p")]
+[node name="bat4" parent="." groups=["in_cave"] instance=ExtResource("22_ht61p")]
 position = Vector2(552, -1471)
 
-[node name="bat5" parent="." instance=ExtResource("22_ht61p")]
+[node name="bat5" parent="." groups=["in_cave"] instance=ExtResource("22_ht61p")]
 position = Vector2(209, -1487)
 
-[node name="bat6" parent="." instance=ExtResource("22_ht61p")]
+[node name="bat6" parent="." groups=["in_cave"] instance=ExtResource("22_ht61p")]
 position = Vector2(363, -1476)
 
-[node name="bat7" parent="." instance=ExtResource("22_ht61p")]
+[node name="bat7" parent="." groups=["in_cave"] instance=ExtResource("22_ht61p")]
 position = Vector2(298, -1560)
 
-[node name="bat8" parent="." instance=ExtResource("22_ht61p")]
+[node name="bat8" parent="." groups=["in_cave"] instance=ExtResource("22_ht61p")]
 position = Vector2(644, -1472)
+
+[node name="libro_reti" parent="." instance=ExtResource("18_a34kp")]
+position = Vector2(269, -997)
 
 [connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]
 [connection signal="body_entered" from="cave_entrance" to="." method="_on_cave_entrance_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dvw7uoq4ggk44"]
+[gd_scene load_steps=22 format=3 uid="uid://dvw7uoq4ggk44"]
 
 [ext_resource type="PackedScene" uid="uid://dulg5ecfdm460" path="res://maps/scenes/mappa_05.tscn" id="1_414vw"]
 [ext_resource type="Script" uid="uid://yremuj8a4k4n" path="res://levels/script/livello_5.gd" id="1_mmhjb"]
@@ -18,6 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://c2fwthkouehnh" path="res://objects_pickable/scenes/libro_asd.tscn" id="16_8yxf3"]
 [ext_resource type="PackedScene" uid="uid://dwroxtcbkxdus" path="res://objects_pickable/scenes/libro_elettrotecnica.tscn" id="17_ytiv2"]
 [ext_resource type="PackedScene" uid="uid://4q20bgjmsri5" path="res://objects_pickable/scenes/libro_analisi.tscn" id="18_nft8y"]
+[ext_resource type="PackedScene" uid="uid://s4sgnvd5jpqj" path="res://objects_pickable/scenes/health_potion.tscn" id="19_nft8y"]
+[ext_resource type="PackedScene" uid="uid://ch53egphidssg" path="res://objects_pickable/scenes/moneta_bronzo.tscn" id="20_m3uv8"]
+[ext_resource type="PackedScene" uid="uid://crkdwpc8kmk48" path="res://objects_pickable/scenes/key_01.tscn" id="21_fkvwp"]
 
 [node name="livello_5" type="Node2D"]
 y_sort_enabled = true
@@ -267,13 +270,27 @@ position = Vector2(613, -459)
 position = Vector2(426, -399)
 
 [node name="libro_elettrotecnica" parent="." instance=ExtResource("17_ytiv2")]
+z_index = 3
 position = Vector2(140, -356)
 
 [node name="libro_analisi" parent="." instance=ExtResource("18_nft8y")]
+z_index = 3
 position = Vector2(124, -348)
 
 [node name="libro_reti" parent="." instance=ExtResource("15_1jd4a")]
+z_index = 3
 position = Vector2(115, -368)
 
 [node name="libro_asd" parent="." instance=ExtResource("16_8yxf3")]
+z_index = 3
 position = Vector2(148, -377)
+
+[node name="health_potion" parent="." instance=ExtResource("19_nft8y")]
+z_index = 3
+position = Vector2(172, -369)
+
+[node name="moneta_bronzo" parent="." instance=ExtResource("20_m3uv8")]
+position = Vector2(165, -361)
+
+[node name="key01" parent="." instance=ExtResource("21_fkvwp")]
+position = Vector2(209, -361)

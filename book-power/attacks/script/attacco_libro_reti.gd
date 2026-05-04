@@ -10,8 +10,12 @@ var target: Node2D = null
 var exploding = false
 var explosion_distance = 5
 
+var in_cave: bool = false
 
 func _ready():
+	if get_parent()!=null:
+		if get_parent().name == "livello_4":
+			in_cave = get_parent().player_in_cave
 	find_closest_enemy()
 	await get_tree().create_timer(1.5).timeout
 	if !exploding :
@@ -25,6 +29,10 @@ func find_closest_enemy():
 			continue
 		if e.dead: #non accoppiarlo con l'if sopra o può dare errori con null
 			continue
+		if get_parent()!=null:
+			if get_parent().name == "livello_4":
+				if in_cave!=e.is_in_group("in_cave"):
+					continue
 		var d = global_position.distance_to(e.global_position)
 		if d < dist:
 			dist = d

@@ -1,19 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2fwthkouehnh"]
+[gd_scene load_steps=6 format=3 uid="uid://c2fwthkouehnh"]
 
 [ext_resource type="Script" uid="uid://dkm8iopf5i4qe" path="res://objects_pickable/script/libro_asd.gd" id="1_1psj1"]
 [ext_resource type="Texture2D" uid="uid://civvm81dh4sxb" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/libro_asd.png" id="1_23p0o"]
 [ext_resource type="Resource" uid="uid://bapfltvvgg7i8" path="res://inventory/items/libro_asd.tres" id="2_lcbaq"]
+[ext_resource type="Texture2D" uid="uid://b7qll8mfkljpw" path="res://art/Shadow_bat.png" id="3_fs6t8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1psj1"]
 radius = 8.0
 
 [node name="libro_asd" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_1psj1")
 item = ExtResource("2_lcbaq")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_fs6t8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("1_23p0o")
+offset = Vector2(0, -35)
 
 [node name="PickableArea" type="Area2D" parent="."]
 

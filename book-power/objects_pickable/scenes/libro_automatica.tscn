@@ -1,19 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7xdwphdrhvbx"]
+[gd_scene load_steps=6 format=3 uid="uid://c7xdwphdrhvbx"]
 
 [ext_resource type="Script" uid="uid://cl6um86chrar3" path="res://objects_pickable/script/libro_automatica.gd" id="1_5pi1r"]
 [ext_resource type="Texture2D" uid="uid://cgf5ovfsd36n0" path="res://art/libro_automatica.png" id="1_ac0q1"]
 [ext_resource type="Resource" uid="uid://di30bq1l2l5xm" path="res://inventory/items/libro_automatica.tres" id="2_8teed"]
+[ext_resource type="Texture2D" uid="uid://b7qll8mfkljpw" path="res://art/Shadow_bat.png" id="3_3glrm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5pi1r"]
 radius = 9.0
 
 [node name="libro_automatica" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_5pi1r")
 item = ExtResource("2_8teed")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_3glrm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("1_ac0q1")
+offset = Vector2(0, -35)
 
 [node name="PickableArea" type="Area2D" parent="."]
 

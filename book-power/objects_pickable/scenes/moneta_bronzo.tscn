@@ -1,20 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch53egphidssg"]
+[gd_scene load_steps=6 format=3 uid="uid://ch53egphidssg"]
 
 [ext_resource type="Script" uid="uid://cd6e1phs2iy3q" path="res://objects_pickable/script/moneta_bronzo.gd" id="1_3lq0s"]
 [ext_resource type="Texture2D" uid="uid://chxhb3a5su2xt" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/coin_01a.png" id="1_gb6md"]
 [ext_resource type="Resource" uid="uid://cd2ncmd3tm8dy" path="res://inventory/items/moneta_bronzo.tres" id="2_78xty"]
+[ext_resource type="Texture2D" uid="uid://b7qll8mfkljpw" path="res://art/Shadow_bat.png" id="3_gdtc3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gb6md"]
 radius = 29.999996
 
 [node name="moneta_bronzo" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_3lq0s")
 item = ExtResource("2_78xty")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_gdtc3")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_gb6md")
-offset = Vector2(1, 0)
+offset = Vector2(1, -15)
 
 [node name="PickableArea" type="Area2D" parent="."]
 

@@ -8,8 +8,8 @@ var talked_with_computer = false
 
 var player_in_ap_area = false
 
+var player_in_cave = false
 var player_in_cave_entrance = false
-
 var player_in_cave_exit = false
 
 var player
@@ -45,9 +45,11 @@ func _process(delta: float) -> void:
 			object_ap = null
 	if player_in_cave_entrance and player.current_dir == "up":
 		player.position = $spawn_caverna.position
+		player_in_cave = true
 		player_in_cave_entrance = false
 	if player_in_cave_exit and player.current_dir == "down":
 		player.position = $fuori_caverna.position
+		player_in_cave = false
 		player_in_cave_exit = false
 
 func updateFirewallAndDropBook():
