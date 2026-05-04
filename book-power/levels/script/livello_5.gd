@@ -13,8 +13,8 @@ func _process(delta: float) -> void:
 		Global.emit_signal("start_dialog")
 		
 	#DA TOGLIERE!!!!! E' SOLO PER DEBUGGING!!!!!!!
-	if Input.is_action_just_pressed("attacca"):
-		$npc_fuoricorso.current_health = 0
+	#if Input.is_action_just_pressed("attacca"):
+		#$npc_fuoricorso.current_health = 0
 	#---------------------------------------------
 
 func startBossFight():

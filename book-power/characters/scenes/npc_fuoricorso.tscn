@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://b5x5dbko4mw4h"]
+[gd_scene load_steps=85 format=3 uid="uid://b5x5dbko4mw4h"]
 
 [ext_resource type="Texture2D" uid="uid://cvvt58dw0di5o" path="res://art/fuoricorso_set.png" id="1_jx5kn"]
 [ext_resource type="Script" uid="uid://b7x2wpyqfstc1" path="res://characters/script/npc_fuoricorso.gd" id="1_sxcdu"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://bn12ybn2wfmms" path="res://art/Effects Pack 14/1/50.png" id="6_ogagc"]
 [ext_resource type="Texture2D" uid="uid://c1eekbok2onv2" path="res://art/Effects Pack 14/1/51.png" id="7_028o1"]
 [ext_resource type="Texture2D" uid="uid://hqts3noa4un0" path="res://art/Effects Pack 14/1/52.png" id="8_rdra2"]
+[ext_resource type="Texture2D" uid="uid://bfj30bpiq6e3p" path="res://art/fuoricorso_face.png" id="9_ogagc"]
+[ext_resource type="Texture2D" uid="uid://ba8hnq8qvilbw" path="res://art/health_bar/healthbarUnder.png" id="10_028o1"]
+[ext_resource type="Texture2D" uid="uid://c6syu2u8p3w44" path="res://art/health_bar/healthbarProgressRed.png" id="11_rdra2"]
+[ext_resource type="Script" uid="uid://b3kdh2x614jnj" path="res://characters/script/NPC_health_bar.gd" id="12_028o1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8rpsd"]
 atlas = ExtResource("1_jx5kn")
@@ -576,8 +580,7 @@ max_speed = 30.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o5iqk")
-animation = &"electricity_form"
-frame_progress = 0.17393893
+animation = &"front_idle"
 offset = Vector2(0, -26)
 
 [node name="electric_particles" type="GPUParticles2D" parent="AnimatedSprite2D"]
@@ -591,7 +594,6 @@ randomness = 0.8
 process_material = SubResource("ParticleProcessMaterial_eytjg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-2.131628e-14, -7.4999986)
 rotation = 1.5707964
 scale = Vector2(0.99999994, 0.99999994)
@@ -600,14 +602,14 @@ shape = SubResource("CapsuleShape2D_sxcdu")
 [node name="TalkArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TalkArea"]
-visible = false
 position = Vector2(0, -5.000002)
 shape = SubResource("CircleShape2D_sxcdu")
 
-[node name="hitbox" type="Area2D" parent="."]
+[node name="hitbox" type="Area2D" parent="." groups=["enemies_hitbox"]]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-visible = false
 position = Vector2(0, -20)
 shape = SubResource("CapsuleShape2D_8rpsd")
 
@@ -615,7 +617,6 @@ shape = SubResource("CapsuleShape2D_8rpsd")
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_detection_area"]
-visible = false
 shape = SubResource("CircleShape2D_8rpsd")
 
 [node name="attackCooldown" type="Timer" parent="."]
@@ -626,6 +627,55 @@ wait_time = 1.5
 
 [node name="movementSost" type="Timer" parent="."]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Container" type="MarginContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(350, 130)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -175.0
+offset_right = 175.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 30
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Container/TextureRect"]
+layout_mode = 0
+offset_right = 92.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Container/TextureRect/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("9_ogagc")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Container/TextureRect/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 20
+
+[node name="healthBar" type="TextureProgressBar" parent="CanvasLayer/Container/TextureRect/HBoxContainer/MarginContainer" node_paths=PackedStringArray("character")]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+nine_patch_stretch = true
+texture_under = ExtResource("10_028o1")
+texture_progress = ExtResource("11_rdra2")
+script = ExtResource("12_028o1")
+character = NodePath("../../../../../..")
+
+[node name="SpawnEnemyCooldown" type="Timer" parent="."]
+wait_time = 30.0
+
 [connection signal="body_entered" from="TalkArea" to="." method="_on_talk_area_body_entered"]
 [connection signal="body_exited" from="TalkArea" to="." method="_on_talk_area_body_exited"]
 [connection signal="body_entered" from="player_detection_area" to="." method="_on_player_detection_area_body_entered"]
@@ -633,3 +683,4 @@ wait_time = 1.5
 [connection signal="timeout" from="attackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="movementPostAttackCooldown" to="." method="_on_movement_post_attack_cooldown_timeout"]
 [connection signal="timeout" from="movementSost" to="." method="_on_movement_sost_timeout"]
+[connection signal="timeout" from="SpawnEnemyCooldown" to="." method="_on_spawn_enemy_cooldown_timeout"]

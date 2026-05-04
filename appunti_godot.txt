@@ -99,27 +99,25 @@ Gli attacchi sono parzialmente causali (scelta casuale da più pattern di sequen
 
 
 prossime cose da fare:
-decidere meglio come dovrà attaccare l'NPC
 trovare musica di sottofondo per boss-fight
 
 fix finali:
--Sistemare y sort dello sgabello in mappa01
--Sistemare y sort degli assi davanti la porta della casa in mappa01
--rifare tutto il layer "camminabile" di mappa01
--bilanciare gli attacchi del player (danno, cooldown)
+-modificare il layer camminabile nei punti vicino ai laghi in mappa03, mappa04
+-sistemare z-index degli oggetti droppati nel gioco.
 -inserire dei suoni per ogni mini-quest completata (es.
 	mappa02: accensione quadro elettrico, apertura sbarra
 	mappa03: attacco robot, apertura chest, interazione pc, robot che se ne va
 	mappa04: accensione di ogni pc, posizionamento AP)
+-modificare musica del main menu
 -inserire una nuvoletta sul player che dice qualcosa quando il player si avvicina a un oggetto con cui deve interagire per andare avanti (cosa scrivere nella nuvoletta andrà indicato nello script dell'oggetto con cui deve interagire il player).
 -inserire l'icona del tasto da premere sopra gli oggetti con cui bisogna interagire quando ci si avvicina.
 -inserire qualcosa che indichi bene con cosa bisogna interagire per andare avanti nel gioco.
--sistemare z-index degli oggetti droppati nel gioco.
 -l'attacco di reti lagga di brutto
 -nel livello 1 e nel livello 4 lagga un pochino da telefono.
 -Delle volte quando ci si avvicina ai nemici questi iniziano a camminare ma non si muovono, succede spesso al nemico vicino al pc nel livello 3.
 -sistemare raccoglimento oggetto quando sta vicino a un npc
-
+-bilanciare gli attacchi del player (danno, cooldown)
+-bilanciare gli attacchi del boss (danno, cooldown)
 
 
 CREDITI:

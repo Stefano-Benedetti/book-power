@@ -50,6 +50,8 @@ spawn_attacco_analisi_verticale="punti in cui si genererà il coseno dell'attacc
 spawn_attacco_analisi_orizzontale=""
 enemies=""
 player=""
+casual_enemy_spawn_points=""
+enemies_hitbox=""
 
 [input]
 

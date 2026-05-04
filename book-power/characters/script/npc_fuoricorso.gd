@@ -17,22 +17,26 @@ var player = null
 var SPEED = 60
 var current_dir = "down"		#la inizializziamo giù
 
-@export var max_health = 100
+@export var max_health = 600
 @onready var current_health: int = max_health
-@onready var health_bar: TextureProgressBar=$bat_health_bar
+@onready var health_bar: TextureProgressBar=$CanvasLayer/Container/TextureRect/HBoxContainer/MarginContainer/healthBar
+@onready var health_bar_UI = $CanvasLayer
 var dead = false
 
 @onready var collisionShape = $CollisionShape2D
 var fighting = false
 var can_attack = true
+var can_spawn_enemy = false
 var can_move = true
 var sosta = false
 @onready var attacck_cooldown: Timer=$attackCooldown
 @onready var mov_cooldown: Timer=$movementPostAttackCooldown
+@onready var spawnEnemy_cooldown: Timer=$SpawnEnemyCooldown
 
 @onready var attacco_analisi = preload("res://attacks/scenes/attacco_analisi_boss.tscn")
 @onready var attacco_asd_around = preload("res://attacks/scenes/attacco_asd_around_boss.tscn")
 @onready var attacco_reti = preload("res://attacks/scenes/attacco_reti_boss.tscn")
+@onready var enemy_to_spawn = preload("res://characters/scenes/enemy_spawnedFromNPC.tscn")
 
 var player_in_detectionArea = false
 @onready var nav_agent = $NavigationAgent2D  # Collegamento al nodo NavigationAgent2D
@@ -47,10 +51,12 @@ var electric_form = false
 
 
 func _ready():
+	health_bar_UI.hide()
 	play_anim(0,0)
 	randomize()
 	player = get_tree().get_first_node_in_group("player")
 	$AnimatedSprite2D/electric_particles.hide()
+	spawnEnemy_cooldown.start()
 
 func _process(_delta: float) -> void:
 	if fighting:
@@ -101,43 +107,50 @@ func NPC_attack(_delta):
 	can_attack = false
 	can_move = false
 	var no_cooldown = false
-	#decide che attacco a fare anche in base alla distanza dal player
-	var dist_to_player = global_position.distance_to(player.global_position)
-	var attacchi_candidati = []
-	if dist_to_player<=40: #cioè se il player è vicino
-		attacchi_candidati.append(2)
-		attacchi_candidati.append(3)
-	elif dist_to_player<=60:	
-		attacchi_candidati.append(1)
-		attacchi_candidati.append(2)
-		attacchi_candidati.append(3)
-	elif dist_to_player<=80:	
-		attacchi_candidati.append(1)
-		attacchi_candidati.append(2)
+	
+	if can_spawn_enemy:
+		spawn_enemy()
+		animazione_attacco = "attacco_analisi"
+		$movementPostAttackCooldown.wait_time = 1
+		$attackCooldown.wait_time = 2
 	else:
-		attacchi_candidati.append(0)
-		attacchi_candidati.append(1)
-	tipo_attacco = attacchi_candidati.pick_random()
-	match tipo_attacco:
-		0:
-			generate_attacco_analisi()
-			animazione_attacco = "attacco_analisi"
-			$movementPostAttackCooldown.wait_time = 1
-			$attackCooldown.wait_time = 2
-		1:
-			generate_bomb_packet()
-			animazione_attacco = "attacco_reti"
-			$movementPostAttackCooldown.wait_time = 1
-			$attackCooldown.wait_time = 3
-		2:
-			generate_redblackTree_around()
-			animazione_attacco = "attacco_asd"
-			$movementPostAttackCooldown.wait_time = 1.5
-			$attackCooldown.wait_time = 3
-		3:
-			electric_movement()
-			animazione_attacco = "electricity_form"
-			no_cooldown = true	#non avvio i timer che invece saranno avviati solo da electric_movement() a fine movimento
+		#decide che attacco a fare anche in base alla distanza dal player
+		var dist_to_player = global_position.distance_to(player.global_position)
+		var attacchi_candidati = []
+		if dist_to_player<=40: #cioè se il player è vicino
+			attacchi_candidati.append(2)
+			attacchi_candidati.append(3)
+		elif dist_to_player<=60:	
+			attacchi_candidati.append(1)
+			attacchi_candidati.append(2)
+			attacchi_candidati.append(3)
+		elif dist_to_player<=80:	
+			attacchi_candidati.append(1)
+			attacchi_candidati.append(2)
+		else:
+			attacchi_candidati.append(0)
+			attacchi_candidati.append(1)
+		tipo_attacco = attacchi_candidati.pick_random()
+		match tipo_attacco:
+			0:
+				generate_attacco_analisi()
+				animazione_attacco = "attacco_analisi"
+				$movementPostAttackCooldown.wait_time = 1
+				$attackCooldown.wait_time = 2
+			1:
+				generate_bomb_packet()
+				animazione_attacco = "attacco_reti"
+				$movementPostAttackCooldown.wait_time = 1
+				$attackCooldown.wait_time = 3
+			2:
+				generate_redblackTree_around()
+				animazione_attacco = "attacco_asd"
+				$movementPostAttackCooldown.wait_time = 1.5
+				$attackCooldown.wait_time = 3
+			3:
+				electric_movement()
+				animazione_attacco = "electricity_form"
+				no_cooldown = true	#non avvio i timer che invece saranno avviati solo da electric_movement() a fine movimento
 	
 	if ! no_cooldown:
 		attacck_cooldown.start()  # Avvia il timer
@@ -209,6 +222,13 @@ func electric_movement():
 	attacck_cooldown.start()  # Avvia il timer
 	mov_cooldown.start()
 
+func spawn_enemy():
+	can_spawn_enemy = false
+	var generation_point = get_tree().get_nodes_in_group("casual_enemy_spawn_points").pick_random()
+	var scena_enemy = enemy_to_spawn.instantiate()
+	scena_enemy.global_position = generation_point.global_position
+	scena_enemy.player = player
+	get_tree().current_scene.add_child(scena_enemy)
 
 #restituisce null se si deve fermare, altrimenti restituisce il target
 func calcolo_target():
@@ -385,6 +405,9 @@ func _on_attack_cooldown_timeout():
 func _on_movement_post_attack_cooldown_timeout() -> void:
 	can_move = true
 
+func _on_spawn_enemy_cooldown_timeout() -> void:
+	can_spawn_enemy = true
+
 func _on_movement_sost_timeout() -> void:
 	sosta = false
 
@@ -392,6 +415,7 @@ func set_on_fightmode():
 	fighting = true
 	self.add_to_group("enemies")
 	collisionShape.queue_free()
+	health_bar_UI.show()
 
 func set_on_talkmode():
 	fighting = false
@@ -408,6 +432,9 @@ func die():
 	dead = true
 	Global.emit_signal("morte_fuoricorso")
 	$AnimatedSprite2D.play("die")
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		if enemy.name != self.name:
+			enemy.queue_free()
 	await get_tree().create_timer(2.0).timeout #crea un timer di due secondi e aspetta la fine
 	dropObject()
 	queue_free()
