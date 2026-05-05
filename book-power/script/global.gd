@@ -40,9 +40,21 @@ signal fine_dialogo_player
 
 signal morte_fuoricorso
 
-signal pick_enable
 
-signal pick_disable
+# Gestione numero aree con cui il player può interagire tramite "pick"
+signal pick_update
+
+var pick_counter = 0
+
+func pickIncrement():
+	pick_counter+=1
+	emit_signal("pick_update")
+
+func pickDecrement():
+	pick_counter-=1
+	emit_signal("pick_update")
+
+
 
 func getData():
 	

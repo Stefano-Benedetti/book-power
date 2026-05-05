@@ -9,12 +9,9 @@ extends CanvasLayer
 @onready var button_pause = $pause
 @onready var button_attack =$attack
 
-var pick_possible = 0
-
 func _ready() -> void:
 	Global.in_dialogo.connect(set_dialogue_mode)
-	Global.pick_disable.connect(pick_disabled)
-	Global.pick_enable.connect(pick_enabled)
+	Global.pick_update.connect(pickUpdate)
 	button_pick.modulate = Color(0.6, 0.6, 0.6, 1)
 
 func set_dialogue_mode(enabled: bool) -> void:
@@ -35,19 +32,17 @@ func set_dialogue_mode(enabled: bool) -> void:
 		button_attack.show()
 		button_pick.show()
 		button_inv.show()
-		
-		
-func pick_enabled():
-	pick_possible+=1
-	button_pick.modulate = Color(1, 1, 1, 1.0)
 
-func pick_disabled():
-	pick_possible-=1
-	if pick_possible == 0:
+
+func pickUpdate():
+	if Global.pick_counter <= 0:
 		if button_pick.modulate.a == 0.5:
 			button_pick.modulate = Color(0.6, 0.6, 0.6, 0.5)
 		if button_pick.modulate.a == 1:
 			button_pick.modulate = Color(0.6, 0.6, 0.6, 1)
+	else:
+		button_pick.modulate = Color(1, 1, 1, 1.0)
+
 
 func _on_up_pressed() -> void:
 	button_up.modulate.a = 0.5
@@ -74,7 +69,7 @@ func _on_right_released() -> void:
 
 
 func _on_pick_pressed() -> void:
-	if pick_possible > 0:
+	if Global.pick_counter > 0:
 		button_pick.modulate.a = 0.5
 func _on_pick_released() -> void:
 	button_pick.modulate.a = 1

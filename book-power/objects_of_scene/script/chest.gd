@@ -21,10 +21,10 @@ func _process(_delta: float) -> void:
 			return
 		openChest()
 	if player_in_area and player.selected_item==chiave and !icon_enabled:
-		Global.emit_signal("pick_enable")
+		Global.pickIncrement()
 		icon_enabled = true
 	if player_in_area and player.selected_item!=chiave and icon_enabled:
-		Global.emit_signal("pick_disable")
+		Global.pickDecrement()
 		icon_enabled = false
 
 
@@ -34,7 +34,7 @@ func openChest():
 	dropObject()
 	opened = true
 	player.consumeItem(chiave,1)
-	Global.emit_signal("pick_disable")
+	Global.pickDecrement()
 
 
 func dropObject():
@@ -49,11 +49,11 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 		player_in_area = true
 		player = body
 		if player.selected_item==chiave and !opened:
-			Global.emit_signal("pick_enable")
+			Global.pickIncrement()
 			icon_enabled = true
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = false
-		Global.emit_signal("pick_disable")
+		Global.pickDecrement()
 		icon_enabled = false

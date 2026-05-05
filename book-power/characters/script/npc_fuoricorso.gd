@@ -63,7 +63,8 @@ func _process(_delta: float) -> void:
 		fight_behavior(_delta)
 		return
 	if player_in_talkArea:
-		if Input.is_action_just_pressed("Pick_object"):
+		print(Global.pick_counter)
+		if Global.pick_counter==1 and Input.is_action_just_pressed("Pick_object"):
 			Global.emit_signal("start_dialog")
 
 
@@ -74,12 +75,14 @@ func _on_talk_area_body_entered(body: Node2D) -> void:
 		update_quest.emit()
 		player_in_talkArea = true
 		player = body
+		Global.pickIncrement()
 
 func _on_talk_area_body_exited(body: Node2D) -> void:
 	if fighting:
 		return
 	if body.has_method("player"):
 		player_in_talkArea = false
+		Global.pickDecrement()
 
 func dropObject():
 	if dropped_object == null or dropped:

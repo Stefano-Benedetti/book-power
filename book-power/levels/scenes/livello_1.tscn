@@ -109,7 +109,7 @@ dropped_object = ExtResource("16_xk28k")
 nav_group = 1
 
 [node name="enemy6" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(1477, -367.00003)
+position = Vector2(1605, -368)
 dropped_object = ExtResource("16_gqnl7")
 nav_group = 1
 
@@ -119,7 +119,7 @@ dropped_object = ExtResource("16_xk28k")
 nav_group = 2
 
 [node name="enemy8" parent="." instance=ExtResource("11_8x68r")]
-position = Vector2(1478, -330)
+position = Vector2(1606, -330.99997)
 dropped_object = ExtResource("16_xk28k")
 nav_group = 2
 
