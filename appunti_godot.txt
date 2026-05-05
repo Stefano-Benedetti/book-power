@@ -113,7 +113,6 @@ fix finali:
 -l'attacco di reti lagga di brutto
 -nel livello 1 e nel livello 4 lagga un pochino da telefono.
 -Delle volte quando ci si avvicina ai nemici questi iniziano a camminare ma non si muovono, succede spesso al nemico vicino al pc nel livello 3.
--sistemare raccoglimento oggetto quando sta vicino a un npc
 -bilanciare gli attacchi del player (danno, cooldown)
 -bilanciare gli attacchi del boss (danno, cooldown)
 
