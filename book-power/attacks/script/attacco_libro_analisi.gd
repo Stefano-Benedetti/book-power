@@ -5,9 +5,10 @@ const DAMAGE = 50
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite2D.play("coseno08")
-	$SineWave.play()
+	$WaveTone.seek(0.25)
+	$WaveTone.play()
 	await get_tree().create_timer(0.8).timeout
-	$SineWave.stop()
+	$WaveTone.stop()
 	queue_free()
 
 

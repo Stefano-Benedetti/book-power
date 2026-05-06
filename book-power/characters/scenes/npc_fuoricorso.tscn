@@ -581,7 +581,9 @@ max_speed = 30.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o5iqk")
-animation = &"front_idle"
+animation = &"die"
+frame = 2
+frame_progress = 1.0
 offset = Vector2(0, -26)
 
 [node name="electric_particles" type="GPUParticles2D" parent="AnimatedSprite2D"]

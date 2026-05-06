@@ -24,6 +24,7 @@ func _ready():
 		animatedSprite.show()
 		animatedSprite.play()
 	damage_fase = true
+	$FreesoundCommunitySortdemoQb45Bubble33039.play()
 	await get_tree().create_timer(0.8).timeout
 	queue_free()
 

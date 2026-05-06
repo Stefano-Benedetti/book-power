@@ -26,6 +26,7 @@ func _ready():
 	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play("in_movement")
 	launched = true
+	$FreesoundCommunityTickingBomb90319.play()
 	await get_tree().create_timer(1.5).timeout
 	queue_free()
 
@@ -39,9 +40,11 @@ func _process(delta):
 
 
 func explode():
+	$FreesoundCommunityTickingBomb90319.stop()
 	hittato = true
 	player.getHurt(DAMAGE)
 	$AnimatedSprite2D.play("explosion")
+	$LumoraStudiosPixelExplosion319166.play()
 	await $AnimatedSprite2D.animation_finished
 	queue_free()
 

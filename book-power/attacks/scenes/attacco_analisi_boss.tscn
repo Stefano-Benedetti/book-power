@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://clsbpandhboea"]
+[gd_scene load_steps=9 format=3 uid="uid://clsbpandhboea"]
 
 [ext_resource type="Texture2D" uid="uid://df5d66bwbw4yn" path="res://art/coseno/coseno05.png" id="1_rjifc"]
 [ext_resource type="Script" uid="uid://dshr6h8ehh76y" path="res://attacks/script/attacco_analisi_boss.gd" id="1_y6grc"]
+[ext_resource type="AudioStream" uid="uid://dwgm73oktjph6" path="res://sound/sound effects/Phone Dial Tone - Sound Effect (HD).mp3" id="3_mwj15"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6grc"]
 atlas = ExtResource("1_rjifc")
@@ -56,6 +57,12 @@ color = Color(1, 1, 0.21568628, 0.4627451)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damageArea"]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_rjifc")
+
+[node name="WaveTone" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mwj15")
+volume_db = -12.0
+pitch_scale = 0.75
+bus = &"Effects"
 
 [connection signal="body_entered" from="damageArea" to="." method="_on_damage_area_body_entered"]
 [connection signal="body_exited" from="damageArea" to="." method="_on_damage_area_body_exited"]

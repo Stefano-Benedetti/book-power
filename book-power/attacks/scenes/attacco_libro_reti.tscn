@@ -90,11 +90,10 @@ target_desired_distance = 8.0
 
 [node name="esplosione" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_iuhqb")
-volume_db = 10.0
 bus = &"Effects"
 
 [node name="timer_sonoro" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_25vsf")
-volume_db = -5.0
+volume_db = -7.0
 bus = &"Effects"
 parameters/looping = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d1ei5rqc3ctvh"]
+[gd_scene load_steps=17 format=3 uid="uid://d1ei5rqc3ctvh"]
 
 [ext_resource type="Script" uid="uid://wfs0gvqu3jlg" path="res://attacks/script/attacco_reti_boss.gd" id="1_1s6jd"]
 [ext_resource type="Texture2D" uid="uid://bh6y41u04ehnj" path="res://art/attacco_reti/attacco_reti04.png" id="1_2s32t"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://ct8fe12gy1h3j" path="res://art/Pixel Explosions Free Pack/Pixel Explosions Free Pack/PNGs/bigboom/bigboom2.png" id="3_ox7xr"]
 [ext_resource type="Texture2D" uid="uid://348qee7f26c1" path="res://art/Pixel Explosions Free Pack/Pixel Explosions Free Pack/PNGs/bigboom/bigboom3.png" id="4_ldxrt"]
 [ext_resource type="Texture2D" uid="uid://bp526knatuwwu" path="res://art/Pixel Explosions Free Pack/Pixel Explosions Free Pack/PNGs/bigboom/bigboom4.png" id="5_swv72"]
+[ext_resource type="AudioStream" uid="uid://6ynpybcr0hv7" path="res://sound/sound effects/freesound_community-ticking-bomb-90319.mp3" id="7_ldxrt"]
+[ext_resource type="AudioStream" uid="uid://b87lrl041cuf2" path="res://sound/sound effects/lumora_studios-pixel-explosion-319166.mp3" id="8_swv72"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d30cn"]
 atlas = ExtResource("2_3v6ft")
@@ -86,6 +88,15 @@ offset_top = -11.0
 offset_right = 456.0
 offset_bottom = 11.0
 color = Color(0.078431375, 1, 1, 0.34509805)
+
+[node name="FreesoundCommunityTickingBomb90319" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ldxrt")
+volume_db = -7.0
+bus = &"Effects"
+
+[node name="LumoraStudiosPixelExplosion319166" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_swv72")
+bus = &"Effects"
 
 [connection signal="body_entered" from="explosionArea" to="." method="_on_explosion_area_body_entered"]
 [connection signal="body_exited" from="explosionArea" to="." method="_on_explosion_area_body_exited"]

@@ -19,6 +19,8 @@ func _ready():
 		await get_tree().create_timer(0.2).timeout
 	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play()
+	$WaveTone.seek(0.25)
+	$WaveTone.play()
 	damage_fase = true
 	await get_tree().create_timer(1.5).timeout
 	queue_free()

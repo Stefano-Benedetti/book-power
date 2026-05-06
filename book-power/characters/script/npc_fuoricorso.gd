@@ -417,6 +417,8 @@ func _on_movement_sost_timeout() -> void:
 	sosta = false
 
 func set_on_fightmode():
+	if dead:
+		return
 	fighting = true
 	self.add_to_group("enemies")
 	collisionShape.queue_free()
@@ -442,4 +444,3 @@ func die():
 			enemy.queue_free()
 	await get_tree().create_timer(2.0).timeout #crea un timer di due secondi e aspetta la fine
 	dropObject()
-	queue_free()

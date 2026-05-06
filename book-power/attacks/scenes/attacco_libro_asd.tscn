@@ -69,6 +69,7 @@ polygon = PackedVector2Array(8.611112, -9.375, -1.3888879, -6.250001, -9.72222, 
 
 [node name="FreesoundCommunitySortdemoQb45Bubble33039" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_nnq8a")
+volume_db = -7.0
 bus = &"Effects"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
