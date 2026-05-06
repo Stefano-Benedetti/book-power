@@ -103,6 +103,8 @@ func _on_cave_entrance_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_cave_entrance = true
 		player = body
+		Musica.stopMusic()
+		Musica.cave_music.play()
 
 func _on_cave_entrance_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
@@ -113,6 +115,8 @@ func _on_cave_exit_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_cave_exit = true
 		player = body
+		Musica.stopMusic()
+		Musica.gaming_music.play()
 
 
 func _on_cave_exit_body_exited(body: Node2D) -> void:

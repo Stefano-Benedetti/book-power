@@ -8,6 +8,7 @@ var current_scene
 @onready var level6_music = $level6_music
 @onready var boss_music = $boss_music
 @onready var credits_music = $credits_music
+@onready var cave_music = $cave_music
 
 
 # Called when the node enters the scene tree for the first time.
@@ -45,3 +46,6 @@ func stopMusic() -> void:
 	$level0_music.stop()
 	$level6_music.stop()
 	$gaming_music.stop()
+	$cave_music.stop()
+	$boss_music.stop()
+	$credits_music.stop()

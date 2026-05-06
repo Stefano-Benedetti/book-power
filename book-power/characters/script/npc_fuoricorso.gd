@@ -196,6 +196,7 @@ func generate_bomb_packet():
 func electric_movement():
 	var offset_normale = $AnimatedSprite2D.offset.y
 	$AnimatedSprite2D/electric_particles.show()
+	$BossElectricSound.play()
 	$AnimatedSprite2D.offset.y += -offset_normale
 	electric_form = true
 	var moltiplicare_speed = 3
@@ -217,9 +218,10 @@ func electric_movement():
 	SPEED = SPEED/moltiplicare_speed
 	await get_tree().create_timer(0.5).timeout
 	$AnimatedSprite2D.offset.y += offset_normale
+	
 	electric_form = false
 	$AnimatedSprite2D/electric_particles.hide()
-	
+	$BossElectricSound.stop()
 	$movementPostAttackCooldown.wait_time = 0.5
 	$attackCooldown.wait_time = 1
 	attacck_cooldown.start()  # Avvia il timer

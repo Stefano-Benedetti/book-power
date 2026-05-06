@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bcj084do5q5vd"
+path="res://.godot/imported/boss_electric_sound.mp3-59f695cbb20879f43bc64ca9f4a03ce6.mp3str"
+
+[deps]
+
+source_file="res://sound/sound effects/boss_electric_sound.mp3"
+dest_files=["res://.godot/imported/boss_electric_sound.mp3-59f695cbb20879f43bc64ca9f4a03ce6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
