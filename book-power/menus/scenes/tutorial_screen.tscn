@@ -1,51 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://wg8goojj7m8"]
+[gd_scene load_steps=5 format=3 uid="uid://wg8goojj7m8"]
 
+[ext_resource type="Script" uid="uid://d1flspee4hcbs" path="res://menus/script/tutorial_screen.gd" id="1_k1kaf"]
 [ext_resource type="Texture2D" uid="uid://cghlh84julrv2" path="res://art/cornice_tutorial_screen.png" id="1_rxdk8"]
 [ext_resource type="Texture2D" uid="uid://col3pu8plomr3" path="res://art/tutorial_image.png" id="2_hqrmq"]
 [ext_resource type="Texture2D" uid="uid://b0h8wcncv451r" path="res://art/button_avanti.png" id="3_hqrmq"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
-
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
-z_index = 1
-custom_minimum_size = Vector2(108, 72)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("1_rxdk8")
-region_rect = Rect2(0, 0, 62, 62)
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 80
-theme_override_constants/margin_top = 65
-theme_override_constants/margin_right = 80
-theme_override_constants/margin_bottom = 65
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/NinePatchRect/MarginContainer"]
-z_index = -2
-custom_minimum_size = Vector2(108, 72)
-layout_mode = 2
-texture = ExtResource("2_hqrmq")
-expand_mode = 1
-stretch_mode = 5
+script = ExtResource("1_k1kaf")
 
 [node name="ok" type="TextureButton" parent="."]
 z_index = 3
@@ -62,3 +23,60 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_hqrmq")
 stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0, 0, 0, 0.47058824)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+z_index = 2
+custom_minimum_size = Vector2(108, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_rxdk8")
+region_rect = Rect2(0, 0, 62, 62)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 65
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 65
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/NinePatchRect/MarginContainer"]
+z_index = -1
+custom_minimum_size = Vector2(108, 72)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_hqrmq")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="button_up" from="ok" to="." method="_on_ok_button_up"]

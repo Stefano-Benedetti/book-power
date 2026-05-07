@@ -70,3 +70,7 @@ func _on_back_pressed() -> void:
 	enable()
 	$Panel2.hide()
 	$Panel.show()
+
+
+func _on_texture_button_button_up() -> void:
+	$tutorial_screen.show()
