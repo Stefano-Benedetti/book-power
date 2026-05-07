@@ -63,7 +63,6 @@ func _process(_delta: float) -> void:
 		fight_behavior(_delta)
 		return
 	if player_in_talkArea:
-		print(Global.pick_counter)
 		if Global.pick_counter==1 and Input.is_action_just_pressed("Pick_object"):
 			Global.emit_signal("start_dialog")
 
@@ -159,7 +158,6 @@ func NPC_attack(_delta):
 		attacck_cooldown.start()  # Avvia il timer
 		mov_cooldown.start()
 	$AnimatedSprite2D.play(animazione_attacco)
-	#crea attacco...
 
 func generate_attacco_analisi():
 	var coseni_verticali = randi_range(0, 1) == 1

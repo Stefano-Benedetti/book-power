@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cqeqa6017g2hd"
+path="res://.godot/imported/health_sound_effect.mp3-0a58c5f45921c0c3e7ad6e3bfb9e9537.mp3str"
+
+[deps]
+
+source_file="res://sound/sound effects/health_sound_effect.mp3"
+dest_files=["res://.godot/imported/health_sound_effect.mp3-0a58c5f45921c0c3e7ad6e3bfb9e9537.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

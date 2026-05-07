@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://ckwr713fqij6n"]
+[gd_scene load_steps=93 format=3 uid="uid://ckwr713fqij6n"]
 
 [ext_resource type="Texture2D" uid="uid://jqtjgfkuhcix" path="res://art/player_set.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://y22tc3o24p31" path="res://script/player.gd" id="1_g2els"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cx0vj4vnn2cwj" path="res://art/player_sleeping/player_addormentato01.png" id="7_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://dwatvny727uex" path="res://art/player_sleeping/player_addormentato02.png" id="8_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://cvij5v20jqk3t" path="res://art/player_sleeping/player_addormentato03.png" id="9_3v2ag"]
+[ext_resource type="AudioStream" uid="uid://cqeqa6017g2hd" path="res://sound/sound effects/health_sound_effect.mp3" id="10_y4r1p"]
 
 [sub_resource type="Resource" id="Resource_qlg0r"]
 script = ExtResource("3_qlg0r")
@@ -641,6 +642,10 @@ shape = SubResource("CapsuleShape2D_g2els")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-4.053116e-06, -14.999992)
 zoom = Vector2(4, 4)
+
+[node name="HealthSoundEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_y4r1p")
+volume_db = -8.0
 
 [connection signal="timeout" from="attackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="movementPostAttackCooldown" to="." method="_on_movement_post_attack_cooldown_timeout"]

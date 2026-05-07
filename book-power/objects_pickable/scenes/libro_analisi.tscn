@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://4q20bgjmsri5"]
+[gd_scene load_steps=7 format=3 uid="uid://4q20bgjmsri5"]
 
 [ext_resource type="Texture2D" uid="uid://cekqb8vxk1kbm" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/libro_analisi.png" id="1_osvgq"]
 [ext_resource type="Script" uid="uid://cfkcc5t3gqs6r" path="res://objects_pickable/script/libro_analisi.gd" id="1_vvexj"]
 [ext_resource type="Resource" uid="uid://dfndl5n4ffy2n" path="res://inventory/items/libro_analisi.tres" id="2_3vnjb"]
 [ext_resource type="Texture2D" uid="uid://b7qll8mfkljpw" path="res://art/Shadow_bat.png" id="3_s5u7l"]
+[ext_resource type="AudioStream" uid="uid://c6qh3rp1yjp1n" path="res://sound/sound effects/angelic_choir.mp3" id="5_jfjmc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vvexj"]
 radius = 8.0
@@ -27,6 +28,11 @@ offset = Vector2(0, -25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickableArea"]
 shape = SubResource("CircleShape2D_vvexj")
+
+[node name="AngelicChoir" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jfjmc")
+volume_db = -8.0
+bus = &"Effects"
 
 [connection signal="body_entered" from="PickableArea" to="." method="_on_pickable_area_body_entered"]
 [connection signal="body_exited" from="PickableArea" to="." method="_on_pickable_area_body_exited"]

@@ -234,6 +234,7 @@ func getHurt(damage):
 	health_changed.emit()	#per aggiornare la health bar
 
 func getHealed(health_plus):
+	$HealthSoundEffect.play()
 	for i in range(0,3):
 		$AnimatedSprite2D.modulate = Color(0, 1, 0)
 		await get_tree().create_timer(0.2).timeout

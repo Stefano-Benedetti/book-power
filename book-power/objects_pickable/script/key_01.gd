@@ -12,7 +12,11 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("Pick_object"):
 			var has_picked = player.collect(item)
 			if(has_picked):
-				queue_free()
+				if !$Pick.playing:
+					$Pick.play()
+					hide()
+					await get_tree().create_timer(2).timeout
+					queue_free()
 
 
 func _on_pickable_area_body_entered(body: Node2D) -> void:

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://s4sgnvd5jpqj"]
+[gd_scene load_steps=7 format=3 uid="uid://s4sgnvd5jpqj"]
 
 [ext_resource type="Texture2D" uid="uid://dss8n6oo7v2gl" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/potion_02a.png" id="1_1dg5g"]
 [ext_resource type="Script" uid="uid://bx8npf8l8tmys" path="res://objects_pickable/script/health_potion.gd" id="1_np0hw"]
 [ext_resource type="Resource" uid="uid://diilydmty2tfg" path="res://inventory/items/health_potion.tres" id="2_gan2x"]
 [ext_resource type="Texture2D" uid="uid://b7qll8mfkljpw" path="res://art/Shadow_bat.png" id="4_v4bo0"]
+[ext_resource type="AudioStream" uid="uid://c6wplasvvgbnf" path="res://sound/sound effects/pick.mp3" id="5_vugw6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_np0hw"]
 radius = 6.0827627
@@ -28,6 +29,11 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickableArea"]
 shape = SubResource("CircleShape2D_np0hw")
+
+[node name="Pick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vugw6")
+volume_db = -8.0
+bus = &"Effects"
 
 [connection signal="body_entered" from="PickableArea" to="." method="_on_pickable_area_body_entered"]
 [connection signal="body_exited" from="PickableArea" to="." method="_on_pickable_area_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dotk8wkljroor"]
+[gd_scene load_steps=21 format=3 uid="uid://dotk8wkljroor"]
 
 [ext_resource type="Script" uid="uid://dk03medwanjub" path="res://levels/script/livello_1.gd" id="1_55gh7"]
 [ext_resource type="PackedScene" uid="uid://5qac7823w8cl" path="res://maps/scenes/mappa_01.tscn" id="1_icrkw"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://ch53egphidssg" path="res://objects_pickable/scenes/moneta_bronzo.tscn" id="16_xk28k"]
 [ext_resource type="Script" uid="uid://dpuorsedpgpke" path="res://levels/script/ai_nav_manager.gd" id="17_0ik74"]
 [ext_resource type="PackedScene" uid="uid://ormd5fwveh3q" path="res://scenes/to_next_level.tscn" id="18_n3k4e"]
+[ext_resource type="AudioStream" uid="uid://boh6qs0iwarm1" path="res://sound/sound effects/cha-ching.mp3" id="20_02i42"]
 
 [node name="livello_1" type="Node2D"]
 y_sort_enabled = true
@@ -51,7 +52,6 @@ offset_bottom = 609.0
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar" parent="CanvasLayer2" node_paths=PackedStringArray("player") instance=ExtResource("4_sj3x5")]
-visible = false
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 84.0
@@ -60,11 +60,9 @@ player = NodePath("../../player")
 metadata/_edit_use_anchors_ = true
 
 [node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("5_55gh7")]
-visible = false
 metadata/_edit_use_anchors_ = true
 
 [node name="casella_dialogo" parent="CanvasLayer2" instance=ExtResource("6_8x68r")]
-visible = false
 metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -133,5 +131,9 @@ script = ExtResource("17_0ik74")
 
 [node name="ToNextLevel" parent="." instance=ExtResource("18_n3k4e")]
 position = Vector2(1628, -353)
+
+[node name="ChaChing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_02i42")
+bus = &"Effects"
 
 [connection signal="body_shape_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_shape_entered"]

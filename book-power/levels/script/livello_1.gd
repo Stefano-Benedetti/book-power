@@ -37,6 +37,7 @@ func takeMoney():
 	if QuestCounter.quest_corrente==1 and !MoneyTaken :
 		MoneyTaken = true
 		$player.consumeItem(item_richiesto,4)
+		$ChaChing.play()
 
 func removeRoadblock():
 	if QuestCounter.quest_corrente==1:
