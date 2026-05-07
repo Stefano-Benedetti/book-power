@@ -91,11 +91,12 @@ color = Color(0.078431375, 1, 1, 0.34509805)
 
 [node name="FreesoundCommunityTickingBomb90319" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ldxrt")
-volume_db = -7.0
+volume_db = -10.0
 bus = &"Effects"
 
 [node name="LumoraStudiosPixelExplosion319166" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_swv72")
+volume_db = -5.0
 bus = &"Effects"
 
 [connection signal="body_entered" from="explosionArea" to="." method="_on_explosion_area_body_entered"]
