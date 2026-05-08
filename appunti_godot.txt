@@ -116,13 +116,15 @@ fix finali:
 -inserire suono per attacco bat
 -inserire suono per quando boss spawna nemici
 
--inserire una nuvoletta sul player che dice qualcosa quando il player si avvicina a un oggetto con cui deve interagire per andare avanti (cosa scrivere nella nuvoletta andrà indicato nello script dell'oggetto con cui deve interagire il player).
+-inserire una nuvoletta sul player che dice qualcosa quando il player si avvicina a un oggetto con cui deve interagire per andare avanti (cosa scrivere nella nuvoletta andrà indicato
+	nello script dell'oggetto con cui deve interagire il player).
 -inserire l'icona del tasto da premere sopra gli oggetti con cui bisogna interagire quando ci si avvicina.
 -inserire qualcosa che indichi bene con cosa bisogna interagire per andare avanti nel gioco.
 
 -l'attacco di reti lagga di brutto
 -nel livello 1 e nel livello 4 lagga un pochino da telefono.
--Delle volte quando ci si avvicina ai nemici questi iniziano a camminare ma non si muovono, succede spesso al nemico vicino al pc nel livello 3.
+-Delle volte quando ci si avvicina ai nemici questi iniziano a camminare ma non si muovono, succede spesso al nemico vicino al pc nel livello 3 (in teoria è risolto ma lasciamolo
+	tra i fix che non si sa mai)
 
 -bilanciare gli attacchi del player (danno, cooldown)
 -bilanciare gli attacchi del boss (danno, cooldown)

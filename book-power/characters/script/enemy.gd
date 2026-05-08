@@ -32,6 +32,7 @@ var can_move = true
 
 var spawn_point = null
 
+var fermo=true
 @export var nav_group: int = 0
 @export var repath_distance: float = 16.0 # evita ricalcoli se player quasi fermo
 var _last_target: Vector2
@@ -116,6 +117,7 @@ func enemy_attack():
 #nella stessa direzione
 func enemy_movement(delta):
 	if abs(position.x-spawn_point.x) < 20 and abs(position.y-spawn_point.y) < 20 and !player_in_area:
+		fermo = true
 		play_anim(0, 0)
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -143,6 +145,7 @@ func enemy_movement(delta):
 
 	#movimento usando il path corrente
 	if nav_agent.is_navigation_finished():
+		fermo = true
 		play_anim(0, 0)
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -150,26 +153,51 @@ func enemy_movement(delta):
 
 	var next_pos = nav_agent.get_next_path_position()
 	var direction = (next_pos - global_position).normalized()
-
-	if abs(abs(direction.x) - abs(direction.y)) > 0.5:
-		if abs(direction.x) > 0.5:
-			if direction.x > 0:
-				current_dir = "right"
-				velocity = Vector2(SPEED, 0)
-			else:
-				current_dir = "left"
-				velocity = Vector2(-SPEED, 0)
-		else:
-			if direction.y > 0:
-				current_dir = "down"
-				velocity = Vector2(0, SPEED)
-			else:
-				current_dir = "up"
-				velocity = Vector2(0, -SPEED)
+	
+	print(direction)
+	if fermo:
+		set_dir_and_velocity(direction, fermo)
+		fermo = false
+	else:
+		if abs(abs(direction.x) - abs(direction.y)) > 0.5:
+			set_dir_and_velocity(direction, fermo)
+			
+	
+	#if abs(abs(direction.x) - abs(direction.y)) > 0.5:
+		#if abs(direction.x) > 0.5:
+			#if direction.x > 0:
+				#current_dir = "right"
+				#velocity = Vector2(SPEED, 0)
+			#else:
+				#current_dir = "left"
+				#velocity = Vector2(-SPEED, 0)
+		#else:
+			#if direction.y > 0:
+				#current_dir = "down"
+				#velocity = Vector2(0, SPEED)
+			#else:
+				#current_dir = "up"
+				#velocity = Vector2(0, -SPEED)
 
 	play_anim(1, 0)
 	move_and_slide()
 
+func set_dir_and_velocity(direction, fermo):
+	if (abs(direction.x)>abs(direction.y) and fermo) or (abs(direction.x)>0.5 and not fermo):
+		if direction.x > 0:
+			current_dir = "right"
+			velocity = Vector2(SPEED, 0)
+		else:
+			current_dir = "left"
+			velocity = Vector2(-SPEED, 0)
+	else:
+		if direction.y > 0:
+			current_dir = "down"
+			velocity = Vector2(0, SPEED)
+		else:
+			current_dir = "up"
+			velocity = Vector2(0, -SPEED)
+	pass
 
 #funzione per gestire le animazioni del nemico, movement=1 => ci stiamo muovendo
 func play_anim(movement, attaccando):

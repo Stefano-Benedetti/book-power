@@ -187,9 +187,6 @@ position = Vector2(298, -1560)
 [node name="bat8" parent="." groups=["in_cave"] instance=ExtResource("22_ht61p")]
 position = Vector2(644, -1472)
 
-[node name="libro_reti" parent="." instance=ExtResource("18_a34kp")]
-position = Vector2(269, -997)
-
 [connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]
 [connection signal="body_entered" from="cave_entrance" to="." method="_on_cave_entrance_body_entered"]
 [connection signal="body_exited" from="cave_entrance" to="." method="_on_cave_entrance_body_exited"]
