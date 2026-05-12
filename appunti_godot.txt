@@ -101,7 +101,7 @@ Gli attacchi sono parzialmente causali (scelta casuale da più pattern di sequen
 prossime cose da fare:
 trovare musica di sottofondo per boss-fight
 
-fix finali:
+FIX FINALI:
 - nel livello 1 quando si parte il dialogo con l'NPC deve partire in automatico, poi finito il dialogo (ovvero qando il libro di analisi è a terra) compare la schermata tutorial.
 	si deve poter apire la schermata anche dal menu di pausa (va creato un bottone apposito).
 
@@ -109,7 +109,6 @@ fix finali:
 	mappa02: accensione quadro elettrico, leva tirata
 	mappa03: attacco robot, apertura chest, interazione pc, robot che se ne va
 	mappa04: accensione di ogni pc, posizionamento AP)
--inserire suono per quando prendi una moneta,, inserire suono per quando prendi un libro, inserire suono per quando prendi un oggetto qualunque
 -modificare musica del main menu
 - far partire il gioco col volume più basso
 -inserire suono per attacco del nemico
