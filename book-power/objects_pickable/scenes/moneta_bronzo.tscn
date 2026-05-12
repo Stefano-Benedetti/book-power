@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ch53egphidssg"]
+[gd_scene load_steps=8 format=3 uid="uid://ch53egphidssg"]
 
 [ext_resource type="Script" uid="uid://cd6e1phs2iy3q" path="res://objects_pickable/script/moneta_bronzo.gd" id="1_3lq0s"]
 [ext_resource type="Texture2D" uid="uid://chxhb3a5su2xt" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/coin_01a.png" id="1_gb6md"]
 [ext_resource type="Resource" uid="uid://cd2ncmd3tm8dy" path="res://inventory/items/moneta_bronzo.tres" id="2_78xty"]
 [ext_resource type="Texture2D" uid="uid://b7qll8mfkljpw" path="res://art/Shadow_bat.png" id="3_gdtc3"]
 [ext_resource type="AudioStream" uid="uid://cvdb8rcatmw36" path="res://sound/sound effects/CoinPickEffect.mp3" id="5_rt5bm"]
+[ext_resource type="Texture2D" uid="uid://c8pew34idtkwj" path="res://art/pick_action_button.png" id="6_h80wp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gb6md"]
 radius = 29.999996
@@ -33,6 +34,11 @@ shape = SubResource("CircleShape2D_gb6md")
 stream = ExtResource("5_rt5bm")
 volume_db = -10.0
 bus = &"Effects"
+
+[node name="button_icon" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("6_h80wp")
+offset = Vector2(0, -20)
 
 [connection signal="body_entered" from="PickableArea" to="." method="_on_pickable_area_body_entered"]
 [connection signal="body_exited" from="PickableArea" to="." method="_on_pickable_area_body_exited"]

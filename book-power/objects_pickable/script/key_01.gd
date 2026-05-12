@@ -6,6 +6,9 @@ var player_in_area = false
 var player = null
 
 
+func _ready():
+	$button_icon.hide()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if player_in_area:
@@ -23,10 +26,21 @@ func _on_pickable_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = true
 		player = body
+		mostra_button()
 		Global.pickIncrement()
 
 
 func _on_pickable_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = false
+		$button_icon.hide()
 		Global.pickDecrement()
+
+
+func mostra_button():
+	$button_icon.show()
+	while player_in_area:
+		$button_icon.modulate.a = 1
+		await get_tree().create_timer(0.7).timeout
+		$button_icon.modulate.a = 0.5
+		await get_tree().create_timer(0.5).timeout

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://s4sgnvd5jpqj"]
+[gd_scene load_steps=8 format=3 uid="uid://s4sgnvd5jpqj"]
 
 [ext_resource type="Texture2D" uid="uid://dss8n6oo7v2gl" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/potion_02a.png" id="1_1dg5g"]
 [ext_resource type="Script" uid="uid://bx8npf8l8tmys" path="res://objects_pickable/script/health_potion.gd" id="1_np0hw"]
 [ext_resource type="Resource" uid="uid://diilydmty2tfg" path="res://inventory/items/health_potion.tres" id="2_gan2x"]
 [ext_resource type="Texture2D" uid="uid://b7qll8mfkljpw" path="res://art/Shadow_bat.png" id="4_v4bo0"]
 [ext_resource type="AudioStream" uid="uid://c6wplasvvgbnf" path="res://sound/sound effects/pick.mp3" id="5_vugw6"]
+[ext_resource type="Texture2D" uid="uid://c8pew34idtkwj" path="res://art/pick_action_button.png" id="6_7acv7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_np0hw"]
 radius = 6.0827627
@@ -34,6 +35,11 @@ shape = SubResource("CircleShape2D_np0hw")
 stream = ExtResource("5_vugw6")
 volume_db = -8.0
 bus = &"Effects"
+
+[node name="button_icon" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_7acv7")
+offset = Vector2(0, -25)
 
 [connection signal="body_entered" from="PickableArea" to="." method="_on_pickable_area_body_entered"]
 [connection signal="body_exited" from="PickableArea" to="." method="_on_pickable_area_body_exited"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwroxtcbkxdus"]
+[gd_scene load_steps=8 format=3 uid="uid://dwroxtcbkxdus"]
 
 [ext_resource type="Texture2D" uid="uid://ccsfe7e71l7kb" path="res://art/libro_elettrotecnica.png" id="1_0ol7m"]
 [ext_resource type="Script" uid="uid://dd3ukfvucnsl7" path="res://objects_pickable/script/libro_elettrotecnica.gd" id="1_f3lmb"]
 [ext_resource type="Resource" uid="uid://c4nbu1k72n240" path="res://inventory/items/libro_elettrotecnica.tres" id="2_7coru"]
 [ext_resource type="Texture2D" uid="uid://b7qll8mfkljpw" path="res://art/Shadow_bat.png" id="3_m74ja"]
 [ext_resource type="AudioStream" uid="uid://c6qh3rp1yjp1n" path="res://sound/sound effects/angelic_choir.mp3" id="5_fyrjp"]
+[ext_resource type="Texture2D" uid="uid://c8pew34idtkwj" path="res://art/pick_action_button.png" id="6_ookh7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f3lmb"]
 radius = 8.0
@@ -33,6 +34,11 @@ shape = SubResource("CircleShape2D_f3lmb")
 stream = ExtResource("5_fyrjp")
 volume_db = -8.0
 bus = &"Effects"
+
+[node name="button_icon" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_ookh7")
+offset = Vector2(0, -34)
 
 [connection signal="body_entered" from="PickableArea" to="." method="_on_pickable_area_body_entered"]
 [connection signal="body_exited" from="PickableArea" to="." method="_on_pickable_area_body_exited"]

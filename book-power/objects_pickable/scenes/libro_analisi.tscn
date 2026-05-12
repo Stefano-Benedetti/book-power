@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://4q20bgjmsri5"]
+[gd_scene load_steps=8 format=3 uid="uid://4q20bgjmsri5"]
 
 [ext_resource type="Texture2D" uid="uid://cekqb8vxk1kbm" path="res://art/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/libro_analisi.png" id="1_osvgq"]
 [ext_resource type="Script" uid="uid://cfkcc5t3gqs6r" path="res://objects_pickable/script/libro_analisi.gd" id="1_vvexj"]
 [ext_resource type="Resource" uid="uid://dfndl5n4ffy2n" path="res://inventory/items/libro_analisi.tres" id="2_3vnjb"]
 [ext_resource type="Texture2D" uid="uid://b7qll8mfkljpw" path="res://art/Shadow_bat.png" id="3_s5u7l"]
 [ext_resource type="AudioStream" uid="uid://c6qh3rp1yjp1n" path="res://sound/sound effects/angelic_choir.mp3" id="5_jfjmc"]
+[ext_resource type="Texture2D" uid="uid://c8pew34idtkwj" path="res://art/pick_action_button.png" id="6_fw224"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vvexj"]
 radius = 8.0
@@ -22,7 +23,7 @@ texture = ExtResource("3_s5u7l")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("1_osvgq")
-offset = Vector2(0, -25)
+offset = Vector2(0, -35)
 
 [node name="PickableArea" type="Area2D" parent="."]
 
@@ -33,6 +34,11 @@ shape = SubResource("CircleShape2D_vvexj")
 stream = ExtResource("5_jfjmc")
 volume_db = -8.0
 bus = &"Effects"
+
+[node name="button_icon" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_fw224")
+offset = Vector2(0, -34)
 
 [connection signal="body_entered" from="PickableArea" to="." method="_on_pickable_area_body_entered"]
 [connection signal="body_exited" from="PickableArea" to="." method="_on_pickable_area_body_exited"]
