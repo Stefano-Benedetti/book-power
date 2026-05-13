@@ -114,7 +114,7 @@ FIX FINALI:
 
 -inserire una nuvoletta sul player che dice qualcosa quando il player si avvicina a un oggetto con cui deve interagire per andare avanti (cosa scrivere nella nuvoletta andrà indicato
 	nello script dell'oggetto con cui deve interagire il player).
--inserire l'icona del tasto da premere sopra i personaggi con cui bisogna interagire quando ci si avvicina.
+-inserire l'icona del tasto da premere sopra i personaggi (e sopra l'area in cui va l'AP nel livello 4) con cui bisogna interagire quando ci si avvicina.
 -inserire qualcosa che indichi bene con cosa bisogna interagire per andare avanti nel gioco.
 
 -l'attacco di reti lagga di brutto
