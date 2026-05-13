@@ -10,6 +10,7 @@ var quest_completata = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$TutorialScreen.hide()
 	Musica.gaming_music.play()
 	
 	# l'inventario del player (e di Progress) qui deve essere vuoto
@@ -31,6 +32,13 @@ func _ready() -> void:
 	$npc_fuoricorso.play_anim(0,0)
 	await get_tree().create_timer(2).timeout
 	Global.emit_signal("start_dialog")
+	
+func _process(delta: float) -> void:
+	if GameState.in_tutorial:
+		if Input.is_action_just_pressed("Pick_object") or Input.is_action_just_pressed("pause"):
+			$TutorialScreen.hide()
+			GameState.in_tutorial = false
+	
 
 func quest_update():
 	if !quest_completata and $player.inv.countItem(item_richiesto) >= qta_item_richiesti:
@@ -40,6 +48,9 @@ func quest_update():
 func dropBook():
 	if QuestCounter.quest_corrente==0:
 		$npc_fuoricorso.dropObject()
+		GameState.in_tutorial = true
+		await get_tree().create_timer(1).timeout
+		$TutorialScreen.show()
 
 func takeMoney():
 	if QuestCounter.quest_corrente==1 and !MoneyTaken :

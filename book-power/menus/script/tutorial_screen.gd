@@ -4,6 +4,7 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.hide()
+	GameState.in_tutorial = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,3 +14,4 @@ func _process(delta: float) -> void:
 
 func _on_ok_button_up() -> void:
 	self.hide()
+	GameState.in_tutorial = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dotk8wkljroor"]
+[gd_scene load_steps=22 format=3 uid="uid://dotk8wkljroor"]
 
 [ext_resource type="Script" uid="uid://dk03medwanjub" path="res://levels/script/livello_1.gd" id="1_55gh7"]
 [ext_resource type="PackedScene" uid="uid://5qac7823w8cl" path="res://maps/scenes/mappa_01.tscn" id="1_icrkw"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://dpuorsedpgpke" path="res://levels/script/ai_nav_manager.gd" id="17_0ik74"]
 [ext_resource type="PackedScene" uid="uid://ormd5fwveh3q" path="res://scenes/to_next_level.tscn" id="18_n3k4e"]
 [ext_resource type="AudioStream" uid="uid://boh6qs0iwarm1" path="res://sound/sound effects/cha-ching.mp3" id="20_02i42"]
+[ext_resource type="PackedScene" uid="uid://wg8goojj7m8" path="res://menus/scenes/tutorial_screen.tscn" id="21_f7381"]
 
 [node name="livello_1" type="Node2D"]
 y_sort_enabled = true
@@ -135,5 +136,7 @@ position = Vector2(1628, -353)
 [node name="ChaChing" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_02i42")
 bus = &"Effects"
+
+[node name="TutorialScreen" parent="." instance=ExtResource("21_f7381")]
 
 [connection signal="body_shape_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_shape_entered"]

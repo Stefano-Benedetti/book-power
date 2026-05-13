@@ -64,7 +64,7 @@ func _physics_process(delta: float):
 		velocity.x = 0
 		velocity.y = 0
 		return
-	if GameState.in_dialogue:
+	if GameState.in_dialogue or GameState.in_tutorial:
 		play_anim(0,0)
 		velocity.x = 0
 		velocity.y = 0
