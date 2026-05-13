@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5pdjxw82yqt3"]
+[gd_scene load_steps=9 format=3 uid="uid://c5pdjxw82yqt3"]
 
 [ext_resource type="Script" uid="uid://ck5ovrmoufywq" path="res://objects_of_scene/script/quadro_elettrico.gd" id="1_nmsqp"]
 [ext_resource type="Texture2D" uid="uid://d2it383chfwbu" path="res://art/Pannello_elettrico.png" id="1_ox0gy"]
 [ext_resource type="Texture2D" uid="uid://c6sy6lepucwh3" path="res://art/pannello_rotto.png" id="2_nmsqp"]
+[ext_resource type="Texture2D" uid="uid://blqkb7t317x4j" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 controls/16x16 Control Buttons (27).png" id="4_up0d8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_50gy0"]
 atlas = ExtResource("2_nmsqp")
@@ -43,6 +44,11 @@ sprite_frames = SubResource("SpriteFrames_rgg26")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_of_interaction"]
 position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_ox0gy")
+
+[node name="button_icon" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_up0d8")
+offset = Vector2(0, -20)
 
 [connection signal="body_entered" from="area_of_interaction" to="." method="_on_area_of_interaction_body_entered"]
 [connection signal="body_exited" from="area_of_interaction" to="." method="_on_area_of_interaction_body_exited"]

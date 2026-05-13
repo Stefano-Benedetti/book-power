@@ -32,9 +32,8 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_mjhut")
 
 [node name="button_icon" type="Sprite2D" parent="."]
-scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_y8e28")
-offset = Vector2(0, -30)
+offset = Vector2(0, -22)
 
 [connection signal="body_entered" from="area_of_interaction" to="." method="_on_area_of_interaction_body_entered"]
 [connection signal="body_exited" from="area_of_interaction" to="." method="_on_area_of_interaction_body_exited"]
