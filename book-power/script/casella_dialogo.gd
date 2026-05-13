@@ -86,10 +86,15 @@ var dialoghi_per_quest := {
 func _ready() -> void:
 	# finché nessuno mi parla deve rimanere nascosto
 	hide()
-	Global.start_dialog.connect(avvia_dialogo_quest)
+	Global.start_dialog.connect(avvia_dialogo_fuoricorso)
 	Global.start_robot_dialog.connect(avvia_dialogo_robot)
 	Global.start_computer_dialog.connect(avvia_dialogo_computer)
 	Global.start_player_dialog.connect(avvia_dialogo_player)
+	
+func _process(delta: float) -> void:
+	if GameState.in_dialogue:
+		if Input.is_action_just_pressed("Pick_object"):
+			_on_next_pressed()
 	
 func avvia_dialogo_player():
 	whos_talking = "player"
@@ -102,16 +107,19 @@ func avvia_dialogo_computer():
 func avvia_dialogo_robot():
 	whos_talking = "robot"
 	avvia_dialogo_quest()
+	
+func avvia_dialogo_fuoricorso():
+	whos_talking = ""
+	avvia_dialogo_quest()
 
 func avvia_dialogo_quest() -> void:
 	if !visible:
 		index = 0
 		show()
 		mostra_riga_corrente()
+		await get_tree().create_timer(0.1).timeout
 		GameState.in_dialogue = true
 		Global.emit_signal("in_dialogo",true)
-	else:
-		_on_next_pressed()
 
 
 func mostra_riga_corrente() -> void:
@@ -145,8 +153,6 @@ func _on_next_pressed() -> void:
 		index += 1
 		mostra_riga_corrente()
 	else:
-		hide()
-		GameState.in_dialogue = false            #per sbloccare l'input
 		Global.emit_signal("in_dialogo",false)   #per mostrare gli altri tasti
 		Global.emit_signal("fine_dialogo")
 		if whos_talking == "player":
@@ -156,3 +162,6 @@ func _on_next_pressed() -> void:
 		elif whos_talking == "computer":
 			Global.emit_signal("fine_dialogo_computer")
 		whos_talking = ""
+		hide()
+		await get_tree().create_timer(0.1).timeout  #aspetto altrimenti creo conflitti :(
+		GameState.in_dialogue = false            #per sbloccare l'input

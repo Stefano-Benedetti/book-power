@@ -31,7 +31,7 @@ func _on_pickable_area_body_entered(body: Node2D) -> void:
 
 
 func _on_pickable_area_body_exited(body: Node2D) -> void:
-	if body.has_method("player"):
+	if body.has_method("player") and pickable:
 		player_in_area = false
 		$button_icon.hide()
 		Global.pickDecrement()

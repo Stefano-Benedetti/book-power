@@ -51,7 +51,7 @@ func _ready():
 	Global.selected_slot_update.connect(updateSelectedItem)
 	if get_parent()!=null:
 		if get_parent().name == "livello_1":
-			await get_tree().create_timer(3).timeout
+			await get_tree().create_timer(4.5).timeout
 			bloccato = false
 			return
 		if get_parent().name == "livello_0" or get_parent().name == "livello_6":
@@ -60,6 +60,9 @@ func _ready():
 	
 func _physics_process(delta: float):
 	if bloccato:
+		play_anim(0,0)
+		velocity.x = 0
+		velocity.y = 0
 		return
 	if GameState.in_dialogue:
 		play_anim(0,0)

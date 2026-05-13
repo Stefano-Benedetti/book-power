@@ -64,7 +64,8 @@ func _process(_delta: float) -> void:
 		return
 	if player_in_talkArea:
 		if Global.pick_counter==1 and Input.is_action_just_pressed("Pick_object"):
-			Global.emit_signal("start_dialog")
+			if not GameState.in_dialogue:
+				Global.emit_signal("start_dialog")
 
 
 func _on_talk_area_body_entered(body: Node2D) -> void:

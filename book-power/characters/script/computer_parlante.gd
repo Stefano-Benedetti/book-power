@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 			if not GameState.in_dialogue:
 				var anim = $AnimatedSprite2D
 				anim.play("talking")
-			Global.emit_signal("start_computer_dialog")
+				Global.emit_signal("start_computer_dialog")
 
 func play_anim():
 	var anim = $AnimatedSprite2D

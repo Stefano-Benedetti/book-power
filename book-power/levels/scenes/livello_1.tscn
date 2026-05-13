@@ -30,7 +30,7 @@ item_richiesto = ExtResource("2_xk28k")
 position = Vector2(448, -864)
 
 [node name="player" parent="." instance=ExtResource("10_55gh7")]
-position = Vector2(268.00003, -139.00002)
+position = Vector2(294, -150.00002)
 inv = ExtResource("12_dxc6x")
 
 [node name="Control" type="Control" parent="."]
@@ -81,7 +81,7 @@ mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="npc_fuoricorso" parent="." instance=ExtResource("9_sj3x5")]
-position = Vector2(268, -153)
+position = Vector2(271, -150.00002)
 dropped_object = ExtResource("15_k6sjt")
 
 [node name="enemy" parent="." instance=ExtResource("11_8x68r")]

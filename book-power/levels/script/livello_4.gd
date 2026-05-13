@@ -31,7 +31,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if QuestCounter.quest_corrente == 7:
-		if player_in_ap_area and Input.is_action_just_pressed("Pick_object") and player.inv.countItem(required_item)>0:
+		if player_in_ap_area and Input.is_action_just_pressed("Pick_object") and player.selected_item==required_item:
 			useOfCounter()
 			QuestCounter.quest_corrente = 8
 			player.consumeItem(required_item,1)

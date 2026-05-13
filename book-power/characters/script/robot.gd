@@ -48,7 +48,8 @@ func _process(_delta: float) -> void:
 	elif can_move:
 		$AnimatedSprite2D.play("left_idle")
 		if player_in_talkArea and can_talk and Input.is_action_just_pressed("Pick_object"):
-			Global.emit_signal("start_robot_dialog")
+			if not GameState.in_dialogue:
+				Global.emit_signal("start_robot_dialog")
 
 func dropObject():
 	player.consumeItem(item_richiesto,1)
