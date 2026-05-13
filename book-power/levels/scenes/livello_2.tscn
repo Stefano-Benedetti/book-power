@@ -82,7 +82,7 @@ mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="ToNextLevel" parent="." instance=ExtResource("17_6byl5")]
-position = Vector2(1407, -1117)
+position = Vector2(1407, -1116)
 rotation = 1.5707964
 
 [node name="enemy" parent="." instance=ExtResource("14_mekmw")]
@@ -131,5 +131,8 @@ nav_group = 2
 [node name="enemy11" parent="." instance=ExtResource("14_mekmw")]
 position = Vector2(1050, -811)
 nav_group = 2
+
+[node name="libro_elettrotecnica" parent="." instance=ExtResource("15_6byl5")]
+position = Vector2(218, -645)
 
 [connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]
