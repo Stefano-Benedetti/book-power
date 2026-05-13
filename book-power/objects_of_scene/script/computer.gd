@@ -11,6 +11,8 @@ var offset_drop = Vector2(0, 10)
 
 var talked_with_computer = false
 
+var button_visible = false
+
 func _ready() -> void:
 	$button_icon_pick.hide()
 	$button_icon_attack.hide()
@@ -36,6 +38,8 @@ func thirdMapBehavior():
 		used = true
 		$button_icon_pick.hide()
 		$button_icon_attack.hide()
+	elif not button_visible and mappa_corrente=="mappa03":
+		mostra_button($button_icon_attack)
 
 func fourthMapBehavior():
 	if used or not player_in_area or not talked_with_computer:
@@ -55,8 +59,6 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = true
 		player = body
-		if mappa_corrente == "mappa03" and not used:
-			mostra_button($button_icon_attack)
 		if mappa_corrente == "mappa04" and talked_with_computer and !used:
 			mostra_button($button_icon_pick)
 			Global.pickIncrement()
@@ -71,8 +73,13 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 
 
 func mostra_button(button):
+	button_visible = true
 	button.show()
 	while player_in_area and not used:
+		if mappa_corrente == "mappa03" and player.selected_item!=chiave:
+			button.hide()
+			button_visible = false
+			break
 		button.modulate.a = 1
 		await get_tree().create_timer(0.7).timeout
 		button.modulate.a = 0.5

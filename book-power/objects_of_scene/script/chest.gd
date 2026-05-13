@@ -11,6 +11,8 @@ var offset_drop = Vector2(0, 10)
 
 var icon_enabled = false
 
+var button_visible = false
+
 func _ready():
 	$button_icon.hide()
 
@@ -18,6 +20,8 @@ func _ready():
 func _process(_delta: float) -> void:
 	if opened:
 		return
+	if player_in_area and player.selected_item==chiave and not button_visible:
+		mostra_button()
 	if player_in_area and Input.is_action_just_pressed("Pick_object"):
 		if not player.selected_item==chiave:
 			print("serve una chiave per aprire")
@@ -66,8 +70,13 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 
 
 func mostra_button():
+	button_visible = true
 	$button_icon.show()
 	while player_in_area and not opened:
+		if player.selected_item!=chiave:
+			button_visible = false
+			$button_icon.hide()
+			break
 		$button_icon.modulate.a = 1
 		await get_tree().create_timer(0.7).timeout
 		$button_icon.modulate.a = 0.5

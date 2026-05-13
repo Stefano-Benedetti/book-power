@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2mdlpogsvn0m"]
+[gd_scene load_steps=6 format=3 uid="uid://c2mdlpogsvn0m"]
 
 [ext_resource type="Texture2D" uid="uid://cmyn5887cww5w" path="res://art/leva.png" id="1_g6x4t"]
 [ext_resource type="Script" uid="uid://cfk17lgrj4trk" path="res://objects_of_scene/script/leva.gd" id="1_mjhut"]
+[ext_resource type="Texture2D" uid="uid://c8pew34idtkwj" path="res://art/pick_action_button.png" id="3_y8e28"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mjhut"]
 radius = 18.0
@@ -29,6 +30,11 @@ shape = SubResource("CircleShape2D_mjhut")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_mjhut")
+
+[node name="button_icon" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_y8e28")
+offset = Vector2(0, -30)
 
 [connection signal="body_entered" from="area_of_interaction" to="." method="_on_area_of_interaction_body_entered"]
 [connection signal="body_exited" from="area_of_interaction" to="." method="_on_area_of_interaction_body_exited"]
