@@ -102,10 +102,7 @@ prossime cose da fare:
 trovare musica di sottofondo per boss-fight
 
 FIX FINALI:
-- nel livello 1 quando si parte il dialogo con l'NPC deve partire in automatico, poi finito il dialogo (ovvero qando il libro di analisi è a terra) compare la schermata tutorial.
-	si deve poter apire la schermata anche dal menu di pausa (va creato un bottone apposito).
-
--nel livello 4 dopo aver posato l'access-point il computer non ti parla
+- icona del bottone tutorial nel menu di pausa
 
 -inserire dei suoni per ogni mini-quest completata (es.
 	mappa02: accensione quadro elettrico, leva tirata
@@ -117,11 +114,12 @@ FIX FINALI:
 
 -inserire una nuvoletta sul player che dice qualcosa quando il player si avvicina a un oggetto con cui deve interagire per andare avanti (cosa scrivere nella nuvoletta andrà indicato
 	nello script dell'oggetto con cui deve interagire il player).
--inserire l'icona del tasto da premere sopra gli oggetti e i personaggi con cui bisogna interagire quando ci si avvicina.
+-inserire l'icona del tasto da premere sopra i personaggi con cui bisogna interagire quando ci si avvicina.
 -inserire qualcosa che indichi bene con cosa bisogna interagire per andare avanti nel gioco.
 
 -l'attacco di reti lagga di brutto
 -nel livello 1 e nel livello 4 lagga un pochino da telefono.
+
 -Delle volte quando ci si avvicina ai nemici questi iniziano a camminare ma non si muovono, succede spesso al nemico vicino al pc nel livello 3 (in teoria è risolto ma lasciamolo
 	tra i fix che non si sa mai)
 
