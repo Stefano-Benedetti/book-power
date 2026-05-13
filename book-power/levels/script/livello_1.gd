@@ -16,6 +16,8 @@ func _ready() -> void:
 	$player.inv.clean()
 	for slot in Progress.inventory.slots:
 		$player.inv.insert(slot.item)
+		
+	$player.current_dir = "up"
 	
 	Progress.livello_corrente = 1
 	QuestCounter.quest_corrente = 0
@@ -23,6 +25,8 @@ func _ready() -> void:
 	Global.fine_dialogo.connect(dropBook)
 	Global.fine_dialogo.connect(takeMoney)
 	Global.fine_dialogo.connect(removeRoadblock)
+	
+	#Global.emit_signal("start_dialog")
 
 func quest_update():
 	if !quest_completata and $player.inv.countItem(item_richiesto) >= qta_item_richiesti:

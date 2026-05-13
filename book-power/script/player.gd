@@ -45,13 +45,22 @@ class PushData:
 var is_being_pushed = false
 var push: PushData = null
 
+var bloccato = true
+
 func _ready():
 	Global.selected_slot_update.connect(updateSelectedItem)
-	
-func _physics_process(delta: float):
-	if get_parent() != null:
+	if get_parent()!=null:
+		if get_parent().name == "livello_1":
+			await get_tree().create_timer(3).timeout
+			bloccato = false
+			return
 		if get_parent().name == "livello_0" or get_parent().name == "livello_6":
 			return
+	bloccato = false
+	
+func _physics_process(delta: float):
+	if bloccato:
+		return
 	if GameState.in_dialogue:
 		play_anim(0,0)
 		velocity.x = 0
