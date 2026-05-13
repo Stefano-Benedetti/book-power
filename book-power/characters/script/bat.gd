@@ -82,6 +82,7 @@ func enemy_attack():
 	player.getHurt(damage)
 	attacck_cooldown.start()  # Avvia il timer
 	mov_cooldown.start()
+	$BatAttack.play()
 	if current_dir == "left":
 		attack_animation(-spostamento_attacco, 0)
 	elif current_dir == "right":

@@ -34,6 +34,10 @@ var spawn_point = null
 var _last_target: Vector2
 var _nav_manager: AINavManager = null
 
+@onready var suoni_attacco = [
+	$EnemyAttack1, $EnemyAttack2, $EnemyAttack3, $EnemyAttack4
+]
+
 func _ready():
 	nav_group = randi() % 3
 	
@@ -94,9 +98,15 @@ func enemy_attack():
 	
 	nuvoletta.randomText()
 	nuvoletta.visible = true
+	playAttackSound()
 	
 	play_anim(0, 1)
 
+
+func playAttackSound():
+	var i = randi() % suoni_attacco.size()
+	suoni_attacco[i].play()
+	
 
 #non basta che una delle due direzioni sia maggiore dell'altra
 #deve essere proprio dominante (> di almento 0,5) in questo

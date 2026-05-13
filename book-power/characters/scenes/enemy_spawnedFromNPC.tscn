@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://c66vxcwrtfj0m"]
+[gd_scene load_steps=75 format=3 uid="uid://c66vxcwrtfj0m"]
 
 [ext_resource type="Script" uid="uid://drrh5pmxj2mml" path="res://characters/script/enemy_spawned_from_npc.gd" id="1_8phtj"]
 [ext_resource type="Texture2D" uid="uid://cg8df54io6358" path="res://art/enemy01_set.png" id="2_374tb"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://c6syu2u8p3w44" path="res://art/health_bar/healthbarProgressRed.png" id="4_r4thy"]
 [ext_resource type="Script" uid="uid://lor6gv5snyfo" path="res://characters/script/enemy_health_bar.gd" id="5_1c68l"]
 [ext_resource type="PackedScene" uid="uid://b5u258nmsxnsu" path="res://characters/scenes/enemy_cloud.tscn" id="6_gam7r"]
+[ext_resource type="AudioStream" uid="uid://dndu2vkm5l4q2" path="res://sound/sound effects/enemy-attack-1.mp3" id="8_gam7r"]
+[ext_resource type="AudioStream" uid="uid://dkpsmf8h7yj5f" path="res://sound/sound effects/enemy-attack-2.mp3" id="9_eoigq"]
+[ext_resource type="AudioStream" uid="uid://demte8gd6k0xh" path="res://sound/sound effects/enemy-attack-3.mp3" id="10_yry27"]
+[ext_resource type="AudioStream" uid="uid://8k0kws8d44jt" path="res://sound/sound effects/enemy-attack-4.mp3" id="11_0n5hn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gst0f"]
 atlas = ExtResource("2_374tb")
@@ -573,8 +577,28 @@ offset_right = 80.0
 offset_bottom = -100.00001
 scale = Vector2(0.2, 0.2)
 
-[connection signal="body_entered" from="player_detection_area" to="." method="_on_area_2d_body_entered"]
+[node name="EnemyAttack1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_gam7r")
+volume_db = -5.0
+bus = &"Effects"
+
+[node name="EnemyAttack2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_eoigq")
+volume_db = -5.0
+bus = &"Effects"
+
+[node name="EnemyAttack3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_yry27")
+volume_db = -5.0
+bus = &"Effects"
+
+[node name="EnemyAttack4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_0n5hn")
+volume_db = -5.0
+bus = &"Effects"
+
 [connection signal="body_entered" from="player_detection_area" to="." method="_on_player_detection_area_body_entered"]
+[connection signal="body_entered" from="player_detection_area" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="player_detection_area" to="." method="_on_player_detection_area_body_exited"]
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="attack_area" to="." method="_on_attack_area_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dwf3csj7xxyxj"]
+[gd_scene load_steps=25 format=3 uid="uid://dwf3csj7xxyxj"]
 
 [ext_resource type="Script" uid="uid://bm88qlfhjkem0" path="res://characters/script/bat.gd" id="1_bgpk6"]
 [ext_resource type="Texture2D" uid="uid://b3o8w1v8edwfk" path="res://art/32x32-bat-sprite.png" id="2_bgpk6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ba8hnq8qvilbw" path="res://art/health_bar/healthbarUnder.png" id="3_rldtq"]
 [ext_resource type="Texture2D" uid="uid://c6syu2u8p3w44" path="res://art/health_bar/healthbarProgressRed.png" id="4_d3g1s"]
 [ext_resource type="Script" uid="uid://lor6gv5snyfo" path="res://characters/script/enemy_health_bar.gd" id="5_ue0he"]
+[ext_resource type="AudioStream" uid="uid://cr76xuwwnufba" path="res://sound/sound effects/bat-attack.mp3" id="7_bgpk6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fhd3l"]
 atlas = ExtResource("2_bgpk6")
@@ -199,6 +200,11 @@ texture_under = ExtResource("3_rldtq")
 texture_progress = ExtResource("4_d3g1s")
 script = ExtResource("5_ue0he")
 enemy = NodePath("..")
+
+[node name="BatAttack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_bgpk6")
+volume_db = -5.0
+bus = &"Effects"
 
 [connection signal="body_entered" from="player_detection_area" to="." method="_on_player_detection_area_body_entered"]
 [connection signal="body_exited" from="player_detection_area" to="." method="_on_player_detection_area_body_exited"]
