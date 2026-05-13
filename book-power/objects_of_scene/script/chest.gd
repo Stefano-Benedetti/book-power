@@ -11,6 +11,9 @@ var offset_drop = Vector2(0, 10)
 
 var icon_enabled = false
 
+func _ready():
+	$button_icon.hide()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if opened:
@@ -35,6 +38,7 @@ func openChest():
 	opened = true
 	player.consumeItem(chiave,1)
 	Global.pickDecrement()
+	$button_icon.hide()
 
 
 func dropObject():
@@ -49,11 +53,22 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 		player_in_area = true
 		player = body
 		if player.selected_item==chiave and !opened:
+			mostra_button()
 			Global.pickIncrement()
 			icon_enabled = true
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = false
+		$button_icon.hide()
 		Global.pickDecrement()
 		icon_enabled = false
+
+
+func mostra_button():
+	$button_icon.show()
+	while player_in_area and not opened:
+		$button_icon.modulate.a = 1
+		await get_tree().create_timer(0.7).timeout
+		$button_icon.modulate.a = 0.5
+		await get_tree().create_timer(0.5).timeout

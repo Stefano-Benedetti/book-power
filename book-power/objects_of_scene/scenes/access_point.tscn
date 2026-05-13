@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5w60np3r2r0c"]
+[gd_scene load_steps=13 format=3 uid="uid://b5w60np3r2r0c"]
 
 [ext_resource type="Script" uid="uid://c0snp6hy3t5ur" path="res://objects_of_scene/script/access_point.gd" id="1_ps0kp"]
 [ext_resource type="Resource" uid="uid://4b2wbsl1vx2u" path="res://inventory/items/access_point.tres" id="2_b7vh4"]
 [ext_resource type="Texture2D" uid="uid://dyejw534ps7hr" path="res://art/access_point/AP_spento.png" id="3_b7vh4"]
 [ext_resource type="Texture2D" uid="uid://dymojulfjwism" path="res://art/access_point/AP_connecting.png" id="3_eqbnc"]
+[ext_resource type="Texture2D" uid="uid://c8pew34idtkwj" path="res://art/pick_action_button.png" id="5_rb2ce"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jff1e"]
 atlas = ExtResource("3_b7vh4")
@@ -72,6 +73,11 @@ position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickableArea"]
 shape = SubResource("CircleShape2D_ps0kp")
+
+[node name="button_icon" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_rb2ce")
+offset = Vector2(0, -30)
 
 [connection signal="body_entered" from="PickableArea" to="." method="_on_pickable_area_body_entered"]
 [connection signal="body_exited" from="PickableArea" to="." method="_on_pickable_area_body_exited"]

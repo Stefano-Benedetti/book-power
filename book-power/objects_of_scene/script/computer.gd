@@ -12,6 +12,8 @@ var offset_drop = Vector2(0, 10)
 var talked_with_computer = false
 
 func _ready() -> void:
+	$button_icon_pick.hide()
+	$button_icon_attack.hide()
 	Global.fine_dialogo_computer.connect(talkedWithComputer)
 	if mappa_corrente == "mappa03":
 		$AnimatedSprite2D.animation = "turn_red_screen"
@@ -32,6 +34,8 @@ func thirdMapBehavior():
 		Global.sbloccaRobot.emit()
 		$AnimatedSprite2D.animation = "turn_green_screen"
 		used = true
+		$button_icon_pick.hide()
+		$button_icon_attack.hide()
 
 func fourthMapBehavior():
 	if used or not player_in_area or not talked_with_computer:
@@ -41,6 +45,8 @@ func fourthMapBehavior():
 		$AnimatedSprite2D.animation = "turn_blue_screen"
 		used = true
 		Global.pickDecrement()
+		$button_icon_pick.hide()
+		$button_icon_attack.hide()
 
 func talkedWithComputer():
 	talked_with_computer = true
@@ -49,11 +55,25 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = true
 		player = body
+		if mappa_corrente == "mappa03" and not used:
+			mostra_button($button_icon_attack)
 		if mappa_corrente == "mappa04" and talked_with_computer and !used:
+			mostra_button($button_icon_pick)
 			Global.pickIncrement()
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = false
+		$button_icon_pick.hide()
+		$button_icon_attack.hide()
 		if mappa_corrente == "mappa04" and talked_with_computer and !used:
 			Global.pickDecrement()
+
+
+func mostra_button(button):
+	button.show()
+	while player_in_area and not used:
+		button.modulate.a = 1
+		await get_tree().create_timer(0.7).timeout
+		button.modulate.a = 0.5
+		await get_tree().create_timer(0.5).timeout

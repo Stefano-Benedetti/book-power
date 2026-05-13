@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c7q3anbqtjy0n"]
+[gd_scene load_steps=27 format=3 uid="uid://c7q3anbqtjy0n"]
 
 [ext_resource type="Script" uid="uid://bs431npcmmv2s" path="res://levels/script/livello_4.gd" id="1_3j3hp"]
 [ext_resource type="PackedScene" uid="uid://cfrovdukqneaj" path="res://maps/scenes/mappa_04.tscn" id="1_r6f3t"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bdyg3nigp8cpo" path="res://characters/scenes/enemy.tscn" id="19_u5lof"]
 [ext_resource type="PackedScene" uid="uid://s4sgnvd5jpqj" path="res://objects_pickable/scenes/health_potion.tscn" id="20_ovfhu"]
 [ext_resource type="PackedScene" uid="uid://dwf3csj7xxyxj" path="res://characters/scenes/bat.tscn" id="22_ht61p"]
+[ext_resource type="PackedScene" uid="uid://c2fwthkouehnh" path="res://objects_pickable/scenes/libro_asd.tscn" id="23_ofigy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a34kp"]
 radius = 3.5
@@ -186,6 +187,9 @@ position = Vector2(298, -1560)
 
 [node name="bat8" parent="." groups=["in_cave"] instance=ExtResource("22_ht61p")]
 position = Vector2(644, -1472)
+
+[node name="libro_asd" parent="." instance=ExtResource("23_ofigy")]
+position = Vector2(208, -991)
 
 [connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]
 [connection signal="body_entered" from="cave_entrance" to="." method="_on_cave_entrance_body_entered"]
