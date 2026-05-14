@@ -132,7 +132,4 @@ nav_group = 2
 position = Vector2(1050, -811)
 nav_group = 2
 
-[node name="libro_elettrotecnica" parent="." instance=ExtResource("15_6byl5")]
-position = Vector2(218, -645)
-
 [connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]

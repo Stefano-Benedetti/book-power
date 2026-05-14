@@ -7,7 +7,7 @@ func player():
 
 @onready var cam = $Camera2D
 
-@export var SPEED = 300
+@export var SPEED = 70
 var current_dir = "down"		#la inizializziamo giù
 
 @export var max_health = 100
@@ -60,9 +60,6 @@ func _ready():
 	
 func _physics_process(delta: float):
 	if bloccato:
-		play_anim(0,0)
-		velocity.x = 0
-		velocity.y = 0
 		return
 	if GameState.in_dialogue or GameState.in_tutorial:
 		play_anim(0,0)
