@@ -37,9 +37,9 @@ func _process(_delta: float) -> void:
 
 func openChest():
 	$AnimatedSprite2D.play("opening")
+	opened = true
 	await $AnimatedSprite2D.animation_finished
 	dropObject()
-	opened = true
 	player.consumeItem(chiave,1)
 	Global.pickDecrement()
 	$button_icon.hide()
@@ -65,8 +65,9 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = false
 		$button_icon.hide()
-		Global.pickDecrement()
-		icon_enabled = false
+		if !opened:
+			Global.pickDecrement()
+			icon_enabled = false
 
 
 func mostra_button():

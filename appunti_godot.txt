@@ -102,6 +102,8 @@ ________________________________________________________________________________
 
 FIX FINALI:
 
+-l'icona sopra al PC del robot non funziona bene
+
 -inserire dei suoni per ogni mini-quest completata (es.
 	mappa02: accensione quadro elettrico, leva tirata
 	mappa03: attacco robot, apertura chest, interazione pc, robot che se ne va
