@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://b5x5dbko4mw4h"]
+[gd_scene load_steps=87 format=3 uid="uid://b5x5dbko4mw4h"]
 
 [ext_resource type="Texture2D" uid="uid://cvvt58dw0di5o" path="res://art/fuoricorso_set.png" id="1_jx5kn"]
 [ext_resource type="Script" uid="uid://b7x2wpyqfstc1" path="res://characters/script/npc_fuoricorso.gd" id="1_sxcdu"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c6syu2u8p3w44" path="res://art/health_bar/healthbarProgressRed.png" id="11_rdra2"]
 [ext_resource type="Script" uid="uid://b3kdh2x614jnj" path="res://characters/script/NPC_health_bar.gd" id="12_028o1"]
 [ext_resource type="AudioStream" uid="uid://bcj084do5q5vd" path="res://sound/sound effects/boss_electric_sound.mp3" id="13_rdra2"]
+[ext_resource type="Texture2D" uid="uid://c8pew34idtkwj" path="res://art/pick_action_button.png" id="14_5hgbj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8rpsd"]
 atlas = ExtResource("1_jx5kn")
@@ -685,6 +686,11 @@ wait_time = 30.0
 stream = ExtResource("13_rdra2")
 volume_db = -10.0
 bus = &"Effects"
+
+[node name="button_icon" type="Sprite2D" parent="."]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("14_5hgbj")
+offset = Vector2(0, -33)
 
 [connection signal="body_entered" from="TalkArea" to="." method="_on_talk_area_body_entered"]
 [connection signal="body_exited" from="TalkArea" to="." method="_on_talk_area_body_exited"]

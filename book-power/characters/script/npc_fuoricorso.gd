@@ -51,6 +51,7 @@ var electric_form = false
 
 
 func _ready():
+	$button_icon.hide()
 	health_bar_UI.hide()
 	play_anim(0,0)
 	randomize()
@@ -75,6 +76,7 @@ func _on_talk_area_body_entered(body: Node2D) -> void:
 		update_quest.emit()
 		player_in_talkArea = true
 		player = body
+		mostra_button()
 		Global.pickIncrement()
 
 func _on_talk_area_body_exited(body: Node2D) -> void:
@@ -82,6 +84,7 @@ func _on_talk_area_body_exited(body: Node2D) -> void:
 		return
 	if body.has_method("player"):
 		player_in_talkArea = false
+		$button_icon.hide()
 		Global.pickDecrement()
 
 func dropObject():
@@ -444,3 +447,12 @@ func die():
 			enemy.queue_free()
 	await get_tree().create_timer(2.0).timeout #crea un timer di due secondi e aspetta la fine
 	dropObject()
+
+
+func mostra_button():
+	$button_icon.show()
+	while player_in_talkArea:
+		$button_icon.modulate.a = 1
+		await get_tree().create_timer(0.7).timeout
+		$button_icon.modulate.a = 0.5
+		await get_tree().create_timer(0.5).timeout
