@@ -102,8 +102,6 @@ ________________________________________________________________________________
 
 FIX FINALI:
 
--riparare l'icona del tasto da premere sopra l'area in cui va l'AP nel livello 4 con cui bisogna interagire quando ci si avvicina.
-
 -l'icona sopra al PC del robot non funziona bene
 
 -inserire dei suoni per ogni mini-quest completata (es.

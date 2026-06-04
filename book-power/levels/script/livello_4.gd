@@ -31,7 +31,6 @@ func _ready() -> void:
 	$CanvasLayer2/counter.hide()
 
 func _process(delta: float) -> void:
-	print(QuestCounter.quest_corrente)
 	if player_in_cave_entrance and player.current_dir == "up":
 		player.position = $spawn_caverna.position
 		player_in_cave = true
@@ -93,7 +92,7 @@ func AP_dropped():
 		scena_dropped_object.pickable = false
 		object_ap = null
 		$place_router.key_dropped = true
-		Global.pickDecrement()
+		print(Global.pick_counter)
 
 
 #func _on_place_router_body_entered(body: Node2D) -> void:
