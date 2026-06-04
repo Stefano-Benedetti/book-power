@@ -8,6 +8,7 @@ var player_in_area = false
 var player = null
 
 func _ready():
+	$button_icon.hide()
 	play_anim()
 	Global.fine_dialogo_computer.connect(play_anim)
 	
@@ -29,12 +30,15 @@ func _on_talk_area_body_entered(body: Node2D) -> void:
 		player_in_area = true
 		player = body
 		Global.pickIncrement()
+		mostra_button()
 
 
 func _on_talk_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = false
 		Global.pickDecrement()
+		$button_icon.hide()
+
 
 func dropObject():
 	if dropped_object == null or dropped:
@@ -43,3 +47,12 @@ func dropObject():
 	get_parent().add_child(scena_dropped_object)
 	scena_dropped_object.global_position = global_position + offset_drop
 	dropped = true
+
+
+func mostra_button():
+	$button_icon.show()
+	while player_in_area:
+		$button_icon.modulate.a = 1
+		await get_tree().create_timer(0.7).timeout
+		$button_icon.modulate.a = 0.5
+		await get_tree().create_timer(0.5).timeout

@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://6u23eafxpa8r"]
+[gd_scene load_steps=14 format=3 uid="uid://6u23eafxpa8r"]
 
 [ext_resource type="Script" uid="uid://kibrcc84ty5u" path="res://characters/script/computer_parlante.gd" id="1_mv6el"]
 [ext_resource type="Texture2D" uid="uid://ctlxbiwbunff4" path="res://art/computer_parlante/idle.png" id="2_oeim8"]
 [ext_resource type="Texture2D" uid="uid://be2j77pexyw6m" path="res://art/computer_parlante/talking.png" id="3_3c3wp"]
+[ext_resource type="Texture2D" uid="uid://c8pew34idtkwj" path="res://art/pick_action_button.png" id="4_3c3wp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2peej"]
 atlas = ExtResource("2_oeim8")
@@ -87,6 +88,11 @@ shape = SubResource("CircleShape2D_oeim8")
 position = Vector2(2.1855694e-08, 0)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_oeim8")
+
+[node name="button_icon" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_3c3wp")
+offset = Vector2(0, -40)
 
 [connection signal="body_entered" from="TalkArea" to="." method="_on_talk_area_body_entered"]
 [connection signal="body_exited" from="TalkArea" to="." method="_on_talk_area_body_exited"]

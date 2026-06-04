@@ -34,6 +34,7 @@ func exit():
 	exiting = true
 
 func goOutOfView():
+	$dest_pointer.stop()
 	$AnimatedSprite2D.play("right_walk")
 	velocity.x = SPEED
 	velocity.y = 0
@@ -76,6 +77,7 @@ func robot_attack():
 
 func sblocca():
 	attack_mode = false
+	$dest_pointer.showAndStart()
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):

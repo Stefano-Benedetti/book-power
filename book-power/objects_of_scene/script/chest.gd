@@ -24,7 +24,6 @@ func _process(_delta: float) -> void:
 		mostra_button()
 	if player_in_area and Input.is_action_just_pressed("Pick_object"):
 		if not player.selected_item==chiave:
-			print("serve una chiave per aprire")
 			return
 		openChest()
 	if player_in_area and player.selected_item==chiave and !icon_enabled:

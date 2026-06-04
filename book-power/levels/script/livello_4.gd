@@ -6,7 +6,7 @@ extends Node2D
 
 var talked_with_computer = false
 
-var player_in_ap_area = false
+#var player_in_ap_area = false
 
 var player_in_cave = false
 var player_in_cave_entrance = false
@@ -15,6 +15,7 @@ var player_in_cave_exit = false
 var player
 
 func _ready() -> void:
+	$place_router.drop_key.connect(AP_dropped)
 	Musica.gaming_music.play()
 	
 	# carico inventario player
@@ -30,19 +31,7 @@ func _ready() -> void:
 	$CanvasLayer2/counter.hide()
 
 func _process(delta: float) -> void:
-	if QuestCounter.quest_corrente == 7:
-		if player_in_ap_area and Input.is_action_just_pressed("Pick_object") and player.selected_item==required_item:
-			useOfCounter()
-			QuestCounter.quest_corrente = 8
-			player.consumeItem(required_item,1)
-			if object_ap == null:
-				return
-			var scena_dropped_object = object_ap.instantiate()
-			add_child(scena_dropped_object)
-			scena_dropped_object.global_position = Vector2(927.802,-576.853)
-			scena_dropped_object.playConnecting()
-			scena_dropped_object.pickable = false
-			object_ap = null
+	print(QuestCounter.quest_corrente)
 	if player_in_cave_entrance and player.current_dir == "up":
 		player.position = $spawn_caverna.position
 		player_in_cave = true
@@ -90,14 +79,31 @@ func _on_to_next_level_body_entered(body: Node2D) -> void:
 		get_parent().loadNextLevel()
 
 
-func _on_place_router_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
-		player_in_ap_area = true
-		player = body
+func AP_dropped():
+	if QuestCounter.quest_corrente == 7:
+		useOfCounter()
+		QuestCounter.quest_corrente = 8
+		player.consumeItem(required_item,1)
+		if object_ap == null:
+			return
+		var scena_dropped_object = object_ap.instantiate()
+		add_child(scena_dropped_object)
+		scena_dropped_object.global_position = Vector2(927.802,-576.853)
+		scena_dropped_object.playConnecting()
+		scena_dropped_object.pickable = false
+		object_ap = null
+		$place_router.key_dropped = true
+		Global.pickDecrement()
 
-func _on_place_router_body_exited(body: Node2D) -> void:
-	if body.has_method("player"):
-		player_in_ap_area = false
+
+#func _on_place_router_body_entered(body: Node2D) -> void:
+	#if body.has_method("player"):
+		#player_in_ap_area = true
+		#player = body
+#
+#func _on_place_router_body_exited(body: Node2D) -> void:
+	#if body.has_method("player"):
+		#player_in_ap_area = false
 		
 func _on_cave_entrance_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):

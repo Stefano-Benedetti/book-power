@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ops0s4r5erdq"]
+
+[ext_resource type="Script" uid="uid://debilorh2oso3" path="res://objects_of_scene/script/place_router_area.gd" id="1_8c436"]
+[ext_resource type="Texture2D" uid="uid://c8pew34idtkwj" path="res://art/pick_action_button.png" id="2_a4h50"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3j3hp"]
+radius = 23.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_8c436")
+
+[node name="place_router" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="place_router"]
+shape = SubResource("CircleShape2D_3j3hp")
+
+[node name="button_icon" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_a4h50")
+offset = Vector2(0, -40)
+
+[connection signal="body_entered" from="place_router" to="." method="_on_place_router_body_entered"]
+[connection signal="body_exited" from="place_router" to="." method="_on_place_router_body_exited"]

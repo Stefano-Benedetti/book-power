@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://db3bydrtx06ys"]
+[gd_scene load_steps=95 format=3 uid="uid://db3bydrtx06ys"]
 
 [ext_resource type="Texture2D" uid="uid://dnvcdu3odspik" path="res://art/Robot/Character/Sprite sheets/Full sprite sheet.png" id="1_1kwae"]
 [ext_resource type="Script" uid="uid://lkt3ke5tddde" path="res://characters/script/robot.gd" id="1_np56g"]
@@ -32,6 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://b6uktmxu0pc68" path="res://art/Robot/Character/Back/Standing/Back_Standing_Walk_3.png" id="24_yd778"]
 [ext_resource type="Texture2D" uid="uid://c1r1olkegdua0" path="res://art/Robot/Character/Back/Standing/Back_Standing_Walk_4.png" id="25_gfloy"]
 [ext_resource type="Texture2D" uid="uid://dcu3iwhjpbfpq" path="res://art/Robot/Character/Back/Standing/Back_Standing_Walk_5.png" id="26_ty7xo"]
+[ext_resource type="Texture2D" uid="uid://c44olo3wkqyqp" path="res://art/freccia_indica_destinazione.png" id="33_ahuyi"]
+[ext_resource type="Script" uid="uid://bg83rpyq8wi4k" path="res://characters/script/dest_pointer.gd" id="34_t7x4o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ahuyi"]
 
@@ -532,6 +534,12 @@ position = Vector2(0, -9)
 position = Vector2(-5, 9)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_np56g")
+
+[node name="dest_pointer" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("33_ahuyi")
+offset = Vector2(0, -35)
+script = ExtResource("34_t7x4o")
 
 [connection signal="body_entered" from="attackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="attackArea" to="." method="_on_attack_area_body_exited"]
