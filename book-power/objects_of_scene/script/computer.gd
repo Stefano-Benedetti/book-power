@@ -38,7 +38,7 @@ func thirdMapBehavior():
 		used = true
 		$button_icon_pick.hide()
 		$button_icon_attack.hide()
-	elif not button_visible and mappa_corrente=="mappa03":
+	elif not button_visible:
 		mostra_button($button_icon_attack)
 
 func fourthMapBehavior():
@@ -68,6 +68,7 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 		player_in_area = false
 		$button_icon_pick.hide()
 		$button_icon_attack.hide()
+		button_visible = false
 		if mappa_corrente == "mappa04" and talked_with_computer and !used:
 			Global.pickDecrement()
 

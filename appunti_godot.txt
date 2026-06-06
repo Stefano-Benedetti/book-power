@@ -102,8 +102,6 @@ ________________________________________________________________________________
 
 FIX FINALI:
 
--l'icona sopra al PC del robot non funziona bene
-
 -inserire dei suoni per ogni mini-quest completata (es.
 	mappa02: accensione quadro elettrico, leva tirata
 	mappa03: attacco robot, apertura chest, interazione pc, robot che se ne va
@@ -124,6 +122,20 @@ FIX FINALI:
 -nel livello 1 e nel livello 4 lagga un pochino da telefono.
 
 -bilanciare gli attacchi di player, boss e nemici (danno, cooldown)
+	PROPOSTA:
+		- vita giocatore: 100
+		- vita nemico: 100
+		- vita pipistrello: ?
+		- vita boss: ?
+		- attacco analisi: danno=35, cooldown=?
+		- attacco elettrotecnica: danno=?, cooldown=?
+		- attacco ASD: danno=?, cooldown=?
+		- attacco reti: danno=?, cooldown=?
+		- attacchi boss:
+			- analisi: danno=?, cooldown=?
+			- elettrotecnica: danno=?, cooldown=?
+			- ASD: danno=?, cooldown=?
+			- reti: danno=?, cooldown=?
 
 
 

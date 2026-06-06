@@ -5,6 +5,9 @@ extends CharacterBody2D
 @onready var explosion_area: Area2D = $Area2D
 
 const DAMAGE = 50
+static var atk_cooldown = 1
+static var move_cooldown = 1
+
 var speed = 100
 var target: Node2D = null
 var exploding = false

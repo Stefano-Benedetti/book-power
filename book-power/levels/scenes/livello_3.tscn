@@ -96,7 +96,6 @@ position = Vector2(1308, -949)
 position = Vector2(895, -891)
 
 [node name="enemy2" parent="." instance=ExtResource("18_acewy")]
-visible = false
 position = Vector2(1364, -922)
 
 [node name="enemy3" parent="." instance=ExtResource("18_acewy")]

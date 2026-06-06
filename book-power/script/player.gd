@@ -25,10 +25,15 @@ var can_move = true
 var offset_attacchi = Vector2(0, -7)
 @onready var attacck_cooldown: Timer=$attackCooldown
 @onready var mov_cooldown: Timer=$movementPostAttackCooldown
-@onready var attacco_libro_analisi = preload("res://attacks/scenes/attacco_libro_analisi.tscn")
-@onready var attacco_libro_asd = preload("res://attacks/scenes/attacco_libro_asd.tscn")
-@onready var attacco_libro_reti = preload("res://attacks/scenes/attacco_libro_reti.tscn")
-@onready var attacco_libro_elettrotecnica = preload("res://attacks/scenes/attacco_libro_elettrotecnica.tscn")
+@onready var attacco_analisi_scena = preload("res://attacks/scenes/attacco_libro_analisi.tscn")
+@onready var attacco_asd_scena = preload("res://attacks/scenes/attacco_libro_asd.tscn")
+@onready var attacco_reti_scena = preload("res://attacks/scenes/attacco_libro_reti.tscn")
+@onready var attacco_elettrotecnica_scena = preload("res://attacks/scenes/attacco_libro_elettrotecnica.tscn")
+@onready var attacco_analisi_script = preload("res://attacks/script/attacco_libro_analisi.gd")
+@onready var attacco_asd_script = preload("res://attacks/script/attacco_libro_asd.gd")
+@onready var attacco_reti_script = preload("res://attacks/script/attacco_libro_reti.gd")
+@onready var attacco_elettrotecnica_script = preload("res://attacks/script/attacco_libro_elettrotecnica.gd")
+@onready var health_potion_script = preload("res://objects_pickable/script/health_potion.gd")
 
 
 class PushData:
@@ -104,76 +109,87 @@ func player_movement(_delta):
 	
 	move_and_slide()
 
+
+
 func attacca():
 	if selected_item == null:
 		return
 	elif selected_item.name == "libro_analisi":
-		var scena_attacco_analisi = attacco_libro_analisi.instantiate()
-		scena_attacco_analisi.global_position = global_position + offset_attacchi
-		match current_dir:
-			"right":
-				scena_attacco_analisi.rotation_degrees = 0
-			"left":
-				scena_attacco_analisi.rotation_degrees = 180
-			"up":
-				scena_attacco_analisi.rotation_degrees = -90
-			"down":
-				scena_attacco_analisi.rotation_degrees = 90
-		get_tree().current_scene.add_child(scena_attacco_analisi)
-		
-		can_attack = false
-		can_move = false
-		attacck_cooldown.start()  # Avvia il timer
-		mov_cooldown.start()
-		play_anim(0, 1)
+		attacco_analisi()
 	elif selected_item.name == "libro_asd":
-		var scena_attacco_asd = attacco_libro_asd.instantiate()
-		scena_attacco_asd.global_position = global_position + offset_attacchi
-		match current_dir:
-			"right":
-				scena_attacco_asd.rotation_degrees = 0
-			"left":
-				scena_attacco_asd.rotation_degrees = 180
-			"up":
-				scena_attacco_asd.rotation_degrees = -90
-			"down":
-				scena_attacco_asd.rotation_degrees = 90
-		get_tree().current_scene.add_child(scena_attacco_asd)
-		
-		can_attack = false
-		can_move = false
-		attacck_cooldown.start()  # Avvia il timer
-		mov_cooldown.start()
-		play_anim(0, 1)
+		attacco_asd()
 	elif selected_item.name == "libro_reti":
-		var scena_attacco_reti = attacco_libro_reti.instantiate()
-		scena_attacco_reti.global_position = global_position + offset_attacchi
-		get_tree().current_scene.add_child(scena_attacco_reti)
-		
-		can_attack = false
-		can_move = false
-		attacck_cooldown.start()  # Avvia il timer
-		mov_cooldown.start()
-		play_anim(0, 1)
+		attacco_reti()
 	elif selected_item.name == "libro_elettrotecnica":
-		var scena_attacco_elettrotecnica = attacco_libro_elettrotecnica.instantiate()
-		scena_attacco_elettrotecnica.global_position = global_position + offset_attacchi + Vector2(0,-34)
-		get_tree().current_scene.add_child(scena_attacco_elettrotecnica)
-		
-		can_attack = false
-		can_move = false
-		attacck_cooldown.start()  # Avvia il timer
-		mov_cooldown.start()
-		play_anim(0, 1)
+		attacco_elettrotecnica()
 	elif selected_item.name == "health_potion":
-		getHealed(selected_item.health_plus)
-		consume(selected_item_index)
-		
-		can_attack = false
-		can_move = false
-		attacck_cooldown.start()  # Avvia il timer
-		mov_cooldown.start()
-		$AnimatedSprite2D.play("drink")
+		drink_potion()
+
+func attacco_analisi():
+	var scena_attacco = attacco_analisi_scena.instantiate()
+	scena_attacco.global_position = global_position + offset_attacchi
+	match current_dir:
+		"right":
+			scena_attacco.rotation_degrees = 0
+		"left":
+			scena_attacco.rotation_degrees = 180
+		"up":
+			scena_attacco.rotation_degrees = -90
+		"down":
+			scena_attacco.rotation_degrees = 90
+	get_tree().current_scene.add_child(scena_attacco)
+	
+	set_movement_and_attack_cooldown(attacco_analisi_script.atk_cooldown, attacco_analisi_script.move_cooldown)
+	play_anim(0, 1)
+
+func attacco_asd():
+	var scena_attacco = attacco_asd_scena.instantiate()
+	scena_attacco.global_position = global_position + offset_attacchi
+	match current_dir:
+		"right":
+			scena_attacco.rotation_degrees = 0
+		"left":
+			scena_attacco.rotation_degrees = 180
+		"up":
+			scena_attacco.rotation_degrees = -90
+		"down":
+			scena_attacco.rotation_degrees = 90
+	get_tree().current_scene.add_child(scena_attacco)
+	
+	set_movement_and_attack_cooldown(attacco_asd_script.atk_cooldown, attacco_asd_script.move_cooldown)
+	play_anim(0, 1)
+
+func attacco_reti():
+	var scena_attacco = attacco_reti_scena.instantiate()
+	scena_attacco.global_position = global_position + offset_attacchi
+	get_tree().current_scene.add_child(scena_attacco)
+	
+	set_movement_and_attack_cooldown(attacco_reti_script.atk_cooldown, attacco_reti_script.move_cooldown)
+	play_anim(0, 1)
+
+func attacco_elettrotecnica():
+	var scena_attacco = attacco_elettrotecnica_scena.instantiate()
+	scena_attacco.global_position = global_position + offset_attacchi + Vector2(0,-34)
+	get_tree().current_scene.add_child(scena_attacco)
+	
+	set_movement_and_attack_cooldown(attacco_elettrotecnica_script.atk_cooldown, attacco_elettrotecnica_script.move_cooldown)
+	play_anim(0, 1)
+
+func drink_potion():
+	getHealed(selected_item.health_plus)
+	consume(selected_item_index)
+	
+	set_movement_and_attack_cooldown(health_potion_script.atk_cooldown, health_potion_script.move_cooldown)
+	$AnimatedSprite2D.play("drink")
+
+func set_movement_and_attack_cooldown(atk_cooldown, move_cooldown):
+	can_attack = false
+	can_move = false
+	attacck_cooldown.wait_time = atk_cooldown
+	mov_cooldown.wait_time = move_cooldown
+	attacck_cooldown.start()  # Avvia il timer
+	mov_cooldown.start()
+
 
 
 #funzione per gestire le animazioni del player, movement=1 => ci stiamo muovendo

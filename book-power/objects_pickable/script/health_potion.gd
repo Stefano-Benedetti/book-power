@@ -2,11 +2,14 @@ extends Node2D
 
 @export var item: InvItem	#va messo perchè è un oggetto collezionabile
 
-var player_in_area = false
-var player = null
 
 const HEALTH_PLUS = 10
+static var atk_cooldown = 1
+static var move_cooldown = 1
 
+
+var player_in_area = false
+var player = null
 
 @export var float_height: float = 1.0      # quanto sale/scende
 @export var float_speed: float = 3.0        # velocità oscillazione
