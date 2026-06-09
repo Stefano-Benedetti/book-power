@@ -32,6 +32,7 @@ func _ready():
 func exit():
 	get_tree().create_timer(3).timeout.connect(func(): queue_free())
 	exiting = true
+	$RobotWalkSound.play()
 
 func goOutOfView():
 	$dest_pointer.stop()
@@ -72,6 +73,7 @@ func robot_attack():
 	move_cooldown.start()  # Avvia il timer
 	
 	$AnimatedSprite2D.play("left_attack")
+	$RobotAttackSound.play()
 	await $AnimatedSprite2D.animation_finished
 
 

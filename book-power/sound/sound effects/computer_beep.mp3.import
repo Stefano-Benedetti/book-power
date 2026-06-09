@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7yv3in2kws0b"
+path="res://.godot/imported/computer_beep.mp3-c576cd006319f14f859635dde784042b.mp3str"
+
+[deps]
+
+source_file="res://sound/sound effects/computer_beep.mp3"
+dest_files=["res://.godot/imported/computer_beep.mp3-c576cd006319f14f859635dde784042b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

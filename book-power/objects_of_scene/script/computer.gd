@@ -35,6 +35,7 @@ func thirdMapBehavior():
 	if Input.is_action_just_pressed("attacca"):
 		Global.sbloccaRobot.emit()
 		$AnimatedSprite2D.animation = "turn_green_screen"
+		$RobotRepair.play()
 		used = true
 		$button_icon_pick.hide()
 		$button_icon_attack.hide()
@@ -47,6 +48,7 @@ func fourthMapBehavior():
 	if Input.is_action_just_pressed("Pick_object"):
 		Global.incrementCounter.emit()
 		$AnimatedSprite2D.animation = "turn_blue_screen"
+		$ComputerBeep.play()
 		used = true
 		Global.pickDecrement()
 		$button_icon_pick.hide()

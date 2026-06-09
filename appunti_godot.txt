@@ -102,16 +102,13 @@ ________________________________________________________________________________
 
 FIX FINALI:
 
--inserire dei suoni per ogni mini-quest completata (es.
-	mappa02: accensione quadro elettrico, leva tirata
-	mappa03: attacco robot, apertura chest, interazione pc, robot che se ne va
-	mappa04: accensione di ogni pc, posizionamento AP
-	mappa05: boss spawna nemici
-	)
+-sistemare raccoglimento multiplo dello stesso oggetto
 
--modificare musica del main menu
 
--aggiungere musica di sottofondo per boss-fight
+-musica e suoni:
+	inserire il suono per il boss che spawna nemici
+	modificare musica del main menu
+	aggiungere musica di sottofondo per boss-fight
 
 -inserire una nuvoletta sul player che dice qualcosa quando il player si avvicina a un oggetto con cui deve interagire per andare avanti 
 (cosa scrivere nella nuvoletta andrà indicato nello script dell'oggetto con cui deve interagire il player).
@@ -131,13 +128,12 @@ FIX FINALI:
 		- attacco elettrotecnica: danno=?, cooldown=?
 		- attacco ASD: danno=?, cooldown=?
 		- attacco reti: danno=?, cooldown=?
+		- attacco robot: danno=?
 		- attacchi boss:
 			- analisi: danno=?, cooldown=?
 			- elettrotecnica: danno=?, cooldown=?
 			- ASD: danno=?, cooldown=?
 			- reti: danno=?, cooldown=?
-
-
 
 -delle volte quando ci si avvicina ai nemici questi iniziano a camminare ma non si muovono, succede spesso al nemico vicino al pc nel livello 3 
 (in teoria è risolto ma lasciamolo tra i fix che non si sa mai)

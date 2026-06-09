@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c7b28vb1wixa7"]
+[gd_scene load_steps=17 format=3 uid="uid://c7b28vb1wixa7"]
 
 [ext_resource type="Script" uid="uid://daq0by2h6arpa" path="res://objects_of_scene/script/computer.gd" id="1_s1ee8"]
 [ext_resource type="Texture2D" uid="uid://bt7jojhnjae2c" path="res://art/computer_su_tavolino/computer_acceso_bluescreen.png" id="2_bei50"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://de2lb3i4olr2u" path="res://art/computer_su_tavolino/computer_acceso_redscreen.png" id="4_vkfvp"]
 [ext_resource type="Texture2D" uid="uid://c8pew34idtkwj" path="res://art/pick_action_button.png" id="6_vkfvp"]
 [ext_resource type="Texture2D" uid="uid://blqkb7t317x4j" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/16x16 buttons Style 2 controls/16x16 Control Buttons (27).png" id="7_n3jbf"]
+[ext_resource type="AudioStream" uid="uid://nu8h4agda8bx" path="res://sound/sound effects/robot_repair.mp3" id="8_xce26"]
+[ext_resource type="AudioStream" uid="uid://7yv3in2kws0b" path="res://sound/sound effects/computer_beep.mp3" id="9_8430j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k384s"]
 atlas = ExtResource("2_bei50")
@@ -96,6 +98,14 @@ offset = Vector2(1, -25)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("7_n3jbf")
 offset = Vector2(1, -25)
+
+[node name="RobotRepair" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_xce26")
+bus = &"Effects"
+
+[node name="ComputerBeep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_8430j")
+bus = &"Effects"
 
 [connection signal="body_entered" from="interactionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="interactionArea" to="." method="_on_interaction_area_body_exited"]

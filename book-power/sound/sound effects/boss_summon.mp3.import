@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://uxk0x6k2wkyn"
+path="res://.godot/imported/boss_summon.mp3-896410b1511cb69ba22d1390b1ffb9c8.mp3str"
+
+[deps]
+
+source_file="res://sound/sound effects/boss_summon.mp3"
+dest_files=["res://.godot/imported/boss_summon.mp3-896410b1511cb69ba22d1390b1ffb9c8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

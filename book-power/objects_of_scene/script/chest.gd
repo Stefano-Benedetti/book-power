@@ -36,6 +36,7 @@ func _process(_delta: float) -> void:
 
 func openChest():
 	$AnimatedSprite2D.play("opening")
+	$ChestSound.play()
 	opened = true
 	await $AnimatedSprite2D.animation_finished
 	dropObject()

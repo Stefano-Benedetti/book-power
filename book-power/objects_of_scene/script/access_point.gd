@@ -21,6 +21,7 @@ func _process(_delta: float) -> void:
 
 func playConnecting():
 	$AnimatedSprite2D.play("connecting")
+	$ApConnected.play()
 
 func _on_pickable_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player") and pickable:

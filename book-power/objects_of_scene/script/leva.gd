@@ -23,6 +23,7 @@ func _process(_delta: float) -> void:
 			$Sprite2D.flip_h = true
 			tirata = true
 			Global.leva_tirata.emit()
+			$LeverSound.play()
 
 func rendi_funzionante():
 	funzionante = true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://nu8h4agda8bx"
+path="res://.godot/imported/robot_repair.mp3-4bc380bf1d08d35217f471c72c57a7aa.mp3str"
+
+[deps]
+
+source_file="res://sound/sound effects/robot_repair.mp3"
+dest_files=["res://.godot/imported/robot_repair.mp3-4bc380bf1d08d35217f471c72c57a7aa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
