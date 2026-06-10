@@ -2,11 +2,11 @@ extends Node2D
 
 @export var item: InvItem	#va messo perchè è un oggetto collezionabile
 
+var has_picked = false
 
 const HEALTH_PLUS = 10
 static var atk_cooldown = 1
 static var move_cooldown = 1
-
 
 var player_in_area = false
 var player = null
@@ -36,8 +36,9 @@ func _process(_delta: float) -> void:
 	shadow.scale = Vector2.ONE * shadow_scale
 	
 	if player_in_area:
-		if Input.is_action_just_pressed("Pick_object"):
-			var has_picked = player.collect(item)
+		if Input.is_action_just_pressed("Pick_object") and not has_picked:
+			has_picked = true
+			has_picked = player.collect(item)
 			if(has_picked):
 				if !$Pick.playing:
 					$Pick.play()

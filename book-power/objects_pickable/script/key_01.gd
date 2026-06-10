@@ -2,6 +2,8 @@ extends Node2D
 
 @export var item: InvItem	#va messo perchè è un oggetto collezionabile
 
+var has_picked = false
+
 var player_in_area = false
 var player = null
 
@@ -12,8 +14,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if player_in_area:
-		if Input.is_action_just_pressed("Pick_object"):
-			var has_picked = player.collect(item)
+		if Input.is_action_just_pressed("Pick_object") and not has_picked:
+			has_picked = true
+			has_picked = player.collect(item)
 			if(has_picked):
 				if !$Pick.playing:
 					$Pick.play()

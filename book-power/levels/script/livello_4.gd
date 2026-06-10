@@ -89,7 +89,7 @@ func AP_dropped():
 		add_child(scena_dropped_object)
 		scena_dropped_object.global_position = Vector2(927.802,-576.853)
 		scena_dropped_object.playConnecting()
-		scena_dropped_object.pickable = false
+		scena_dropped_object.has_picked = true
 		object_ap = null
 		$place_router.key_dropped = true
 		print(Global.pick_counter)

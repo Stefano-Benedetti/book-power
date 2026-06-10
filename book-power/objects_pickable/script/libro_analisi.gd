@@ -2,6 +2,8 @@ extends Node2D
 
 @export var item: InvItem	#va messo perchè è un oggetto collezionabile
 
+var has_picked = false
+
 var player_in_area = false
 var player = null
 
@@ -30,8 +32,10 @@ func _process(_delta: float) -> void:
 	shadow.scale = Vector2.ONE * shadow_scale
 	
 	if player_in_area:
-		if Input.is_action_just_pressed("Pick_object"):
-			var has_picked = player.collect(item)
+		if Input.is_action_just_pressed("Pick_object") and not has_picked:
+			has_picked = true
+			#per evitare che venga rieseguito questo metodo prima che venga effettivamente preso l'oggetto
+			has_picked = player.collect(item)
 			if(has_picked):
 				if !$AngelicChoir.playing:
 					$AngelicChoir.play()

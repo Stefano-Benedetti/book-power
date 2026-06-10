@@ -5,7 +5,7 @@ extends Node2D
 var player_in_area = false
 var player = null
 
-var pickable = true
+var has_picked = false
 
 func _ready():
 	$button_icon.hide()
@@ -13,18 +13,22 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if player_in_area and pickable :
+	if has_picked:
+		return
+	if player_in_area:
 		if Input.is_action_just_pressed("Pick_object"):
-			var has_picked = player.collect(item)
+			has_picked = true
+			has_picked = player.collect(item)
 			if(has_picked):
 				queue_free()
+				Global.pickDecrement()
 
 func playConnecting():
 	$AnimatedSprite2D.play("connecting")
 	$ApConnected.play()
 
 func _on_pickable_area_body_entered(body: Node2D) -> void:
-	if body.has_method("player") and pickable:
+	if body.has_method("player") and not has_picked:
 		player_in_area = true
 		player = body
 		mostra_button()
@@ -32,7 +36,7 @@ func _on_pickable_area_body_entered(body: Node2D) -> void:
 
 
 func _on_pickable_area_body_exited(body: Node2D) -> void:
-	if body.has_method("player") and pickable:
+	if body.has_method("player") and not has_picked:
 		player_in_area = false
 		$button_icon.hide()
 		Global.pickDecrement()
