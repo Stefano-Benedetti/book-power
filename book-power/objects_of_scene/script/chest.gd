@@ -9,8 +9,6 @@ var player = null
 var opened = false
 var offset_drop = Vector2(0, 10)
 
-var icon_enabled = false
-
 var button_visible = false
 
 func _ready():
@@ -18,20 +16,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if opened:
+	print(Global.pick_counter)
+	if opened or not player_in_area:
 		return
-	if player_in_area and player.selected_item==chiave and not button_visible:
-		mostra_button()
-	if player_in_area and Input.is_action_just_pressed("Pick_object"):
-		if not player.selected_item==chiave:
-			return
-		openChest()
-	if player_in_area and player.selected_item==chiave and !icon_enabled:
-		Global.pickIncrement()
-		icon_enabled = true
-	if player_in_area and player.selected_item!=chiave and icon_enabled:
+	if player.selected_item!=chiave and button_visible:
 		Global.pickDecrement()
-		icon_enabled = false
+		button_visible = false
+		$button_icon.hide()
+	if player.selected_item==chiave and not button_visible:
+		Global.pickIncrement()
+		mostra_button()
+	if Input.is_action_just_pressed("Pick_object") and player.selected_item==chiave:
+		openChest()
 
 
 func openChest():
@@ -56,18 +52,18 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = true
 		player = body
-		if player.selected_item==chiave and !opened:
+		if !opened and player.selected_item==chiave:
 			mostra_button()
 			Global.pickIncrement()
-			icon_enabled = true
+
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = false
 		$button_icon.hide()
-		if !opened:
+		button_visible=false
+		if !opened and player.selected_item==chiave:
 			Global.pickDecrement()
-			icon_enabled = false
 
 
 func mostra_button():
@@ -75,8 +71,8 @@ func mostra_button():
 	$button_icon.show()
 	while player_in_area and not opened:
 		if player.selected_item!=chiave:
-			button_visible = false
 			$button_icon.hide()
+			button_visible = false
 			break
 		$button_icon.modulate.a = 1
 		await get_tree().create_timer(0.7).timeout

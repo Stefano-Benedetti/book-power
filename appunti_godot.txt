@@ -102,8 +102,7 @@ ________________________________________________________________________________
 
 FIX FINALI:
 
--sistemare raccoglimento multiplo dello stesso oggetto
-
+-fixare i pick counter di quando entro nell'area di oggetti che richiedono una chiave (quadro elettrico)
 
 -musica e suoni:
 	inserire il suono per il boss che spawna nemici
