@@ -1,8 +1,8 @@
 extends Node2D
 
 const DAMAGE = 35
-static var atk_cooldown = 1
-static var move_cooldown = 1
+static var atk_cooldown = 0.8
+static var move_cooldown = 0.8
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

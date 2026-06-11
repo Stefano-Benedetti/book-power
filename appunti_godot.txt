@@ -121,10 +121,13 @@ FIX FINALI:
 		- vita nemico: 100
 		- vita pipistrello: ?
 		- vita boss: ?
-		- attacco analisi: danno=35, cooldown=?
-		- attacco elettrotecnica: danno=?, cooldown=?
-		- attacco ASD: danno=?, cooldown=?
-		- attacco reti: danno=?, cooldown=?
+		- attacchi player:
+			- attacco analisi: 			danno=35, atkCooldown=0.8, movCooldown=0.8
+			- attacco elettrotecnica: 	danno=50, atkCooldown=1.4, movCooldown=1.4
+			- attacco ASD: 				danno=?, atkCooldown=?, movCooldown=?
+			- attacco reti: 			danno=?, atkCooldown=?, movCooldown=?
+			- bevi pozione di cura: 	cura=6, atkCooldown=1, movCooldown=1
+		- attacco nemico: danno=6, atkCooldown=1.5, movCooldown=1
 		- attacco robot: danno=?
 		- attacchi boss:
 			- analisi: danno=?, cooldown=?

@@ -4,7 +4,7 @@ extends Node2D
 
 var has_picked = false
 
-const HEALTH_PLUS = 10
+const HEALTH_PLUS = 6
 static var atk_cooldown = 1
 static var move_cooldown = 1
 

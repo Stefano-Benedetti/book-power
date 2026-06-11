@@ -16,7 +16,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	print(Global.pick_counter)
 	if opened or not player_in_area:
 		return
 	if player.selected_item!=chiave and button_visible:

@@ -1,6 +1,6 @@
 extends Node2D
 
-const DAMAGE = 50
+const DAMAGE = 25
 static var atk_cooldown = 1
 static var move_cooldown = 1
 
@@ -13,10 +13,8 @@ func _ready():
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("ho trovato qualcosa")
 	if not area.is_in_group("enemies_hitbox"):
 		return
 	var enemy = area.get_parent()
-	print(enemy.name)
 	if enemy.has_method("enemy"):	#verifico se è effettivamente un nemico
 		enemy.getHurt(DAMAGE)
