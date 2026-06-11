@@ -92,7 +92,6 @@ func AP_dropped():
 		scena_dropped_object.has_picked = true
 		object_ap = null
 		$place_router.key_dropped = true
-		print(Global.pick_counter)
 
 
 #func _on_place_router_body_entered(body: Node2D) -> void:

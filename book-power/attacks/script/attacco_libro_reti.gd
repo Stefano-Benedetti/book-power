@@ -4,14 +4,14 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var explosion_area: Area2D = $Area2D
 
-const DAMAGE = 50
-static var atk_cooldown = 1
-static var move_cooldown = 1
+const DAMAGE = 15
+static var atk_cooldown = 1.4
+static var move_cooldown = 0.6
 
 var speed = 100
 var target: Node2D = null
 var exploding = false
-var explosion_distance = 5
+var distance_to_explode = 5
 
 var in_cave: bool = false
 
@@ -20,7 +20,7 @@ func _ready():
 		if get_parent().name == "livello_4":
 			in_cave = get_parent().player_in_cave
 	find_closest_enemy()
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1).timeout
 	if !exploding :
 		explode()
 
@@ -66,7 +66,7 @@ func movement():
 	agent.target_position = target.global_position
 
 	# esplode se vicino
-	if global_position.distance_to(target.global_position) < explosion_distance:
+	if global_position.distance_to(target.global_position) < distance_to_explode:
 		explode()
 		return
 

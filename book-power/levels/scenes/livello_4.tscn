@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c7q3anbqtjy0n"]
+[gd_scene load_steps=26 format=3 uid="uid://c7q3anbqtjy0n"]
 
 [ext_resource type="Script" uid="uid://bs431npcmmv2s" path="res://levels/script/livello_4.gd" id="1_3j3hp"]
 [ext_resource type="PackedScene" uid="uid://cfrovdukqneaj" path="res://maps/scenes/mappa_04.tscn" id="1_r6f3t"]
@@ -23,9 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://ops0s4r5erdq" path="res://objects_of_scene/scenes/place_router_area.tscn" id="20_ofigy"]
 [ext_resource type="PackedScene" uid="uid://s4sgnvd5jpqj" path="res://objects_pickable/scenes/health_potion.tscn" id="20_ovfhu"]
 [ext_resource type="PackedScene" uid="uid://dwf3csj7xxyxj" path="res://characters/scenes/bat.tscn" id="22_ht61p"]
-[ext_resource type="PackedScene" uid="uid://4q20bgjmsri5" path="res://objects_pickable/scenes/libro_analisi.tscn" id="24_vs33d"]
-[ext_resource type="PackedScene" uid="uid://c2fwthkouehnh" path="res://objects_pickable/scenes/libro_asd.tscn" id="25_8vtnt"]
-[ext_resource type="PackedScene" uid="uid://dwroxtcbkxdus" path="res://objects_pickable/scenes/libro_elettrotecnica.tscn" id="26_eo262"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a34kp"]
 radius = 3.5
@@ -185,15 +182,6 @@ position = Vector2(298, -1560)
 
 [node name="bat8" parent="." groups=["in_cave"] instance=ExtResource("22_ht61p")]
 position = Vector2(644, -1472)
-
-[node name="libro_analisi" parent="." instance=ExtResource("24_vs33d")]
-position = Vector2(196, -1000)
-
-[node name="libro_asd" parent="." instance=ExtResource("25_8vtnt")]
-position = Vector2(220, -987)
-
-[node name="libro_elettrotecnica" parent="." instance=ExtResource("26_eo262")]
-position = Vector2(195, -986)
 
 [connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]
 [connection signal="body_entered" from="cave_entrance" to="." method="_on_cave_entrance_body_entered"]

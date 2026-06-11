@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://lakebj3hfh7g"]
+[gd_scene load_steps=20 format=3 uid="uid://lakebj3hfh7g"]
 
 [ext_resource type="Script" uid="uid://y1ccwa01wasr" path="res://levels/script/livello_3.gd" id="1_2dpvf"]
 [ext_resource type="PackedScene" uid="uid://dbl6qfpdg73ma" path="res://maps/scenes/mappa_03.tscn" id="1_whg46"]
@@ -19,8 +19,6 @@
 [ext_resource type="Resource" uid="uid://di30bq1l2l5xm" path="res://inventory/items/libro_automatica.tres" id="16_jilik"]
 [ext_resource type="PackedScene" uid="uid://bdyg3nigp8cpo" path="res://characters/scenes/enemy.tscn" id="18_acewy"]
 [ext_resource type="PackedScene" uid="uid://s4sgnvd5jpqj" path="res://objects_pickable/scenes/health_potion.tscn" id="19_jilik"]
-[ext_resource type="PackedScene" uid="uid://dwroxtcbkxdus" path="res://objects_pickable/scenes/libro_elettrotecnica.tscn" id="20_aifjw"]
-[ext_resource type="PackedScene" uid="uid://4q20bgjmsri5" path="res://objects_pickable/scenes/libro_analisi.tscn" id="21_lrb3l"]
 
 [node name="livello_3" type="Node2D"]
 y_sort_enabled = true
@@ -113,11 +111,5 @@ dropped_object = ExtResource("19_jilik")
 
 [node name="enemy6" parent="." instance=ExtResource("18_acewy")]
 position = Vector2(1564, -358)
-
-[node name="libro_elettrotecnica" parent="." instance=ExtResource("20_aifjw")]
-position = Vector2(337, -125)
-
-[node name="libro_analisi" parent="." instance=ExtResource("21_lrb3l")]
-position = Vector2(306, -125)
 
 [connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]

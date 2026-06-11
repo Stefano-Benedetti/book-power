@@ -105,7 +105,9 @@ FIX FINALI:
 -musica e suoni:
 	inserire il suono per il boss che spawna nemici
 	modificare musica del main menu
-	aggiungere musica di sottofondo per boss-fight
+	aggiungere musica di titoli di coda
+
+-modificare font dei dialoghi
 
 -inserire una nuvoletta sul player che dice qualcosa quando il player si avvicina a un oggetto con cui deve interagire per andare avanti 
 (cosa scrivere nella nuvoletta andrà indicato nello script dell'oggetto con cui deve interagire il player).
@@ -119,16 +121,17 @@ FIX FINALI:
 	PROPOSTA:
 		- vita giocatore: 100
 		- vita nemico: 100
-		- vita pipistrello: ?
+		- vita pipistrello: 35
 		- vita boss: ?
 		- attacchi player:
 			- attacco analisi: 			danno=35, atkCooldown=0.8, movCooldown=0.8
 			- attacco elettrotecnica: 	danno=50, atkCooldown=1.4, movCooldown=1.4
-			- attacco ASD: 				danno=?, atkCooldown=?, movCooldown=?
-			- attacco reti: 			danno=?, atkCooldown=?, movCooldown=?
+			- attacco ASD: 				danno=25, atkCooldown=1, movCooldown=1
+			- attacco reti: 			danno=15, atkCooldown=1.4, movCooldown=0.6
 			- bevi pozione di cura: 	cura=6, atkCooldown=1, movCooldown=1
 		- attacco nemico: danno=6, atkCooldown=1.5, movCooldown=1
-		- attacco robot: danno=?
+		- attacco robot: danno=15
+		- attacco pipistrello: danno=4, atkCooldown=1.8, movCooldown=1
 		- attacchi boss:
 			- analisi: danno=?, cooldown=?
 			- elettrotecnica: danno=?, cooldown=?

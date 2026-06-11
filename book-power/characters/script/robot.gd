@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var object_posseduto: PackedScene
 @export var item_richiesto: InvItem
 
-@export var damage = 5
+@export var damage = 15
 @export var attack_mode = true
 @onready var attack_cooldown = $attackCooldown
 var player_in_attackArea = false
