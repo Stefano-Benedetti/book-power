@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6hkiqvxdg518"]
+[gd_scene load_steps=18 format=3 uid="uid://c6hkiqvxdg518"]
 
 [ext_resource type="Script" uid="uid://d1gnb3hgbj284" path="res://menus/script/login.gd" id="1_ydcfs"]
 [ext_resource type="Texture2D" uid="uid://c4nyotpyg4gwh" path="res://art/sfondo_main_menu.png" id="2_d2vhw"]
 [ext_resource type="Texture2D" uid="uid://bf1vuf6xsmcyd" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (55).png" id="2_pknag"]
 [ext_resource type="Texture2D" uid="uid://clfl4uo6s1kjh" path="res://art/PIXELPERF-BUTTONKIT/Button Kit/32x16 buttons Style 1 with symbols/32x16 Button (54).png" id="3_d2vhw"]
 [ext_resource type="Script" uid="uid://bop37ia6ikrl7" path="res://menus/script/auth.gd" id="5_x56uj"]
+[ext_resource type="Texture2D" uid="uid://0gr1hw5qpnw6" path="res://art/icons8-eye-48-black.png" id="6_3jex7"]
+[ext_resource type="Texture2D" uid="uid://ue6j7oaxgiou" path="res://art/icons8-eye-48-white.png" id="7_h53d6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x56uj"]
 content_margin_left = 5.0
@@ -115,13 +117,14 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_x56uj")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_pknag")
 placeholder_text = " Email"
 
-[node name="password" type="TextEdit" parent="VBoxContainer"]
+[node name="password" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_f8a0b")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d2vhw")
 placeholder_text = " Password"
+secret = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -233,6 +236,16 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_nre23")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x56uj")
 text = "Local"
 
+[node name="secret_toggle" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 378.0
+offset_right = 940.0
+offset_bottom = 426.0
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_3jex7")
+texture_pressed = ExtResource("7_h53d6")
+
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="HBoxContainer/register" to="." method="_on_register_pressed"]
 [connection signal="pressed" from="HBoxContainer/login" to="." method="_on_login_pressed"]
@@ -240,3 +253,4 @@ text = "Local"
 [connection signal="pressed" from="logout" to="." method="_on_logout_pressed"]
 [connection signal="pressed" from="DataChoice/MarginContainer/VBoxContainer/HBoxContainer/remote" to="." method="_on_remote_pressed"]
 [connection signal="pressed" from="DataChoice/MarginContainer/VBoxContainer/HBoxContainer/local" to="." method="_on_local_pressed"]
+[connection signal="pressed" from="secret_toggle" to="." method="_on_secret_toggle_pressed"]

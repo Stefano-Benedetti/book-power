@@ -159,3 +159,9 @@ func update_ui():
 		$resetpass.hide()
 		$logout.hide()
 		$HBoxContainer.show()
+
+func _on_secret_toggle_pressed():
+	if $VBoxContainer/password.secret:
+		$VBoxContainer/password.secret = false
+	else:
+		$VBoxContainer/password.secret = true
