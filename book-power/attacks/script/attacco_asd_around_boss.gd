@@ -1,6 +1,6 @@
 extends Node2D
 
-const DAMAGE = 50
+const DAMAGE = 18
 var damage_fase = false
 
 var player_in_damageArea = false
@@ -16,7 +16,6 @@ func _ready():
 		animatedSprite.hide()
 	for i in range(0,3):
 		$ColorRect.show()
-		print("a")
 		await get_tree().create_timer(0.2).timeout
 		$ColorRect.hide()
 		await get_tree().create_timer(0.1).timeout

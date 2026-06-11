@@ -120,7 +120,7 @@ func NPC_attack(_delta):
 		$movementPostAttackCooldown.wait_time = 1
 		$attackCooldown.wait_time = 2
 	else:
-		#decide che attacco a fare anche in base alla distanza dal player
+		#decide che attacco fare anche in base alla distanza dal player
 		var dist_to_player = global_position.distance_to(player.global_position)
 		var attacchi_candidati = []
 		if dist_to_player<=40: #cioè se il player è vicino

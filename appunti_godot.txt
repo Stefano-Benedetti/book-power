@@ -102,6 +102,8 @@ ________________________________________________________________________________
 
 FIX FINALI:
 
+-sistemare y-sort nel livello 5
+
 -musica e suoni:
 	inserire il suono per il boss che spawna nemici
 	modificare musica del main menu
@@ -122,7 +124,7 @@ FIX FINALI:
 		- vita giocatore: 100
 		- vita nemico: 100
 		- vita pipistrello: 35
-		- vita boss: ?
+		- vita boss: 600
 		- attacchi player:
 			- attacco analisi: 			danno=35, atkCooldown=0.8, movCooldown=0.8
 			- attacco elettrotecnica: 	danno=50, atkCooldown=1.4, movCooldown=1.4
@@ -133,10 +135,11 @@ FIX FINALI:
 		- attacco robot: danno=15
 		- attacco pipistrello: danno=4, atkCooldown=1.8, movCooldown=1
 		- attacchi boss:
-			- analisi: danno=?, cooldown=?
-			- elettrotecnica: danno=?, cooldown=?
-			- ASD: danno=?, cooldown=?
-			- reti: danno=?, cooldown=?
+			- analisi: danno=8, atkCooldown=2, movCooldown=1
+			- reti: danno=10, atkCooldown=3, movCooldown=1
+			- ASD: danno=18, atkCooldown=1, movCooldown=1.5
+			- elettrotecnica: atkCooldown=1, movCooldown=0.5
+			- spawn-nemici: atkCooldown=2, movCooldown=1
 
 -delle volte quando ci si avvicina ai nemici questi iniziano a camminare ma non si muovono, succede spesso al nemico vicino al pc nel livello 3 
 (in teoria è risolto ma lasciamolo tra i fix che non si sa mai)
