@@ -102,7 +102,7 @@ ________________________________________________________________________________
 
 FIX FINALI:
 
--sistemare y-sort nel livello 5
+-la musica della boss fight inizia un po' in ritardo
 
 -musica e suoni:
 	inserire il suono per il boss che spawna nemici
@@ -110,6 +110,7 @@ FIX FINALI:
 	aggiungere musica di titoli di coda
 
 -modificare font dei dialoghi
+-modificare bottone del tutorial, info è brutto, meglio un bottone viola con sopra scritto tipo "controls"
 
 -inserire una nuvoletta sul player che dice qualcosa quando il player si avvicina a un oggetto con cui deve interagire per andare avanti 
 (cosa scrivere nella nuvoletta andrà indicato nello script dell'oggetto con cui deve interagire il player).

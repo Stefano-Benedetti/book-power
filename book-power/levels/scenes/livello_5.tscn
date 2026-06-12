@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dvw7uoq4ggk44"]
+[gd_scene load_steps=15 format=3 uid="uid://dvw7uoq4ggk44"]
 
 [ext_resource type="PackedScene" uid="uid://dulg5ecfdm460" path="res://maps/scenes/mappa_05.tscn" id="1_414vw"]
 [ext_resource type="Script" uid="uid://yremuj8a4k4n" path="res://levels/script/livello_5.gd" id="1_mmhjb"]
@@ -14,10 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://by36h6nmutin4" path="res://menus/scenes/gameover_menu.tscn" id="13_fkvwp"]
 [ext_resource type="PackedScene" uid="uid://brtsthacom3p0" path="res://scenes/casual_boss_destination.tscn" id="13_qpsbh"]
 [ext_resource type="Script" uid="uid://b73uroh6poypx" path="res://levels/script/black_screen.gd" id="14_tjlpw"]
-[ext_resource type="PackedScene" uid="uid://4q20bgjmsri5" path="res://objects_pickable/scenes/libro_analisi.tscn" id="15_ytiv2"]
-[ext_resource type="PackedScene" uid="uid://c2fwthkouehnh" path="res://objects_pickable/scenes/libro_asd.tscn" id="16_nft8y"]
-[ext_resource type="PackedScene" uid="uid://dwroxtcbkxdus" path="res://objects_pickable/scenes/libro_elettrotecnica.tscn" id="17_m3uv8"]
-[ext_resource type="PackedScene" uid="uid://nqa5yxjsvvh8" path="res://objects_pickable/scenes/libro_reti.tscn" id="18_fkvwp"]
 
 [node name="livello_5" type="Node2D"]
 y_sort_enabled = true
@@ -265,15 +261,3 @@ position = Vector2(613, -459)
 
 [node name="Marker2D9" type="Marker2D" parent="casual_enemy_spawn_points" groups=["casual_enemy_spawn_points"]]
 position = Vector2(426, -399)
-
-[node name="libro_analisi" parent="." instance=ExtResource("15_ytiv2")]
-position = Vector2(112, -377)
-
-[node name="libro_asd" parent="." instance=ExtResource("16_nft8y")]
-position = Vector2(136, -377)
-
-[node name="libro_elettrotecnica" parent="." instance=ExtResource("17_m3uv8")]
-position = Vector2(112, -358)
-
-[node name="libro_reti" parent="." instance=ExtResource("18_fkvwp")]
-position = Vector2(137, -357)
