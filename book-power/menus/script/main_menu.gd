@@ -80,7 +80,6 @@ func _on_login_succeeded():
 	$Label.text = "Successfully logged in."
 	SaveSystem.load_data()
 func _on_login_failed(message: String):
-	print(message)
 	$Label.text = "LOGIN FAILED, your data will be saved locally."
 	SaveSystem.load_data()
 	
@@ -98,8 +97,6 @@ func _on_load_succeeded(data: Dictionary):
 	show_buttons()
 	
 func _on_load_failed():
-	print("Error loading data.")
-	$Label.text = "Error loading data."
 	show_buttons()
 
 func show_buttons():
