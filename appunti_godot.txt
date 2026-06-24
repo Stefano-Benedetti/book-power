@@ -102,6 +102,8 @@ ________________________________________________________________________________
 
 FIX FINALI:
 
+-certe volte il boss inizia ad ignorare i cooldown degli attacchi, eseguendone molti di fila e MOLTO MOLTO raramente FORSE porta a un crash (causato da un casino con l'electric movement)
+
 -modificare bottone del tutorial, info è brutto, meglio un bottone viola con sopra scritto tipo "controls"
 
 -inserire una nuvoletta sul player che dice qualcosa quando il player si avvicina a un oggetto con cui deve interagire per andare avanti 
