@@ -5,12 +5,13 @@ extends Node2D
 func _ready() -> void:
 	Musica.gaming_music.play()
 	
+	$player.current_dir = "right"
+	
 	# carico inventario player
 	$player.inv.clean()
 	for slot in Progress.inventory.slots:
 		$player.inv.insert(slot.item)
 	
-	$player.current_dir = "right"
 	Global.fixElSys.connect(circuiti_attivati)
 	QuestCounter.quest_corrente = 2
 

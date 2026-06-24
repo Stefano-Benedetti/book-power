@@ -119,6 +119,7 @@ func NPC_attack(_delta):
 		animazione_attacco = "attacco_analisi"
 		$movementPostAttackCooldown.wait_time = 1
 		$attackCooldown.wait_time = 2
+		$BossSummon.play()
 	else:
 		#decide che attacco fare anche in base alla distanza dal player
 		var dist_to_player = global_position.distance_to(player.global_position)

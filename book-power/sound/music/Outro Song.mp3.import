@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cyi4u6wkm4wc6"
+path="res://.godot/imported/Outro Song.mp3-e4e56942213b654bb6c38312fd9f844b.mp3str"
+
+[deps]
+
+source_file="res://sound/music/Outro Song.mp3"
+dest_files=["res://.godot/imported/Outro Song.mp3-e4e56942213b654bb6c38312fd9f844b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

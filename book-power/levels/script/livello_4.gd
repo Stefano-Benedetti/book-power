@@ -18,6 +18,8 @@ func _ready() -> void:
 	$place_router.drop_key.connect(AP_dropped)
 	Musica.gaming_music.play()
 	
+	$player.current_dir = "right"
+	
 	# carico inventario player
 	$player.inv.clean()
 	for slot in Progress.inventory.slots:
@@ -26,7 +28,6 @@ func _ready() -> void:
 	Global.fine_dialogo_computer.connect(updateFirewallAndDropBook)
 	Global.fine_dialogo_computer.connect(useOfCounter)
 	Global.totalReached.connect(turnedComputersOn)
-	$player.current_dir = "right"
 	QuestCounter.quest_corrente = 6
 	$CanvasLayer2/counter.hide()
 

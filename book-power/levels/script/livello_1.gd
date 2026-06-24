@@ -13,12 +13,12 @@ func _ready() -> void:
 	$TutorialScreen.hide()
 	Musica.gaming_music.play()
 	
+	$player.current_dir = "left"
+	
 	# l'inventario del player (e di Progress) qui deve essere vuoto
 	$player.inv.clean()
 	for slot in Progress.inventory.slots:
 		$player.inv.insert(slot.item)
-		
-	$player.current_dir = "left"
 	
 	Progress.livello_corrente = 1
 	QuestCounter.quest_corrente = 0

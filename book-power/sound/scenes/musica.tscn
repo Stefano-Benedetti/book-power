@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2je340fmnt82"]
+[gd_scene load_steps=9 format=3 uid="uid://d2je340fmnt82"]
 
 [ext_resource type="Script" uid="uid://7uw4i27nsxpk" path="res://sound/script/musica.gd" id="1_lr1by"]
 [ext_resource type="AudioStream" uid="uid://ds0pymu3yhbij" path="res://sound/music/viacheslavstarostin-game-gaming-video-game-music-471936.mp3" id="1_t6wex"]
@@ -7,13 +7,13 @@
 [ext_resource type="AudioStream" uid="uid://haf6v8ceqqhv" path="res://sound/music/Grieg Peer Gynt Suite No. 1, Op. 46 - I. Morning Mood.mp3" id="5_yk83u"]
 [ext_resource type="AudioStream" uid="uid://ir0xvk3k84qi" path="res://sound/music/AdhesiveWombat - Night Shade.mp3" id="6_81t7a"]
 [ext_resource type="AudioStream" uid="uid://ee7t5b6dmdf" path="res://sound/music/Kevin MacLeod - 8bit Dungeon Level.mp3" id="6_yk83u"]
+[ext_resource type="AudioStream" uid="uid://cyi4u6wkm4wc6" path="res://sound/music/Outro Song.mp3" id="7_u7gqa"]
 
 [node name="Musica" type="Node"]
 process_mode = 3
 script = ExtResource("1_lr1by")
 
 [node name="menu_music" type="AudioStreamPlayer" parent="."]
-process_mode = 3
 stream = ExtResource("2_lx8fq")
 volume_db = 10.0
 bus = &"Music"
@@ -37,13 +37,17 @@ parameters/looping = true
 
 [node name="boss_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_81t7a")
+volume_db = -13.5
 bus = &"Music"
 parameters/looping = true
 
 [node name="credits_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_u7gqa")
+volume_db = -12.0
 bus = &"Music"
 
 [node name="cave_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_yk83u")
 volume_db = -5.0
 bus = &"Music"
+parameters/looping = true
