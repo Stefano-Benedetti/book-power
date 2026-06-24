@@ -65,7 +65,7 @@ collision_mask = 2
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 position = Vector2(48.999996, 2.2649765e-06)
 scale = Vector2(3.6, 4.7999997)
-polygon = PackedVector2Array(8.611112, -9.375, -1.3888879, -6.250001, -9.72222, -4.7187012e-07, -1.3888879, 5.833333, 8.611112, 8.958334)
+polygon = PackedVector2Array(8.611113, -9.791667, -1.3888879, -6.250001, -13.611109, -4.7187012e-07, -1.6666651, 6.0416665, 8.611113, 9.791667)
 
 [node name="FreesoundCommunitySortdemoQb45Bubble33039" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_nnq8a")

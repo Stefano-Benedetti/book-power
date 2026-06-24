@@ -32,7 +32,7 @@ var dialoghi_computer := {
 var dialoghi_robot := {
 	5: [
 		"THANK YOU, HUMAN. YOU FIXED ME. I BECAME UNSTABLE AFTER AN INCOMPETENT STUDENT TRIED TO ''IMPROVE'' ME. HE LOOKS FRIENDLY BUT HE IS NOT TO BE TRUSTED.",
-		"I SEE YOU USED A BOOK TO FIX ME, GIVE IT TO ME. I WANT TO LEARN TO IMPROVE MYSELF WITHOUT RELYING ON OTHERS. I HAVE ANOTHER BOOK I CAN GIVE YOU IN RETURN."
+		"I SEE YOU USED A BOOK TO FIX ME, GIVE IT TO ME. I WANT TO LEARN HOW TO IMPROVE MYSELF WITHOUT RELYING ON OTHERS. I HAVE ANOTHER BOOK I CAN GIVE YOU IN RETURN."
 	]
 }
 
@@ -74,7 +74,7 @@ var dialoghi_per_quest := {
 		"What even is an access point anyway? Is it edible?"
 	],
 	9: [
-		"You fool, you fell right into my trap! You have all the knowledge that I need to finally graduate. All I need to do now is to get it from you and get out of this place.",
+		"You fool, you fell right into my trap! You have all the knowledge that I need to finally graduate. All I have to do now is to get it from you and get out of this place.",
 		"Now, get ready to fight. Beware, I don't have any books, but I have MessageGPT Premium subscription, which will be more than enough to defeat you! You must be worse than such an expensive AI subscription, am I right?"
 	],
 	10: [

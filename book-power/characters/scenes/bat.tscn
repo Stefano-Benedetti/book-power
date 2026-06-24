@@ -184,7 +184,7 @@ position = Vector2(0, -0.5)
 shape = SubResource("CircleShape2D_scd7p")
 
 [node name="attackCooldown" type="Timer" parent="."]
-wait_time = 1.7999999999999998
+wait_time = 1.5
 one_shot = true
 
 [node name="movementPostAttackCooldown" type="Timer" parent="."]

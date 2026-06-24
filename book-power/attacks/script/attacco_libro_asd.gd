@@ -1,6 +1,6 @@
 extends Node2D
 
-const DAMAGE = 25
+const DAMAGE = 35
 static var atk_cooldown = 1
 static var move_cooldown = 1
 

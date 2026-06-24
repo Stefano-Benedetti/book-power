@@ -21,6 +21,7 @@ func startBossFight():
 		$npc_fuoricorso.set_on_fightmode()
 
 func bossDeath():
+	$player.current_health = 100
 	QuestCounter.quest_corrente = 10
 	Global.emit_signal("start_dialog")
 

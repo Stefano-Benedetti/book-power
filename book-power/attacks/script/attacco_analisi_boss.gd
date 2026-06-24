@@ -1,6 +1,6 @@
 extends Node2D
 
-const DAMAGE = 8
+const DAMAGE = 15
 var damage_fase = false
 
 var player_in_damageArea = false

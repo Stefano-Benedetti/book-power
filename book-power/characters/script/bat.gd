@@ -11,7 +11,7 @@ var current_dir = "down"		#la inizializziamo giù
 @export var dropped_object: PackedScene
 var offset_drop = Vector2(0, -3)
 
-@export var max_health = 35
+@export var max_health = 40
 @onready var current_health: int = max_health
 @onready var health_bar: TextureProgressBar=$bat_health_bar
 var dead = false
@@ -20,7 +20,7 @@ var dead = false
 var player_in_area = false
 var player = null
 
-@export var damage = 4
+@export var damage = 5
 var spostamento_attacco = 6
 var player_attackable = false
 var can_attack = true

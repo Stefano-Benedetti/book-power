@@ -1,6 +1,6 @@
 extends Node2D
 
-const DAMAGE = 10
+const DAMAGE = 12
 var speed = 400
 
 var launched = false

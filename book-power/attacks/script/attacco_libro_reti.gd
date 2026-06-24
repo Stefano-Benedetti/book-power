@@ -4,9 +4,9 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var explosion_area: Area2D = $Area2D
 
-const DAMAGE = 15
+const DAMAGE = 25
 static var atk_cooldown = 1.4
-static var move_cooldown = 0.6
+static var move_cooldown = 0.5
 
 var speed = 100
 var target: Node2D = null

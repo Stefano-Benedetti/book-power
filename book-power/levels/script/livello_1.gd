@@ -8,6 +8,8 @@ var qta_item_richiesti = 4
 
 var quest_completata = false
 
+var tutorial_guardato = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$TutorialScreen.hide()
@@ -46,11 +48,12 @@ func quest_update():
 		QuestCounter.to_next_quest()
 
 func dropBook():
-	if QuestCounter.quest_corrente==0:
+	if QuestCounter.quest_corrente==0 and not tutorial_guardato:
 		$npc_fuoricorso.dropObject()
 		GameState.in_tutorial = true
 		await get_tree().create_timer(1).timeout
 		$TutorialScreen.show()
+		tutorial_guardato = true
 
 func takeMoney():
 	if QuestCounter.quest_corrente==1 and !MoneyTaken :

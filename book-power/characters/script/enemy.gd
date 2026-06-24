@@ -20,7 +20,7 @@ var dead = false
 var player_in_area = false
 var player = null
 
-@export var damage = 6
+@export var damage = 10
 var player_attackable = false
 var can_attack = true
 var can_move = true

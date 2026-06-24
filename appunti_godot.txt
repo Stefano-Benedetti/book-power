@@ -112,38 +112,6 @@ FIX FINALI:
 -l'attacco di reti lagga di brutto
 -nel livello 1 e nel livello 4 lagga un pochino da telefono.
 
--bilanciare gli attacchi di player, boss e nemici (danno, cooldown)
-	PROPOSTA:
-		- vita giocatore: 100
-		- vita nemico: 100
-		- vita pipistrello: 35
-		- vita boss: 600
-		- attacchi player:
-			- attacco analisi: 			danno=35>50, atkCooldown=0.8, movCooldown=0.8
-			- attacco elettrotecnica: 	danno=50>100, atkCooldown=1.4, movCooldown=1.4
-			- attacco ASD: 				danno=25>35, atkCooldown=1, movCooldown=1
-			- attacco reti: 			danno=15>25, atkCooldown=1.4, movCooldown=0.6
-			- bevi pozione di cura: 	cura=6>10, atkCooldown=1, movCooldown=1
-		- attacco nemico: danno=6>10, atkCooldown=1.5, movCooldown=1
-		- attacco robot: danno=15
-		- attacco pipistrello: danno=4>5, atkCooldown=1.8, movCooldown=1
-		- attacchi boss:
-			- analisi: danno=8, atkCooldown=2, movCooldown=1
-			- reti: danno=10, atkCooldown=3, movCooldown=1
-			- ASD: danno=18>20/25, atkCooldown=1, movCooldown=1.5
-			- elettrotecnica: atkCooldown=1, movCooldown=0.5
-			- spawn-nemici: atkCooldown=2, movCooldown=1
-	PROBLEMI:
-		- i vecchietti fanno veramente poco danno, utile nella bossfight (che è difficile) ma
-			troppo facile negli altri livelli
-		- durante la bossfight l'attacco di elettrotecnica è inutile, ma anche in generale è poco efficace e 
-			non conviene usarlo perché i nemici ti danneggiano
-		- l'attacco di ASD è utile SOLO contro i pipistrelli, troppo poco danno
-		- l'attacco di reti fa così poco danno e il boss corre così veloce che fa schifo
-		- a causa di tutto ciò, la bossfight dura veramente troppo
-			ed è IMPOSSIBILE per una persona che non gioca spesso a videogiochi
-		- aggiunte nuove proposte per sistemare queste cose (x>y, non ancora applicate al gioco)
-
 -delle volte quando ci si avvicina ai nemici questi iniziano a camminare ma non si muovono, succede spesso al nemico vicino al pc nel livello 3 
 (in teoria è risolto ma lasciamolo tra i fix che non si sa mai)
 
@@ -163,4 +131,26 @@ spawna alberi rosso neri (come l'attacco del player) ma in tutte le direzione, s
 ogni 3 colpi che spara decide di scappare velocemente sottoforma di scarica elettrica
 spawna i vecchietti
 spawna linked-list a X nella mappa.
+
+DANNI, PUNTI VITA E COOLDOWN:
+		- vita giocatore: 100
+		- vita nemico: 100
+		- vita pipistrello: 35
+		- vita boss: 1000
+		- attacchi player:
+			- attacco analisi: 			danno=40, atkCooldown=0.8, movCooldown=0.8
+			- attacco elettrotecnica: 	danno=100, atkCooldown=3, movCooldown=1.8
+			- attacco ASD: 				danno=35, atkCooldown=1, movCooldown=1
+			- attacco reti: 			danno=25, atkCooldown=1.4, movCooldown=0.5
+			- bevi pozione di cura: 	cura=10, atkCooldown=1, movCooldown=1
+		- attacco nemico: danno=10, atkCooldown=1.5, movCooldown=1
+		- attacco robot: danno=15
+		- attacco pipistrello: danno=5, atkCooldown=1.5, movCooldown=1
+		- attacchi boss:
+			- analisi: danno=15, atkCooldown=2, movCooldown=1
+			- reti: danno=12, atkCooldown=3, movCooldown=1
+			- ASD: danno=20, atkCooldown=1, movCooldown=1.5
+			- elettrotecnica: atkCooldown=1, movCooldown=0.5
+			- spawn-nemici: atkCooldown=2, movCooldown=1
+
 

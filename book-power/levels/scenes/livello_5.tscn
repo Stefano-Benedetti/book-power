@@ -36,18 +36,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="touchContols" parent="Control" instance=ExtResource("5_qpsbh")]
 
-[node name="CanvasLayer3" type="CanvasLayer" parent="."]
-
-[node name="black_screen" type="ColorRect" parent="CanvasLayer3"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-script = ExtResource("14_tjlpw")
-metadata/_edit_use_anchors_ = true
-
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="sel_item_slot" parent="CanvasLayer2" instance=ExtResource("6_tjlpw")]
@@ -68,7 +56,19 @@ metadata/_edit_use_anchors_ = true
 [node name="Inv_UI" parent="CanvasLayer2" instance=ExtResource("10_ytiv2")]
 metadata/_edit_use_anchors_ = true
 
-[node name="casella_dialogo" parent="CanvasLayer2" instance=ExtResource("11_nft8y")]
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="black_screen" type="ColorRect" parent="CanvasLayer3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("14_tjlpw")
+metadata/_edit_use_anchors_ = true
+
+[node name="casella_dialogo" parent="CanvasLayer3" instance=ExtResource("11_nft8y")]
 metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
