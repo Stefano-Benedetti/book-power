@@ -50,11 +50,11 @@ var dialoghi_per_quest := {
 	2: [
 		"Hi again, the police was here a few minutes ago as you could see from the roadblock... that's probably because someone passed through here and broke a house's electrical system.",
 		"The house I'm talking about is a very big house and you will find it going down this road. On one of its walls there is an access panel for its electrical system.",
-		"I think we should get to the bottom of this, but we need to get past the barrier, located next to the house, and the only way to open it, is to fix the house's electrical system. After that, you will be able to pull a lever and open the barrier.",
+		"I think we should get to the bottom of this, but we need to get past the gate, located next to the house, and the only way to open it, is to fix the house's electrical system. After that, you will be able to pull a lever and open the gate.",
 		"However, nobody knows how to fix it: someone, probably one of the old men, stole the book containing the knowledge needed to understand electronic circuits. You should retrieve the book, then you can use it to fix the access panel."
 	],
 	3: [
-		"Good job! I will be waiting for you on the other side of the barrier. Remember you also need to pull the lever in front of the barrier."
+		"Good job! I will be waiting for you on the other side of the gate. Remember you also need to pull the lever next to the gate."
 	],
 	4: [
 		"I think I found who did all that mess! There's a robot blocking the road and it pushes back and hurts anyone who tries to go past him.",
