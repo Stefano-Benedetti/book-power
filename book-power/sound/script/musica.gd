@@ -14,7 +14,10 @@ var current_scene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.death.connect(stopMusic)
-	#get_tree().scene_changed.connect(changeMusic)
+	
+func startBossMusic():
+	if not $boss_music.playing :
+		$boss_music.play()
 
 #func changeMusic() -> void:
 	#if get_tree().current_scene!=null  and  current_scene!=get_tree().current_scene.scene_file_path :

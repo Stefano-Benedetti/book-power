@@ -31,7 +31,7 @@ var dialoghi_computer := {
 
 var dialoghi_robot := {
 	5: [
-		"THANK YOU, HUMAN. YOU FIXED ME. I BECAME UNSTABLE AFTER AN INCOMPETENT STUDENT TRIED TO ''IMPROVE'' ME. HE LOOKED FRIENDLY BUT HE'S EVIL.",
+		"THANK YOU, HUMAN. YOU FIXED ME. I BECAME UNSTABLE AFTER AN INCOMPETENT STUDENT TRIED TO ''IMPROVE'' ME. HE LOOKS FRIENDLY BUT HE IS NOT TO BE TRUSTED.",
 		"I SEE YOU USED A BOOK TO FIX ME, GIVE IT TO ME. I WANT TO LEARN TO IMPROVE MYSELF WITHOUT RELYING ON OTHERS. I HAVE ANOTHER BOOK I CAN GIVE YOU IN RETURN."
 	]
 }
@@ -41,7 +41,7 @@ var dialoghi_per_quest := {
 		"Hi, you seem new around here. I remember how hard the first year was, luckily I'm at my eigth year now! Computer Engineering is hard for sure.",
 		"While you're here, would you do me a favor? I need 2 euros to get potato chips at the vending machine. You can steal 50 cents from each one of the old dudes wandering around the place.",
 		"Watch out, they are very bad people and will try to demotivate you as soon as you get close to them. They will say very mean things to you that will eventually push you to drop out of university.",
-		"Take this book, this will help you in studying and keeping your motivation. Good luck!"
+		"Take this book, it will help you in studying and keeping your motivation. Good luck!"
 	],
 	1: [
 		"Thank you! You are very good at this, many students would have already dropped out. Now go up and then to the right, past the road block, the police removed it just now.",
@@ -51,15 +51,15 @@ var dialoghi_per_quest := {
 		"Hi again, the police was here a few minutes ago as you could see from the roadblock... that's probably because someone passed through here and broke a house's electrical system.",
 		"The house I'm talking about is a very big house and you will find it going down this road. On one of its walls there is an access panel for its electrical system.",
 		"I think we should get to the bottom of this, but we need to get past the barrier, located next to the house, and the only way to open it, is to fix the house's electrical system. After that, you will be able to pull a lever and open the barrier.",
-		"However, nobody knows how to fix it: someone, probably one of the old men, stole the book containing the knowledge needed to understand electronic circuits. You should go and retrieve the book, then you could use it on the access panel."
+		"However, nobody knows how to fix it: someone, probably one of the old men, stole the book containing the knowledge needed to understand electronic circuits. You should retrieve the book, then you can use it to fix the access panel."
 	],
 	3: [
 		"Good job! I will be waiting for you on the other side of the barrier. Remember you also need to pull the lever in front of the barrier."
 	],
 	4: [
 		"I think I found who did all that mess! There's a robot blocking the road and it pushes back and hurts anyone who tries to go past him.",
-		"We should find a way to disable it, or at least to calm it down, however I don't know how to do that. I only know that you need to use a computer connected to the robot, it should be next to the robot. Try to find a book with the necessary knowledge to use that computer.",
-		"There's a closed chest somewhere, maybe you can find something useful in it, but you need a key to open it. I actually had found a key, but I lost it on the way here. I probably dropped it on the ground. Woops."
+		"We should find a way to disable it, or at least calm it down, however I don't know how to do that. I only know that you need to use a computer connected to the robot, it should be next to the robot. Try to find a book with the necessary knowledge to use that computer.",
+		"There's a closed chest somewhere, maybe you can find something useful in it, but you need a key to open it. I actually had found a key, but I lost it. I probably dropped it on the ground. Woops."
 	],
 	5: [
 		"Looks like you fixed the robot, good job! Now we should continue and check if he did any more damage."

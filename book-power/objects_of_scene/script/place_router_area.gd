@@ -18,20 +18,17 @@ func _process(_delta: float) -> void:
 			if not $button_icon.visible:
 				mostra_button()
 				Global.pickIncrement()
-				print(Global.pick_counter)
 			if Input.is_action_just_pressed("Pick_object"):
 				drop_key.emit()
 		if player.selected_item!=activation_key and $button_icon.visible:
 			Global.pickDecrement()
 			$button_icon.hide()
-			print(Global.pick_counter)
 
 
 func _on_place_router_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = true
 		player = body
-		print(Global.pick_counter)
 
 
 func _on_place_router_body_exited(body: Node2D) -> void:
@@ -40,7 +37,6 @@ func _on_place_router_body_exited(body: Node2D) -> void:
 		if $button_icon.visible:
 			Global.pickDecrement()
 			$button_icon.hide()
-			print(Global.pick_counter)
 
 
 func mostra_button():

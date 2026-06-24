@@ -102,14 +102,6 @@ ________________________________________________________________________________
 
 FIX FINALI:
 
--la musica della boss fight inizia un po' in ritardo
-
--musica e suoni:
-	inserire il suono per il boss che spawna nemici
-	modificare musica del main menu
-	aggiungere musica di titoli di coda
-
--modificare font dei dialoghi
 -modificare bottone del tutorial, info è brutto, meglio un bottone viola con sopra scritto tipo "controls"
 
 -inserire una nuvoletta sul player che dice qualcosa quando il player si avvicina a un oggetto con cui deve interagire per andare avanti 
@@ -127,20 +119,30 @@ FIX FINALI:
 		- vita pipistrello: 35
 		- vita boss: 600
 		- attacchi player:
-			- attacco analisi: 			danno=35, atkCooldown=0.8, movCooldown=0.8
-			- attacco elettrotecnica: 	danno=50, atkCooldown=1.4, movCooldown=1.4
-			- attacco ASD: 				danno=25, atkCooldown=1, movCooldown=1
-			- attacco reti: 			danno=15, atkCooldown=1.4, movCooldown=0.6
-			- bevi pozione di cura: 	cura=6, atkCooldown=1, movCooldown=1
-		- attacco nemico: danno=6, atkCooldown=1.5, movCooldown=1
+			- attacco analisi: 			danno=35>50, atkCooldown=0.8, movCooldown=0.8
+			- attacco elettrotecnica: 	danno=50>100, atkCooldown=1.4, movCooldown=1.4
+			- attacco ASD: 				danno=25>35, atkCooldown=1, movCooldown=1
+			- attacco reti: 			danno=15>25, atkCooldown=1.4, movCooldown=0.6
+			- bevi pozione di cura: 	cura=6>10, atkCooldown=1, movCooldown=1
+		- attacco nemico: danno=6>10, atkCooldown=1.5, movCooldown=1
 		- attacco robot: danno=15
-		- attacco pipistrello: danno=4, atkCooldown=1.8, movCooldown=1
+		- attacco pipistrello: danno=4>5, atkCooldown=1.8, movCooldown=1
 		- attacchi boss:
 			- analisi: danno=8, atkCooldown=2, movCooldown=1
 			- reti: danno=10, atkCooldown=3, movCooldown=1
-			- ASD: danno=18, atkCooldown=1, movCooldown=1.5
+			- ASD: danno=18>20/25, atkCooldown=1, movCooldown=1.5
 			- elettrotecnica: atkCooldown=1, movCooldown=0.5
 			- spawn-nemici: atkCooldown=2, movCooldown=1
+	PROBLEMI:
+		- i vecchietti fanno veramente poco danno, utile nella bossfight (che è difficile) ma
+			troppo facile negli altri livelli
+		- durante la bossfight l'attacco di elettrotecnica è inutile, ma anche in generale è poco efficace e 
+			non conviene usarlo perché i nemici ti danneggiano
+		- l'attacco di ASD è utile SOLO contro i pipistrelli, troppo poco danno
+		- l'attacco di reti fa così poco danno e il boss corre così veloce che fa schifo
+		- a causa di tutto ciò, la bossfight dura veramente troppo
+			ed è IMPOSSIBILE per una persona che non gioca spesso a videogiochi
+		- aggiunte nuove proposte per sistemare queste cose (x>y, non ancora applicate al gioco)
 
 -delle volte quando ci si avvicina ai nemici questi iniziano a camminare ma non si muovono, succede spesso al nemico vicino al pc nel livello 3 
 (in teoria è risolto ma lasciamolo tra i fix che non si sa mai)

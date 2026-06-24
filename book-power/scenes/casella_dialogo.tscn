@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8rs30phkkd0r"]
+[gd_scene load_steps=9 format=3 uid="uid://c8rs30phkkd0r"]
 
 [ext_resource type="Script" uid="uid://cu21jisxp0lrx" path="res://script/casella_dialogo.gd" id="1_n3gjp"]
+[ext_resource type="FontFile" uid="uid://d1b4iy0ap5j4n" path="res://art/m5x7.ttf" id="2_3m8w6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3gjp"]
 bg_color = Color(1, 0.6784314, 0.3647059, 1)
@@ -51,8 +52,9 @@ custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_constants/line_spacing = -10
-theme_override_font_sizes/font_size = 40
+theme_override_constants/line_spacing = -9
+theme_override_fonts/font = ExtResource("2_3m8w6")
+theme_override_font_sizes/font_size = 60
 autowrap_mode = 3
 
 [node name="next" type="Button" parent="."]

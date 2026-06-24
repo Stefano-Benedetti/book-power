@@ -5,6 +5,7 @@ func _ready() -> void:
 	Global.fine_dialogo.connect(startBossFight)
 	Global.morte_fuoricorso.connect(bossDeath)
 	Global.fine_dialogo.connect(levelEnd)
+	Global.start_dialog.connect(startMusic)
 	
 	QuestCounter.quest_corrente = 9
 
@@ -12,14 +13,11 @@ func _process(delta: float) -> void:
 	if GameState.in_dialogue and Input.is_action_just_pressed("Pick_object"):
 		Global.emit_signal("start_dialog")
 		
-	#DA TOGLIERE!!!!! E' SOLO PER DEBUGGING!!!!!!!
-	#if Input.is_action_just_pressed("attacca"):
-		#$npc_fuoricorso.current_health = 0
-	#---------------------------------------------
+func startMusic():
+	Musica.startBossMusic()
 
 func startBossFight():
 	if $npc_fuoricorso:
-		Musica.boss_music.play()
 		$npc_fuoricorso.set_on_fightmode()
 
 func bossDeath():

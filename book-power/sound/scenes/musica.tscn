@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://7uw4i27nsxpk" path="res://sound/script/musica.gd" id="1_lr1by"]
 [ext_resource type="AudioStream" uid="uid://ds0pymu3yhbij" path="res://sound/music/viacheslavstarostin-game-gaming-video-game-music-471936.mp3" id="1_t6wex"]
-[ext_resource type="AudioStream" uid="uid://dmtbs5on74b4d" path="res://sound/music/Gran Turismo 5 Soundtrack Dark Line - Satoshi Bando (Jazz).mp3" id="2_lx8fq"]
+[ext_resource type="AudioStream" uid="uid://ddgkq2bgvt0un" path="res://sound/music/Chill – sakura Hz (No Copyright Music).mp3" id="2_u7gqa"]
 [ext_resource type="AudioStream" uid="uid://dm8djsgoko11c" path="res://sound/music/cricket on a summer night Cricket sound effects Copyright Free Nature sounds.mp3" id="4_jfkqf"]
 [ext_resource type="AudioStream" uid="uid://haf6v8ceqqhv" path="res://sound/music/Grieg Peer Gynt Suite No. 1, Op. 46 - I. Morning Mood.mp3" id="5_yk83u"]
 [ext_resource type="AudioStream" uid="uid://ir0xvk3k84qi" path="res://sound/music/AdhesiveWombat - Night Shade.mp3" id="6_81t7a"]
@@ -14,14 +14,14 @@ process_mode = 3
 script = ExtResource("1_lr1by")
 
 [node name="menu_music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_lx8fq")
-volume_db = 10.0
+stream = ExtResource("2_u7gqa")
+volume_db = -10.0
 bus = &"Music"
 parameters/looping = true
 
 [node name="gaming_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_t6wex")
-volume_db = -15.0
+volume_db = -20.0
 bus = &"Music"
 parameters/looping = true
 

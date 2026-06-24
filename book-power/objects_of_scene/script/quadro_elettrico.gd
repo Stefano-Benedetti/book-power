@@ -30,13 +30,6 @@ func _on_area_of_interaction_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = true
 		player = body
-		
-		if player.selected_item==activation_key:
-			print("devo usare questo libro")
-		elif player.inv.contain(activation_key):
-			print("ho il libro, devo usarlo")
-		else:
-			print("non ho il libro")
 
 
 func _on_area_of_interaction_body_exited(body: Node2D) -> void:

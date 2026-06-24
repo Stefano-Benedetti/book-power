@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddgkq2bgvt0un"
+path="res://.godot/imported/Chill – sakura Hz (No Copyright Music).mp3-1d7884441631b0227ac53b7136d226f8.mp3str"
+
+[deps]
+
+source_file="res://sound/music/Chill – sakura Hz (No Copyright Music).mp3"
+dest_files=["res://.godot/imported/Chill – sakura Hz (No Copyright Music).mp3-1d7884441631b0227ac53b7136d226f8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
