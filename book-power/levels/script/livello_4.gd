@@ -108,6 +108,7 @@ func _on_cave_entrance_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_cave_entrance = true
 		player = body
+		Global.emit_signal("activate_bats")
 		Musica.stopMusic()
 		Musica.cave_music.play()
 
@@ -120,6 +121,7 @@ func _on_cave_exit_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_cave_exit = true
 		player = body
+		Global.emit_signal("deactivate_bats")
 		Musica.stopMusic()
 		Musica.gaming_music.play()
 

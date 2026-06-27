@@ -40,6 +40,9 @@ signal fine_dialogo_player
 
 signal morte_fuoricorso
 
+signal activate_bats
+
+signal deactivate_bats
 
 # Gestione numero aree con cui il player può interagire tramite "pick"
 signal pick_update

@@ -20,7 +20,7 @@ func _ready():
 		if get_parent().name == "livello_4":
 			in_cave = get_parent().player_in_cave
 	find_closest_enemy()
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.5).timeout
 	if !exploding :
 		explode()
 

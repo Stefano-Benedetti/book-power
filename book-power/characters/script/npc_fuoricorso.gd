@@ -17,7 +17,7 @@ var player = null
 var SPEED = 60
 var current_dir = "down"		#la inizializziamo giù
 
-@export var max_health = 1000
+@export var max_health = 700
 @onready var current_health: int = max_health
 @onready var health_bar: TextureProgressBar=$CanvasLayer/Container/TextureRect/HBoxContainer/MarginContainer/healthBar
 @onready var health_bar_UI = $CanvasLayer

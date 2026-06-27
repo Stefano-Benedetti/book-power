@@ -39,9 +39,13 @@ var going_to_spawn = true
 var _last_target: Vector2
 var fermo = true
 
+var disabled = true
+
 
 
 func _ready():
+	Global.activate_bats.connect(activate)
+	Global.deactivate_bats.connect(deactivate)
 	randomize()
 	spawn_point = global_position
 	_last_target = global_position
@@ -50,7 +54,7 @@ func _physics_process(delta: float):
 	manage_enemy(delta)
 
 func manage_enemy(delta):
-	if dead:
+	if dead or disabled:
 		return
 	elif current_health<=0:
 		die()
@@ -59,6 +63,11 @@ func manage_enemy(delta):
 	elif can_move:
 		enemy_movement(delta)
 
+func activate():
+	disabled = false
+	
+func deactivate():
+	disabled = true
 
 #quando il timer finisce imposta can_attack a true
 func _on_attack_cooldown_timeout():
